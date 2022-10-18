@@ -1,0 +1,98 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.camp-car-container-wrapper
+  .data-content
+    h2.page-primary-title = t('.page_description')
+    hr
+
+    = render 'shared/messages'
+
+    p
+      strong = "#{t('activerecord.attributes.camp_car.supplier_company_id')}:"
+      = @camp_car.supplier_company.company_name
+    p
+      strong = "#{t('activerecord.attributes.camp_car.camp_car_option_ids')}:"
+      = @camp_car.camp_car_options.pluck(:name).join(', ') if @camp_car.camp_car_options.present?
+    p
+      strong = "#{t('activerecord.attributes.camp_car.state_id')}:"
+      = @camp_car.state.name
+    p
+      strong = "#{t('activerecord.attributes.camp_car.prefecture_id')}:"
+      = @camp_car.prefecture.name
+    p
+      strong = "#{t('activerecord.attributes.camp_car.product_id')}:"
+      = @camp_car.product_id
+
+    - I18n.available_locales.each do |locale|
+      p
+        strong = "#{t("activerecord.attributes.camp_car.name_#{locale}")}:"
+        = @camp_car.send("name_#{locale}")
+    p
+      strong = "#{t('activerecord.attributes.camp_car.car_type')}:"
+      = @camp_car.car_type
+    p
+      strong = "#{t('activerecord.attributes.camp_car_category.model')}:"
+      = @camp_car.category.model
+    p
+      strong = "#{t('activerecord.attributes.camp_car.tag_list')}:"
+      = @camp_car.tag_list
+    p
+      strong = "#{t('activerecord.attributes.camp_car.maximum_number_of_people')}:"
+      = @camp_car.maximum_number_of_people
+    p
+      strong = "#{t('activerecord.attributes.camp_car.fee_per_hour')}:"
+      = @camp_car.fee_per_hour
+    p
+      strong = "#{t('activerecord.attributes.camp_car.fee_per_day')}:"
+      = @camp_car.fee_per_day
+    p
+      strong = "#{t('activerecord.attributes.camp_car.is_public')}:"
+      = @camp_car.is_public
+
+    - I18n.available_locales.each do |locale|
+      p
+        strong = "#{t("activerecord.attributes.camp_car.subtitle_#{locale}")}:"
+        = raw @camp_car.send("subtitle_#{locale}")
+
+    - I18n.available_locales.each do |locale|
+      p
+        strong = "#{t("activerecord.attributes.camp_car.description_#{locale}")}:"
+        = raw @camp_car.send("description_#{locale}")
+
+    p
+      strong = "#{t('activerecord.attributes.camp_car.quantity')}:"
+      = @camp_car.quantity
+    p
+      strong = "#{t('activerecord.attributes.camp_car.camp_car_quantities')}:"
+      - if @camp_car.camp_car_quantities.present?
+        .table-responsive.text-nowrap
+          table.table
+            tbody.font-13
+              tr
+                td
+                  strong = "#{t('activerecord.attributes.camp_car_quantity.date')}:"
+
+                - @camp_car.camp_car_quantities.each do |camp_car_quantity|
+                  td
+                    = camp_car_quantity.date
+
+              tr
+                td
+                  strong = "#{t('activerecord.attributes.camp_car_quantity.quantity')}:"
+
+                - @camp_car.camp_car_quantities.each do |camp_car_quantity|
+                  td
+                    = camp_car_quantity.quantity
+
+    p
+      strong = "#{t('activerecord.attributes.camp_car.photos')}:"
+      ul.list-inline
+        - if @camp_car.photos.present?
+          - @camp_car.photos.each do |photo|
+            li.list-inline-item
+              = image_tag photo.image.url
+
+    => link_to t('views.buttons.edit'), edit_admin_camp_car_path(@camp_car)
+    '|
+    =< link_to t('views.buttons.back'), admin_camp_cars_path

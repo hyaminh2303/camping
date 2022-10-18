@@ -1,0 +1,24 @@
+ja:
+  admin:
+    camp_cars:
+      general:
+        add_camp_car_quantity: 日付在庫追加
+        add_photo: 写真追加
+      index:
+        page_title: Camp Car
+        page_description: Camp Car List
+        product_id: ID
+        is_public: 搭載中
+      new:
+        page_title: Camp Car
+        page_description: 新規キャンプカー追加
+      edit:
+        page_title: Camp Car
+        page_description: Edit Camp Car
+      show:
+        page_title: Camp Car
+        page_description: Detail Of Camp Car
+
+  camp_cars:
+    error_messages:
+      camp_car_is_out_of_stock: Camp car is out of stock, please choose another camp car

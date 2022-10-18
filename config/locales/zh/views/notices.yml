@@ -1,0 +1,24 @@
+zh:
+  notices:
+    show:
+      buttons:
+        home: トップページへ
+        list_notice: お知らせ一覧へ
+        next_notice: 次のお知らせへ
+    news: お知らせ
+    button_prev: 前へ
+    button_next: 次へ
+  admin:
+    notices:
+      index:
+        page_title: Notices
+        page_description: Notices List
+      new:
+        page_title: Notices
+        page_description: New Notices
+      edit:
+        page_title: Notices
+        page_description: Edit Notices
+      show:
+        page_title: Notices
+        page_description: Detail Of Notices

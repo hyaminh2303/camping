@@ -1,0 +1,132 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+- title [@campsite_plan.name, @campsite_plan.campsite.name]
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong = "#{t('activerecord.attributes.campsite_plan.campsite_id')}:"
+    = @campsite_plan.campsite.name
+  p
+    strong = "#{t('activerecord.attributes.campsite_plan.campsite_plan_options')}:"
+    = @campsite_plan.campsite_plan_options.pluck(:name).join(', ') if @campsite_plan.campsite_plan_options.present?
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite_plan.name_#{locale}")}:"
+      = @campsite_plan.send("name_#{locale}")
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite_plan.tags_#{locale}_list")}:"
+      = @campsite_plan.send("tags_#{locale}_list")
+
+  p
+    strong  = "#{t('activerecord.attributes.campsite_plan.max_number_of_people')}:"
+    = @campsite_plan.max_number_of_people
+
+  //https://app.clickup.com/t/1ykbdrh
+  / p
+  /   strong  = "#{t('activerecord.attributes.campsite_plan.people_type')}:"
+  /   = t("campsite_plan.people_types.#{@campsite_plan.people_type}")
+
+  p
+    strong  = "#{t('activerecord.attributes.campsite_plan.public_info')}:"
+    = @campsite_plan.public_info
+
+  //https://app.clickup.com/t/1ykbdrh
+  / p
+  /   strong  = "#{t('activerecord.attributes.campsite_plan.publication_period')}:"
+  /   = @campsite_plan.publication_period
+
+  p
+    strong  = "#{t('activerecord.attributes.campsite_plan.check_in_time')}:"
+    = @campsite_plan.check_in_time.strftime('%H:%M')
+  p
+    strong  = "#{t('activerecord.attributes.campsite_plan.check_out_time')}:"
+    = @campsite_plan.check_out_time.strftime('%H:%M')
+  p
+    strong  = "#{t('activerecord.attributes.campsite_plan.is_included_entrance_fee')}:"
+    = @campsite_plan.is_included_entrance_fee
+  p
+    strong  = "#{t('activerecord.attributes.campsite_plan_fee.fee_type')}:"
+    = @campsite_plan.campsite_plan_fee.fee_type_text
+  p
+    strong = "#{t('activerecord.attributes.campsite_plan.quantity')}:"
+    = @campsite_plan.quantity
+  p
+    strong = "#{t('activerecord.attributes.campsite_plan.campsite_plan_quantities')}:"
+    - if @campsite_plan.campsite_plan_quantities.present?
+      .table-responsive.text-nowrap
+        table.table
+          tbody.font-13
+            tr
+              td
+                strong = "#{t('activerecord.attributes.campsite_plan_quantity.date')}:"
+
+              - @campsite_plan.campsite_plan_quantities.each do |campsite_plan_quantity|
+                td
+                   = campsite_plan_quantity.date
+
+            tr
+              td
+                strong = "#{t('activerecord.attributes.campsite_plan_quantity.quantity')}:"
+
+              - @campsite_plan.campsite_plan_quantities.each do |campsite_plan_quantity|
+                td
+                  = campsite_plan_quantity.quantity
+
+
+  - if @campsite_plan.campsite_plan_fee.normal?
+    p
+      strong = "#{t('activerecord.attributes.campsite_plan_fee.start_date')}:"
+      = @campsite_plan.campsite_plan_fee.start_date.strftime('%Y/%m/%d')
+    p
+      strong = "#{t('activerecord.attributes.campsite_plan_fee.end_date')}:"
+      = @campsite_plan.campsite_plan_fee.end_date.strftime('%Y/%m/%d')
+    p
+      strong = "#{t('activerecord.attributes.campsite_plan_fee_detail.basic_fee')}:"
+      = @campsite_plan.campsite_plan_fee.normal_campsite_plan_fee_detail.basic_fee
+    p
+      strong = "#{t('activerecord.attributes.campsite_plan_fee_detail.number_of_people_pet_included')}:"
+      = @campsite_plan.campsite_plan_fee.normal_campsite_plan_fee_detail.number_of_people_pet_included
+    p
+      strong = "#{t('activerecord.attributes.campsite_plan_fee_detail.extra_person_fee')}:"
+      = @campsite_plan.campsite_plan_fee.normal_campsite_plan_fee_detail.extra_person_fee
+
+  - else
+    - classification_day_setting_ids = @campsite_plan.campsite_plan_fee.classification_day_settings.map(&:id)
+    - @campsite_plan.campsite_plan_fee.classification_day_campsite_plan_fee_details.each do |campsite_plan_fee_detail|
+      - if classification_day_setting_ids.include?(campsite_plan_fee_detail.classification_day_setting_id)
+        p
+          strong = "#{t('activerecord.attributes.campsite_plan_fee_detail.basic_fee')}:"
+          = campsite_plan_fee_detail.basic_fee
+        p
+          strong = "#{t('activerecord.attributes.campsite_plan_fee_detail.number_of_people_pet_included')}:"
+          = campsite_plan_fee_detail.number_of_people_pet_included
+        p
+          strong = "#{t('activerecord.attributes.campsite_plan_fee_detail.extra_person_fee')}:"
+          = campsite_plan_fee_detail.extra_person_fee
+        hr
+    p
+      strong = "#{t('activerecord.attributes.campsite_plan.photos')}:"
+      - @campsite_plan.photos.each do |photo|
+        = image_tag photo.image.url, class: 'img-fluid'
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite_plan.subtitle_#{locale}")}:"
+      = raw @campsite_plan.send("subtitle_#{locale}")
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite_plan.description_#{locale}")}:"
+      = raw @campsite_plan.send("description_#{locale}")
+
+  => link_to t('views.buttons.edit'), [:admin, @campsite, @campsite_plan, action: :edit]
+  '|
+  =< link_to t('views.buttons.back'), [:admin, @campsite, CampsitePlan]

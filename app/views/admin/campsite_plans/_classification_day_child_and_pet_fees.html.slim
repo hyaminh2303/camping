@@ -1,0 +1,30 @@
+.table-responsive
+  table.table.mb-4
+    thead.font-12
+      tr
+        - group_child_and_pet_settings = f.object.classification_day_child_and_pet_fees. \
+                                          sort_by(&:child_and_pet_setting_id)
+        th.p-0 class="#{'d-none' if group_child_and_pet_settings.present? && \
+          group_child_and_pet_settings.map(&:_destroy).all?}" = t('admin.campsite_plans.general.day')
+
+        - group_child_and_pet_settings.map{|child_and_pet_fee| child_and_pet_fee.child_and_pet_setting if !child_and_pet_fee._destroy }\
+         .uniq.compact.each do |child_and_pet_setting|
+
+          th.p-0= child_and_pet_setting.entity_label
+    tbody.font-14
+      - grouped_classification_day_child_and_pet_fees = group_child_and_pet_settings.group_by(&:classification_day_setting). \
+                                                        sort_by{ |classification_day_setting, classification_day_child_and_pet_fees| \
+                                                          classification_day_setting.id \
+                                                        }
+      - grouped_classification_day_child_and_pet_fees.each do |classification_day_setting, classification_day_child_and_pet_fees|
+        tr
+          td.p-0 class="#{'d-none' if classification_day_child_and_pet_fees.present? && \
+            classification_day_child_and_pet_fees.map(&:_destroy).all? }" = classification_day_setting.name
+
+          - classification_day_child_and_pet_fees_sorted = classification_day_child_and_pet_fees.sort_by(&:child_and_pet_setting_id)
+          = f.fields_for :classification_day_child_and_pet_fees, classification_day_child_and_pet_fees_sorted do |child_and_pet_fee_form|
+            td.p-0 class="#{'d-none' if child_and_pet_fee_form.object._destroy}"
+              = child_and_pet_fee_form.hidden_field :_destroy
+              = child_and_pet_fee_form.hidden_field :child_and_pet_setting_id
+              = child_and_pet_fee_form.hidden_field :classification_day_setting_id
+              = child_and_pet_fee_form.input :fee_value, label: false, input_html: { min: 0, step: 1 }

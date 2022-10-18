@@ -1,0 +1,34 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_camp_car_category_path, class: "btn btn-blue btn-new-record"
+
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.camp_car_category.model')
+          th = t('activerecord.attributes.camp_car_category.seats')
+          th = t('activerecord.attributes.camp_car_category.pick_up_drop_off_place_id')
+
+      tbody.font-14
+        - @camp_car_categories.each do |camp_car_category|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_camp_car_category_path(camp_car_category), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_camp_car_category_path(camp_car_category), class: 'btn btn-green'
+
+              = link_to_delete_with admin_camp_car_category_path(camp_car_category)
+
+            td= camp_car_category.model
+            td= camp_car_category.seats
+            td= camp_car_category.pick_up_drop_off_place.name
+
+.container.pagination.justify-content-center
+  = paginate @camp_car_categories, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

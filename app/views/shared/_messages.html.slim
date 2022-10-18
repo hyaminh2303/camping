@@ -1,0 +1,7 @@
+#app-messages
+  - flash.each do |key, value|
+    .alert-dismissible class="#{flash_class(key)}"
+      button.close aria-hidden="true" data-dismiss="alert" type="button"  &times;
+      = value
+
+  - flash.clear

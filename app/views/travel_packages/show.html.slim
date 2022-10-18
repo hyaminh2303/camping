@@ -1,0 +1,24 @@
+.booking-histories-wrapper
+  .container
+    section.header-wrapper
+      .title-wrapper.text-center
+        span マイページ
+      .d-flex.justify-content-center.align-items-center.mt-3.tabs-wrapper
+        .position-relative.tab-button-wrapper.mr-2
+          button#left-tab-button.btn.button-tab href="#" class="#{ 'tab-active' if ( !params[:is_updating_profile] && !local_assigns[:is_updating_profile]) }" 予約一览
+        .position-relative.tab-button-wrapper.ml-2
+          button#right-tab-button.btn.button-tab href="#" class="#{ 'tab-active' if ( params[:is_updating_profile] || local_assigns[:is_updating_profile])}" 会員情報
+      .subtitle.text-center
+        span.list-title 予約履歴一覧
+        span.info-title.d-none 会員情報設定
+
+    section.content-wrapper
+      #left-tab-content
+
+        - if @campsite.present?
+          = render 'my_pages/campsite_booking_detail'
+        - elsif @camp_car.present?
+          = render 'my_pages/camp_car_booking_detail'
+
+      #right-tab-content.d-none
+        = render 'my_pages/profile'

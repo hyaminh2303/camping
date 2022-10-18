@@ -1,0 +1,69 @@
+@import 'definitions/variables'
+@import 'definitions/mixins'
+@import 'components/admin-sidebar'
+@import "pages/admin/camp_cars"
+@import "pages/admin/campsite_plan"
+
+.admin-dashboard
+  padding-top: 40px
+  .btn
+    font-size: 12px
+
+  .page-information
+    display: flex
+    justify-content: space-between
+    flex-direction: row
+    border-bottom: 1px solid rgba(112, 112, 112, 0.17)
+    margin-bottom: 25px
+
+    h1.page-title
+      font-size: 20px
+      font-weight: 300
+
+    .page-description
+      font-size: $font-size-md
+
+  .data-content
+    border-radius: 4px
+    padding: 40px 15px 15px
+    @include box-shadow
+
+    table.table
+      th
+        border: none
+        font-weight: 300
+      td
+        font-weight: 300
+      td.action
+        padding-left: 2px
+        padding-right: 2px
+        text-align: right
+        font-family: $primary-font-family
+        .btn
+          font-size: $font-size-sm
+          margin-left: 4px
+
+    .form-inputs
+      label, .form-control, .select2-container
+        font-size: $font-size-sm
+        height: unset
+
+      .select2-selection__rendered
+        padding-left: 0.75rem
+  table.table
+    color: $primary-text-color !important
+
+  h2.page-primary-title
+    color: $primary-text-color !important
+    font-size: 16px
+
+  .btn-new-record
+    font-size: $font-size-sm
+
+  .select2-container--default
+    .select2-selection--multiple
+      border: 1px solid #ced4da !important
+
+  .table-responsive
+    td
+      vertical-align: middle

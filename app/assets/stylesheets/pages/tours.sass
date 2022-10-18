@@ -1,0 +1,51 @@
+@import '../definitions/variables'
+
+.tour-container-wrapper
+  font-family: $primary-font-family
+
+  section.main-banner-wrapper
+    overflow: hidden
+    position: relative
+    img
+      object-fit: cover
+      width: 100%
+      @include media-breakpoint-down(md)
+        height: 205px
+      @include media-breakpoint-up(lg)
+        height: 450px
+    .text-content-wrapper
+      font-family: $primary-font-family
+      position: absolute
+      font-weight: bold
+      color: #ffffff
+      background: rgba(0, 0, 0, 0.1)
+      text-shadow: 0 0 6px rgba(0,0,0,0.55)
+
+      @include media-breakpoint-down(md)
+        top: 65%
+      @include media-breakpoint-up(lg)
+        top: 72%
+      @media (max-width: 300px)
+        top: 45%
+
+  section.listing_of_tours
+    font-weight: bold
+
+    img.img-fluid
+      width: 100%
+    .date-text
+      color: $blue-color
+      text-align: right
+    .departure-status
+      background-color: #dee834
+      font-weight: bold
+    .btn
+      line-height: 1.11
+    .detail-button
+      font-weight: bold
+      @include media-breakpoint-down(md)
+        width: 100%
+        line-height: 30px
+      @include media-breakpoint-up(lg)
+        width: 50%
+        line-height: 35px

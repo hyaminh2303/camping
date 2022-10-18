@@ -1,0 +1,50 @@
+.admin-camp-car-booking-wrapper
+  = simple_form_for(@travel_package, url: admin_camp_car_booking_path(@camp_car_booking), method: :patch, \
+    html: {data: {camp_car_booking_id: @camp_car_booking.id}}) do |f|
+
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+    .form-inputs
+      .row
+        .col-12.col-lg-3
+          = f.input :customer_user_id, collection: [[f.object.customer_user.email, f.object.customer_user_id]], disabled: true
+        .col-12.col-lg-3
+          = f.input :booking_type, disabled: true
+        .col-12.col-lg-3
+          = f.input :status, disabled: true
+        .col-12.col-lg-3
+          = f.input :payment_method, disabled: true
+      .row
+        = f.simple_fields_for :camp_car_booking do |ff|
+          = ff.hidden_field :start_date_of_renting, value: ff.object.start_date_of_renting.strftime('%d/%m/%Y')
+          = ff.hidden_field :end_date_of_renting, value: ff.object.end_date_of_renting.strftime('%d/%m/%Y')
+
+          .col-12.col-lg-4
+            = ff.input :camp_car_id, collection: [[ff.object.camp_car.name, ff.object.camp_car_id]], disabled: true
+          .col-12.col-lg-4
+              #camp-car-booking-date-range-picker.form-group
+                label.booking-date-title = t('admin.camp_car_bookings.edit.reservation_period')
+                input#camp-car-booking-date.form-control disabled=true value="#{ff.object.start_date_of_renting.strftime('%d/%m/%Y')} - #{ff.object.end_date_of_renting.strftime('%d/%m/%Y')}"
+                - if f.object.errors.key?('camp_car_booking.start_date_of_renting')
+                  .invalid-feedback.d-block = f.object.errors.full_messages_for('camp_car_booking.start_date_of_renting').join(', ')
+
+        .col-12.col-lg-4
+          = f.input :total_price, input_html: {id: 'total-price'}, disabled: true
+
+      = f.simple_fields_for :booking_contact_information do |ff|
+        .row
+          .col-12.col-lg-4
+            = ff.input :email
+          .col-12.col-lg-4
+            = ff.input :name
+          .col-12.col-lg-4
+            = ff.input :phone_number
+        .row
+          .col-12.col-lg-6
+            = ff.input :address
+          .col-12.col-lg-6
+            = ff.input :birthday
+
+    .form-actions.text-right
+      = f.button :submit, class: 'btn btn-blue font-12'

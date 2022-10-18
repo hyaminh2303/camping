@@ -1,0 +1,93 @@
+en:
+  checkout:
+    payments:
+      new:
+        title: Enter Payment Information
+        here: Here
+      add_card:
+        title: "Enter settlement content"
+      payment_input:
+        submit: Agree to term of use and pay
+        supported_cards: Type of card you can use
+
+    campsite_bookings:
+      controller:
+        campsite_booking_invalid_on_update: You have created another campsite booking, so this booking is not valid!
+      views:
+        people_and_date_selection:
+          booking_duration: Booking duration
+          number_of_people: Number of people
+        select_people_and_date:
+          page_title: Confirm booking details
+          buttons:
+            booking: Next
+            back: Return
+        select_plan_options:
+          page_title: Confirm booking details
+          plan_booking_option: Select option
+          booking_supplier_title: Rental equipment
+          buttons:
+            booking: Next
+            back: Return
+        contact_information:
+          title: Customer details
+          policy: Terms of service
+          click_here: Here
+          buttons:
+            submit: Agree to terms and go to next
+            back: Back to select option
+        confirm_information:
+          select_option: Selected option
+          booking_person_detail: Booking person details
+          confirmation_of_reservation_details: Confirm booking details
+          buttons:
+            submit: Agree to terms and go to next
+            back: Back to select option
+        payment:
+          buttons:
+            back: Back
+        thank_you:
+          title: Booking Completed
+          buttons:
+            my_page: Go to MyPage
+            top_page: Go to Top Page
+        buttons:
+          edit: Edit
+
+      campsite_booking_steps:
+        step1: "Confirm booking<br/>details"
+        step2: "Select<br/>option"
+        step3: "Customer<br/>details"
+        step4: "Confirm booking<br/>details"
+        step5: "Enter credit card<br/>information"
+        step6: "Booking completed"
+
+      people_and_date_selection:
+        number_of_people_details_html: "<span class='number-of-adult'>%{adult}</span> Adults <span class='number-of-children'>%{children}</span> Children <span class='number-of-pet'>%{pet}</span> Pets"
+
+      page:
+        title:
+          rental_equipment: Rental equipment
+    camp_car_bookings:
+      controller:
+        camp_car_booking_invalid_on_update: You have created another car booking, so this booking is not valid!
+      camp_car_booking_steps:
+        step1: "予約内容<br/>確認"
+        step2: "オプション<br/>選択"
+        step3: "お客様<br/>情報入力"
+        step4: "予約内容<br/>確認"
+        step5: "お支払い<br/>情報"
+        step6: "予約完了"
+      page:
+        title:
+          confirmation_of_reservation_details: Confirmation of reservation details
+          select_additional_options: Select additional options
+          confirmation_of_the_contents_of_person: Confirmation of the contents of the reservation person
+          rental_equipment: Rental equipment
+          scheduled_rental_date_and_time: Scheduled rental date and time
+        link_name:
+          to_edit: To edit
+        registrations:
+          new:
+            submit: Proceed to payment
+        policy: Terms of Use / Cancellation Policy

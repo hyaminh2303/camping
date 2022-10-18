@@ -1,0 +1,9 @@
+.content-wrapper
+  - blog_categories.each do |blog_category|
+    .link-item
+      = link_to blogs_path(blog_category_id: blog_category.id, blog_type: :glover_blog)
+        h3.link-text.font-23-up-md.font-16-down-sm.font-weight-bold
+          = blog_category.name
+        .image-wrapper
+          .overlap
+          = gcamp_image_tag blog_category.icon, class: 'img-fluid'

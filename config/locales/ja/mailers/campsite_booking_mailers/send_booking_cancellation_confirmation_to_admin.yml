@@ -1,0 +1,7 @@
+ja:
+  campsite_booking_mailer:
+    send_booking_cancellation_confirmation_to_admin:
+      content:
+        line_1: お客様から予約のキャンセルがありました。
+        line_2: 管理画面から詳細をご確認ください。
+        sama: 様

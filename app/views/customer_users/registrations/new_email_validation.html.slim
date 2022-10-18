@@ -1,0 +1,20 @@
+.registration-wrapper
+  .container.py-5
+    .form-title.text-center.font-weight-bold.font-18
+      = t('customer_users.registrations.title')
+
+    = simple_form_for(@customer_user, url: validate_email_path) do |f|
+      .row
+        .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+          = render 'shared/customer_users/registrations/new_email_validation_inputs', f: f
+
+          p.font-12.font-weight-bold.mb-4
+            = raw t('customer_users.registrations.new_email_validation.link_to_sign_in', link: new_customer_user_session_path)
+
+          .text-center.form-group
+            button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+              = t('customer_users.registrations.submit')
+
+          .text-center
+            = link_to t('customer_users.registrations.go_back'), root_path,
+                      class: 'btn btn-black btn-w350-full-width-mobile'

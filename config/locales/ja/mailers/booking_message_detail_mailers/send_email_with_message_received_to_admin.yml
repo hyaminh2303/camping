@@ -1,0 +1,7 @@
+ja:
+  booking_message_detail_mailer:
+    send_email_with_message_received_to_admin:
+      content:
+        line_1: お客様からメッセージが届きました。
+        line_2: 管理画面にログインし、メッセージの内容をご確認ください。
+        sama: 様

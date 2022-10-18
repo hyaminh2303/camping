@@ -1,0 +1,34 @@
+ja:
+  customer_users:
+    registrations:
+      go_back: トップページへ戻る
+      title: 会員登録
+      submit: 会員登録へすすむ
+      new_email_validation:
+        title: ログイン
+        submit: ログインして予約へすすむ
+        next: 次へ
+        link_to_sign_in: >
+          <span>＊既に会員の方は、</span><a href=%{link}>こちら</a><span>からログインして下さい。</span>
+
+      new:
+        title: 会員情報を入力する
+        birthday: 生年月日
+        password: パスワード
+        phone_number: 電話番号
+        submit: 規約に同意して次へ
+        submit_confirm: 予約内容を確認し次へ
+      edit:
+        country_id: 居住国
+
+    sessions:
+      new:
+        title: ログイン
+        placeholder:
+          email: メールアドレス
+          password: パスワード
+        remember_me: ログイン情報を記録する
+        sign_in: ログイン
+        sign_up: 新規会員登録
+        forgot_password: パスワードを忘れた方はこちら
+

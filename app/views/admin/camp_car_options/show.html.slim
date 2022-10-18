@@ -1,0 +1,25 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  - if current_admin_user.is_super_admin?
+    p
+      strong= "#{t('activerecord.attributes.camp_car_option.supplier_company_id')}:"
+      = sanitize_content(@camp_car_option.supplier_company&.company_name)
+
+  - CampCarOption.globalize_attribute_names.each do |attribute|
+    p
+      strong= "#{t("activerecord.attributes.camp_car_option.#{attribute}")}:"
+      = @camp_car_option.send(attribute)
+  p
+    strong= "#{t('activerecord.attributes.camp_car_option.fee_per_day')}:"
+    = @camp_car_option.fee_per_day
+
+  => link_to t('views.buttons.edit'), edit_admin_camp_car_option_path(@camp_car_option)
+  '|
+  =< link_to t('views.buttons.back'), admin_camp_car_options_path

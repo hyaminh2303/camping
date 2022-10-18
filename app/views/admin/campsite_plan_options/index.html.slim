@@ -1,0 +1,40 @@
+- content_for :page_title, t('admin.campsite_plan_options.index.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_campsite_plan_option_path, class: "btn btn-blue btn-new-record"
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          - if current_admin_user.is_super_admin?
+            th = sort_link(@q, :campsite_campsite_supplier_company_company_name, t('activerecord.attributes.campsite_plan_option.supplier_company_id'))
+            / th = t('activerecord.attributes.campsite_plan_option.supplier_company_id')
+          th = Campsite.model_name.human
+          th = t('activerecord.attributes.campsite_plan_option.name')
+          th = t('activerecord.attributes.campsite_plan_option.price')
+          th = t('activerecord.attributes.campsite_plan_option.quantity')
+
+      tbody.font-14
+        - @campsite_plan_options.each do |campsite_plan_option|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_campsite_plan_option_path(campsite_plan_option), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_campsite_plan_option_path(campsite_plan_option), class: 'btn btn-green'
+
+              = link_to_delete_with admin_campsite_plan_option_path(campsite_plan_option)
+
+            - if current_admin_user.is_super_admin?
+              td= campsite_plan_option.campsite&.supplier_company&.company_name
+            td= campsite_plan_option.campsite&.name
+            td= campsite_plan_option.name
+            td= campsite_plan_option.price
+            td= campsite_plan_option.quantity
+
+.container.pagination.justify-content-center
+  = paginate @campsite_plan_options, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

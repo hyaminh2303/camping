@@ -1,0 +1,3 @@
+p p = "#{@travel_package.customer_user.email} 様!"
+p You must add a credit card to confirm the booking
+= link_to "Click here to add", add_card_checkout_payments_url(travel_package_id: @travel_package.id)

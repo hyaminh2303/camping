@@ -1,0 +1,47 @@
+/ step 4
+.checkout-campsite-booking-container-wrapper
+  = render 'shared/wizard', booking_type: :campsite_booking, step: 4
+
+  .campsite-booking-information-wrapper
+
+    - if flash[:error_max_number_of_people].blank?
+      = render 'shared/messages'
+
+    = simple_form_for @travel_package, url: update_booking_checkout_campsite_bookings_path, method: :post, html: { class: 'campsite-booking-form' } do |f|
+      = hidden_field_tag :current_campsite_booking_step, 'confirm_information'
+      = hidden_field_tag :travel_package_id, params[:travel_package_id]
+      .page-title.mgt-35.mgb-24
+        = t("checkout.campsite_bookings.views.confirm_information.confirmation_of_reservation_details")
+      = render "people_and_date_selection", f: f
+
+      .form-title.text-center.font-weight-bold.font-18
+        = t("checkout.campsite_bookings.views.confirm_information.select_option")
+      .booking-supplies-title.mgt-20.mgb-20
+        = t("checkout.campsite_bookings.page.title.rental_equipment")
+      = f.simple_fields_for :campsite_booking do |ff|
+        = render "campsite_options_included_in_booking", ff: ff
+
+      .form-title.text-center.font-weight-bold.font-18
+        = t("checkout.campsite_bookings.views.confirm_information.booking_person_detail")
+      = render "checkout/shared/booking_contact_information", f: f, disabled: false
+      = render "checkout/shared/booking_message", f: f, disabled: false
+
+      .row
+        .col-12.text-center.font-12.font-weight-bold
+          label = t('checkout.campsite_bookings.views.contact_information.policy')
+          label = link_to t('checkout.campsite_bookings.views.contact_information.click_here'),
+                          terms_of_use_index_path, target: :_blank, class: 'text-azure'
+        / https://app.clickup.com/t/282tg2p
+        / .col-12
+        /   = text_area :policy, "", class: 'box-shadown-input font-14 form-control', rows: 5, style: "resize: none", disabled: true
+
+      .action-button-wrapper
+        .row.mgt-60
+          .col-12.text-center
+            button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+              = t('checkout.campsite_bookings.views.confirm_information.buttons.submit')
+          .col-12.mgt-12.text-center
+            - if params[:travel_package_id].blank?
+              = link_to t('checkout.campsite_bookings.views.confirm_information.buttons.back'),
+                        contact_information_checkout_campsite_bookings_path,
+                        class: 'btn btn-w350-full-width-mobile btn-black'

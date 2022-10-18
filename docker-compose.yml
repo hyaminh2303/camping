@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    tty: true
+    stdin_open: true
+    command: docker/commands/wait-for-it.sh db:5432 --timeout=60 -- docker/commands/entrypoint_development.sh
+    volumes:
+      - .:/var/www:cached
+      - ./docker:/var/www/docker:cached
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa:cached
+      - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:cached
+      - ~/.zshrc:/root/.zshrc:cached
+    ports:
+      - "3010:3000"
+      - "3035:3035"
+    depends_on:
+      - db
+      - redis
+    environment:
+      RINDO_BACKEND_DATABASE_USERNAME: postgres
+      RINDO_BACKEND_DATABASE_PASSWORD: postgres
+      RINDO_BACKEND_DATABASE_HOST: db
+
+  db:
+    image: postgres:13.1
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: g_camp_development
+    ports:
+      - "15444:5432"
+
+  redis:
+    image: redis:6.0-rc
+    volumes:
+      - ~/g_camp-backend-development/redis:/data

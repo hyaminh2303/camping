@@ -1,0 +1,95 @@
+.tour-detail-container-wrapper
+  section.main-slider.mb-2
+    .slider-item
+      = image_tag 'tours/tour-01.jpg'
+    .slider-item
+      = image_tag 'campsites/image-6.jpg'
+    .slider-item
+      = image_tag 'campsites/image-7.jpg'
+    .slider-item
+      = image_tag 'campsites/image-9.jpg'
+
+  section.container.description-content
+    .row.mt-lg-4.mt-5
+      .col-6
+        a href="#" class='btn btn-green font-9 no-border-radius mr-2 mr-md-3' 長野県
+        a href="#" class='btn btn-green font-9 no-border-radius' 富山県
+      .col-6.date-text.font-11 7月8日出発、８泊９日の旅
+    .row
+      .col-12
+        .font-20.font-weight-bold.mt-lg-3.mt-1 日本の伝統を知る飛騨・北陸の旅
+    .row.mt-1.mt-md-0
+      .col-6.d-flex.align-self-center
+        .departure-point.font-10.font-weight-bold.mr-3 出発地: 名古屋
+        .destination.font-10.font-weight-bold 到着地: 米原
+      .col-6.d-flex.justify-content-end
+        .font-10.font-weight-bold.mr-2.align-self-center 催行状況:
+        a href='#' class='btn btn-yellow font-9 no-border-radius departure-status' 地図を表示
+    hr
+    .row.description.mt-3
+      .col-12.font-9-down-sm.font-12-only-md.font-16-only-lg
+        | 2,053ｍの黒姫山の麓に位置し、東京ドーム2個分10万㎡の広大な敷地の中で自然を体験し、学び、遊ぶことのできる施設です。
+        全26棟のロッジと多目的ホール、キャンプファイヤーも可能な広場など、林間学校や研修での団体利用のほか、ファミリーでも利用することが出来ます。
+
+    .row
+      .col-12.text-center.mt-3
+        a href='#' class='btn btn-yellow font-14 no-border-radius book-button ' このツアーを予約する
+
+  section.container.main-content-wrapper.mt-lg-5.mt-4
+    .row
+      .col-md-4.col-12
+        .tour-map
+          .title.text-border-left ツアーの地図
+          .map-image-wrapper
+            = image_tag 'tours/map_1.png', class: 'img-fluid'
+        .schedule.only-scr-tablet-desktop
+          .title.text-border-left 日程
+          = render 'shared/tour_schedule'
+
+
+      .col-md-8.col-12
+        .tour-details
+          .title.text-border-left ツアーの詳細
+          .font-13-down-sm.font-14-up-md
+            | 2,053ｍの黒姫山の麓に位置し、東京ドーム2個分10万㎡の広大な敷地の中で自然を体験し、学び、遊ぶことのできる施設です。
+            全26棟のロッジと多目的ホール、キャンプファイヤーも可能な広場など、林間学校や研修での団体利用のほか、ファミリーでも利用することが出来ます。
+        .walk
+          .title
+            .blue-background
+              .text-border-left 3大グレートウォークを歩く
+          .font-13-down-sm.font-14-up-md
+            | 2,053ｍの黒姫山の麓に位置し、東京ドーム2個分10万㎡の広大な敷地の中で自然を体験し、学び、遊ぶことのできる施設です。
+            全26棟のロッジと多目的ホール、キャンプファイヤーも可能な広場など、林間学校や研修での団体利用のほか、ファミリーでも利用することが出来ます。
+          .image-wrapper.text-center.mt-3
+            = image_tag 'blog-item.png', class: 'img-fluid'
+        .mount-cook
+          .title.text-border-bottom マウントクック
+          .font-13-down-sm.font-14-up-md
+            | 2,053ｍの黒姫山の麓に位置し、東京ドーム2個分10万㎡の広大な敷地の中で自然を体験し、学び、遊ぶことのできる施設です。
+            全26棟のロッジと多目的ホール、キャンプファイヤーも可能な広場など、林間学校や研修での団体利用のほか、ファミリーでも利用することが出来ます。
+        .schedule.only-scr-mobile
+          .title.text-border-left 日程
+          = render 'shared/tour_schedule'
+        .regarding-accommodation
+          .title.text-border-left 宿泊地に関して
+          .font-13-down-sm.font-14-up-md
+            | 2,053ｍの黒姫山の麓に位置し、東京ドーム2個分10万㎡の広大な敷地の中で自然を体験し、学び、遊ぶことのできる施設です。
+            全26棟のロッジと多目的ホール、キャンプファイヤーも可能な広場など、林間学校や研修での団体利用のほか、ファミリーでも利用することが出来ます。
+        .tour-booking.mb-2
+          .title.text-border-left ツアーのご予約
+          .font-13.font-weight-bold 日本の伝統を知る飛騨・北陸の旅
+          .button-list.d-flex
+            a href="#" class='btn btn-green font-8 no-border-radius mr-2' 長野県
+            a href="#" class='btn btn-green font-8 no-border-radius' 富山県
+          .price-information
+            span.font-13 大人
+            span.adult-price.font-20 40,600
+            span.font-13.mr-2 円
+
+            span.font-11 子供
+            span.children-price.font-16 40,600
+            span.font-11 円
+
+
+        .text-center
+          a href='#' class='btn btn-yellow font-14 no-border-radius mb-md-3 book-button' このツアーを予約する

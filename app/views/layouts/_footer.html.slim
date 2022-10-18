@@ -1,0 +1,96 @@
+
+.container class="#{'mw-100' if controller_path.split('/').first == 'admin'}"
+  .footer-top
+    .row
+      .col-lg-3.col-md-6.col-sm-6
+        .logo-wapper
+          a href=root_path
+            = image_tag "logo.png", class: 'logo img-fluid'
+
+        .logo-description.mt-2.font-12
+          span = t('layouts.general.slogan')
+
+        a.btn.btn-blue.no-border-radius.mt-3.mb-3.font-14.px-4 href=new_contact_us_path
+          = t('.contact_us')
+      / https://app.clickup.com/t/244x072
+      / .col-lg.col-md-3.col-sm-6
+      /   h3.title= t('.blog_categories')
+      /   ul
+      /     - BlogCategory.all.each do |blog|
+      /       li
+      /         = link_to blog.name, "#"
+      - states = Master::State.with_translations(I18n.locale).order_by_weight_asc
+      .col-lg.col-md-3.col-sm-6
+        h3.title= t('.campsite_states')
+        ul
+
+          - states.each do |state|
+            li
+              = link_to state.name, search_campsites_path(state: state.id)
+
+      .col-lg.col-md-6.mt-md-4.mt-lg-0.col-sm-6
+        h3.title= t('.camp_car_states')
+        ul
+          - states.each do |state|
+            li
+              = link_to state.name, search_camp_cars_path(state: state.id)
+      .col-lg.col-md-3.mt-md-4.mt-lg-0.col-sm-6
+        = link_to 'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3658594&pid=887918234', class: "menu-icon", rel: 'nofollow' do
+          span.d-none= image_tag 'https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3658594&pid=887918234'
+          h3.title = t('.hide_car')
+        / https://app.clickup.com/t/2nngfkp
+        / ul
+        /   li
+        /     = link_to t('.area.hokaido'), rental_cars_path
+        /   li
+        /     = link_to t('.area.tohoku'), rental_cars_path
+        /   li
+        /     = link_to t('.area.kanto'), rental_cars_path
+        /   li
+        /     = link_to t('.area.koshinetsu'), rental_cars_path
+        /   li
+        /     = link_to t('.area.chubu'), rental_cars_path
+        /   li
+        /     = link_to t('.area.kansai'), rental_cars_path
+
+  .footer-bottom
+    .row.justify-content-between
+      .col-md-auto
+        .row
+          - if customer_user_signed_in?
+            .col-md-auto
+              a.link-item href=my_page_path
+                i.fas.fa-user.text-blue
+                = t('.profile')
+                / = "#{t('.hi')} #{current_customer_user.email}"
+            .col-md-auto
+              a.link-item href=destroy_customer_user_session_path
+                i.fas.fa-sign-out-alt.text-blue
+                = t('.sign_out')
+
+          - else
+            .col-md-auto
+              a.link-item href=new_customer_user_session_path
+                i.fas.fa-user.text-blue
+                = t('.sign_up')
+            .col-md-auto
+              a.link-item href=new_customer_user_session_path
+                i.fas.fa-sign-in-alt.text-blue
+                = t('.sign_in')
+
+          .col-md-auto
+            = link_to t('layouts.top_header_menu_items.new_contact_us'), new_contact_us_path, class: 'link-item'
+
+      .col-md-auto
+        .row.justify-content-end
+          .col-md-auto
+            = link_to t('.privacy_policy'), privacy_policy_index_path, class: 'link-item'
+          / https://app.clickup.com/t/2k5be88 | HIDE site map
+          / .col-md-auto
+          /   a.link-item href="#" = t('.site_map')
+          .col-md-auto
+            = link_to t('.terms_of_use'), terms_of_use_index_path, class: 'link-item'
+          .col-md-auto
+            = link_to t('.company_profile'), "http://www.glover-japan.com", target: :_blank, class: 'link-item'
+          .col-md-auto.text-right
+            span.copyright = "© #{Date.current.year} Gcamp"

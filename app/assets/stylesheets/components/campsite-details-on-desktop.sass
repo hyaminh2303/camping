@@ -1,0 +1,189 @@
+@import '../definitions/variables'
+
+@mixin campsite-details-on-desktop
+  .row-content
+    display: flex
+    flex-wrap: wrap
+  .btn-normal
+    font-size: 14px
+    font-weight: bold
+  .background-border
+    border-radius: 4px
+    border: solid 1px $light-gray-color
+    background-color: $white-color
+
+  section.container.title-content
+    .campsite-name
+      font-size: 26px
+      font-weight: bold
+    .location-text
+      font-size: 14px
+    a.see-map
+      font-size: 10px
+      font-weight: bold
+    .contact-number
+      font-size: 14px
+      font-weight: bold
+    .map-wrapper
+      .modal-body
+        height: 600px
+
+  section.banner-wrapper.container
+    .main-slider:not(.slick-dotted)
+      .slick-list.draggable
+        padding: 0 !important
+    .main-slider
+      .slider-item
+        img
+          width: 100%
+          height: 561px
+
+  section.container.nav-tabs-wrapper
+    .nav-tab-item-wrapper
+      display: flex
+      font-size: 14px
+      font-weight: bold
+      margin-top: 22px
+      height: 40px
+      .nav-tab-item
+        width: 100px
+        text-align: center
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+        a
+          text-decoration: none
+        &.active a::after, a:hover::after
+          content: ''
+          width: 100%
+          position: absolute
+          border-bottom: 5px solid $light-blue-color
+          bottom: 0
+          left: 0
+    .border-bottom
+      border-bottom: 1px solid $light-gray-color
+
+  section.container.body-content
+    display: flex
+    margin-top: 30px
+    .content-wrapper
+      margin-top: 60px
+      font-size: 14px
+      .title
+        font-size: 26px
+      .content
+        margin-top: 13px
+        .main-wrapper
+          margin: 15px
+    .main-content
+      width: 100%
+      #description-text
+        font-size: 14px
+      #sketch
+        .image-wrapper
+          display: flex
+          .image-item
+            margin-bottom: 5px
+            img
+              width: 233px
+              height: 205px
+              object-fit: cover
+            a
+              display: block
+              margin-top: 10px
+            .overlay
+              height: 0%
+              width: 100%
+              position: fixed
+              z-index: 1
+              top: 0
+              left: 0
+              background-color: rgba(0, 0, 0, 0.8)
+              transition: 0.5s
+              overflow: auto
+              .container
+                position: relative
+                .btn-wrapper
+                  .closebtn
+                    font-size: 60px
+                    color: $white-color
+                    font-weight: 300
+                    text-align: right
+                    cursor: pointer
+                    margin-left: auto
+                    width: 40px
+                .overlay-content
+                  text-align: center
+                  img
+                    width: 100%
+                    height: auto
+                    object-fit: cover
+      #facilities
+        .camp-category-wrapper
+          margin: 15px
+          margin-bottom: 5px
+          .btn
+            margin: 0px 10px 10px 0px
+            font-weight: bold
+            font-size: 12px
+            color: $extra-gray-color
+          .camp-category-item
+            color: $top-header-bg-color
+            font-weight: normal
+      #campsite-plans
+        .main-wrapper
+          display: flex
+          .image-wrapper
+            margin-right: 30px
+            img
+              width: 135px
+              height: 101px
+              border-radius: 6px
+              object-fit: cover
+          .plan-name
+            font-size: 20px
+            font-weight: bold
+            display: flex
+            justify-content: center
+            align-items: center
+          .booking-price-wrapper
+            display: flex
+            justify-content: center
+            align-items: end
+            flex-direction: column
+            flex-grow: 1
+            .price
+              font-weight: bold
+              .text-desc
+                font-size: 14px
+                margin-right: 10px
+              .amount
+                font-size: 28px
+                color: $yellow-color
+
+    .sub-content
+      margin-left: 50px
+      flex-grow: 1
+      width: 40%
+      .map-info
+        border: 1px solid $light-gray-color
+        border-radius: 4px
+        .map-frame
+          height: 170px
+        .map-description
+          font-size: 14px
+          padding: 15px
+          display: flex
+          justify-content: center
+          align-items: center
+      .news
+        .main-wrapper
+          font-size: 14px
+          .title-news
+            font-weight: bold
+            margin-bottom: 10px
+          a
+            color: $light-blue-color
+        .see-all-article
+          margin-top: 10px

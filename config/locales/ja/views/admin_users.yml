@@ -1,0 +1,15 @@
+ja:
+  admin:
+    admin_users:
+      index:
+        page_title: サイト管理者
+        page_description: サイト管理者リスト
+      new:
+        page_title: サイト管理者
+        page_description: 新規ユーザー登録
+      edit:
+        page_title: サイト管理者
+        page_description: Edit Admin User
+      show:
+        page_title: サイト管理者
+        page_description: Detail Of Admin User

@@ -1,0 +1,62 @@
+zh:
+  layouts:
+    admin_sidebar:
+      glover_company_info: 会社情報
+      suppliers_management: サプライヤー会社管理
+      campsites_suppliers: キャンプサプライヤー管理
+      camp_cars_suppliers: キャンピングカーサプライヤー管理
+      user_accounts_management: サイトユーザー管理
+      campsites_management: キャンプ場管理
+      campsites: キャンプ場管理
+      campsite_plans: プラン管理
+      campsite_bookings: Campsite Bookings Management
+      camp_cars_management: キャンピングカー管理
+      master_data: マスタデータ管理
+      camp_category_groups: キャンプ場カテゴリー管理
+      camp_categories: キャンプ場カテゴリ検索詳細設定
+      camp_car_categories: キャンピングカーカテゴリ管理
+      child_and_pet_settings: 子供・ペット区分設定
+      classification_settings: 日付タイプ設定
+      date_settings: Date Setting
+      campsite_plan_options: キャンプ場オプション管理
+      camp_car_options: Camp Car Options
+      camp_types: Camp Types
+      content_management_being_processed: 特集記事管理
+      camp_cars: Camp cars
+      slider_banners: Slider banners
+      camp_car_bookings: Camp Car Bookings Management
+      contact_us: Customer Inquiries Management
+
+    main_menu_section:
+      blogs: 博客
+      campsites: 营
+      camp_cars: 露营车
+      rental_car: 汽车出租
+      camp_item_rental: 租赁用品
+      tours: 旅游
+
+    footer:
+      profile: 我的页面
+      hi: Hi
+      sign_in: 登录
+      sign_out: 退出
+      sign_up: 我的页面
+      privacy_policy: 隐私政策
+      terms_of_use: 使用条款和条件
+      company_profile: 公司介绍
+      blog_categories: 博客
+      site_map: 网站地图
+      hide_car: 租车
+      campsite_states: 露营场
+      camp_car_states: 露营车
+      contact_us: 点击这里查看供应商
+      area:
+        hokaido: 北海道
+        tohoku: 东北
+        kanto: 关东
+        koshinetsu: 甲信越
+        chubu: 中部
+        kansai: 关西
+
+    general:
+      slogan: 预定搜索并享受旅行和露营的信息

@@ -1,0 +1,81 @@
+@import '../definitions/variables'
+
+.blog-container-wrapper
+  font-family: $primary-font-family
+
+  section.main-banner-wrapper
+    overflow: hidden
+    position: relative
+    img
+      object-fit: cover
+      width: 100%
+      height: 100%
+      @include media-breakpoint-down(md)
+        height: 205px
+      @include media-breakpoint-up(lg)
+        height: 450px
+    .text-content-wrapper
+      font-family: $primary-font-family
+      position: absolute
+      font-weight: bold
+      color: #ffffff
+      background: rgba(0, 0, 0, 0.1)
+      text-shadow: 0 0 6px rgba(0,0,0,0.55)
+
+      @include media-breakpoint-down(md)
+        top: 65%
+      @include media-breakpoint-up(lg)
+        top: 72%
+      @media (max-width: 300px)
+        top: 45%
+
+
+  section.blog-item-lists
+    .blog-item
+      .item-header
+        a
+          color: #fff
+      h3.item-content
+        font-weight: 500
+        a
+          color: $primary-text-color
+          &:hover
+            text-decoration: none
+
+      .tags
+        a
+          color: rgba(72, 72, 73, 0.69)
+
+      @include media-breakpoint-down(sm)
+        .container
+          padding-left: 0
+          padding-right: 0
+          max-width: 100%
+          .row
+            margin-left: 0
+            margin-right: 0
+            .blog-item
+              padding-left: 0
+              padding-right: 0
+
+      @include media-breakpoint-down(sm)
+        .image-wrapper
+          img
+            height: 150px
+            width: 100%
+            object-fit: cover
+        .information-wrapper
+          padding: 15px 0 0 15px
+
+      @include media-breakpoint-up(md)
+        .image-wrapper
+          img
+            margin-bottom: 15px
+            height: 160px
+            width: 260px
+            object-fit: cover
+        .information-wrapper
+          margin-bottom: 10px
+    @include media-breakpoint-down(sm)
+      .blog-item
+        padding-left: 0

@@ -1,0 +1,65 @@
+zh:
+  admin:
+    campsites:
+      general:
+        add_photo: 写真追加
+      index:
+        page_title: キャンプ場
+        page_description: キャンプ場リスト
+      new:
+        page_title: キャンプ場
+        page_description: 新しいキャンプ場
+      edit:
+        page_title: キャンプ場
+        page_description: キャンプ場編集
+      show:
+        page_title: キャンプ場
+        page_description: キャンプ場の詳細
+    translate:
+      translate_to_en: 英語自動翻訳
+      translate_to_zh: 中国語自動翻訳
+
+  campsites:
+    search:
+      title: "搜索露營地"
+      area: 区域
+      facility-type: 设施类型
+      anytime: 随时
+      close: 关闭
+      there_are_campsites: "有%{total_count}个露营地"
+      narrow_down_campsites: 缩小露营地
+      location:
+        title: 从全国各地搜索
+    index:
+      site_description: 详细的营地搜索（按地区、附近设施、活动等搜索）。
+      line_title_1: 让我们发现露营地
+      line_title_2: 您可以在全国范围内搜索和预订露营地
+      search_campsite: 寻找露营地
+      search_by_map_title: Search by Map
+      search_by_map_description: 从地图上查找露营地
+      recommended_campsite_title: Recommended campsite
+      recommended_campsite_description: 推荐露营地
+    show:
+      see_map: 显示地图
+      campsite_map: 草图
+      business_information: 商业信息
+      select_plan: 选择一个计划
+      choose_plan: 选择一个计划
+      one_day: 1 晚
+      currency_unit: 圆
+      post_code: 〒
+      one_night_two_days: 1晚2天
+      models:
+        price: "%{price} 圆"
+      booking_with_this_plan: 预订计划
+      overview: 概述
+      sketch: 草图
+      facilities_in_the_hall: 馆内设施
+      business_information: 商业信息
+      peripheral_facilities: 周边设施
+      check_sales_information: 检查销售信息
+      look_at_the_sketch: 检查草图
+      news: News
+      read_the_article: 記事を読む >>
+      show_all_article: 全ての記事を表示する
+      about_this_campsite: About this campsite

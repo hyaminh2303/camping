@@ -1,0 +1,21 @@
+ko:
+  admin:
+    blogs:
+      index:
+        page_title: Blogs
+        page_description: Blogs List
+      new:
+        page_title: Blogs
+        page_description: New Blogs
+      edit:
+        page_title: Blogs
+        page_description: Edit Blogs
+      show:
+        page_title: Blogs
+        page_description: Detail Of Blogs
+
+  blogs:
+    index:
+      blog: 블로그
+    show:
+      category: 카테고리

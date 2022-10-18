@@ -1,0 +1,32 @@
+ja:
+  admin:
+    blog_categories:
+      glover_blog:
+        index:
+          page_title: グローバー記事カテゴリ
+          page_description: グローバー記事カテゴリ一覧
+        new:
+          page_title: グローバー記事カテゴリ
+          page_description: 新規記事カテゴリー
+        edit:
+          page_title: グローバー記事カテゴリ
+          page_description: グローバー記事カテゴリ編集
+        show:
+          page_title: グローバー記事カテゴリ
+          page_description: グローバー記事カテゴリ詳細
+
+      supplier_blog:
+        index:
+          page_title: 特集記事カテゴリ
+          page_description: 特集記事カテゴリ一覧
+        new:
+          page_title: 特集記事カテゴリ
+          page_description: 新規記事カテゴリー
+        edit:
+          page_title: 特集記事カテゴリ
+          page_description: 特集記事カテゴリ編集
+          prefecture_code: 都道府県ナンバー
+          what_is_pref_code: 都道府県ナンバーとは？
+        show:
+          page_title: 特集記事カテゴリ
+          page_description: 特集記事カテゴリ詳細

@@ -1,0 +1,15 @@
+en:
+  admin:
+    child_and_pet_settings:
+      index:
+        page_title: Child And Pet Setting
+        page_description: Child And Pet Setting List
+      new:
+        page_title: Child And Pet Setting
+        page_description: New Child And Pet Setting
+      edit:
+        page_title: Child And Pet Setting
+        page_description: Edit Child And Pet Setting
+      show:
+        page_title: Child And Pet Setting
+        page_description: Detail Of Child And Pet Setting

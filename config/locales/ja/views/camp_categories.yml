@@ -1,0 +1,17 @@
+ja:
+  admin:
+    camp_categories:
+      index:
+        page_title: キャンプ場カテゴリ検索詳細設定
+        page_description: キャンプ場カテゴリ検索詳細リスト
+      new:
+        page_title: キャンプ場カテゴリ検索詳細設定
+        page_description: 新規キャンプカテゴリ追加
+      edit:
+        page_title: キャンプ場カテゴリ検索詳細設定
+        page_description: キャンプ場カテゴリ検索詳細編集
+      show:
+        page_title: キャンプ場カテゴリ検索詳細設定
+        page_description: キャンプ場カテゴリ分け詳細
+        name: カテゴリ詳細名
+        camp_category_group: キャンプ場カテゴリグループ

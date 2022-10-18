@@ -1,0 +1,47 @@
+zh:
+  admin:
+    campsite_plans:
+      general:
+        day: 日
+        date: 日付
+        default: 既定
+        add_daily_fee: 日額料金を追加
+        add_photo: 写真追加
+        add_campsite_plan_quantity: 1日あたりの数量を追加
+
+      index:
+        page_title: キャンプ場計画
+        page_description: キャンプ場プランリスト
+      new:
+        page_title: キャンプ場計画
+        page_description: 新しいキャンプ場計画
+      edit:
+        page_title: キャンプ場計画
+        page_description: キャンプ場計画の編集
+      show:
+        page_title: キャンプ場計画
+        page_description: キャンプ場計画の詳細
+
+  campsite_plans:
+    show:
+      book_for: "预订的%{title}"
+      plan_details: 计划详情
+      select_date_and_number_of_people: 选择日期
+      booking_duration: 预订期
+      number_of_people: 预订数量
+      day: 晩
+      yen: 圆
+      buttons:
+        edit: 编辑
+        back: 返回
+    date_selection:
+      people_and_pet_setting:
+        buttons:
+          cancel: 返回
+          apply: 申请
+        number_of_adult: 大人
+        adult: 大人
+    error_messages:
+      campsite_plan_is_out_of_stock: Campsite plan is out of stock, please choose another campsite plan
+    people_and_date_selection:
+      people: 人

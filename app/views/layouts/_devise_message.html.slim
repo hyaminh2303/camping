@@ -1,0 +1,10 @@
+- if alert.present?
+  .info-box.bg-danger
+    .info-box-content
+      span.info-box-text.text-wrap.text-center
+        = alert
+- elsif notice.present?
+  .info-box.bg-info
+    .info-box-content
+      span.info-box-text.text-wrap.text-center
+        = notice

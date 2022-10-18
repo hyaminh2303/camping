@@ -1,0 +1,11 @@
+.nested-fields
+  .row
+    .col-md-4
+      = f.input :date, as: :string, \
+                input_html: { class: 'campsite-plan-quantity-date-input datepicker',
+                              value: f.object.date&.strftime(t('datetime.formats.short')),
+                              autocomplete: 'off' }
+    .col-md-4
+      = f.input :quantity, input_html: { min: 0 }
+    .col-md-4.mt-2
+      = link_to_remove_association "X", f, class: 'btn btn-sm btn-danger'

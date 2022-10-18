@@ -1,0 +1,15 @@
+ja:
+  admin:
+    states:
+      index:
+        page_title: State
+        page_description: State List
+      new:
+        page_title: State
+        page_description: New State
+      edit:
+        page_title: State
+        page_description: Edit State
+      form:
+        prefecture_list: Prefecture list
+        city_list: City list

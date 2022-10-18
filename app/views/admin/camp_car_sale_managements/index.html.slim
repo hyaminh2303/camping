@@ -1,0 +1,37 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = form_with url: admin_camp_car_sale_managements_path, method: :get, class: 'camp-car-search-wrapper' do |f|
+    .form-inputs
+      .row
+        .form-group.col-12.col-lg-2
+          = hidden_field_tag :start_date, start_date = params[:start_date] || Date.current.beginning_of_week.strftime(t('datetime.formats.short'))
+          = hidden_field_tag :end_date, end_date = params[:end_date] || Date.current.end_of_week.strftime(t('datetime.formats.short'))
+          = f.label :date_range_label, t('admin.camp_car_sale_managements.index.date_range')
+          = f.label :date_range_input, {class: 'form-control daterange-input cursor-pointer'}
+            = "#{start_date} - #{end_date}"
+      .row
+        .col-12.mb-3.text-right
+          = link_to t('views.buttons.clear'), admin_camp_car_sale_managements_path, class: 'btn btn-gray'
+          = submit_tag t('views.buttons.search'), class: 'btn btn-blue ml-1'
+
+
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th = t('activerecord.models.camp_car.one')
+          th = t('admin.camp_car_sale_managements.index.number_of_bookings')
+          th = t('admin.camp_car_sale_managements.index.total_price')
+          th = t('admin.camp_car_sale_managements.index.commission_percentage')
+          th = t('admin.camp_car_sale_managements.index.total_sale')
+
+      tbody.font-14
+        - @camp_cars_info.camp_car_receipts.each do |camp_car_info|
+          tr
+            td = camp_car_info.camp_car_name
+            td = camp_car_info.number_of_bookings
+            td = gcamp_round_price(camp_car_info.total_price)
+            td = AppSetting.instance.camp_car_commission_percentage
+            td = gcamp_round_price(camp_car_info.total_sale)

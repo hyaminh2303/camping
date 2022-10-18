@@ -1,0 +1,15 @@
+en:
+  admin:
+    recommended_camp_items:
+      index:
+        page_title: Recommended camp item
+        page_description: Recommended camp item List
+      new:
+        page_title: Recommended camp item
+        page_description: New Recommended camp item
+      show:
+        page_title: Recommended camp item
+        page_description: Detail Of Recommended camp item
+      edit:
+        page_title: Recommended camp item
+        page_description: Edit Recommended camp item

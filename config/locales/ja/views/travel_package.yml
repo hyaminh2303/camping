@@ -1,0 +1,5 @@
+ja:
+  admin:
+    travel_package:
+      cancel_booking_error: 予約はキャンセルできません
+      cancel_booking_success: 予約はキャンセルされました

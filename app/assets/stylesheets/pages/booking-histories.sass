@@ -1,0 +1,110 @@
+@import '../definitions/variables'
+@import '../definitions/mixins'
+
+.booking-histories-wrapper
+  font-family: $primary-font-family
+  .title-wrapper
+    font-size: $body-font-size
+    color: $primary-text-color
+    margin-top: 49px
+    font-weight: bold
+    font-family: $primary-font-family
+  .subtitle
+    font-size: 13px
+    margin-top: 40px
+    font-weight: bold
+  .content-wrapper
+    width: 50%
+    margin: 21px auto 0px
+    @include media-breakpoint-down(md)
+      width: 80%
+    @include media-breakpoint-down(sm)
+      width: 100%
+  .booking-history-item-section
+    min-height: 160px
+    @include media-breakpoint-only(xs)
+      min-height: 90px
+    .booking-wrapper
+      @include media-breakpoint-only(xs)
+        padding: 0 15px
+      .blog-image-wrapper
+        @include media-breakpoint-only(lg)
+          padding-left: 0 !important
+        @include media-breakpoint-only(xs)
+          padding: 0 !important
+          width: 80px
+        .booking-item-image
+          width: 100%
+          height: 100%
+          min-height: 160px
+          object-fit: cover
+          @include media-breakpoint-only(xs)
+            padding: 0 !important
+            min-height: 100%
+      .booking-info-wrapper
+        @include media-breakpoint-only(xs)
+          padding: 0 !important
+          width: 70%
+          height: 70px
+          margin-left: 15px
+        .booking-item-name
+          font-size: $body-font-size
+          font-weight: bold
+          @include media-breakpoint-only(xs)
+            font-size: $font-size-md
+        .booking-item-date
+          font-size: $font-size-md
+          font-weight: bold
+          color: $gray-color
+          @include media-breakpoint-only(xs)
+            font-size: $font-size-sm
+            margin-bottom: 5px
+        .booking-ref-number
+          font-size: $font-size-md
+          font-weight: bold
+          @include media-breakpoint-only(xs)
+            font-size: $font-size-sm
+            margin-bottom: 5px
+        .point-info-wrapper
+          @include media-breakpoint-only(xs)
+            margin-top: 0 !important
+          .booking-item-link
+            font-size: $font-size-sm
+            color: $blue-color
+            font-weight: bold
+            text-decoration: underline
+            @include media-breakpoint-only(xs)
+              font-size: $font-size-sm
+          .booking-item-point
+            font-size: $font-size-sm
+            .point-number
+              font-size: 20px
+              font-weight: bold
+              color: $yellow-color
+  .member-information-form
+    .input-container
+      label
+        font-size: $font-size-sm
+        color: $primary-text-color
+        font-weight: bold
+      input
+        @include box-shadow
+        background-color: #f0f0f0
+        font-size: $font-size-md
+        color: $dark-blue-color
+        height: 45px
+      .require-input-icon
+        color: $red-color
+    .change-info-btn
+      background-color: $yellow-color
+      font-weight: bold
+    #return-btn
+      background-color: #5c5c5c
+      font-size: $body-font-size
+      font-weight: bold
+    .withdraw-membership-button
+      font-size: $body-font-size
+      font-weight: bold
+
+  .content-not-active
+    display: none !important

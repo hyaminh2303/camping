@@ -1,0 +1,12 @@
+= f.simple_fields_for :campsite_booking do |ff|
+  = ff.simple_fields_for :booking_messages, (ff.object.booking_messages.presence || ff.object.booking_messages.build) do |bmf|
+    = bmf.hidden_field :subject, value: t('checkout.campsite_bookings.booking_message_title')
+    = bmf.hidden_field :customer_user_id, value: @travel_package.customer_user_id
+    = bmf.simple_fields_for :booking_message_details, (bmf.object.booking_message_details.presence || bmf.object.booking_message_details.build) do |bmdf|
+      = bmdf.input :message, disabled: local_assigns[:disabled],
+              label: t('checkout.campsite_bookings.booking_message_title'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14'},
+              required: false
+      = bmdf.hidden_field :owner_id, value: current_customer_user.id
+      = bmdf.hidden_field :owner_type, value: current_customer_user.class

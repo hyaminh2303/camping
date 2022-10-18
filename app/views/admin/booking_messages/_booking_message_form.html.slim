@@ -1,0 +1,16 @@
+- booking_message.booking_message_details.each do |booking_message_detail|
+  - if booking_message_detail.persisted?
+    - owner = booking_message_detail.owner
+    - if owner.is_a? AdminUser
+      span.text-red ="#{owner.email}: "
+    - else
+      span.text-blue = "#{owner.full_name}: "
+
+    span.mgl-10 = booking_message_detail.message
+    span.text-gray.mgl-10 = booking_message_detail.created_at.strftime("%H:%M %Y年%m月%d日")
+    br
+= simple_form_for booking_message, url: admin_booking_message_path(booking_message), remote: true do |f|
+  = f.hidden_field :id, value: booking_message.id
+  = f.simple_fields_for :booking_message_details, (booking_message.booking_message_details.last&.new_record? ? booking_message.booking_message_details.last : BookingMessageDetail.new) do |ff|
+    = ff.input :message, label: 'メッセージ', input_html: {rows: 5}
+  = f.submit 'メッセージを送信する', type: :submit, class: 'btn btn-blue font-weight-bold font-16 no-border-radius send-message-button w-40'

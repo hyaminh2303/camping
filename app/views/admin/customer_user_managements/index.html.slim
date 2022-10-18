@@ -1,0 +1,32 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th = t('activerecord.attributes.customer_user.id')
+          th = t('activerecord.attributes.customer_user.registered_date')
+          th = t('activerecord.attributes.customer_user.last_name')
+          th = t('activerecord.attributes.customer_user.first_name')
+          th = t('activerecord.attributes.customer_user.email')
+          th = t('activerecord.attributes.customer_user.address')
+          th = t('activerecord.attributes.customer_user.phone_number')
+          th = t('activerecord.attributes.customer_user.birthday')
+
+      tbody.font-14
+        - @customer_users.each do |customer_user|
+          tr
+            td = customer_user.id
+            td = customer_user.created_at.strftime(I18n.t('datetime.formats.short'))
+            td = customer_user.last_name
+            td = customer_user.first_name
+            td = customer_user.email
+            td = customer_user.address
+            td = customer_user.phone_number
+            td = customer_user.birthday
+
+
+.container.pagination.justify-content-center
+  = paginate @customer_users, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

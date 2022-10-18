@@ -1,0 +1,59 @@
+@import '../definitions/variables'
+
+.campsite-plan-detail-container-wrapper
+  font-family: $primary-font-family
+
+  @include media-breakpoint-up(lg)
+    width: 760px
+    margin: 0 auto
+
+  section.banner-wrapper
+    .item-image
+      img
+        width: 100%
+        object-fit: cover
+        height: 352px
+
+  section.container.auto-site-content
+    .text-yellow
+      font-family: $font-quicksand
+
+  section.container.plan-basic-information
+    table
+      tr
+        th
+          color: $primary-text-color
+          background-color: #f0f0f0
+          border: solid 1px #f0f0f0
+          padding: 5px
+        td
+          color: $primary-text-color
+          background-color: #fafafa
+          border: solid 1px #f0f0f0
+          padding: 5px
+    .text-description
+      font-size: 11px
+
+    @include media-breakpoint-down(md)
+      table
+        tr
+          td
+            text-align: left
+
+    @include media-breakpoint-up(lg)
+      table
+        tr
+          td
+            text-align: center
+
+  section.container.select-date-content
+    .link-to-edit-booking
+      text-decoration-line: underline
+      text-underline-offset: 4px
+
+    @include media-breakpoint-up(lg)
+      .messages-on-mobile
+        display: none
+
+    .text-yellow
+      font-family: $font-quicksand

@@ -1,0 +1,53 @@
+@import '../definitions/variables'
+
+section#sub-header
+  .brand-wrapper
+    .container
+      padding-left: 0
+      padding-right: 0
+    nav.navbar
+      height: 65px !important
+      padding: 0
+      justify-content: space-between
+      background-color: $top-header-bg-color !important
+      .navbar-toggler
+        border: none
+        color: $primary-text-color
+        font-size: 24px
+      .logo-wrapper
+        a
+          img.logo
+            width: 120px
+      .slogan
+        font-size: $font-size-md
+        margin-left: 10px
+        position: relative
+        top: 2px
+
+      .right-menu-links
+        display: flex
+        height: 100%
+        justify-content: center
+        flex-direction: row
+        align-items: center
+        ul
+          display: flex
+          justify-content: center
+          margin: 0
+          li
+            list-style: none
+            padding-right: 20px
+            font-size: $font-size-sm
+            a
+              color: $primary-text-color
+        .help-button
+          height: 100%
+          padding: 20px
+          background: $blue-color
+          color: #fff
+
+@include media-breakpoint-down(sm)
+  .container.brand-wrapper
+    max-width: unset !important
+    padding-left: unset
+    padding-right: unset

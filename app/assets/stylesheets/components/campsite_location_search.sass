@@ -1,0 +1,75 @@
+@import '../definitions/variables'
+
+.campsite-location-search-wrapper.container
+  display: none
+  padding-left: 0px
+  font-size: $font-size-sm
+
+  .location-list-inner
+    position: absolute
+    background-color: #fff
+    z-index: 99999
+    padding-left: 15px
+    padding-right: 15px
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75)
+    margin-top: 43px
+
+    @include media-breakpoint-down(lg)
+      width: inherit
+
+    .title
+      margin-top: 25px
+      margin-bottom: 25px
+      font-size: $font-size-md
+      font-weight: bold
+
+    .close
+      margin-right: 15px
+
+  .location-list-inner-content
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+    @include media-breakpoint-down(lg)
+      overflow: auto
+
+    .list
+      flex-grow: 1
+
+    span.icon
+      i
+        font-weight: 400
+        color: #ced4da
+
+    span.name
+      color: $primary-text-color
+
+    .item-wrapper.active
+      span.name
+        color: #06c
+        font-weight: bold
+        text-decoration: none
+      span.icon
+        i
+          font-weight: 900
+
+    ul.location-item-list
+      padding-inline-start: 0px
+
+      li.location-item
+        height: 40px
+        cursor: pointer
+        list-style: none
+
+        .item-wrapper
+          display: flex
+          justify-content: space-between
+          min-width: 320px
+          padding-right: 15px
+          height: 100%
+          align-items: center
+
+        .border-bottom-custom
+          border-bottom: 1px solid #e9ecef
+          margin-right: 8px

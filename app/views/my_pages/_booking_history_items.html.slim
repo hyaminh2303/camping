@@ -1,0 +1,22 @@
+- @travel_packages.each do |travel_package|
+  .booking-history-item-section.mb-3
+    .row.h-100.booking-wrapper
+      .col-lg-4.col-sm-4.col-xs-3.blog-image-wrapper
+        - booking_info = get_booking_info(travel_package)
+        = link_to my_page_path(travel_package_id: travel_package)
+          = gcamp_image_tag booking_info[:image], class: "booking-item-image"
+      .col-lg-8.col-sm-8.col-xs-9.booking-info-wrapper
+        p.mb-1.booking-item-name = link_to booking_info[:name], my_page_path(travel_package_id: travel_package)
+        p.booking-item-date = "#{booking_info[:start_date].strftime(t('datetime.formats.short'))} - \
+                                #{booking_info[:end_date].strftime(t('datetime.formats.short'))}"
+        p.booking-ref-number
+          = "【#{t('activerecord.attributes.travel_package.booking_ref_number')}】#{travel_package.booking_ref_number}"
+        .d-flex.justify-content-between.align-items-center.mt-5.point-info-wrapper
+          = link_to t('my_pages.show.confirm_booking_details'), my_page_path(travel_package_id: travel_package), class: 'booking-item-link'
+          span.align-text-bottom.booking-item-point
+            span.point-number = gcamp_round_price(travel_package.total_price)
+            |
+            = t('views.booking_information.unit.currency')
+
+.container.pagination.justify-content-center
+  = paginate @travel_packages, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

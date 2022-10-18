@@ -1,0 +1,20 @@
+= simple_form_for(@recommended_camp_item, url: url_for([:admin, @recommended_camp_item, item_type: params[:item_type]])) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    - if params[:item_type] == 'campsite'
+      = render "campsite_form", f: f,
+              resource_collections: [{collection: campsites_group_by_supplier_company_collection,
+                                      attribute: :recommended_itemable_id,
+                                      selected: f.object.recommended_itemable_id}]
+    - else
+      = render "camp_car_form", f: f,
+              resource_collections: [{collection: camp_cars_group_by_supplier_company_collection,
+                                      attribute: :recommended_itemable_id,
+                                      selected: f.object.recommended_itemable_id}]
+
+    = f.input :weight, input_html: { min: 1, max: RecommendedCampItem::MAX_NUMBER_OF_WEIGHT }
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

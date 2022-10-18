@@ -1,0 +1,48 @@
+.campsite-location-search-wrapper.container
+  .location-list-inner
+    .location-list
+      .head
+        .close
+          i.fa.fa-times
+      .location-list-outer
+        .title
+          = t('campsites.search.location.title')
+        .location-list-inner-content
+          .list.state-list
+            ul.location-item-list
+              - Master::State.includes(:translations, :campsites).order_by_weight_asc.each do |state|
+                li.location-item
+                  .state-item-wrapper.item-wrapper[
+                    data-state-name="#{state.name}"
+                    data-state-id="#{state.id}"]
+
+                    span class='name' = "#{state.name}（#{state.campsites.size}）"
+                    span.icon
+                      i.fa.fa-chevron-right
+                  .border-bottom-custom
+
+          .list.prefecture-list.d-none
+            ul.location-item-list
+              - Master::Prefecture.includes(:translations, :campsites, :state).order_by_created_at.each do |prefecture|
+                li.location-item
+                  .prefecture-item-wrapper.item-wrapper[
+                    data-prefecture-name="#{prefecture.name}"
+                    data-prefecture-id="#{prefecture.id}"
+                    data-state-id="#{prefecture.state.id}"]
+
+                    span class='name' =  "#{prefecture.name}（#{prefecture.campsites.size}）"
+                    span.icon
+                      i.fa.fa-chevron-right
+                  .border-bottom-custom
+
+          .list.city-list.d-none
+            ul.location-item-list
+              - Master::City.includes(:translations, :campsites, :prefecture).order_by_weight_asc.each do |city|
+                li.location-item
+                  .city-item-wrapper.item-wrapper[
+                    data-city-name="#{city.name}"
+                    data-city-id="#{city.id}"
+                    data-prefecture-id="#{city.prefecture.id}"]
+
+                    span class='name' = "#{city.name}（#{city.campsites.size}）"
+                  .border-bottom-custom

@@ -1,0 +1,24 @@
+section.blog-items
+  .container
+    .row
+      .col-12
+        = render 'shared/items_title', title: 'Special Feature', description: t('home.index.special_feature')
+    .row
+      - blogs.each do |blog|
+        .blog-item.col-lg-3.col-md-4
+          .row.no-gutters
+            .col.col-sm-5.col-md-12.image-wrapper
+              = link_to (gcamp_image_tag blog.photo&.image, class: "img-fluid"), blog_path(blog, blog_type: :supplier_blog)
+
+            .col.col-sm-7.col-md-12.information-wrapper
+              .item-header.mb-2.d-flex.align-items-center
+                a href="#" class="btn btn-green font-9 no-border-radius" = blog.blog_category.name
+                span.font-11.date.ml-2 = blog.publish_date&.strftime(t('datetime.with_locale.formats.short'))
+              h3.item-content.font-15.mb-0
+                = link_to blog.title, blog_path(blog, blog_type: :supplier_blog)
+              .tags
+                - blog.tags_locale_list.last(3).each do |tag|
+                  span.font-11.mr-2
+                    a href="#" ="##{tag}"
+
+          .border-bottom

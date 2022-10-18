@@ -1,0 +1,10 @@
+en:
+  layouts:
+    top_header_menu_items:
+      profile: Profile
+      sign_out: Logout
+      sign_in: Login
+      sign_up: Register
+      language: Language
+      mr: さん
+      new_contact_us: FAQ

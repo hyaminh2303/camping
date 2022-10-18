@@ -1,0 +1,59 @@
+/ = render "/home/session_layout"
+/ = render "/home/dashboard_layout"
+/ = render "/home/booking_histories"
+- description t('views.project.site_description')
+
+.home-container-wrapper
+  .messages
+    = render 'shared/messages'
+  - if @home_banner.present?
+    section.container.main-slider
+      - @home_banner.photos.each do |photo|
+        .slider-item
+          = link_to (image_tag photo.image.url), photo.on_click_url.to_s
+
+    section.container.secondary-slider.mb-5
+      - @home_banner.photos.each do |photo|
+        .slider-item
+          .image-wrapper
+            .overlay
+            = image_tag photo.image.url
+
+  section.container.map-and-shorlinks
+    .row
+      .shorlinks.col-md-6.order-md-2.mb-5
+        = link_to blogs_path(blog_type: :glover_blog)
+          = render 'shared/items_title',
+                  title: 'Play Japan',
+                  description: t('.play_japan')
+
+        = render 'shared/blog_categories', blog_categories: @glover_blog_categories
+
+        .text-center.mt-3
+          = link_to t('.see_all_notices'), blogs_path(blog_type: :glover_blog), class: 'btn btn-primary btn-blue no-border-radius'
+
+      .map.col-md-6.order-1.order-md-1.mb-5
+        = render 'shared/items_title',
+                title: 'Search by Map',
+                description: t('.search_by_map')
+        = render "home/japan_map"
+
+  section.news-information.mb-5
+    .container
+      .row
+        .col-12
+          = render 'shared/items_title', title: 'Information', description: t('.notice')
+
+      .row
+        - @notices.each do |notice|
+          .col-sm-6.col-md-4
+            .news-item.mb-3
+              = link_to notice_path(notice)
+                .date = notice.publish_date&.strftime(t('datetime.with_locale.formats.short'))
+                h3.title.pb-2 = notice.title
+        .container.pagination.justify-content-center
+          = paginate @notices, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"
+      .text-center
+        = link_to t('.see_the_list'), notices_path(item_type: :super_admin), class: 'btn btn-primary btn-blue no-border-radius'
+
+  = render 'shared/blog_items', blogs: @supplier_blogs

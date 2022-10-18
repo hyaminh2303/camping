@@ -1,0 +1,99 @@
+@import '../definitions/mixins'
+@import '../definitions/variables'
+
+.home-container-wrapper
+  .messages
+    .alert
+      margin-bottom: 0
+  .main-slider
+    @include media-breakpoint-down(sm)
+      @include no-paddinglr
+      max-width: 100%
+    margin-bottom: 5px
+    .slider-item
+      position: relative
+      @include media-breakpoint-up(sm)
+        padding-top: 37.5% //Aspect ratio 8:3 | https://app.clickup.com/t/1tyk1kp | Please change LP photo's aspect ratio as 4:3
+        img
+          position: absolute
+      img
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        object-fit: cover
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16)
+        border: solid 1px #ebebeb
+
+    .slick-dots
+      li
+        margin: 0
+        button
+          &::before
+            font-size: 40px
+
+  .secondary-slider
+    @include media-breakpoint-down(sm)
+      @include no-paddinglr
+      max-width: 100%
+    .slick-slide
+      .slider-item
+        .image-wrapper
+          position: relative
+          margin: 10.8px 10px 0px
+          .overlay
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            opacity: 0.58
+            background-color: #272727
+    .slick-slide.slick-cloned, .slick-slide.slick-active
+      .slider-item
+        .image-wrapper
+          .overlay
+            opacity: 0.42
+    .slick-slide.slick-current.slick-center
+      .slider-item
+        .image-wrapper
+          .overlay
+            opacity: 0
+    .slider-item
+      img
+        width: 220px
+        height: 137px
+        object-fit: cover
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16)
+        border: solid 1px #ebebeb
+    .slick-dots
+      position: unset
+      li
+        margin: 0
+        button
+          &::before
+            font-size: 40px
+
+  .secondary-slider:not(.slick-dotted)
+    .slick-list
+      .slick-track
+        width: 100% !important
+        transform: unset !important
+        display: flex
+        justify-content: center
+
+  .news-information
+    .news-item
+      @include border-bottom
+      .date
+        font-size: $font-size-sm
+        font-family: $primary-font-family
+        padding-bottom: 5px
+      h3.title
+        font-size: $font-size-md
+        font-family: $primary-font-family
+        font-weight: 500
+  .map
+    .japan-map-wrapper
+      @include media-breakpoint-up(xl)
+        margin-top: 0px

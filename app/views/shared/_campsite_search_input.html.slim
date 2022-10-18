@@ -1,0 +1,37 @@
+.row.no-gutters.form-group
+  = render 'shared/campsite_location_search'
+
+  .table-border-wrapper.row.no-gutters
+    .col-6
+      .group_wrapper
+        .form-control.text-center.area-input data-text=t('campsites.search.area')
+          = location_name if local_assigns[:location_name].present?
+
+    .col-6.border-vertical
+      .group_wrapper
+        = render 'shared/campsite_facility_type_search', f: f
+
+    .border-horizontal
+
+    .col-12
+      .group-wrapper-calendar
+        .input-wrapper
+          .form-control.text-center id='calendar_search' data-text=t('campsites.search.anytime')
+
+        .date-box-wrapper.form-control.d-none
+          .check-in
+            .header #{t('daterangepicker.check_in_time')}
+            #start_date_label.body
+              = "#{params[:start_date].to_date.strftime(t('daterangepicker.formats.default',dayname: get_day_name(params[:start_date].to_date)))}" \
+                if params[:start_date].present? && params[:end_date].present?
+          .check-out
+            .header #{t('daterangepicker.check_out_time')}
+            #end_date_label.body
+              = "#{params[:end_date].to_date.strftime(t('daterangepicker.formats.default',dayname: get_day_name(params[:end_date].to_date)))}" \
+                if params[:start_date].present? && params[:end_date].present?
+          .staying
+            .header #{t('daterangepicker.number_of_night')}
+            .body
+              span#staying
+                = (params[:end_date].to_date - params[:start_date].to_date).to_i if params[:start_date].present? && params[:end_date].present?
+              span #{t('daterangepicker.night_stay')}

@@ -1,0 +1,18 @@
+ko:
+  admin:
+    campsite_bookings:
+      index:
+        page_title: Campsite Booking
+        page_description: Campsite Booking List
+        cancellation_date_and_time: Cancellation date and time
+      show:
+        page_title: Campsite Booking
+        page_description: Detail Of Campsite Booking
+      messages:
+        created: 予約を追加しました
+
+  checkout:
+    campsite_bookings:
+      booking_message_title: キャンプ場へのご質問・ご要望
+      error_messages:
+        error_max_number_of_people: １区画の予約可能人数を超えての予約はできません。

@@ -1,0 +1,50 @@
+= simple_form_for(@notice, url: url_for([:admin, @notice, item_type: params[:item_type]])) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.check_box :keep_private
+    = f.label t('activerecord.attributes.blog.keep_private'), class: 'ml-1 font-16'
+    br
+
+  .form-inputs
+    - if params[:item_type] == 'campsite'
+      = render "form_campsite", f: f,
+              resource_collections: [{collection: campsites_group_by_supplier_company_collection,
+                                      attribute: :notice_itemable_id,
+                                      selected: f.object.notice_itemable_id}]
+    - elsif params[:item_type] == 'camp_car'
+      = render "form_camp_car", f: f,
+              resource_collections: [{collection: camp_cars_group_by_supplier_company_collection,
+                                      attribute: :notice_itemable_id,
+                                      selected: f.object.notice_itemable_id}]
+    - I18n.available_locales.each do |locale|
+      = f.label "title_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#notice_title_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#notice_title_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "title_#{locale}", label: false
+    - I18n.available_locales.each do |locale|
+      = f.label "content_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element='notice_content_#{TRANSALTE_PRYMARY_LOCAL}' data-translation-target-element="notice_content_#{locale}" data-translation-target-lang=locale data-Type-Translation="ckeditor"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "content_#{locale}", as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' },
+                                                     class: "#{'form-control is-invalid' if f.object.errors.include?(:content)}" }, label: false
+
+    h7 = t('activerecord.attributes.notice.photo')
+    #photos.mt-2
+      = f.simple_fields_for :photo, (f.object.photo || f.object.build_photo) do |photo|
+        = photo.input :image, label: false
+        .row
+          .col-md-5.col-lg-4.col-xl-2.mb-2
+            - if photo.object.image.present?
+              = image_tag photo.object.image.url, class: 'img-fluid'
+
+    = f.input :publish_date, as: :string, \
+              input_html: { class: 'bootstrap-datepicker',
+                            value: f.object.publish_date&.strftime(t('datetime.formats.short')),
+                            autocomplete: 'off'  }
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

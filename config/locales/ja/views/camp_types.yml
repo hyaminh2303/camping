@@ -1,0 +1,15 @@
+ja:
+  admin:
+    camp_types:
+      index:
+        page_title: キャンプタイプ
+        page_description: キャンプタイプ一覧
+      new:
+        page_title: キャンプタイプ
+        page_description: New Camp Type
+      edit:
+        page_title: キャンプタイプ
+        page_description: キャンプタイプ編集
+      show:
+        page_title: キャンプタイプ
+        page_description: キャンプタイプ詳細

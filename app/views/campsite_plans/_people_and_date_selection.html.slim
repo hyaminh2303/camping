@@ -1,0 +1,61 @@
+.d-none
+  = f.hidden_field :customer_user_id
+  = f.simple_fields_for :campsite_booking do |ff|
+    = ff.hidden_field :campsite_plan_id
+    = ff.hidden_field :check_in, value: ff.object.check_in.strftime(t('datetime.formats.short')), class: 'check-in-input'
+    = ff.hidden_field :check_out, value: ff.object.check_out.strftime(t('datetime.formats.short')), class: 'check-out-input'
+  .people-and-pet-setting-inputs
+    = f.simple_fields_for :campsite_booking do |ff|
+      = ff.input :number_of_adult,
+                  input_html: { \
+                    class: 'people-and-pet-setting-input number-of-adult-input',
+                    min: CampsiteBooking::MIN_NUMBER_OF_ADULT,
+                    max: CampsiteBooking::MAX_NUMBER_OF_ADULT \
+                  },
+                  label: t('campsite_plans.date_selection.people_and_pet_setting.number_of_adult')
+      = ff.simple_fields_for :child_and_pet_included_in_bookings do |fff|
+        = fff.hidden_field :child_and_pet_setting_id
+        = fff.hidden_field :entity_label
+        = fff.hidden_field :entity_type
+        = fff.input :quantity,
+                    label: fff.object.entity_label,
+                    input_html: { \
+                      class: "people-and-pet-setting-input number-of-#{fff.object.entity_type}-setting-input",
+                      min: ChildAndPetIncludedInBooking::MIN_NUMBER_OF_QUANTITY,
+                      max: ChildAndPetIncludedInBooking::MAX_NUMBER_OF_QUANTITY \
+                    }
+
+      .text-right
+        = button_tag t('campsite_plans.date_selection.people_and_pet_setting.buttons.cancel'), type: 'button', class: 'btn btn-gray btn-cancel'
+        = button_tag t('campsite_plans.date_selection.people_and_pet_setting.buttons.apply'), type: 'button', class: 'btn btn-blue ml-1 btn-apply'
+
+.row.mt-3
+  .col-12
+    .text-blue-briny.font-12.font-weight-bold = t('campsite_plans.show.booking_duration')
+  .col-12.mt-2
+    / span.text-gray.font-12.font-weight-bold 5月31日月曜日-6月8日月曜日
+    span#campsite-booking-time-range.text-gray.font-12.font-weight-bold.cursor-pointer data-apply-label="#{t('views.buttons.apply')}" data-cancel-label="#{t('views.buttons.cancel')}"
+      span.start-date
+      span -
+      span.end-date
+    a#btn-edit-campsite-booking-time-range href='javascript:void(0)' class='link-to-edit-booking float-right text-blue font-12 font-weight-bold' = t('campsite_plans.show.buttons.edit')
+.row.mt-3
+  .col-12
+    .text-blue-briny.font-12.font-weight-bold = t('campsite_plans.show.number_of_people')
+.row.mt-2
+  - flash_error_max_number_of_people = flash[:error_max_number_of_people]
+
+  .col-3 class="#{'col-6' if flash_error_max_number_of_people.blank?}"
+    span#campsite-booking-amount-of-people-and-pet.text-gray.font-12.font-weight-bold.cursor-pointer
+      span = t('.number_of_people_details_html', adult: f.object.campsite_booking.number_of_adult, children: f.object.campsite_booking.number_of_children, pet: f.object.campsite_booking.number_of_pet)
+  - if flash_error_max_number_of_people.present?
+    .col-6.font-14.text-center.text-left
+      span.text-red = flash_error_max_number_of_people
+  .col-3 class="#{'col-6' if flash_error_max_number_of_people.blank?}"
+    a#btn-edit-amount-of-people-and-pet href='javascript:void(0)' class='link-to-edit-booking float-right text-blue font-12 font-weight-bold' = t('campsite_plans.show.buttons.edit')
+/ .row.mt-3
+/   .col-12
+/     .text-blue-briny.font-12.font-weight-bold サイト、部屋数
+/   .col-12.mt-2
+/     span.text-gray.font-12.font-weight-bold 1
+/     a href='#' class='float-right text-blue font-12 font-weight-bold' 編集する

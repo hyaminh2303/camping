@@ -1,0 +1,15 @@
+zh:
+  admin:
+    slider_banners:
+      index:
+        page_title: Slider Banner
+        page_description: Slider Banner List
+      new:
+        page_title: Slider Banner
+        page_description: New Slider Banner
+      edit:
+        page_title: Slider Banner
+        page_description: Edit Slider Banner
+      show:
+        page_title: Slider Banner
+        page_description: Detail Of Slider Banner

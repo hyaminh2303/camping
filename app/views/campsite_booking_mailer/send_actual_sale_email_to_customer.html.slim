@@ -1,0 +1,61 @@
+br
+div = "#{@customer_last_name} #{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.sama')}"
+br
+div = t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.line_1')
+div = t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.line_2')
+br
+div = t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.line_3')
+br
+table
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.booking_number')}： "
+    td = @travel_package.booking_ref_number
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.booking_date')}： "
+    td = date_and_day_name(@travel_package.created_at)
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.accommodation_name')}： "
+    td = @travel_package.item_name
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.accommodation_address')}： "
+    td = "#{@travel_package.item.post_code} #{@travel_package.item_address}"
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.accommodation_phone_number')}： "
+    td = @travel_package.item_phone_number
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.check_in_date_and_time')}： "
+    td = @travel_package.check_in_time.strftime(t('datetime.formats.long'))
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.check_out_date_and_time')}： "
+    td = @travel_package.check_out_time.strftime(t('datetime.formats.long'))
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.booking_plan')}： "
+    td = @travel_package.plan_name
+  tr
+    td[style="vertical-align:top"] = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.booking_options')}： "
+    td
+      - if @travel_package.options_included_in_booking.present?
+        - @travel_package.options_included_in_booking.each do |option|
+          div = "#{option.name} X #{option.quantity}"
+      - else
+        = t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.none')
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.customer_name')}： "
+    td = @customer_name
+  tr
+    td = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.number_of_people')}： "
+    td
+      span[style="margin-right: 20px"] = "#{t('campsite_plans.date_selection.people_and_pet_setting.adult')}：  \
+        #{@travel_package.booking.number_of_adult}#{t('campsite_plans.people_and_date_selection.people')}"
+      span[style="margin-right: 20px"] = "#{t('campsite_plans.date_selection.people_and_pet_setting.child')}： \
+        #{@travel_package.booking.number_of_children}#{t('campsite_plans.people_and_date_selection.people')}"
+      span = "#{t('campsite_plans.date_selection.people_and_pet_setting.pet')}： \
+        #{@travel_package.booking.number_of_pet}"
+br
+div = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.payment_method')}： #{@travel_package.payment_method_text}"
+div = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.total_price')}： \
+       #{gcamp_round_price(@travel_package.total_price)}#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.yen_unit')}"
+div = "#{t('campsite_booking_mailer.send_actual_sale_email_to_customer.content.payment_date')}： \
+       #{date_and_day_name(@travel_package.gmo_transaction&.updated_at || @travel_package.created_at)}"
+br
+= render 'layouts/mailer_partials/footer'

@@ -1,0 +1,12 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'form'
+
+  => link_to t('views.buttons.view'), admin_camp_type_path(@camp_type)
+  '|
+  =< link_to t('views.buttons.back'), admin_camp_types_path

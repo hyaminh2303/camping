@@ -1,0 +1,28 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.camp-car-container-wrapper
+  .data-content
+    h2.page-primary-title = t('.page_description')
+    hr
+
+    = render 'shared/messages'
+
+    - if current_admin_user.is_super_admin?
+      p
+        strong = "#{t('activerecord.attributes.child_and_pet_setting.supplier_company_id')}:"
+        = @child_and_pet_setting.campsite&.campsite_supplier_company&.company_name
+    p
+      strong = "#{t('activerecord.attributes.child_and_pet_setting.campsite_id')}:"
+      = @child_and_pet_setting.campsite&.name
+    p
+      strong = "#{t('activerecord.attributes.child_and_pet_setting.entity_type')}:"
+      = @child_and_pet_setting.entity_type
+    - ChildAndPetSetting.globalize_attribute_names.each do |attribute|
+      p
+        strong = "#{t("activerecord.attributes.child_and_pet_setting.#{attribute}")}:"
+        = @child_and_pet_setting.send(attribute)
+
+    => link_to t('views.buttons.edit'), edit_admin_child_and_pet_setting_path(@child_and_pet_setting)
+    '|
+    =< link_to t('views.buttons.back'), admin_child_and_pet_settings_path

@@ -1,0 +1,10 @@
+- if params['booking_type'] == 'campsite_booking'
+  = hidden_field_tag :booking_type, 'campsite_booking'
+  = hidden_field_tag :campsite_plan_id, params[:campsite_plan_id]
+
+- elsif params['booking_type'] == 'camp_car_booking'
+  = hidden_field_tag :booking_type, 'camp_car_booking'
+  = hidden_field_tag :camp_car_id, params[:camp_car_id]
+
+- elsif params['booking_type'] == 'camp_car_booking'
+  = hidden_field_tag :booking_type, 'camp_car_booking'

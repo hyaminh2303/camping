@@ -1,0 +1,18 @@
+.d-none
+  = f.hidden_field :customer_user_id
+  = f.simple_fields_for :camp_car_booking do |ff|
+    = ff.hidden_field :camp_car_id
+    = ff.hidden_field :start_date_of_renting, value: ff.object.start_date_of_renting.strftime('%d/%m/%Y'), class: 'start-date-of-renting-input'
+    = ff.hidden_field :end_date_of_renting, value: ff.object.end_date_of_renting.strftime('%d/%m/%Y'), class: 'end-date-of-renting-input'
+
+.row.mt-2
+  .col-12
+    /  5月31日月曜日-6月8日月曜日
+    span#camp-car-booking-time-range.text-gray.font-12.font-weight-bold.cursor-pointer
+      span.start-date-of-renting
+        = f.object.camp_car_booking.start_date_of_renting.strftime('%d/%m/%Y')
+      span -
+      span.end-date-of-renting
+        = f.object.camp_car_booking.end_date_of_renting.strftime('%d/%m/%Y')
+    a#btn-edit-camp-car-booking-time-range href="javascript:void(0)" class="link-to-edit-booking float-right text-blue font-12 font-weight-bold"
+      = t("checkout.camp_car_bookings.page.link_name.to_edit")

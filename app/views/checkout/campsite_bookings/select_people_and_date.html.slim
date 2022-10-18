@@ -1,0 +1,27 @@
+/ step 1
+.checkout-campsite-booking-container-wrapper
+  = render 'shared/wizard', booking_type: :campsite_booking, step: 1
+  .campsite-booking-information-wrapper
+
+    - if flash[:error_max_number_of_people].blank?
+      = render 'shared/messages'
+
+    .page-title.mgt-35.mgb-24 = t('checkout.campsite_bookings.views.select_people_and_date.page_title')
+
+    = simple_form_for(@travel_package, url: create_booking_checkout_campsite_bookings_path, html: { class: 'campsite-booking-form new-campsite-booking-form'}) do |f|
+      = hidden_field_tag :current_campsite_booking_step, 'select_people_and_date'
+      = render "people_and_date_selection", f: f
+      .item-price.text-center.mgt-45
+        span.number-of-days= f.object.campsite_booking.number_of_nights
+        span.time-unit = t('views.booking_information.unit.day')
+        span.total-price.text-break
+          = gcamp_round_price(f.object.total_price)
+        span.font-13.font-weight-bold = t('views.booking_information.unit.currency')
+      .action-button-wrapper
+        .row.mgt-26
+          .col-12.text-center
+            = f.submit t('checkout.campsite_bookings.views.select_people_and_date.buttons.booking'), class: 'btn btn-w350-full-width-mobile btn-yellow'
+          .col-12.mgt-12.text-center
+            = link_to t('checkout.campsite_bookings.views.select_people_and_date.buttons.back'),
+                      campsite_plan_path(@travel_package.campsite_booking.campsite_plan.id),
+                      class: 'btn btn-w350-full-width-mobile btn-black'

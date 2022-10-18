@@ -1,0 +1,21 @@
+en:
+  admin:
+    camp_cars:
+      general:
+        add_camp_car_quantity: Add quantity per day
+      index:
+        page_title: Camp Car
+        page_description: Camp Car List
+      new:
+        page_title: Camp Car
+        page_description: New Camp Car
+      edit:
+        page_title: Camp Car
+        page_description: Edit Camp Car
+      show:
+        page_title: Camp Car
+        page_description: Detail Of Camp Car
+
+  camp_cars:
+    error_messages:
+      camp_car_is_out_of_stock: Camp car is out of stock, please choose another camp car

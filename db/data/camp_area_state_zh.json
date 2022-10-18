@@ -1,0 +1,1004 @@
+[
+  {
+    "name_zh": "",
+    "code": "hokkaido",
+    "prefectures": [
+      {
+        "name_zh": "",
+        "code": "hokkaido",
+        "cities": [
+          {
+            "name_zh": "北部",
+            "code": "douhoku"
+          },
+          {
+            "name_zh": "东部",
+            "code": "douto"
+          },
+          {
+            "name_zh": "中部/南部",
+            "code": "douou_dounan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "",
+    "code": "tohoku",
+    "prefectures": [
+      {
+        "name_zh": "",
+        "code": "aomori",
+        "cities": [
+          {
+            "name_zh": "八甲田 / 十和田湖",
+            "code": "hakkouda_lake_towada"
+          },
+          {
+            "name_zh": "白神 / 岩木山",
+            "code": "shirakami_iwakisan"
+          },
+          {
+            "name_zh": "下北半岛",
+            "code": "shimokita_peninsula"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "iwate",
+        "cities": [
+          {
+            "name_zh": "八幡平 / 岩手山",
+            "code": "hachimantai_iwatesan"
+          },
+          {
+            "name_zh": "三陆海岸",
+            "code": "sanriku_coast"
+          },
+          {
+            "name_zh": "花卷/北上",
+            "code": "hanamaki_kitakami"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "miyagi",
+        "cities": [
+          {
+            "name_zh": "三陆海岸",
+            "code": "sanriku_coast"
+          },
+          {
+            "name_zh": "枣",
+            "code": "zao"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "akita",
+        "cities": [
+          {
+            "name_zh": "男鹿半岛",
+            "code": "oga_peninsula"
+          },
+          {
+            "name_zh": "田泽湖 / 八幡平山",
+            "code": "tazawa_lake_hachimantai"
+          },
+          {
+            "name_zh": "鸟海山",
+            "code": "mount_chokai"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "yamagata",
+        "cities": [
+          {
+            "name_zh": "鹤冈/月山",
+            "code": "tsuruoka_gassan"
+          },
+          {
+            "name_zh": "鸟海山",
+            "code": "mt_chokai"
+          },
+          {
+            "name_zh": "最上河流域",
+            "code": "mogami_river_basin"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "福岛",
+        "code": "fukushima",
+        "cities": [
+          {
+            "name_zh": "万代山 / 猪苗代湖",
+            "code": "mt_bandai_lake_inawashiro"
+          },
+          {
+            "name_zh": "会津高速公路",
+            "code": "aizu_kaido"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "新泻",
+        "code": "nigata",
+        "cities": [
+          {
+            "name_zh": "八海山 / 南鱼沼 / 越后汤泽",
+            "code": "hakkaisan"
+          },
+          {
+            "name_zh": "亲不知 / 上越 / 妙高",
+            "code": "oyashirazu_joetsu_myoko"
+          },
+          {
+            "name_zh": "奥会津",
+            "code": "okuaizu"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "",
+    "code": "kanto",
+    "prefectures": [
+      {
+        "name_zh": "东京",
+        "code": "tokyo",
+        "cities": [
+          {
+            "name_zh": "奥多摩",
+            "code": "okutama"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "kanagawa",
+        "cities": [
+          {
+            "name_zh": "箱根 / 芦之湖",
+            "code": "hakone_lake_ashino"
+          },
+          {
+            "name_zh": "丹泽山脉",
+            "code": "mt_tanzawa"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "saitama",
+        "cities": [
+          {
+            "name_zh": "秩父 / 长瀞",
+            "code": "chichibu_nagatoro"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "千叶",
+        "code": "chiba",
+        "cities": [
+          {
+            "name_zh": "房总半岛",
+            "code": "bosohanto"
+          },
+          {
+            "name_zh": "九十九里",
+            "code": "kuzyukuri"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "ibaraki",
+        "cities": [
+          {
+            "name_zh": "大洗",
+            "code": "oharai"
+          },
+          {
+            "name_zh": "袋田瀑布 / 奥久次",
+            "code": "waterfall_fukuroda_okukuzi"
+          },
+          {
+            "name_zh": "筑波山",
+            "code": "mt_tsukuba"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "tochigi",
+        "cities": [
+          {
+            "name_zh": "那须",
+            "code": "nasu"
+          },
+          {
+            "name_zh": "日光 / 中尊寺",
+            "code": "nikko_chusonzi_temple"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "群马",
+        "code": "gunma",
+        "cities": [
+          {
+            "name_zh": "尾濑 / 丸沼 / 谷川岳",
+            "code": "ose_marunuma_mt_tanigawa"
+          },
+          {
+            "name_zh": "北轻井泽 / 榛名山 / 伊香保",
+            "code": "north_karuizawa_mt_haruna_ikaho"
+          },
+          {
+            "name_zh": "赤城山",
+            "code": "mt_akagi"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "yamanashi",
+        "cities": [
+          {
+            "name_zh": "富士山 / 富士五湖",
+            "code": "mt_fuji_lake_fuji"
+          },
+          {
+            "name_zh": "南阿尔卑斯山 / 八岳",
+            "code": "south_alps_yatsugatake"
+          },
+          {
+            "name_zh": "甲州 / 胜沼",
+            "code": "kosyu_katsunuma"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "",
+    "code": "chubu",
+    "prefectures": [
+      {
+        "name_zh": "长野",
+        "code": "nagano",
+        "cities": [
+          {
+            "name_zh": "中央阿尔卑斯山 (驹岳/木曾)",
+            "code": "middle_alps"
+          },
+          {
+            "name_zh": "北阿尔卑斯山 (白马/妙高)",
+            "code": "north_alps"
+          },
+          {
+            "name_zh": "上越 / 斑尾 / 伊根 / 户隐",
+            "code": "joetsu_madarao_iizuna_togakushi"
+          },
+          {
+            "name_zh": "蓼科 / 诹访湖 /美毛原",
+            "code": "tateshina_lake_suwa_mimohara"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "toyama",
+        "cities": [
+          {
+            "name_zh": "立山/黑部/宇奈月",
+            "code": "tateishi_kurobe_unazuki"
+          },
+          {
+            "name_zh": "五箇山/庄川",
+            "code": "gokayama_shogawa"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "ishikawa",
+        "cities": [
+          {
+            "name_zh": "能登 / 轮岛",
+            "code": "noto_wajima"
+          },
+          {
+            "name_zh": "白山",
+            "code": "hakusan"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "fukui",
+        "cities": [
+          {
+            "name_zh": "越前/东寻坊",
+            "code": "echizen_tojinbo"
+          },
+          {
+            "name_zh": "若狭",
+            "code": "wakasa"
+          },
+          {
+            "name_zh": "九头龙",
+            "code": "kuzuryu"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "静冈",
+        "code": "shizuoka",
+        "cities": [
+          {
+            "name_zh": "富士山",
+            "code": "mt_fuji"
+          },
+          {
+            "name_zh": "伊豆",
+            "code": "izu"
+          },
+          {
+            "name_zh": "爱河",
+            "code": "oikawa"
+          },
+          {
+            "name_zh": "滨名湖",
+            "code": "lake_hamana"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "爱知",
+        "code": "aichi",
+        "cities": [
+          {
+            "name_zh": "三河",
+            "code": "mikawa"
+          },
+          {
+            "name_zh": "犬山 / 尾张",
+            "code": "inuyama_owari"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "gifu",
+        "cities": [
+          {
+            "name_zh": "飞騨 / 高山 / 白川乡",
+            "code": "hida_takayama_shirakawago"
+          },
+          {
+            "name_zh": "下吕 / 郡上",
+            "code": "gero_gujo"
+          },
+          {
+            "name_zh": "关原 / 伊比",
+            "code": "sekigahara_ibi"
+          },
+          {
+            "name_zh": "中津川",
+            "code": "nakathu_river"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "mie",
+        "cities": [
+          {
+            "name_zh": "伊势 / 鸟羽 / 志摩",
+            "code": "ise_toba_shima"
+          },
+          {
+            "name_zh": "伊贺 / 名张",
+            "code": "iga_nabari"
+          },
+          {
+            "name_zh": "御在所",
+            "code": "gozaisho"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "",
+    "code": "kansai",
+    "prefectures":[
+      {
+        "name_zh": "",
+        "code": "osaka",
+        "cities": [
+          {
+            "name_zh": "大阪北部",
+            "code": "north_osaka"
+          },
+          {
+            "name_zh": "大阪南部",
+            "code": "south_osaka"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "兵库",
+        "code": "hyogo",
+        "cities": [
+          {
+            "name_zh": "淡路岛",
+            "code": "awaji_island"
+          },
+          {
+            "name_zh": "城崎 / 神美",
+            "code": "kinosaki_kami"
+          },
+          {
+            "name_zh": "丰冈/上边/八高原",
+            "code": "tomioka_kaminabe_hachkogen"
+          },
+          {
+            "name_zh": "丹波/和田山/紫苏",
+            "code": "tamba_wadayama_shiso"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "kyoto",
+        "cities": [
+          {
+            "name_zh": "丹后/天桥立/舞鹤",
+            "code": "tango_amanohashidate_maizuru"
+          },
+          {
+            "name_zh": "福知山/绫部",
+            "code": "fukuchiyama_ayabe"
+          },
+          {
+            "name_zh": "丹波/龟冈",
+            "code": "tamba_kameoka"
+          },
+          {
+            "name_zh": "京都",
+            "code": "kyoto"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "滋贺",
+        "code": "shiga",
+        "cities": [
+          {
+            "name_zh": "湖西",
+            "code": "lake_west"
+          },
+          {
+            "name_zh": "湖北",
+            "code": "lake_north"
+          },
+          {
+            "name_zh": "湖東",
+            "code": "lake_east"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "nara",
+        "cities": [
+          {
+            "name_zh": "吉野/天川",
+            "code": "yoshino_tenkawa"
+          },
+          {
+            "name_zh": "十津川/北山村",
+            "code": "totsukawa_kitayama_village"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "wakayama",
+        "cities": [
+          {
+            "name_zh": "",
+            "code": "shirahama_kushimoto"
+          },
+          {
+            "name_zh": "",
+            "code": "kumano_kodo_ryujin"
+          },
+          {
+            "name_zh": "",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "",
+    "code": "chugoku",
+    "prefectures": [
+      {
+        "name_zh": "冈山",
+        "code": "okayama",
+        "cities": [
+          {
+            "name_zh": "黄善 / 真庭 /新见",
+            "code": "hiruzen_maniwa_niimi"
+          },
+          {
+            "name_zh": "津山 / 奥津",
+            "code": "tsuyama_okutsu"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "广岛",
+        "code": "hiroshima",
+        "cities": [
+          {
+            "name_zh": "尾道/岛波海道",
+            "code": "onomichi_shimanami_kaido"
+          },
+          {
+            "name_zh": "帝釈峡 / 神石高原 / 色拉",
+            "code": "taishaku_gorge_jinseki_kogen_sera"
+          },
+          {
+            "name_zh": "三好 / 庄原 / 美北",
+            "code": "miyoshi_shobara_bihoku"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "鸟取",
+        "code": "tottori",
+        "cities": [
+          {
+            "name_zh": "大山 / 境港",
+            "code": "oyama_sakaiminato"
+          },
+          {
+            "name_zh": "仓吉 / 三朝 / 鸟取",
+            "code": "kurayoshi_misasa_tottori"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "岛根",
+        "code": "shimane",
+        "cities": [
+          {
+            "name_zh": "石见 / 滨田",
+            "code": "iwami_hamada"
+          },
+          {
+            "name_zh": "出云 / 奥出云",
+            "code": "izumo_okuizumo"
+          },
+          {
+            "name_zh": "隐岐",
+            "code": "oki"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "yamaguchi",
+        "cities": [
+          {
+            "name_zh": "近江岛 / 长门 / 萩 / 秋吉台",
+            "code": "omi_island_nagato_hagi_akiyoshidai"
+          },
+          {
+            "name_zh": "周南 / 八代岛",
+            "code": "shunan_yashiro_island"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "",
+    "code": "shikoku",
+    "prefectures": [
+      {
+        "name_zh": "德岛",
+        "code": "tokushima",
+        "cities": [
+          {
+            "name_zh": "阿南 / 日和佐",
+            "code": "anan_hiwasa"
+          },
+          {
+            "name_zh": "大步危 / 祖屋 / 剑山",
+            "code": "oboke_iya_mt_tsurugi"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "kagawa",
+        "cities": [
+          {
+            "name_zh": "观音寺 / 琴平 / 丸龟",
+            "code": "kanonji_kotohira_marugame"
+          },
+          {
+            "name_zh": "小豆岛 / 孤岛",
+            "code": "shodoshima_remote_island"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "爱媛",
+        "code": "ehime",
+        "cities": [
+          {
+            "name_zh": "今治 / 岛波海道",
+            "code": "imabari_shimanami_kaido"
+          },
+          {
+            "name_zh": "熊高原 / 石锤山",
+            "code": "kumakogen_mt_ishizuchi"
+          },
+          {
+            "name_zh": "宇和岛/西予",
+            "code": "uwajima_seiyo"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "kochi",
+        "cities": [
+          {
+            "name_zh": "四万十 / 足折",
+            "code": "shimanto_ashizuri"
+          },
+          {
+            "name_zh": "仁淀川流域",
+            "code": "niyodo_river_basin"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_zh": "",
+    "code": "kyushu",
+    "prefectures": [
+      {
+        "name_zh": "福冈",
+        "code": "fukuoka",
+        "cities": [
+          {
+            "name_zh": "福冈 / 糸岛 / 太宰府",
+            "code": "fukuoka_itoshima_dazaifu"
+          },
+          {
+            "name_zh": "久留米 / 筑后",
+            "code": "kurume_chikugo"
+          },
+          {
+            "name_zh": "北九州 / 宗像",
+            "code": "kitakyushu_munakata"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "佐贺",
+        "code": "saga",
+        "cities": [
+          {
+            "name_zh": "唐津/  伊万里 / 有田",
+            "code": "karatsu_imari_arita"
+          },
+          {
+            "name_zh": "古汤 / 吉野里",
+            "code": "furuyu_yoshinogari"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "长崎",
+        "code": "nagasaki",
+        "cities": [
+          {
+            "name_zh": "平户 / 佐世保",
+            "code": "hirado_sasebo"
+          },
+          {
+            "name_zh": "长崎",
+            "code": "nagasaki"
+          },
+          {
+            "name_zh": "云仙",
+            "code": "unzen"
+          },
+          {
+            "name_zh": "五岛 / 壹岐 / 对马",
+            "code": "goto_iki_tsushima"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "oita",
+        "cities": [
+          {
+            "name_zh": "国东",
+            "code": "kunisaki"
+          },
+          {
+            "name_zh": "耶马溪 / 日田",
+            "code": "yabakei_hita"
+          },
+          {
+            "name_zh": "大分 / 别府 / 汤布院",
+            "code": "oita_beppu_yufuin"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "kumamoto",
+        "cities": [
+          {
+            "name_zh": "熊本 / 山鹿",
+            "code": "kumamoto_yamaga"
+          },
+          {
+            "name_zh": "阿苏",
+            "code": "aso"
+          },
+          {
+            "name_zh": "天草 / 八代 / 人吉",
+            "code": "amakusa_yatsushiro_hitoyoshi"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "",
+        "code": "miyazaki",
+        "cities": [
+          {
+            "name_zh": "高千穗 / 日向 / 延冈",
+            "code": "takachiho_hyuga_nobeoka"
+          },
+          {
+            "name_zh": "雾岛 / 都城",
+            "code": "kirishima_miyakonojo"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "鹿儿岛",
+        "code": "kagoshima",
+        "cities": [
+          {
+            "name_zh": "雾岛",
+            "code": "kirishima"
+          },
+          {
+            "name_zh": "指宿 / 萨摩半岛",
+            "code": "ibusuki_satsuma_peninsula"
+          },
+          {
+            "name_zh": "桜島 / 大隅半島",
+            "code": "sakurajima_osumi_peninsula"
+          },
+          {
+            "name_zh": "奄美 / 孤岛",
+            "code": "amami_remote_island"
+          },
+          {
+            "name_zh": "其他",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_zh": "冲绳",
+        "code": "okinawa",
+        "cities": [
+          {
+            "name_zh": "那霸",
+            "code": "naha"
+          }
+        ]
+      }
+    ]
+  }
+]

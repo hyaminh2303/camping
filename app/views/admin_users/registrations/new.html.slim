@@ -1,0 +1,37 @@
+.card-body.login-card-body
+  p.login-box-msg Sign up
+
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .row
+      .col-12
+        = render "users/shared/error_messages", resource: resource
+
+    .input-group.mb-3
+      = f.email_field :email, class: 'form-control', placeholder: 'Email'
+      .input-group-append
+        .input-group-text
+          span.fas.fa-envelope
+
+    .input-group.mb-3
+      = f.password_field :password, class: 'form-control', \
+                         placeholder: 'Password'
+      .input-group-append
+        .input-group-text
+          span.fas.fa-lock
+
+    .input-group.mb-3
+      = f.password_field :password_confirmation, class: 'form-control', \
+                         placeholder: 'Password confirmation'
+      .input-group-append
+        .input-group-text
+          span.fas.fa-lock
+
+    .row
+      .col-7
+        .icheck-primary
+      .col-12
+        button.btn.btn-primary.btn-block.btn-flat type="submit"
+          | Sign up
+
+
+  = render "users/shared/links"

@@ -1,0 +1,11 @@
+zh:
+  layouts:
+    top_header_menu_items:
+      sign_out: 退出
+      profile: プロフィール
+      sama: 様
+      mr: さん
+      sign_in: 登录
+      sign_up: 会员注册
+      language: 语言选择
+      new_contact_us: 常见问题

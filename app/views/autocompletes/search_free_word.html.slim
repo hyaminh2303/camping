@@ -1,0 +1,16 @@
+.campsite-container-wrapper
+  section.container.recommended-campsites.my-4
+    .row
+      .col-12.text-center
+        = render 'shared/items_title',
+                title: t('autocompletes.search_free_word.searching_result')
+    .row
+      .col-md-8.m-auto
+        .list-camp-element-items
+          - @campsites.each do |campsite|
+            = render "shared/campsite_item_horizontal", campsite: campsite
+    .button-actions.text-center.mt-4
+      = link_to t('autocompletes.search_free_word.go_back_top_page'), root_path, class: "btn btn-tomato"
+
+  section.container.pagination.justify-content-center
+    = paginate @campsites, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

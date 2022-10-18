@@ -1,0 +1,149 @@
+@import '../definitions/variables'
+
+@mixin campsite-details-on-mobile
+  .row-content
+    display: flex
+    flex-wrap: wrap
+  .btn-normal
+    font-size: 12px
+    font-weight: bold
+  .background-border
+    border-radius: 4px
+    border: solid 1px $light-gray-color
+    background-color: $white-color
+
+  section.banner-wrapper.container
+    padding: 0px
+    .main-slider:not(.slick-dotted)
+      .slick-list.draggable
+        padding: 0 !important
+    .main-slider
+      .slider-item
+        img
+          width: 100%
+          height: 285px
+
+  section.container.title-content
+    .prefecture
+      font-weight: normal
+    .campsite-name
+      font-size: 20px
+      font-weight: bold
+    .location-text
+      font-size: 12px
+    a.see-map
+      font-size: 12px
+      font-weight: bold
+    .contact-number
+      font-size: 12px
+      font-weight: bold
+    .map-wrapper
+      .modal-body
+        height: 500px
+    .check-information-btn
+      width: 100%
+      line-height: 25px
+
+  section.container.body-content
+    .content-wrapper
+      margin-top: 30px
+      .title
+        font-size: 18px
+        font-weight: bold
+      .content
+        margin-top: 16px
+        font-size: 12px
+        .main-wrapper
+          margin: 15px
+    #sketch-on-mobile
+      .image-wrapper
+        display: flex
+        .image-item
+          margin-bottom: 5px
+          display: flex
+          flex-direction: column
+          img
+            height: 130px
+            object-fit: cover
+          a
+            display: block
+            margin-top: 10px
+          .overlay
+            height: 0%
+            width: 100%
+            position: fixed
+            z-index: 1
+            top: 0
+            left: 0
+            background-color: rgba(0, 0, 0, 0.8)
+            transition: 0.5s
+            overflow: auto
+            .container
+              position: relative
+              .btn-wrapper
+                .closebtn
+                  font-size: 60px
+                  color: $white-color
+                  font-weight: 300
+                  text-align: right
+                  cursor: pointer
+                  margin-left: auto
+                  width: 40px
+              .overlay-content
+                text-align: center
+                img
+                  width: 100%
+                  height: auto
+                  object-fit: cover
+    #facilities-on-mobile
+      .camp-category-wrapper
+        margin: 15px
+        margin-bottom: 5px
+        .btn
+          margin: 0px 5px 5px 0px
+          font-weight: bold
+          font-size: 12px
+          color: $extra-gray-color
+        .camp-category-item
+          color: $top-header-bg-color
+          font-weight: normal
+    #news-on-mobile
+      .main-wrapper
+        font-size: 14px
+        .title-news
+          font-weight: bold
+          margin-bottom: 15px
+        a
+          color: $light-blue-color
+      .see-all-article
+        margin-top: 10px
+        a
+          font-size: 14px
+    #campsite-plans-on-mobile
+      .main-wrapper
+        margin: 10px
+        display: flex
+        .image-wrapper
+          margin-right: 10px
+          img
+            width: 100px
+            height: 100px
+            border-radius: 6px
+            object-fit: cover
+        .info
+          .plan-name
+            font-size: 12px
+            font-weight: bold
+            display: flex
+            justify-content: center
+            align-items: center
+          .booking-price-wrapper
+            text-align: right
+            .price
+              font-weight: bold
+              .text-desc
+                font-size: 12px
+                margin-right: 10px
+              .amount
+                font-size: 18px
+                color: $yellow-color

@@ -1,0 +1,67 @@
+ja:
+  admin:
+    campsites:
+      general:
+        add_photo: 写真追加
+      index:
+        page_title: キャンプ場管理
+        page_description: キャンプ場一覧
+      new:
+        page_title: キャンプ場管理
+        page_description: 新規キャンプ場追加
+      edit:
+        page_title: キャンプ場管理
+        page_description: キャンプ場編集
+      show:
+        page_title: キャンプ場管理
+        page_description: キャンプ場詳細
+    translate:
+      translate_to_en: 英語自動翻訳
+      translate_to_zh: 中国語自動翻訳
+
+  campsites:
+    error_messages:
+      not_found: Campsite not found
+    search:
+      title: "キャンプ場検索"
+      area: エリア
+      facility-type: 施設タイプ
+      anytime: いつでも
+      close: 閉じる
+      item: 件
+      there_are_campsites: "%{total_count}件のキャンプ場があります"
+      narrow_down_campsites: キャンプ場を絞り込む
+      location:
+        title: 全国の地域から探す
+    index:
+      site_description: キャンプ場の詳細検索(エリア、近隣施設、アクティビティなど検索)
+      line_title_1: さあ、キャンプ場を発見しよう
+      line_title_2: 全国のキャンプ場検索・予約ができます
+      search_campsite: キャンプ場を探す
+      search_by_map_title: Search by Map
+      search_by_map_description: 地図からキャンプ場を探す
+      recommended_campsite_title: Recommended campsite
+      recommended_campsite_description: おすすめキャンプ場
+    show:
+      see_map: マップで表示する
+      campsite_map: 見取り図
+      business_information: 営業情報
+      select_plan: プランを選択する
+      one_day: １泊
+      currency_unit: 円
+      post_code: 〒
+      one_night_two_days: 1泊2日
+      models:
+        price: "¥%{price}"
+      booking_with_this_plan: このプランで予約する
+      overview: 概要
+      sketch: 見取り図
+      facilities_in_the_hall: 場内施設
+      business_information: 営業情報
+      peripheral_facilities: 周辺施設
+      check_sales_information: 営業情報を確認する
+      look_at_the_sketch: 見取り図を大きく見る
+      news: お知らせ
+      read_the_article: 記事を読む >>
+      show_all_article: 全ての記事を表示する
+      about_this_campsite: このキャンプ場について

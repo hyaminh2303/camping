@@ -1,0 +1,84 @@
+@import '../definitions/variables'
+
+.tour-detail-container-wrapper
+  font-family: $primary-font-family
+
+  section.main-slider
+    .slider-item
+      img
+        object-fit: cover
+        width: 100%
+
+        @include media-breakpoint-down(md)
+          height: 330px
+        @include media-breakpoint-up(lg)
+          height: 352px
+
+    .slick-dots
+      li
+        margin: 0
+        button
+          &::before
+            font-size: 40px
+
+  section.container.description-content
+    .date-text
+      font-weight: bold
+      color: $blue-color
+      text-align: right
+    .departure-status
+      background-color: #dee834
+      font-weight: bold
+    .btn
+      line-height: 1.11
+    .book-button
+      font-weight: bold
+      line-height: 30px
+      @include media-breakpoint-down(md)
+        width: 100%
+      @include media-breakpoint-up(lg)
+        width: 50%
+
+  section.container.main-content-wrapper
+    .map-image-wrapper
+      text-align: center
+
+    .text-border-left
+      border-left: 4px solid $blue-color
+      padding: 7px 12px 2px
+
+    .title
+      font-size: 18px
+      font-weight: bold
+      margin-bottom: 20px
+      margin-top: 30px
+    .blue-background
+      background-color: #e6f2f7
+      padding: 7px 15px 8px
+      .text-border-left
+        padding: 1px 12px 2px
+        border-left: 4px solid $blue-color
+    @include media-breakpoint-down(sm)
+      .text-border-bottom
+        padding: 1px 12px 2px
+        border-bottom: 2px solid $blue-color
+    @include media-breakpoint-up(md)
+      .text-border-bottom
+        padding: 1px 12px 2px
+        border-bottom: 4px solid $blue-color
+    .tour-booking
+      .btn
+        line-height: 1.25
+      .price-information
+        text-align: right
+        font-weight: bold
+        .adult-price, .children-price
+          font-family: $font-quicksand
+          color: $yellow-color
+    .book-button
+      font-weight: bold
+      line-height: 30px
+      @include media-breakpoint-down(sm)
+        width: 100%
+      @include media-breakpoint-up(md)
+        width: 50%

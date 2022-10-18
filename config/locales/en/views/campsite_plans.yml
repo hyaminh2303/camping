@@ -1,0 +1,50 @@
+en:
+  admin:
+    campsite_plans:
+      general:
+        day: Day
+        date: Date
+        default: Default
+        add_daily_fee: Add daily fee
+        add_photo: Add photo
+        add_campsite_plan_quantity: Add quantity per day
+
+      index:
+        page_title: Campsite Plan
+        page_description: Campsite Plan List
+      new:
+        page_title: Campsite Plan
+        page_description: New Campsite Plan
+      edit:
+        page_title: Campsite Plan
+        page_description: Edit Campsite Plan
+      show:
+        page_title: Campsite Plan
+        page_description: Detail Of Campsite Plan
+      form:
+        site_parcel_charge_setting: Site parcel charge setting
+
+  campsite_plans:
+    show:
+      book_for: "Book for %{title}"
+      plan_details: Plan details
+      select_date_and_number_of_people: Select a date & number of people
+      booking_duration: Booking duration
+      number_of_people: Number of people
+      day: day
+      yen: Yen
+      buttons:
+        edit: Edit
+        back: Return to camp site
+    date_selection:
+      people_and_pet_setting:
+        buttons:
+          cancel: Back
+          apply: Apply
+        number_of_adult: Number of adult
+        adult: Adult
+    error_messages:
+      campsite_plan_is_out_of_stock: Campsite plan is out of stock, please choose another campsite plan
+    people_and_date_selection:
+      number_of_people_details_html: "<span class='number-of-adult'>%{adult}</span> Adults <span class='number-of-children'>%{children}</span> Children <span class='number-of-pet'>%{pet}</span> Pets"
+      people: ""

@@ -1,0 +1,48 @@
+ja:
+  my_pages:
+    show:
+      page_title: マイページ
+      booking_list_tab: 予約一覧
+      membership_info_tab: 会員情報
+      booking_history: 予約履歴一覧
+      confirm_booking_details: 予約内容を確認する
+      membership_info_title: 会員情報設定
+      adult: 大人
+      child: 子供
+      pet: ペット
+      people: 名
+      message_modal: この施設にメッセージを送信する
+      show_details: 詳細を見る
+      show_more: 更に表示する
+      detail: 予約内容詳細
+      title: 予約人数
+      additional_options: 追加オプション
+    profile:
+      buttons:
+        update_membership_info: 会員情報を変更する
+        return_for_book_history: 予約一覧へ戻る
+        withdraw_membership: 退会する
+    messages:
+      confirms:
+        cancel_travel_package: 本当にキャンセルしますか？
+        withdraw_membership: 本当に退会しますか？ <br> ＊すべての予約履歴は削除されます <br> ＊すべての会員情報は削除されます
+    campsite_booking_detail:
+      message: メッセージ
+      title: 件名
+      send_message: メッセージを送信する
+      number_of_people_details_html: "大人<span class='number-of-adult'>%{adult}</span>名
+                                      子供<span class='number-of-children'>%{children}</span>名
+                                      ペット<span class='number-of-pet'>%{pet}</span>"
+      unit:
+        currency: 円
+      number_of_bookings: 予約人数
+      send_a_message_to_this_facility: この施設にメッセージを送信する
+      view_the_details: 詳細を見る
+      show_more: 更に表示する
+      booking_details: 予約内容詳細
+      additional_options: 追加オプション
+      update_your_booking: ご予約内容を更新する
+      cancel_this_booking: この予約をキャンセルする
+      booking_name: 予約者名
+      check_in_date_and_time: チェックイン日時
+      check_out_date_and_time: チェックアウト日時

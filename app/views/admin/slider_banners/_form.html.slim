@@ -1,0 +1,26 @@
+= simple_form_for([:admin, @slider_banner]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  - (I18n.available_locales - [:ko]).each do |locale|
+    hr
+    - if locale == :ja
+      .form-inputs
+        = f.input :page, as: :select, collection: slider_banner_pages_collection, include_blank: false, label: t("activerecord.attributes.slider_banner.page_ja")
+    - else
+      .mt-3 = t("activerecord.attributes.slider_banner.page_#{locale}")
+
+    .form-inputs
+      - slider_banner_locales = f.object.slider_banner_locales
+      = f.simple_fields_for :slider_banner_locales, slider_banner_locales.find{ |x| x.locale&.to_sym == locale } || \
+                                                    slider_banner_locales.build(locale: locale) do |ff|
+        = ff.hidden_field :locale
+        h7 = t('activerecord.attributes.slider_banner.photos')
+        .photos
+          = ff.simple_fields_for :photos, (ff.object.photos.presence || ff.object.photos.build ) do |photo|
+            = render 'photo_fields', f: photo
+          .links
+            = link_to_add_association t('admin.slider_banners.general.add_photo'), ff, :photos, partial: 'photo_fields', class: 'btn btn-blue'
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

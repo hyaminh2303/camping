@@ -1,0 +1,77 @@
+.booking-detail-wrapper.container
+  section.booking-item.d-flex
+    .row.image-wrapper.mr-3
+      = gcamp_image_tag @camp_car.photos.first&.image, class: 'booking-item-image'
+    .row
+      .col-12.name.font-13-down-sm.font-14-only-md.font-16-up-lg.font-weight-bold = @camp_car.name
+      .col-12.booking-date.font-12-down-sm.font-13-only-md.font-15-up-lg.font-weight-bold
+        = "#{@camp_car_booking.start_date_of_renting.strftime(t('datetime.formats.short'))} - \
+          #{@camp_car_booking.end_date_of_renting.strftime(t('datetime.formats.short'))}"
+      .col-12.font-weight-bold.font-12-down-sm.font-13-only-md.font-15-up-lg.booking-ref-number
+        = "【#{t('activerecord.attributes.travel_package.booking_ref_number')}】#{@travel_package.booking_ref_number}"
+      .col-12.font-12-down-sm.font-13-only-md.font-15-up-lg
+        .font-weight-bold class="text-#{travel_package_status_color_code(@travel_package.booking_status)}"
+          = t("activerecord.enum.travel_package.status.#{@travel_package.booking_status}")
+      .col-12.font-weight-bold.text-right
+        span.font-20-down-sm.font-24-up-md.price = gcamp_round_price(@travel_package.total_price)
+        span.font-13-down-sm.font-16-up-md 円
+
+  section.comments
+    .row.justify-content-center.mt-3.mt-lg-4.mb-4
+      a href="#" class="btn btn-blue font-weight-bold font-16 no-border-radius send-message-button w-100" data-toggle="modal"  data-target="#messageModal" この施設にメッセージを送信する
+    - @travel_package.camp_car_booking.booking_messages.each do |booking_message|
+      .comment-item.mb-3.mb-lg-4
+        .row.d-flex.font-10-down-sm.font-12-only-md.font-14-up-lg.font-weight-bold
+          .date.mr-3.mr-lg-4 2021年8月28日
+          .user-name = booking_message.customer_user.full_name
+        .row.content.font-12-down-sm.font-14-only-md.font-16-up-lg
+          = booking_message.subject
+        .row.font-10-down-sm.font-12-only-md.font-14-up-lg.justify-content-end
+          a href=booking_message_path(booking_message) class="font-weight-bold no-border-radius comment-detail-button" 詳細を見る
+    .row.justify-content-center
+      a href="#" class="btn btn-blue font-weight-bold font-14 no-border-radius see-more-button" 更に表示する
+
+    - booking_message = @travel_package.camp_car_booking.booking_messages
+    #messageModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"]
+      .modal-dialog[role="document"]
+        .modal-content.mgt-150
+          .modal-header
+            h5#messageModalLabel.modal-title.text-center.w-100
+              | メッセージ
+          .modal-body
+             = render 'booking_messages/booking_message_form', booking_message: booking_message.new, travel_package: @travel_package
+
+  section.booking-detail.mt-5
+    .row.title.justify-content-center.font-weight-bold.font-13-down-sm.font-14-only-md.font-16-up-lg 予約内容詳細
+    / .row.number-of-bookings.font-weight-bold.font-12-down-sm.font-13-only-md.font-15-up-lg.d-block.mt-2
+    /   .title 予約人数
+    /   .detail.mt-2
+    /     = "大人#{@camp_car_booking.number_of_adult}名 子供#{@camp_car_booking.child_and_pet_included_in_bookings.sum(:quantity)}名"
+    .row.additional-options.d-block.font-weight-bold.font-13-down-sm.font-14-only-md.font-16-up-lg.mt-2
+      | 追加オプション
+      - @camp_car_booking.camp_car_options_included_in_booking.greater_than_zero.group_by{|option| option.camp_car_option_id}.each do |camp_car_option_id, camp_car_options_included_in_booking|
+        .rental-supplies.font-weight-bold.font-12-down-sm.font-13-only-md.font-15-up-lg.my-2 = CampCarOption.find(camp_car_option_id).name
+        - camp_car_options_included_in_booking.each do |option|
+          .d-flex
+            .material.w-100.font-weight-bold.font-12-down-sm.font-13-only-md.font-15-up-lg
+              = option.name
+            .price-wrapper.w-100.text-right.font-weight-bold
+              span.price.font-16-down-sm.font-18-only-md.font-20-up-lg = option.fee_per_day
+              span 円
+              span.number.font-13-down-sm.font-15-only-md.font-17-up-lg = "x #{option.quantity}"
+    .row.mt-3.mt-lg-5.mb-3
+      / - if @camp_car_booking.travel_package.is_editable?
+      /   = link_to 'ご予約内容を更新する',
+      /             edit_checkout_camp_car_booking_path(@camp_car_booking, travel_package_id: @camp_car_booking.travel_package.id),
+      /             class: 'btn btn-yellow font-weight-bold font-16 no-border-radius update-booking-button w-100'
+    .row
+      - if @camp_car_booking.travel_package.is_cancelable?
+        = link_to 'この予約をキャンセルする',
+                  cancel_travel_package_path(@camp_car_booking.travel_package),
+                  data: { confirm: t('my_pages.messages.confirms.cancel_travel_package') },
+                  method: :delete,
+                  class: 'btn btn-vermilion font-weight-bold font-14 no-border-radius cancel-booking-button w-100'
+
+#detailMessageModal.modal.fade[tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"]
+  .modal-dialog[role="document"]
+    .modal-content.mgt-150

@@ -1,0 +1,39 @@
+= f.input :email, placeholder: t('activerecord.attributes.customer_user.email'),
+          label: t('activerecord.attributes.customer_user.email'),
+          label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :password, placeholder: t('activerecord.attributes.customer_user.password'),
+          label: t('activerecord.attributes.customer_user.password'), label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :last_name, placeholder: t('activerecord.attributes.customer_user.last_name'),
+          label: t('activerecord.attributes.customer_user.last_name'), label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :first_name, placeholder: t('activerecord.attributes.customer_user.first_name'),
+          label: t('activerecord.attributes.customer_user.first_name'), label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :country_id,
+          label: f.object.new_record? ? t('activerecord.attributes.customer_user.country_id') : t('customer_users.registrations.edit.country_id'),
+          collection: countries_collection,
+          label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :post_code, placeholder: t('activerecord.attributes.customer_user.post_code'),
+          label: t('activerecord.attributes.customer_user.post_code'), label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :address, placeholder: t('activerecord.attributes.customer_user.address'),
+          label: t('activerecord.attributes.customer_user.address'), label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :phone_number, placeholder: t('activerecord.attributes.customer_user.phone_number'),
+          label: t('activerecord.attributes.customer_user.phone_number'), label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' }
+
+= f.input :birthday, placeholder: t('activerecord.attributes.customer_user.birthday'),
+          label_html: { class: 'font-12 font-weight-bold' },
+          input_html: { class: 'box-shadown-input font-14' },
+          start_year: Date.today.year - 100, end_year: Date.today.year

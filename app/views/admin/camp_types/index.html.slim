@@ -1,0 +1,29 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_camp_type_path, class: "btn btn-blue btn-new-record"
+  .table-responsive
+    table.table.table-responsive-md
+      thead.font-13
+        tr
+          th
+          th = t("activerecord.attributes.camp_type.name_#{locale}")
+
+      tbody.font-14
+        - @camp_types.each do |camp_type|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_camp_type_path(camp_type), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_camp_type_path(camp_type), class: 'btn btn-green'
+
+              = link_to_delete_with admin_camp_type_path(camp_type)
+
+            td= camp_type.name
+
+.container.pagination.justify-content-center
+  = paginate @camp_types, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

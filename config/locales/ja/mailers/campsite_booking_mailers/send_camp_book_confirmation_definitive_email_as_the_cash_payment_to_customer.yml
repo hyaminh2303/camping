@@ -1,0 +1,23 @@
+ja:
+  campsite_booking_mailer:
+    send_camp_book_confirmation_definitive_email_as_the_cash_payment_to_customer:
+      content:
+        line_1: この度はG’Campをご利用いただき誠にありがとうございます。
+        line_2: 下記の内容で予約を承りました。
+        line_3: □■□ ご予約内容 □■□
+        line_4: ※キャンプ場ご利用にあたっての注意事項については、ご予約のキャンプ場ページで必ずご確認ください。
+        line_5: ※予約の確認・キャンセルはマイページをご利用ください。
+        line_6: ※キャンセル料は各キャンプ場の定めたキャンセル規定に準じます。下記URLからご確認ください。
+        booking_number: 予約番号
+        booking_date: 予約日
+        accommodation_name: 宿泊施設名
+        accommodation_address: 宿泊施設住所
+        accommodation_phone_number: 宿泊施設電話番号
+        check_in_date_and_time: チェックイン日時
+        check_out_date_and_time: チェックアウト日時
+        booking_plan: ご予約プラン
+        booking_options: ご予約オプション
+        customer_name: 宿泊者氏名
+        number_of_people: 人数
+        sama: 様、
+        none: なし

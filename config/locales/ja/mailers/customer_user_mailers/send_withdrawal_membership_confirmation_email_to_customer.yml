@@ -1,0 +1,7 @@
+ja:
+  customer_user_mailer:
+    send_withdrawal_membership_confirmation_email_to_customer:
+      content:
+        line_1: いつも、G'Campをご利用いただき、誠にありがとうございます。
+        line_2: 退会処理が完了しましたのでお知らせいたします。
+        line_3: 今までご利用いただき、ありがとうございました。

@@ -1,0 +1,37 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_camp_car_option_path, class: "btn btn-blue btn-new-record"
+
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.camp_car_option.name')
+          th = t('activerecord.attributes.camp_car_option.fee_per_day')
+          - if current_admin_user.is_super_admin?
+            th = t('activerecord.attributes.camp_car_option.supplier_company_id')
+
+
+      tbody.font-14
+        - @camp_car_options.each do |camp_car_option|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_camp_car_option_path(camp_car_option), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_camp_car_option_path(camp_car_option), class: 'btn btn-green'
+
+              = link_to_delete_with admin_camp_car_option_path(camp_car_option)
+
+            td= camp_car_option.name
+            td= camp_car_option.fee_per_day
+            - if current_admin_user.is_super_admin?
+              td= camp_car_option.supplier_company&.company_name
+
+.container.pagination.justify-content-center
+  = paginate @camp_car_options, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

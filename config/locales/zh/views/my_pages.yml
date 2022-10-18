@@ -1,0 +1,35 @@
+zh:
+  my_pages:
+    show:
+      page_title: 我的页面
+      booking_list_tab: 预订清单
+      membership_info_tab: 会员资料
+      booking_history: 预订历史列表
+      confirm_booking_details: 确认预订详情
+      membership_info_title: 会员信息设置
+      adult: 成人
+      child: 子供
+      pet: ペット
+      people: 名
+    profile:
+      buttons:
+        update_membership_info: 更改会员信息
+        return_for_book_history: 返回预订列表
+        withdraw_membership: 提取
+    messages:
+      confirms:
+        cancel_travel_package: 你真的要取消吗？
+        withdraw_membership: 您真的要退订吗？ <br> ＊所有预订记录将被删除 <br> ＊所有会员信息将被删除
+
+    campsite_booking_detail:
+      number_of_bookings: 预订数量
+      send_a_message_to_this_facility: 向该设施发送消息
+      view_the_details: 显示更多
+      show_more: 显示更多
+      booking_details: 预订详情
+      additional_options: 附加选项
+      update_your_booking: ご予約内容を更新する
+      cancel_this_booking: 取消您的预订
+      booking_name: 预订名称
+      check_in_date_and_time: 入住日期和时间
+      check_out_date_and_time: 退房日期和时间

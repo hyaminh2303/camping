@@ -1,0 +1,41 @@
+ja:
+  admin:
+    blogs:
+      glover_blog:
+        index:
+          page_title: グローバー記事
+          page_description: グローバー記事一覧
+        new:
+          page_title: グローバー記事
+          page_description: 新規グローバー記事作成
+        edit:
+          page_title: グローバー記事
+          page_description: グローバー記事編集
+        show:
+          page_title: グローバー記事
+          page_description: グローバー記事詳細
+
+      supplier_blog:
+        index:
+          page_title: 特集記事
+          page_description: 特集記事一覧
+        new:
+          page_title: 特集記事
+          page_description: 新規記事追加
+        edit:
+          page_title: 特集記事
+          page_description: 特集記事編集
+        show:
+          page_title: 特集記事
+          page_description: 特集記事詳細
+
+  blogs:
+    index:
+      blog: 特集
+      description: おすすめのキャンプ場や周辺情報をお届けします
+      list_of_blog_posts: 特集記事の一覧
+    show:
+      category: カテゴリー
+    error_messages:
+      not_found: Blog not found
+    title: Blog

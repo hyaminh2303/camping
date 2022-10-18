@@ -1,0 +1,21 @@
+.content-wrapper
+  .content-header
+    .container-fluid
+      .row.mb-2
+        .col-sm-6
+          h1.m-0
+            | Store
+        .col-sm-6
+          = render 'shared/breadcrumb'
+  .content
+    .container-fluid
+      .card
+        .card-body
+          dl.row
+            dt.col-sm-3
+              | Name:
+            dd.col-sm-9
+              = @store.name
+            .col-sm-12.mt-3
+              = link_to t('views.buttons.back'), stores_path, class: 'btn btn-secondary'
+              = link_to t('views.buttons.edit'), edit_store_path(@store.id), class: 'btn btn-primary float-right'

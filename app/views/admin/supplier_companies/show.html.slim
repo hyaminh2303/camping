@@ -1,0 +1,117 @@
+- content_for :page_title, t(".page_title.#{params[:supplier_company_type]}")
+- content_for :page_description, t(".page_description.#{params[:supplier_company_type]}")
+= render 'shared/messages'
+
+.data-content
+  h2.page-primary-title = t(".page_description.#{params[:supplier_company_type]}")
+  hr
+
+  p
+    - if @supplier_company.is_a?(CampsiteSupplierCompany)
+      strong = "#{t('activerecord.attributes.supplier_company.operation_classification')}:"
+      = @supplier_company.operation_classification_text
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.company_name')}:"
+    = @supplier_company.company_name
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.corporate_name_kana')}:"
+    = @supplier_company.corporate_name_kana
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.phone_number')}:"
+    = @supplier_company.phone_number
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.fax')}:"
+    = @supplier_company.fax
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.post_code')}:"
+    = @supplier_company.post_code
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.location')}:"
+    = @supplier_company.location
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.hp_url')}:"
+    = @supplier_company.hp_url
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.ryokan')}:"
+    = @supplier_company.ryokan_text
+
+  p
+    - if @supplier_company.is_a?(CampsiteSupplierCompany)
+      strong = "#{t('activerecord.attributes.supplier_company.contract_type')}:"
+      = @supplier_company.contract_type_text
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.reflect_in_sales_management')}:"
+    = @supplier_company.is_reflect_in_sales_management ? t('boolean.true') : t('boolean.false')
+  p
+    strong = "#{t('activerecord.attributes.supplier_company.ryokan')}:"
+    = @supplier_company.contract_start_date&.strftime(t('datetime.formats.short'))
+
+  - if @supplier_company.supplier_corporate_representative_information.present?
+    .card.my-3
+      .card-header = t('activerecord.attributes.supplier_company.supplier_corporate_representative_information')
+      .card-body
+        .container.fee-entrance-list
+          p
+            strong = "#{t('activerecord.attributes.supplier_corporate_representative_information.name_of_representative')}:"
+            = @supplier_company.supplier_corporate_representative_information.name_of_representative
+          p
+            strong = "#{t('activerecord.attributes.supplier_corporate_representative_information.name_of_representative_kana')}:"
+            = @supplier_company.supplier_corporate_representative_information.name_of_representative_kana
+          p
+            strong = "#{t('activerecord.attributes.supplier_corporate_representative_information.position')}:"
+            = @supplier_company.supplier_corporate_representative_information.position
+          p
+            strong = "#{t('activerecord.attributes.supplier_corporate_representative_information.email_address')}:"
+            = @supplier_company.supplier_corporate_representative_information.email_address
+
+  - if @supplier_company.supplier_contact_information.present?
+    .card.my-3
+      .card-header = t('activerecord.attributes.supplier_company.supplier_contact_information')
+      .card-body
+        .container.fee-entrance-list
+          p
+            strong = "#{t('activerecord.attributes.supplier_contact_information.name_of_person_in_charge')}:"
+            = @supplier_company.supplier_contact_information.name_of_person_in_charge
+          p
+            strong = "#{t('activerecord.attributes.supplier_contact_information.person_in_charge_name_kana')}:"
+            = @supplier_company.supplier_contact_information.person_in_charge_name_kana
+          p
+            strong = "#{t('activerecord.attributes.supplier_contact_information.phone_number')}:"
+            = @supplier_company.supplier_contact_information.phone_number
+          p
+            strong = "#{t('activerecord.attributes.supplier_contact_information.fax')}:"
+            = @supplier_company.supplier_contact_information.fax
+          p
+            strong = "#{t('activerecord.attributes.supplier_contact_information.email_address')}:"
+            = @supplier_company.supplier_contact_information.email_address
+          p
+            strong = "#{t('activerecord.attributes.supplier_contact_information.location')}:"
+            = @supplier_company.supplier_contact_information.location
+
+  - if @supplier_company.accountant.present?
+    .card.my-3
+      .card-header = t('activerecord.attributes.supplier_company.accountant_information')
+      .card-body
+        .container.fee-entrance-list
+          p
+            strong = "#{t('activerecord.attributes.accountant.name')}:"
+            = @supplier_company.accountant.name
+          p
+            strong = "#{t('activerecord.attributes.accountant.name_phonetic')}:"
+            = @supplier_company.accountant.name_phonetic
+          p
+            strong = "#{t('activerecord.attributes.accountant.phone_number')}:"
+            = @supplier_company.accountant.phone_number
+          p
+            strong = "#{t('activerecord.attributes.accountant.email')}:"
+            = @supplier_company.accountant.email
+
+  - if current_admin_user.is_super_admin?
+    p
+      strong = "#{t('activerecord.attributes.supplier_company.note')}:"
+      = @supplier_company.note
+
+  - if can? :edit, SupplierCompany
+    => link_to t('views.buttons.edit'), edit_admin_supplier_company_path(params[:supplier_company_type], @supplier_company)
+    '|
+    =< link_to t('views.buttons.back'), admin_supplier_companies_path(params[:supplier_company_type])

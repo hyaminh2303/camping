@@ -1,0 +1,17 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.camp_type.name_#{locale}")}: "
+      = @camp_type.send("name_#{locale}")
+
+  => link_to t('views.buttons.edit'), edit_admin_camp_type_path(@camp_type)
+  '|
+  =< link_to t('views.buttons.back'), admin_camp_types_path

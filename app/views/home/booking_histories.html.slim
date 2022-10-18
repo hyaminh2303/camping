@@ -1,0 +1,38 @@
+.booking-histories-wrapper
+  .container
+    section.header-wrapper
+      .title-wrapper.text-center
+        span マイページ
+      .d-flex.justify-content-center.align-items-center.mt-3.tabs-wrapper
+        .position-relative.tab-button-wrapper.mr-2
+          button#left-tab-button.btn.button-tab.tab-active.text-light href="#" 予約一览
+        .position-relative.tab-button-wrapper.ml-2
+          button#right-tab-button.btn.button-tab href="#" 会員情報
+      .subtitle.text-center
+        span.list-title 予約履歴一覧
+        span.info-title.content-not-active 会員情報設定
+    section.content-wrapper
+      #left-tab-content
+        = render 'shared/booking_history_items'
+      #right-tab-content.content-not-active
+        form.member-information-form
+          .form-group.input-container.mb-4
+            label for="email" メールアドレス
+            input#email.form-control.pl-3.border-0 placeholder="akiraizutsu@gmail.com" type="email" /
+          .form-group.input-container.mb-4
+            label for="birthday"
+              | 生年月日
+              span.require-input-icon *
+            input#birthday.form-control.pl-3.border-0 placeholder="1982年12月19日" type="text" /
+          .form-group.input-container.mb-4
+            label for="birthday"
+              | パスワード
+              span.require-input-icon *
+            input#exampleInputPassword1.form-control.pl-3.border-0 placeholder="パスワード" type="text" /
+          .form-group.input-container.mb-5
+            label for="birthday" 電話番号
+            input#exampleInputPassword1.form-control.pl-3.border-0 placeholder="07089460314" type="text" /
+
+          .d-flex.flex-column.justify-content-center
+            button.btn.btn-primary.rounded-0.border-0.change-info-btn type="submit" 会員情報を変更する
+            button.btn.btn-primary.mt-3.rounded-0.border-0.return-btn 予約一覧へ戻る

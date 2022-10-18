@@ -1,0 +1,48 @@
+en:
+  admin:
+    campsite_bookings:
+      index:
+        page_title: Campsite Booking
+        page_description: Campsite Booking List
+        check_in_start: Check-in start
+        check_in_end: Check-in end
+        new: New
+        note: Note
+        cancellation_date_and_time: Cancellation date and time
+        buttons:
+          cancel: Cancel
+          note: Note
+        messages:
+          confirm_delete: Are you sure you want to cancel this booking?
+          buttons:
+            confirm: 'Yes'
+            cancel: 'No'
+      show:
+        page_title: Campsite Booking
+        page_description: Details of Campsite Booking
+        cancel: 'Cancel'
+        number_of_people: Number of people
+        number_of_adult: Number of adult
+        number_of_children: Number of children
+        number_of_pet: Number of pet
+        people: People
+        reserved_date_and_time: Reserved date and time
+        add_note_title: Add Note
+      edit:
+        page_title: Campsite Booking
+        page_description: Edit Campsite Booking
+        reservation_period: Reservation period
+      new:
+        page_title: Campsite Booking
+        page_description: New Campsite Booking
+        reservation_number: Reservation Number
+        select_plan_option: Select of addition option
+        customer_information: Customer information
+      messages:
+        created: 予約を追加しました
+
+  checkout:
+    campsite_bookings:
+      booking_message_title: Comment for Camp site
+      error_messages:
+        error_max_number_of_people: Reservations cannot be made beyond the number of people that can be reserved for one block.

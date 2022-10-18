@@ -1,0 +1,16 @@
+= render 'shared/messages'
+- customer_user = defined?(resource) ? resource : current_customer_user
+= simple_form_for customer_user, url: registration_path(current_customer_user), \
+  html: { method: :put, class: 'member-information-form' } do |f|
+
+  = render 'shared/customer_users/registrations/sign_up_information_inputs', f: f
+
+  .d-flex.flex-column.justify-content-center.mt-5
+    button.btn.btn-primary.rounded-0.border-0.change-info-btn type="submit" = t('my_pages.profile.buttons.update_membership_info')
+    = link_to t('my_pages.profile.buttons.return_for_book_history'), my_page_path, class: 'btn btn-primary mt-3 rounded-0 border-0', id: 'return-btn'
+    = link_to t('my_pages.profile.buttons.withdraw_membership'), customer_user_registration_path,
+                                                                 class: 'btn btn-danger mt-3 rounded-0 border-0 bootbox-confirmation withdraw-membership-button',
+                                                                 data: {confirm: t('my_pages.messages.confirms.withdraw_membership'),
+                                                                 confirm_button: t('views.bootbox.buttons.confirm'),
+                                                                 cancel_button: t('views.bootbox.buttons.cancel')},
+                                                                 method: :delete if customer_user_signed_in?

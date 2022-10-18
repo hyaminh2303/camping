@@ -1,0 +1,21 @@
+ja:
+  campsite_booking_mailer:
+    send_booking_cancellation_confirmation_to_customer:
+      content:
+        line_1: □■□ ご予約内容 □■□
+        line_2: ※キャンセル料は各キャンプ場の定めた、キャンセル規定に沿って請求させていただきます。
+        line_3: ※クレジットカード決済で既にお支払いが完了しているご予約に関しましては、後日差額を返金させていただきます。　
+        line_4: ※現地決済のご予約でキャンセル料が発生する場合に関しましては、キャンプ場より直接詳細をご連絡させていただきます。
+        booking_number: 予約番号
+        booking_date: 予約日
+        accommodation_name: 宿泊施設名
+        accommodation_address: 宿泊施設住所
+        accommodation_phone_number: 宿泊施設電話番号
+        check_in_date_and_time: チェックイン日時
+        check_out_date_and_time: チェックアウト日時
+        booking_plan: ご予約プラン
+        booking_options: ご予約オプション
+        customer_name: 宿泊者氏名
+        number_of_people: 人数
+        none: なし
+        sama: 様、

@@ -1,0 +1,9 @@
+ko:
+  admin:
+    camp_car_bookings:
+      index:
+        page_title: Camp Car Booking
+        page_description: Camp Car Booking List
+      show:
+        page_title: Camp Car Booking
+        page_description: Detail Of Camp Car Booking

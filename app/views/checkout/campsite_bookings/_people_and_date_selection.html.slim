@@ -1,0 +1,51 @@
+.d-none
+  = f.hidden_field :customer_user_id
+  = f.hidden_field :booking_type
+  = f.simple_fields_for :campsite_booking do |ff|
+    = ff.hidden_field :campsite_plan_id
+    = ff.hidden_field :check_in, value: ff.object.check_in.strftime('%d/%m/%Y'), class: 'check-in-input'
+    = ff.hidden_field :check_out, value: ff.object.check_out.strftime('%d/%m/%Y'), class: 'check-out-input'
+  = render 'people_and_pet_settings_inputs', f: f
+
+.new-booking
+  .booking-item
+    .booking-image
+      = gcamp_image_tag f.object.campsite_booking.campsite_plan.photos.first&.image, class: 'img-fluid'
+    .item-content.mgl-20
+      .item-title.text-break = f.object.campsite_booking.campsite_plan.name
+      .tags
+        - f.object.campsite_booking.campsite_plan.tags_locale_list.last(4).each do |tag|
+          span.mgr-3
+            a href="#" class="btn btn-gray font-8 no-border-radius" = tag
+      .item-price.text-right.mgt-10
+        span.number-of-days.font-quicksand= f.object.campsite_booking.number_of_nights
+        span.time-unit = t('views.booking_information.unit.day')
+        span.total-price.font-quicksand.text-break
+          = gcamp_round_price(f.object.total_price)
+        span.font-13.font-weight-bold = t('views.booking_information.unit.currency')
+
+  .booking-infomation.mgt-20
+    .booking-infomation-title = t('checkout.campsite_bookings.views.people_and_date_selection.booking_duration')
+    .row.mgt-10
+      .col-12
+        / 5月31日月曜日-6月8日月曜日
+        span#campsite-booking-time-range.text-gray.font-12.font-weight-bold.cursor-pointer data-apply-label="#{t('views.buttons.apply')}" data-cancel-label="#{t('views.buttons.cancel')}"
+          span.start-date
+            = f.object.campsite_booking.check_in.strftime(t'datetime.formats.short')
+          span -
+          span.end-date
+            = f.object.campsite_booking.check_out.strftime(t'datetime.formats.short')
+        a#btn-edit-campsite-booking-time-range href="javascript:void(0)" class="link-to-edit-booking float-right text-blue font-12 font-weight-bold" = t('checkout.campsite_bookings.views.buttons.edit')
+
+    .booking-infomation-title.mgt-20 = t('checkout.campsite_bookings.views.people_and_date_selection.number_of_people')
+    .row.mgt-10
+      - flash_error_max_number_of_people = flash[:error_max_number_of_people]
+
+      .col-3 class="#{'col-6' if flash_error_max_number_of_people.blank?}"
+        span#campsite-booking-amount-of-people-and-pet.text-gray.font-12.font-weight-bold.cursor-pointer
+          span = t('.number_of_people_details_html', adult: f.object.campsite_booking.number_of_adult, children: f.object.campsite_booking.number_of_children, pet: f.object.campsite_booking.number_of_pet)
+      - if flash_error_max_number_of_people.present?
+        .col-6.font-14.text-center.text-left
+          span.text-red = flash_error_max_number_of_people
+      .col-3 class="#{'col-6' if flash_error_max_number_of_people.blank?}"
+        a#btn-edit-amount-of-people-and-pet href="javascript:void(0)" class="link-to-edit-booking float-right text-blue font-12 font-weight-bold" = t('checkout.campsite_bookings.views.buttons.edit')

@@ -1,0 +1,23 @@
+.people-and-pet-setting-inputs
+  = f.simple_fields_for :campsite_booking do |ff|
+    = ff.input :number_of_adult,
+                input_html: { \
+                  class: 'people-and-pet-setting-input number-of-adult-input',
+                  min: CampsiteBooking::MIN_NUMBER_OF_ADULT,
+                  max: CampsiteBooking::MAX_NUMBER_OF_ADULT \
+                }
+    = ff.simple_fields_for :child_and_pet_included_in_bookings do |fff|
+      = fff.hidden_field :child_and_pet_setting_id
+      - I18n.available_locales.each do |locale|
+        = fff.hidden_field "entity_label_#{locale}"
+      = fff.hidden_field :entity_type
+      = fff.input :quantity,
+                  label: fff.object.entity_label,
+                  input_html: { \
+                    class: "people-and-pet-setting-input number-of-#{fff.object.entity_type}-setting-input",
+                    min: ChildAndPetIncludedInBooking::MIN_NUMBER_OF_QUANTITY,
+                    max: ChildAndPetIncludedInBooking::MAX_NUMBER_OF_QUANTITY \
+                  }
+    .text-right
+      = button_tag t('views.buttons.back'), type: 'button', class: 'btn btn-gray btn-cancel'
+      = button_tag t('views.buttons.apply'), type: 'button', class: 'btn btn-blue ml-1 btn-apply'

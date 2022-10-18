@@ -1,0 +1,56 @@
+= f.simple_fields_for :campsite_booking do |ff|
+  .card
+    .card-header = t('admin.campsite_bookings.new.reservation_number')
+    .card-body
+      .table-responsive
+        table.table
+          thead.font-12
+            tr
+              th.p-0 = t('activerecord.attributes.campsite_booking.number_of_adult')
+              - ff.object.child_and_pet_included_in_bookings.each do |child_and_pet_included_in_booking|
+                th.p-0 = child_and_pet_included_in_booking.entity_label
+
+          tbody.font-14
+            td.p-0
+              = ff.input :number_of_adult,
+                          label: false,
+                          input_html: { \
+                            class: 'recalculate-price-on-change',
+                            min: CampsiteBooking::MIN_NUMBER_OF_ADULT,
+                            max: CampsiteBooking::MAX_NUMBER_OF_ADULT \
+                          }
+            = ff.simple_fields_for :child_and_pet_included_in_bookings do |fff|
+              = fff.hidden_field :child_and_pet_setting_id
+              - I18n.available_locales.each do |locale|
+                = fff.hidden_field "entity_label_#{locale}"
+              = fff.hidden_field :entity_type
+              td.p-0
+                = fff.input :quantity,
+                            label: false,
+                            input_html: { \
+                              class: 'recalculate-price-on-change',
+                              min: ChildAndPetIncludedInBooking::MIN_NUMBER_OF_QUANTITY,
+                              max: ChildAndPetIncludedInBooking::MAX_NUMBER_OF_QUANTITY \
+                            }
+
+  .card.my-3
+    .card-header = t('admin.campsite_bookings.new.select_plan_option')
+    .card-body
+      .table-responsive
+        table.table
+          thead.font-12
+            tr
+              - ff.object.campsite_options_included_in_booking.each do |campsite_option|
+                th.p-0 = campsite_option.name
+
+          tbody.font-14
+            = ff.simple_fields_for :campsite_options_included_in_booking do |fff|
+              = fff.hidden_field :campsite_plan_option_id
+              - I18n.available_locales.each do |locale|
+                = fff.hidden_field "name_#{locale}"
+              td.p-0 = fff.input :quantity,
+                                  label: false,
+                                  input_html: { \
+                                    class: 'recalculate-price-on-change',
+                                    min: CampsiteOptionIncludedInBooking::MIN_NUMBER_OF_QUANTITY \
+                                  }

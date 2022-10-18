@@ -1,0 +1,39 @@
+@import '../definitions/mixins'
+@import '../definitions/variables'
+
+.admin-dashboard
+  .admin-sidebar
+    ul
+      margin: 0
+      padding: 0
+      li
+        list-style: none
+
+    ul.list
+      li.list-item
+        margin-bottom: 15px
+        border-radius: 4px
+        padding: 14px 14px
+        font-size: 16px
+        font-weight: bold
+        @include box-shadow
+        a
+          color: $admin-sidebar-text-color
+
+        ul.sub-menu
+          margin-top: 12px
+          margin-bottom: 10px
+          li.sub-list-item
+            font-weight: normal
+            font-size: 13px
+            padding: 5px
+            border-bottom: 1px dotted #a4b2c5
+            a
+              color: #494949
+
+      li.logout-item
+        text-align: center
+        font-size: $font-size-sm
+        font-weight: bold
+        a
+          color: $admin-sidebar-text-color

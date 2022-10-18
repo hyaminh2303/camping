@@ -1,0 +1,27 @@
+.contact-wrapper.container
+  section.header-wrapper
+    .row.my-5
+      .col-12.font-18.font-weight-bold.text-center
+        = @contact_us.errors.full_messages.blank? ? t('contact_us.new.title') : \
+          t('contact_us.new.input_error')
+
+  section.content-wrapper
+    = simple_form_for(@contact_us, url: confirm_information_contact_us_path, method: :post,
+      html: {class: 'contact-information-form'}) do |f|
+      .form-group.input-container.mb-4
+        = f.input :name, placeholder: t("contact_us.placeholder.name")
+      .form-group.input-container.mb-4
+        = f.input :email, placeholder: t("contact_us.placeholder.email")
+      .form-group.input-container.mb-4
+        = f.input :phone_number
+      .form-group.input-container
+        = f.input :details_of_inquiry, input_html: {rows: 5}
+
+      .row.mgt-30
+        .col-12.text-center
+          = f.submit t('.checking_the_content'), class: 'btn btn-w350-full-width-mobile btn-yellow'
+        .col-12.mgt-12.text-center
+          = link_to t('views.buttons.back'),
+                    root_path,
+                    class: 'btn btn-w350-full-width-mobile btn-black'
+

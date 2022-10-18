@@ -1,0 +1,25 @@
+zh:
+  contact_us:
+    new:
+      title: 联系我们
+      input_error: 入力内容に誤りがあります
+      checking_the_content: 前往确认画面
+      phone_number: 电话号码
+    confirm_information:
+      title: お問い合わせ内容ご確認
+      send: 送信する
+    thanks:
+      title: 送信が完了しました
+      go_back_to_the_top_page: トップページへ戻る
+    placeholder:
+      name: 姓名
+      email: 电子邮件地址
+
+  admin:
+    contact_us:
+      index:
+        page_title: Customer inquiries
+        page_description: Customer inquiry list
+      show:
+        page_title: Customer inquires
+        page_description: Details of inquiry

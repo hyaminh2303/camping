@@ -1,0 +1,31 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  - CampCategoryGroup.globalize_attribute_names.each do |attribute|
+    p
+      strong = "#{t("activerecord.attributes.camp_category_group.#{attribute}")}:"
+      = @camp_category_group.send(attribute)
+
+  p
+    strong = "#{t('activerecord.attributes.camp_category_group.weight')}: "
+    = @camp_category_group.weight
+  p
+    strong = "#{t('activerecord.attributes.camp_category_group.is_facility_type')}: "
+    = @camp_category_group.is_facility_type ? t('boolean.true') : t('boolean.false')
+  p
+    strong = "#{t('activerecord.attributes.camp_category_group.is_the_facility_in_the_hall')}: "
+    = @camp_category_group.is_the_facility_in_the_hall ? t('boolean.true') : t('boolean.false')
+
+  p
+    strong = "#{t('activerecord.attributes.camp_category_group.is_shown_on_the_front_end')}: "
+    = @camp_category_group.is_shown_on_the_front_end ? t('boolean.true') : t('boolean.false')
+
+  => link_to t('views.buttons.edit'), edit_admin_camp_category_group_path(@camp_category_group)
+  '|
+  =< link_to t('views.buttons.back'), admin_camp_category_groups_path

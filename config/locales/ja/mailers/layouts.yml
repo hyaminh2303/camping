@@ -1,0 +1,11 @@
+ja:
+  layouts:
+    email_header:
+      sama: 様
+    mailer_partials:
+      footer:
+        inquiries: お問合せ
+        content:
+          line_1: ・このメールは、送信専用メールアドレスから配信されています。
+          line_2: "&emsp;ご返信いただいてもお答えできませんので、ご了承ください。"
+          line_3: ・個人情報の取扱いについては個人情報保護方針をご覧下さい。

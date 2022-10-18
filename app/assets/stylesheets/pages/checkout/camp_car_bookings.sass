@@ -1,0 +1,94 @@
+@import '../../definitions/variables'
+
+.checkout-camp-car-booking-container-wrapper
+  font-family: $primary-font-family
+  .font-quicksand
+    font-family: $font-quicksand
+
+  .camp-car-booking-information-wrapper
+    max-width: 540px
+    @include media-breakpoint-down(sm)
+      margin: 0px auto
+      padding: 15px 15px 0px
+    @include media-breakpoint-up(md)
+      margin: 0px auto
+    .page-title
+      text-align: center
+      font-weight: bold
+      @include media-breakpoint-down(sm)
+        font-size: 18px
+      @include media-breakpoint-up(md)
+        font-size: 22px
+
+    .item-price
+      .time-unit
+        font-weight: bold
+        @include media-breakpoint-down(sm)
+          font-size: 13px
+        @include media-breakpoint-up(md)
+          font-size: 16px
+      .number-of-days
+        font-weight: bold
+        @include media-breakpoint-down(sm)
+          font-size: 13px
+        @include media-breakpoint-up(md)
+          font-size: 16px
+      .total-price
+        font-weight: bold
+        color: $yellow-color
+        @include media-breakpoint-down(sm)
+          font-size: 20px
+        @include media-breakpoint-up(md)
+          font-size: 28px
+
+    .new-booking
+      .booking-item
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+
+        .booking-image
+          img
+            @include media-breakpoint-down(sm)
+              height: 69px
+              width: 69px
+            @include media-breakpoint-up(md)
+              height: 160px
+              width: 160px
+            object-fit: cover
+        .item-content
+          flex: 1
+          .item-title
+            font-weight: bold
+            @include media-breakpoint-down(sm)
+              font-size: 13px
+            @include media-breakpoint-up(md)
+              font-size: 18px
+
+      .booking-infomation-title
+        font-weight: bold
+        color: #485578
+        font-size: 12px
+      .link-to-edit-booking
+        text-decoration-line: underline
+        text-underline-offset: 4px
+
+    .car-booking-options-setting
+      .booking-supplies-title
+        font-weight: bold
+        color: #485578
+        @include media-breakpoint-down(sm)
+          font-size: 12px
+        @include media-breakpoint-up(md)
+          font-size: 14px
+      .booking-supplies-infomation
+        font-weight: bold
+        color: #BEBEBE
+        @include media-breakpoint-down(sm)
+          font-size: 12px
+        @include media-breakpoint-up(md)
+          font-size: 14px
+      .action-btn
+        padding: 0 !important
+        width: 29px
+        height: 29px

@@ -1,0 +1,14 @@
+= simple_form_for([:admin, @camp_car_category]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :pick_up_drop_off_place_id, as: :select, collection: cities_collection
+
+    - CampCarCategory.globalize_attribute_names.each do |model|
+      = f.input model
+
+    = f.input :seats, input_html: { min: 0 }
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

@@ -1,0 +1,41 @@
+- content_for :page_title, t("admin.notices.#{params[:item_type]}.index.page_title")
+- content_for :page_description, t("admin.notices.#{params[:item_type]}.index.page_description")
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_notice_path, class: "btn btn-blue btn-new-record"
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          - if params[:item_type] != 'super_admin'
+            - if current_admin_user.is_super_admin?
+              th = t('activerecord.attributes.notice.supplier_company_id')
+            th = t("activerecord.models.#{params[:item_type]}.one")
+          th = t('activerecord.attributes.notice.title')
+          th = t('activerecord.attributes.notice.content')
+          th = t('activerecord.attributes.notice.publish_date')
+
+      tbody.font-14
+        - @notices.each do |notice|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_notice_path(params[:item_type], notice), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_notice_path(params[:item_type], notice), class: 'btn btn-green'
+
+              = link_to_delete_with admin_notice_path(params[:item_type], notice)
+
+            - if params[:item_type] != 'super_admin'
+              - if current_admin_user.is_super_admin?
+                td = notice.supplier_company.company_name
+              td = notice.notice_itemable.name
+            td = notice.title
+            td = raw truncate_html(strip_tags(notice.content), length: 25, omission: '...')
+            td = notice.publish_date&.strftime(t('datetime.formats.short'))
+
+.container.pagination.justify-content-center
+  = paginate @notices, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

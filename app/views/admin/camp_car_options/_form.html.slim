@@ -1,0 +1,17 @@
+= simple_form_for([:admin, @camp_car_option]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    - if current_admin_user.is_super_admin?
+      = f.input :supplier_company_id,
+                as: :select,
+                collection: camp_car_supplier_companies_collection, include_blank: false
+
+    - CampCarOption.globalize_attribute_names.each do |attribute|
+      = f.input attribute
+
+    = f.input :fee_per_day, input_html: { min: 0 , step: 1}
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

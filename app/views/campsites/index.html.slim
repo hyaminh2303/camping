@@ -1,0 +1,50 @@
+- title t('campsites.search.title')
+- description "#{t('.site_description')} | #{t('views.project.site_name')}"
+
+.campsite-container-wrapper
+  section.main-banner-wrapper.mb-5
+    .container
+      .text-content-wrapper
+        .line-1.font-36-up-lg.font-20-down-md = t('campsites.index.line_title_1')
+        .line-2.font-18-up-lg.font-14-down-md = t('campsites.index.line_title_2')
+    = image_tag 'camp-site-banner.jpg', class: 'img-fluid'
+
+  / https://app.clickup.com/t/2ephttx
+  section.search-inputs.row.no-gutters.container.mx-auto
+    .col-12.col-md-6.col-lg-5.mx-auto
+      .campsite-search-form-wrapper
+        = form_with url: search_campsites_path(), method: :get do |f|
+          = render 'shared/campsite_search_hidden_input', f: f
+          = render 'shared/campsite_search_input', f: f
+          .row
+            .col-12.mt-3.text-center
+              button type='submit' class="btn btn-blue font-14 font-weight w-100 no-border-radius" = t('campsites.index.search_campsite')
+
+  section.container.map-and-shorlinks.mgt-30
+    / https://app.clickup.com/t/2ephttx
+    .d-flex.justify-content-center
+      / -> Maybe use this one again, so please don't delete
+      / .shorlinks.col-md-6.order-md-2.mb-5
+      /   = render 'shared/items_title',
+      /           title: 'Search by Area',
+      /           description: 'エリアからキャンプ場を探す'
+      /   = render 'shared/blog_categories', glover_blogs: @glover_blogs
+
+
+      .map.col-md-6.order-1.order-md-1.mb-5
+        = render 'shared/items_title',
+                title: t('campsites.index.search_by_map_title'),
+                description: t('campsites.index.search_by_map_description')
+        = render "shared/campsite_map"
+
+  section.container.recommended-campsites
+    .row
+      .col-12.text-center
+        = render 'shared/items_title',
+                title: t('campsites.index.recommended_campsite_title'),
+                description: t('campsites.index.recommended_campsite_description')
+    .row
+      .col-md-8.m-auto
+        .list-camp-element-items
+          - @recommended_campsites.each do |campsite|
+            = render "shared/campsite_item_horizontal", campsite: campsite

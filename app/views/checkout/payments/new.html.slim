@@ -1,0 +1,12 @@
+.payments-wrapper
+  .container.pt-5
+    = render 'shared/wizard', booking_type: @travel_package.booking_type_campsite_booking? ? :campsite_booking : :camp_car_booking, step: 5
+    .row.mt-3.mb-3
+      .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+        = render 'shared/messages'
+    .form-title.text-center.font-weight-bold.font-18
+      = t('.title')
+
+    = simple_form_for(@credit_card, url: checkout_payments_path) do |f|
+      = render 'checkout/shared/booking_inputs'
+      = render 'payment_input', f: f

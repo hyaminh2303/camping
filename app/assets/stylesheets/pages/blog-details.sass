@@ -1,0 +1,72 @@
+@import '../definitions/variables'
+
+.blog-details-container-wrapper.container
+  font-family: $primary-font-family
+
+  @include media-breakpoint-up(md)
+    .left-content
+      padding-right: 30px
+  @include media-breakpoint-down(md)
+    .left-content
+      padding-right: 0px
+
+  section.main-banner-wrapper
+    overflow: hidden
+    position: relative
+    @include media-breakpoint-down(md)
+      margin-left: -15px
+      margin-right: -15px
+    img
+      object-fit: cover
+      width: 100%
+      height: 100%
+      @include media-breakpoint-down(md)
+        height: 205px
+      @include media-breakpoint-up(lg)
+        height: 450px
+
+  section.header-information-wrapper
+    .buttons
+      .btn
+        width: 86px
+        line-higth: 20px
+    .text-border-bottom
+        padding: 1px 0px 2px
+        border-bottom: 2px solid $blue-color
+
+  section.content-wrapper
+    .blue-background
+      background-color: #e6f2f7
+      padding: 7px 15px 8px
+      .text-border-left
+        padding: 1px 12px 2px
+        border-left: 4px solid $blue-color
+    .content
+      img
+        width: 100% !important
+        height: 100% !important
+        max-width: 100%
+        max-height: 100%
+        object-fit: cover
+      iframe
+        width: 100% !important
+
+  section.blog-catergory-list
+    .category
+      font-family: $font-quicksand
+      font-size: 24px
+      font-weight: bold
+      color: $blue-color
+    .list
+      .row
+        height: 107px
+      .image-wrapper
+        img
+          height: 100px
+          width: 100px
+          max-width: 100px
+          object-fit: cover
+      .border-bottom
+        border-bottom: 1px solid #dedede !important
+      a
+        width: 100%

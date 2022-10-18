@@ -1,0 +1,70 @@
+ko:
+  checkout:
+    payments:
+      new:
+        title: "결제 내용 입력"
+      add_card:
+        title: "Enter settlement content"
+      payment_input:
+        submit: 약관에 동의하여 지불
+        supported_cards: 사용 가능 카드 정보
+
+    campsite_bookings:
+      controller:
+        campsite_booking_invalid_on_update: You have created another campsite booking, so this booking is not valid!
+      views:
+        people_and_date_selection:
+          booking_duration: 예약 기간
+          number_of_people: 예약 인원
+        select_people_and_date:
+          page_title: 예약 내용 확인
+          buttons:
+            booking: 이 내용으로 예약하기
+            back: 뒤로
+        select_plan_options:
+          page_title: 예약 내용 확인
+          plan_booking_option: 추가 옵션 선택
+          booking_supplier_title: 렌탈 용품
+          buttons:
+            booking: 이 내용으로 예약하기
+            back: 뒤로
+        contact_information:
+          title: 고객 정보 입력
+          policy: 이용 약관
+          buttons:
+            submit: 약관에 동의하고 다음으로 진행
+            back: 뒤로
+        confirm_information:
+          select_option: 추가 옵션
+          booking_person_detail: 예약자님 내용 확인
+          confirmation_of_reservation_details: 예약 내용 확인
+          buttons:
+            submit: 약관에 동의하고 다음으로 진행
+            back: 뒤로
+        thank_you:
+          title: 예약 완료
+          buttons:
+            my_page: 내 페이지로
+            top_page: 톱 페이지로
+        buttons:
+          edit: 편집하다
+
+      campsite_booking_steps:
+        step1: "예약 내용<br/>확인"
+        step2: "옵션선<br/>택"
+        step3: "고객 정보<br/>입력"
+        step4: "예약 내용<br/>확인"
+        step5: "결제 내용<br/>입력"
+        step6: "예약 완료"
+
+    camp_car_bookings:
+      controller:
+        camp_car_booking_invalid_on_update: You have created another car booking, so this booking is not valid!
+
+      camp_car_booking_steps:
+        step1: "予約内容<br/>確認"
+        step2: "オプション<br/>選択"
+        step3: "お客様<br/>情報入力"
+        step4: "予約内容<br/>確認"
+        step5: "お支払い<br/>情報"
+        step6: "予約完了"

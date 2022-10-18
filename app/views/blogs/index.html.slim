@@ -1,0 +1,39 @@
+- title t('blogs.title')
+- description "#{t('.list_of_blog_posts')} | #{t('views.project.site_name')}"
+
+.blog-container-wrapper
+  section.main-banner-wrapper.mb-md-2.mb-lg-4
+    .container
+      .text-content-wrapper
+        - if @blog_category.present? && @blog_category.category_type.glover_blog?
+          .line-1.font-36-up-lg.font-20-down-md = @blog_category.name
+        - else
+          .line-1.font-36-up-lg.font-20-down-md = t('.blog')
+          .line-2.font-18-up-lg.font-14-down-md = t('.description')
+    = image_tag "home-primary-sliders/top_#{params[:blog_type]}.jpg", class: 'img-fluid'
+  .border-bottom.d-md-none
+
+  section.blog-item-lists
+    .container
+      .row
+        - @blogs.each do |blog|
+          .blog-item.col-lg-3.col-md-4.my-0.my-md-2
+            .row.no-gutters
+              .col-5.col-md-12.image-wrapper
+                = link_to (gcamp_image_tag blog.photo&.image, class: "img-fluid"), blog_path(blog, blog_type: params[:blog_type])
+
+              .col-7.col-md-12.information-wrapper
+                .item-header.mb-2.d-flex.align-items-center
+                  a href="#" class="btn btn-green font-9 no-border-radius" = blog.blog_category.name
+                  span.font-11.date.ml-2 = blog.publish_date&.strftime(t('datetime.with_locale.formats.short'))
+                h3.item-content.font-15.mb-0
+                  = link_to blog.title, blog_path(blog, blog_type: params[:blog_type])
+                .tags
+                  - blog.tags_locale_list.last(3).each do |tag|
+                    span.font-11.mr-2
+                      a href="#" = "##{tag}"
+
+            .border-bottom
+
+  .container.pagination.justify-content-center
+    = paginate @blogs, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

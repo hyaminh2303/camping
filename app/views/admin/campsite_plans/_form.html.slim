@@ -1,0 +1,114 @@
+= simple_form_for([:admin, @campsite, @campsite_plan],
+                  html: { class: 'admin-campsite-plan-form'},
+                  data: { campsite_plan_id: @campsite_plan.id,
+                        request_method: request.method,
+                        locale: I18n.locale }) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  = f.hidden_field :campsite_id, value: params[:campsite_id] if params[:campsite_id].present?
+
+  .form-inputs
+    = f.input :campsite_id, as: :select, collection: campsites_with_campsite_plan_options_collection, include_blank: false,
+              input_html: { disabled: params[:campsite_id].present?}
+    ruby:
+      campsite_plan_options_collection = (
+        @campsite_plan&.campsite&.campsite_plan_options ||
+        []
+      ).map { |campsite_plan_option| [campsite_plan_option.name, campsite_plan_option.id] }
+    = f.input :campsite_plan_option_ids,
+              as: :select,
+              collection: campsite_plan_options_collection, \
+              input_html: { multiple: true, include_blank: false, \
+              data: {current_value: f.object.campsite_plan_options.pluck(:id)},
+              class: 'select2' }
+
+    - I18n.available_locales.each do |locale|
+      = f.label "name_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_plan_name_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#campsite_plan_name_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "name_#{locale}", label: false
+
+    - I18n.available_locales.each do |locale|
+      = f.label "tags_#{locale}_list"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_plan_tags_#{TRANSALTE_PRYMARY_LOCAL}_list" data-translation-target-element="#campsite_plan_tags_#{locale}_list" data-translation-target-lang=locale data-type-translation="tags"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "tags_#{locale}_list", input_html: {data: { role: "tagsinput" },
+                                      value: f.object.send("tags_#{locale}").join(', ')}, label: false
+
+    = f.input :max_number_of_people, input_html: { min: 0 }
+    = f.input :public_info
+
+    //https://app.clickup.com/t/1ykbdrh
+    / = f.input :publication_period
+
+    .row
+      .col-md-4
+        = f.input :check_in_time, as: :time, minute_step: 15
+      .col-md-4.text-center.mt-4
+        | -
+      .col-md-4
+        = f.input :check_out_time, as: :time, minute_step: 15
+
+      #accordion.col-12.mb-2
+        .card
+          #headingOne.card-header.p-0
+            h5.mb-0
+            .btn.font-16.w-100.text-left.p-2.cursor-pointer[data-toggle="collapse" data-target="#site-parcel-charge-setting" aria-expanded="true" aria-controls="site-parcel-charge-setting"]
+              span.pdl-10 = t('admin.campsite_plans.form.site_parcel_charge_setting')
+              span.float-right
+                i.font-19.fas.fa-caret-down
+          #site-parcel-charge-setting.collapse.show[aria-labelledby="headingOne" data-parent="#accordion"]
+            .card-body
+              .col-md-12
+                = f.input :is_included_entrance_fee
+              = f.fields_for :campsite_plan_fee do |plan_fee|
+                = render 'campsite_plan_fee_fields', f: plan_fee
+
+              .col-md-12.mb-3
+                .table-responsive
+                  table.table.mb-0
+                    thead.font-12
+                      tr
+                        th.p-0 = t('activerecord.attributes.campsite_plan_daily_fee_setting.date')
+                        th.p-0 = t('activerecord.attributes.campsite_plan_daily_fee_setting.basic_fee')
+                        th.p-0 = t('activerecord.attributes.campsite_plan_daily_fee_setting.number_of_people_pet_included')
+                        th.p-0 = t('activerecord.attributes.campsite_plan_daily_fee_setting.extra_person_fee')
+
+                    tbody.font-14#campsite-default-fee
+                      = f.simple_fields_for :campsite_plan_daily_fee_settings do |daily_fee_setting|
+                        = render 'campsite_plan_daily_fee_setting_fields', f: daily_fee_setting
+
+                  = link_to_add_association t('admin.campsite_plans.general.add_daily_fee'), f, :campsite_plan_daily_fee_settings,"data-association-insertion-node": "tbody#campsite-default-fee","data-association-insertion-method": "after", class: 'btn btn btn-blue font-12'
+
+    = f.input :quantity, input_html: { min: 0 }
+    h7 = t('activerecord.attributes.campsite_plan.campsite_plan_quantities')
+    #campsite-plan-quantities.mb-3
+      = f.simple_fields_for :campsite_plan_quantities do |campsite_plan_quantity|
+        = render 'campsite_plan_quantity_fields', f: campsite_plan_quantity
+      .links.mt-0
+      = link_to_add_association t('admin.campsite_plans.general.add_campsite_plan_quantity'), f, :campsite_plan_quantities, partial: 'campsite_plan_quantity_fields', class: 'btn btn btn-blue font-12 add-campsite-plan-quantity'
+    h7 = t('activerecord.attributes.campsite_plan.photos')
+    #photos
+      = f.simple_fields_for :photos do |photo|
+        = render 'shared/photo_fields', f: photo
+      .links.mt-0
+      = link_to_add_association t('admin.campsite_plans.general.add_photo'), f, :photos, partial: 'shared/photo_fields', class: 'btn btn btn-blue font-12'
+
+    - I18n.available_locales.each do |locale|
+      = f.label "subtitle_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element='campsite_plan_subtitle_#{TRANSALTE_PRYMARY_LOCAL}' data-translation-target-element="campsite_plan_subtitle_#{locale}" data-translation-target-lang=locale data-type-translation="ckeditor"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "subtitle_#{locale}", as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
+
+    - I18n.available_locales.each do |locale|
+      = f.label "description_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element='campsite_plan_description_#{TRANSALTE_PRYMARY_LOCAL}' data-translation-target-element="campsite_plan_description_#{locale}" data-translation-target-lang=locale data-type-translation="ckeditor"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "description_#{locale}", as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

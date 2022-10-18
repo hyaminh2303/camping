@@ -1,0 +1,170 @@
+en:
+  views:
+    empty: "N/A"
+    processing: 'Processing...'
+    sign_out: 'Sign Out'
+    breadcrumb:
+      create: "Create"
+      edit: "Edit"
+      index: "Index"
+      new: "New"
+      show: "Detail"
+      update: "Update"
+    new_instance_link: "New %{model}"
+    forms:
+      save: "Save"
+    buttons:
+      save: "Save"
+      detail:
+        tooltip: "Detail"
+      edit: "Edit"
+      search: Search
+      update: Update
+      apply: Apply
+      back: Back
+      booking: Proceed to book
+      close: Close
+      cancel: Cancel
+      delete: Delete
+    actions:
+      edit: "Edit %{model}"
+      new: "New %{model}"
+    people: People
+    messages:
+      confirms:
+        delete: Are you sure you want to delete?
+    booking_information:
+      unit:
+        currency: yen
+        day: day
+    bootbox:
+      buttons:
+        confirm: 'Yes'
+        cancel: 'No'
+    project:
+      title: Information and reservation search site for travel and camping G'Camp
+      site_name: Information and reservation search site for enjoying travel and camping G'Camp
+      site_description: Information and reservation search site for enjoying travel and camping G'Camp. Portal site for campsite reservation search.
+  controllers:
+    created: '%{model} create success'
+    updated: '%{model} update success'
+    deactivated: '%{model} deleted'
+
+  daterangepicker:
+    check_in_time: Check in
+    check_out_time: Check out
+    number_of_night: Number of nights
+    night_stay: night stay
+    applyLabel: Apply
+    cancelLabel: Cancel
+    formats:
+      default: "%Y/%m/%d"
+      date_picker: "YYYY/MM/DD"
+
+  time:
+    formats:
+      short: '%b %d, %Y'
+
+  day_name:
+    sunday: Sun
+    monday: Mon
+    tuesday: Tue
+    wednesday: Wed
+    thursday: Thu
+    friday: Fri
+    saturday: Sat
+  date:
+    abbr_month_names:
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+  datetime:
+    formats:
+      short: "%Y/%m/%d"
+      long: "%Y/%m/%d - %H:%M"
+      time: "%H:%M"
+    with_locale:
+      formats:
+        short: "%Y/%m/%d"
+  helpers:
+    select_collection:
+      countries:
+        america: America
+        u_a_e_: U.A.E.
+        argentina: Argentina
+        yemen: Yemen
+        united_kingdom: United Kingdom
+        italy: Italy
+        iraq: Iraq
+        iran: Iran
+        india: India
+        indonesia: Indonesia
+        ukraine: Ukraine
+        egypt: Egypt
+        estonia: Estonia
+        australia: Australia
+        netherlands: Netherlands
+        qatar: Qatar
+        canada: Canada
+        cambodia: Cambodia
+        colombia: Colombia
+        jamaica: Jamaica
+        singapore: Singapore
+        switzerland: Switzerland
+        sweden: Sweden
+        spain: Spain
+        sri_lanka: Sri Lanka
+        slovenia: Slovenia
+        thailand: Thailand
+        czech_republic: Czech Republic
+        germany: Germany
+        turkey: Turkey
+        new_zealand: New Zealand
+        norway: Norway
+        hungary: Hungary
+        bangladesh: Bangladesh
+        philippines: Philippines
+        finland: Finland
+        brazil: Brazil
+        france: France
+        bulgaria: Bulgaria
+        viet_nam: Viet Nam
+        peru: Peru
+        belgium: Belgium
+        poland: Poland
+        portugal: Portugal
+        malaysia: Malaysia
+        myanmar: Myanmar
+        mexico: Mexico
+        morocco: Morocco
+        mongolia: Mongolia
+        latvia: Latvia
+        lithuania: Lithuania
+        romania: Romania
+        russia: Russia
+        korea: Korea
+        hong_kong_s_a_r_: Hong Kong S.A.R.
+        taiwan: Taiwan
+        china: China
+        south_africa: South Africa
+        japan: Japan
+        other: Other
+  kaminari_v2:
+    pagination:
+      truncate: '<span></span><span></span><span></span>'
+      first: '<i class="far fa-angle-left"></i>'
+      last: '<i class="far fa-angle-right"></i>'
+      next: NEXT
+      previous: FORWARD
+
+  coming_soon:
+    in_process_of_develop: ""

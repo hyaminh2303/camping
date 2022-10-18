@@ -1,0 +1,30 @@
+= simple_form_for(@blog_category, url: url_for([:admin, @blog_category, category_type: params[:category_type]])) do |f|
+
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    - I18n.available_locales.each do |locale|
+      = f.label "name_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#blog_category_name_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#blog_category_name_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "name_#{locale}", label: false
+
+  - if params[:category_type] == "supplier_blog"
+    .row
+      .col-md-6.form-inputs
+        = f.input :weight, label: t('admin.blog_categories.supplier_blog.edit.prefecture_code'),
+                           hint: link_to(t('admin.blog_categories.supplier_blog.edit.what_is_pref_code'),
+                                            'https://nlftp.mlit.go.jp/ksj/gml/codelist/PrefCd.html',
+                                            target: "_blank")
+
+  .row
+    .col-md-8
+      = f.input :icon, input_html: {accept: 'image/*'}
+    .col-md-2
+      - if f.object.icon.present?
+          = image_tag f.object.icon.url, class: 'img-fluid'
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

@@ -1,0 +1,79 @@
+/ .wizard-wraper
+/   - wizard_contents.each_with_index do |wizard_content, index|
+/     .wizard-step[class="#{'active' if wizard_content[:is_active]}"] = wizard_content[:name]
+/     - if wizard_contents.length - 1 != index
+/       .wizard-connect
+
+
+/ .wizard-wraper
+/   .wizard-step.active
+/     予約内容
+/     br
+/     確認
+/   .wizard-connect
+/   .wizard-step
+/     オプション
+/     br
+/     選択
+/   .wizard-connect
+/   .wizard-step
+/     お客様
+/     br
+/     情報入力
+/   .wizard-connect
+/   .wizard-step
+/     予約内容
+/     br
+/     確認
+ruby:
+  if local_assigns[:booking_type] == :campsite_booking
+    steps = {
+      '1' => t('checkout.campsite_bookings.campsite_booking_steps.step1'),
+      '2' => t('checkout.campsite_bookings.campsite_booking_steps.step2'),
+      '3' => t('checkout.campsite_bookings.campsite_booking_steps.step3'),
+      '4' => t('checkout.campsite_bookings.campsite_booking_steps.step4'),
+      '5' => t('checkout.campsite_bookings.campsite_booking_steps.step5'),
+      '6' => t('checkout.campsite_bookings.campsite_booking_steps.step6')
+    }
+  elsif local_assigns[:booking_type] == :camp_car_booking
+    steps = {
+      '1' => t('checkout.camp_car_bookings.camp_car_booking_steps.step1'),
+      '2' => t('checkout.camp_car_bookings.camp_car_booking_steps.step2'),
+      '3' => t('checkout.camp_car_bookings.camp_car_booking_steps.step3'),
+      '4' => t('checkout.camp_car_bookings.camp_car_booking_steps.step4'),
+      '5' => t('checkout.camp_car_bookings.camp_car_booking_steps.step5'),
+      '6' => t('checkout.camp_car_bookings.camp_car_booking_steps.step6')
+    }
+
+  else
+    steps = {}
+  end
+
+  steps.delete('5') if @travel_package.payment_method.cash?
+
+.wizard-wraper
+  - steps.each do |index, step|
+    .wizard-step class="#{'active' if index.to_i == local_assigns[:step]}"= raw step
+
+  / .wizard-step.active
+  /   | 予約内容
+  /   br
+  /   | 確認
+  / .wizard-step
+  /   | オプション
+  /   br
+  /   | 選択
+  / .wizard-step
+  /   | お客様
+  /   br
+  /   | 情報入力
+  / .wizard-step
+  /   | 予約内容
+  /   br
+  /   | 確認
+  / .wizard-step
+  /   | お支払い
+  /   br
+  /   | 情報
+  / .wizard-step
+  /   | 予約完了

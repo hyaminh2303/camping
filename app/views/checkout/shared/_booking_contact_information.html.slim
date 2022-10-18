@@ -1,0 +1,60 @@
+= f.simple_fields_for :booking_contact_information,
+f.object.booking_contact_information.presence || \
+f.object.build_booking_contact_information do |ff|
+
+  = ff.input :email, disabled: local_assigns[:disabled],
+              label: t('activerecord.attributes.booking_contact_information.email'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14', value: ff.object.email || current_customer_user.email }
+
+  = ff.input :name, disabled: local_assigns[:disabled],
+              label: t('activerecord.attributes.booking_contact_information.name'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14', value: ff.object.name || current_customer_user.full_name }
+
+  = ff.input :post_code, disabled: local_assigns[:disabled],
+              label: t('activerecord.attributes.booking_contact_information.post_code'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14', value: ff.object.post_code || current_customer_user.post_code }
+
+  = ff.input :address, disabled: local_assigns[:disabled],
+              label: t('activerecord.attributes.booking_contact_information.address'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14', value: ff.object.address || current_customer_user.address }
+
+  = ff.input :birthday, as: :date, disabled: local_assigns[:disabled],
+              start_year: Date.today.year - 90,
+              end_year: Date.today.year,
+              label: t('activerecord.attributes.booking_contact_information.birthday'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14'},
+              selected: ff.object.birthday || current_customer_user.birthday
+
+  .row
+    .col-10.col-sm-11
+      -# https://app.clickup.com/t/1xwmern
+      = ff.input :custom_number_of_male,
+                  label: t('activerecord.attributes.booking_contact_information.number_of_male'),
+                  label_html: { class: 'font-12 font-weight-bold' } do
+        = ff.text_field :number_of_male, class: "box-shadown-input font-14 form-control #{ ff.object.errors.has_key?(:custom_number_of_male) ? 'is-invalid' : 'is-valid' }", min: 0, disabled: local_assigns[:disabled]
+    .col-2.col-sm-1.pdl-1.pdt-45
+      .number_of_people.font-12.font-weight-bold = t('activerecord.attributes.booking_contact_information.number_of_people')
+
+  .row
+    .col-10.col-sm-11
+      -# https://app.clickup.com/t/1xwmern
+      = ff.input :custom_number_of_female,
+                  label: t('activerecord.attributes.booking_contact_information.number_of_female'),
+                  label_html: { class: 'font-12 font-weight-bold' } do
+        = ff.text_field :number_of_female, class: "box-shadown-input font-14 form-control #{ ff.object.errors.has_key?(:custom_number_of_female) ? 'is-invalid' : 'is-valid' }", min: 0, disabled: local_assigns[:disabled]
+    .col-2.col-sm-1.pdl-1.pdt-45
+      .number_of_people.font-12.font-weight-bold = t('activerecord.attributes.booking_contact_information.number_of_people')
+
+  .row
+    .col-12.font-12.font-weight-bold.mt-4.mb-4
+      label= t('activerecord.attributes.travel_package.payment_method')
+      .ml-2 = f.object.payment_method_text
+  = ff.input :phone_number, disabled: local_assigns[:disabled],
+              label: t('activerecord.attributes.booking_contact_information.phone_number'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14', value: ff.object.phone_number || current_customer_user.phone_number }

@@ -1,0 +1,29 @@
+.container
+  .session-continer
+    h1.title.text-center
+      = t('.title')
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .row.devise-messages
+        .col-12
+          = render 'layouts/devise_message'
+      .row
+        .col-12
+          .form-group.input-container
+            span.fas.fa-envelope.icon
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: t('.placeholder.email')
+          .form-group.input-container
+            span.fas.fa-lock.icon
+            = f.password_field :password, autocomplete: "current-password", placeholder: t('.placeholder.password'), class: 'form-control'
+          .form-group
+            - if devise_mapping.rememberable?
+              label.remember-me
+                = f.check_box :remember_me, id: 'remember', class: 'checkbox'
+                span = t('.remember_me')
+
+          .actions-button
+            button type="submit" class="btn btn-primary btn-submit mb-2"
+              = t('.sign_in')
+            a href=new_customer_user_registration_path class="btn btn-default btn-registration mb-2"
+              = t('.sign_up')
+            .text-center
+              = link_to t('.forgot_password'), new_password_path(resource_name), class: 'link link-reset-password font-13 text-blue'

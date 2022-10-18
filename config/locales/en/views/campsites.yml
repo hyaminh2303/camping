@@ -1,0 +1,66 @@
+en:
+  admin:
+    campsites:
+      general:
+        add_photo: Photo
+      index:
+        page_title: Campsite
+        page_description: Campsite List
+      new:
+        page_title: Campsite
+        page_description: New Campsite
+      edit:
+        page_title: Campsite
+        page_description: Camping site edit
+      show:
+        page_title: Campsite
+        page_description: キャンプ場詳細
+    translate:
+      translate_to_en: 英語自動翻訳
+      translate_to_zh: 中国語自動翻訳
+
+  campsites:
+    search:
+      title: Search Campsite
+      area: Area
+      facility-type: Facility type
+      anytime: Anytime
+      close: close
+      item: ""
+      there_are_campsites: "Result: %{total_count}"
+      narrow_down_campsites: Search
+      location:
+        title: Search from all over the country
+    index:
+      site_description: Search for campsites detailes  (search by area, nearby facilities, activities, etc.)
+      line_title_1: Let's explore camp site
+      line_title_2: You can search / book camp site all over Japan
+      search_campsite: Search camp site
+      search_by_map_title: Search by Map
+      search_by_map_description: ""
+      recommended_campsite_title: Recommended campsite
+      recommended_campsite_description: ""
+    show:
+      see_map: See map
+      campsite_map: Camp site map
+      business_information: Business information
+      select_plan: Select plan
+      one_day: 1day
+      currency_unit: yen
+      post_code: 〒
+      one_night_two_days: 1 night stay
+      yen: ¥
+      models:
+        price: "¥%{price}"
+      booking_with_this_plan: Booking with this plan
+      overview: Overview
+      sketch: Sketch
+      facilities_in_the_hall: Facilities in the hall
+      business_information: Business information
+      peripheral_facilities: Peripheral facilities
+      check_sales_information: Business information
+      look_at_the_sketch: Look at the sketch
+      news: News
+      read_the_article: Read the article
+      show_all_article: Show all articles
+      about_this_campsite: About this campsite

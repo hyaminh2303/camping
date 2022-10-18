@@ -1,0 +1,87 @@
+.campsite-search-form-wrapper
+  .form-group
+    margin-bottom: 0px
+
+    .table-border-wrapper
+      border: solid 1px #b4b4b4
+      border-radius: 4px
+      width: 100%
+
+      .border-horizontal
+        border-top: solid 1px #b4b4b4
+        width: 100%
+      .border-vertical
+        border-left: solid 1px #b4b4b4
+
+      .form-control
+        border: none
+
+      i
+        color: #8e8e8e
+        position: absolute
+        padding: 10px
+
+      .group_wrapper
+        height: 100%
+        .form-control
+          display: inline-block
+          height: inherit
+
+      .group-wrapper-calendar
+        .date-box-wrapper
+          display: flex
+          justify-content: space-around
+          height: 100%
+          padding-left: 0px
+          padding-right: 0px
+
+          .header
+            color: #8e8e8e
+
+          .body
+            color: #06c
+            font-weight: 700
+            text-decoration: underline
+            cursor: pointer
+
+
+      .area-input:before
+        margin-right: 10px
+        font-family: 'Font Awesome\ 5 Pro'
+        content: "\f3c5"
+        color: #8e8e8e
+      .area-input:empty:after
+        content: attr(data-text)
+        color: #8e8e8e
+
+      #calendar_search:before
+        font-family: 'Font Awesome\ 5 Pro'
+        content: '\f073'
+        margin-right: 10px
+        color: #8e8e8e
+      #calendar_search:empty:after
+        content: attr(data-text)
+        color: #8e8e8e
+      .calendar-wrapper
+        .form-control
+          padding-left: 0px
+          padding-right: 0px
+        .input-group-addon
+          margin-left: 0px
+          margin-right: 0px
+          border: solid 1px #b4b4b4
+          background-color: #b4b4b4
+          color: #ffff
+
+      ::placeholder
+        color: #8e8e8e
+
+  button
+    @include media-breakpoint-up(lg)
+      width: 50% !important
+
+.daterangepicker
+  z-index: 9999
+  .drp-buttons
+    .btn
+      margin-bottom: 5px

@@ -1,0 +1,6 @@
+tr.nested-fields
+  td.p-0= f.input :date, as: :string, input_html: { class: 'datepicker', value: f.object.date&.strftime('%Y/%m/%d') }, label: false
+  td.p-0= f.input :basic_fee, label: false, input_html: { min: 0, step: 1 }
+  td.p-0= f.input :number_of_people_pet_included, label: false, input_html: { min: 0 }
+  td.p-0= f.input :extra_person_fee, label: false, input_html: { min: 0, step: 1 }
+  td.p-0= link_to_remove_association "X", f, class: 'btn btn-sm btn-danger float-right'

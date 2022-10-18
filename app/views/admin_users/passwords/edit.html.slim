@@ -1,0 +1,26 @@
+.container
+  .session-continer
+    h1.title.text-center
+      | パスワードを再設定する
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = f.hidden_field :reset_password_token
+
+      .row.devise-messages
+        .col-12
+          = render "admin_users/shared/error_messages", resource: resource
+      .row
+        .col-12
+          .form-group.input-container
+            span.fas.fa-key.icon
+            = f.password_field :password, autofocus: true, \
+                          placeholder: 'パスワード', class: 'form-control'
+          .form-group.input-container
+            span.fas.fa-key.icon
+            = f.password_field :password_confirmation, autofocus: true, \
+                          placeholder: 'パスワードの確認', \
+                          class: 'form-control'
+
+          .actions-button
+            button type="submit" class="btn btn-primary btn-submit mb-2" パスワードを再設定する
+            .text-center
+              = link_to 'ログイン', new_session_path(resource_name), class: 'link link-reset-password font-13 text-blue'

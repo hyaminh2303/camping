@@ -1,0 +1,46 @@
+en:
+  my_pages:
+    show:
+      page_title: My page
+      booking_list_tab: Booking List
+      membership_info_tab: Membership Info
+      booking_history: Booking history
+      confirm_booking_details: Confirm booking details
+      membership_info_title: Membership info
+      adult: Adults
+      child: Children
+      pet: Pets
+      people: 名
+      message_modal: この施設にメッセージを送信する
+      show_details: Show details
+      show_more: Show more
+      detail: Reservation details
+      title: Number of reservations
+      additional_options: Plan options
+    profile:
+      buttons:
+        update_membership_info: Update membership info
+        return_for_book_history: Return to book history
+        withdraw_membership: Withdraw Membership
+    messages:
+      confirms:
+        cancel_travel_package: Are you sure?
+        withdraw_membership: Are you sure to withdraw membership? <br> *All booking information will be deleted <br> *All membership information will be deleted
+    campsite_booking_detail:
+      message: Message
+      title: Tile
+      send_message: Send Message
+      number_of_bookings: Number of reservations
+      send_a_message_to_this_facility: Send a message to this facility
+      view_the_details: Show details
+      show_more: Show more
+      booking_details: Reservation details
+      booking_name: Name
+      update_your_booking: Update this booking
+      cancel_this_booking: Cancel this booking
+      check_in_date_and_time: Check-in date
+      check_out_date_and_time: Check-out date
+      additional_options: Plan options
+      number_of_people_details_html: "<span class='number-of-adult'>%{adult}</span> Adults <span class='number-of-children'>%{children}</span> Children <span class='number-of-pet'>%{pet}</span> Pets"
+      unit:
+        currency: yen

@@ -1,0 +1,4 @@
+= simple_form_for([:admin, @campsite]) do |f|
+  = f.fields_for :campsite_entrance_fee do |entrance_fee|
+    #child-and-pet-entrance-fees-form-reload
+      = render 'child_and_pet_entrance_fees_form', entrance_fee: entrance_fee

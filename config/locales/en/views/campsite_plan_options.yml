@@ -1,0 +1,15 @@
+en:
+  admin:
+    campsite_plan_options:
+      index:
+        page_title: Campsite plan option
+        page_description: Campsite plan option List
+      new:
+        page_title: Campsite plan option
+        page_description: New Campsite plan option
+      edit:
+        page_title: Campsite plan option
+        page_description: Edit Campsite plan option
+      show:
+        page_title: Campsite plan option
+        page_description: Detail Of Campsite plan option

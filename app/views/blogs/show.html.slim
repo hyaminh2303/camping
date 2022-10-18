@@ -1,0 +1,64 @@
+- title @blog.title
+- description "#{strip_html_to_string(@blog.content)} | #{t('views.project.site_name')}"
+
+.blog-details-container-wrapper.container
+  .row.no-gutters
+    .left-content.col-lg-9.col-12
+      section.main-banner-wrapper.mb-md-2.mb-lg-4
+        = gcamp_image_tag @blog.photo&.image, class: 'img-fluid'
+
+      section.header-information-wrapper
+        .row.mt-lg-3.mt-2
+          .col-6
+            a href="#" class='btn btn-yellow font-9-down-sm font-12-only-md font-14-up-lg no-border-radius' = @blog.blog_category.name
+          .col-6.text-right.font-11-down-sm.font-12-only-md.font-14-up-lg
+            = @blog.publish_date&.strftime(t('datetime.with_locale.formats.short'))
+        .row
+          .col-12.d-flex.mt-lg-3.mt-1
+            .font-18-down-sm.font-25-only-md.font-30-up-lg.font-weight-bold = @blog.title
+        .row.mt-lg-4.mt-2.align-items-center
+          .col-12.col-lg-5
+            .tags.font-10-down-sm.font-12-only-md.font-14-up-lg
+              - @blog.tags_locale_list.each do |tag|
+                span.mr-2 = "##{tag}"
+          .col-12.col-lg-7.text-lg-right.text-center.buttons.mt-2.mt-lg-0
+            a href="http://twitter.com/share?text=#{@blog.title}&url=#{blog_url(@blog, blog_type: params[:blog_type])}&hashtags=gcamp,blog" class='btn btn-azure font-18 no-border-radius' target="_blank"
+              .i.fab.fa-twitter.text-white.icon-question
+            a href="https://www.facebook.com/sharer/sharer.php?u=#{blog_url(@blog, blog_type: params[:blog_type])}" class='btn btn-flat-blue font-18 no-border-radius' target="_blank"
+              .i.fab.fa-facebook-f.text-white.icon-question
+            a href="https://social-plugins.line.me/lineit/share?url=#{blog_url(@blog, blog_type: params[:blog_type])}" class='btn btn-kelly-green font-18 no-border-radius' target="_blank"
+              .i.fab.fa-line.text-white.icon-question
+
+        .row
+          .col-12.d-lg-none.mt-4
+          .col-12.blog-description.font-13-down-sm.font-14-only-md.font-16-up-lg.mt-lg-5.mt-3
+            = @blog.description
+
+      section.content-wrapper
+        .row.my-4
+          .col-12
+            .blue-background
+              .text-border-left.font-18-down-sm.font-24-only-md.font-28-up-lg.font-weight-bold
+                = @blog.areas_locale_list.join(', ')
+        .row
+          .col-12.content
+            = raw @blog.content
+
+
+    .right-content.col-lg-3.col-12.d-none.d-lg-block
+      section.blog-catergory-list
+        .image-wrapper
+          = image_tag 'home-primary-sliders/top02.jpg', class: 'img-fluid'
+        .row.mt-3
+          .col-12.category Category
+          .col-12.font-16.font-weight-bold = t('.category')
+        .list.mt-3
+          - ( params[:blog_type] == "supplier_blog" ? @blog_categories.order(:weight) : @blog_categories ).each do |blog_category|
+            .row
+              = link_to blogs_path(blog_type: blog_category.category_type, blog_category_id: blog_category.id)
+                .col-12.d-flex.align-items-center
+                  .image-wrapper.mr-2
+                    = gcamp_image_tag blog_category.icon, class: 'img-fluid'
+                  span.font-14.font-weight-bold = blog_category.name
+                .col-12
+                  .border-bottom

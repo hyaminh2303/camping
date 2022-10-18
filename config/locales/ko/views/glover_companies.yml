@@ -1,0 +1,9 @@
+ko:
+  admin:
+    glover_companies:
+      edit:
+        page_title: Glover Company
+        page_description: Edit Glover Company
+      show:
+        page_title: Glover Company
+        page_description: Detail Of Glover Company

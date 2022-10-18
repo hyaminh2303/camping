@@ -1,0 +1,16 @@
+br
+div = "#{@contact_us.name} #{t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.sama')}"
+div = t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.line_1')
+div = t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.line_2')
+br
+div = t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.line_3')
+br
+div = "#{t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.user_name')}：#{@contact_us.name}"
+div = "#{t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.email')}：#{@contact_us.email}"
+div = "#{t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.phone_number')}：#{@contact_us.phone_number}"
+div = "#{t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.created_at')}：#{@contact_us.created_at.strftime('%Y年%m月%d日 %H時%M分')}"
+div = "#{t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.contact_id')}：#{@contact_us.id}"
+div = "#{t('contact_us_mailer.send_contact_us_confirmation_to_customer.content.contact_detail')}：#{@contact_us.details_of_inquiry}"
+br
+
+= render 'layouts/mailer_partials/footer'

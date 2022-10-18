@@ -1,0 +1,26 @@
+en:
+  contact_us:
+    new:
+      title: Inquiry
+      input_error: There is an error in the input content
+      checking_the_content: Checking the content
+    confirm_information:
+      title: Confirmation of inquiry contents
+      send: Send
+    thanks:
+      title: The transmission is complete
+      go_back_to_the_top_page: Go back to the top page
+      content: Thank you for your inquiry. We will reply to your email address as soon as possible.
+    placeholder:
+      name: Name
+      email: Email address
+      phone_number: '00000000000'
+
+  admin:
+    contact_us:
+      index:
+        page_title: Customer inquiries
+        page_description: Customer inquiry list
+      show:
+        page_title: Customer inquires
+        page_description: Details of inquiry

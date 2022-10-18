@@ -1,0 +1,12 @@
+.nested-fields class="#{'d-none' if f.object._destroy }"
+  .row.mt-1
+    - if f.object.image.present?
+      .col-md-2
+        = image_tag f.object.image.url, class: 'img-fluid'
+    .col-md-6
+      = f.input :on_click_url
+    .col-md-4
+      = link_to_remove_association "X", f, class: 'btn btn-sm btn-danger'
+  .row.mt-2
+    .col-md-8
+      = f.input :image, label: false, input_html: {accept: 'image/*'}

@@ -1,0 +1,49 @@
+@import '../definitions/variables'
+
+.booking-detail-wrapper
+  font-family: $primary-font-family
+
+  section.booking-item
+    .booking-item-image
+      width: 160px
+      height: 160px
+      object-fit: cover
+      @include media-breakpoint-down(md)
+        width: 70px
+        height: 70px
+    .booking-date
+      color: $gray-color
+    .price
+      font-family: $font-quicksand
+      color: $yellow-color
+
+  section.comments
+    .comment-item
+      .date
+        color: $blue-briny-color
+      .user-name
+        color: $blue-color
+      .comment-detail-button
+        text-decoration: underline
+        color: $blue-color
+
+  section.booking-detail
+    .booking-info
+      .title
+        color: $blue-briny-color
+      .detail
+        color: $gray-color
+    .additional-options
+      .rental-supplies
+        color: $blue-briny-color
+      .material
+        color: $gray-color
+      .price-wrapper
+        .price
+          font-family: $font-quicksand
+          color: $yellow-color
+        .number
+          font-family: $font-quicksand
+          color: $blue-color
+    .cancel-booking-button
+      line-height: 95%

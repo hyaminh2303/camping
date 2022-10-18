@@ -1,0 +1,50 @@
+.d-none
+  = f.hidden_field :customer_user_id
+  = f.hidden_field :booking_type
+  = f.simple_fields_for :camp_car_booking do |ff|
+    = ff.hidden_field :camp_car_id
+    = ff.hidden_field :start_date_of_renting, value: ff.object.start_date_of_renting.strftime('%d/%m/%Y'), class: 'start-date-of-renting-input'
+    = ff.hidden_field :end_date_of_renting, value: ff.object.end_date_of_renting.strftime('%d/%m/%Y'), class: 'end-date-of-renting-input'
+
+.new-booking
+  .booking-item
+    .booking-image
+      = gcamp_image_tag f.object.camp_car_booking.camp_car.photos.first&.image, class: 'img-fluid'
+    .item-content.mgl-20
+      .item-title.text-break = f.object.camp_car_booking.camp_car.name
+      .item-price.text-right.mgt-10
+        span.number-of-days.font-quicksand= f.object.camp_car_booking.number_of_nights
+        span.time-unit 泊
+        span.total-price.font-quicksand.text-break
+          = gcamp_round_price(f.object.total_price)
+        span.font-13.font-weight-bold 円〜
+
+  .booking-infomation.mgt-20
+    .booking-infomation-title.mgt-20
+      = t("checkout.camp_car_bookings.page.title.scheduled_rental_date_and_time")
+    / .row.mgt-10
+    /   .col-8
+    /     .booking-infomation-content#camp-car-booking-start-date-of-renting
+    /       = f.object.camp_car_booking.start_date_of_renting.strftime('%d/%m/%Y')
+    /   .col-4.text-right
+    /     a#btn-edit-camp-car-booking-start-date-of-renting href="javascript:void(0)" class="link-to-edit-booking" 編集する
+
+    / .booking-infomation-title.mgt-20 返却予定日時
+    / .row.mgt-10
+    /   .col-8
+    /     .booking-infomation-content#camp-car-booking-end-date-of-renting
+    /       = f.object.camp_car_booking.end_date_of_renting.strftime('%d/%m/%Y')
+    /   .col-4.text-right
+    /     a#btn-edit-camp-car-booking-end-date-of-renting href="javascript:void(0)" class="link-to-edit-booking" 編集する
+
+    .row.mgt-10
+      .col-12
+        /  5月31日月曜日-6月8日月曜日
+        span#camp-car-booking-time-range.text-gray.font-12.font-weight-bold.cursor-pointer
+          span.start-date-of-renting
+            = f.object.camp_car_booking.start_date_of_renting.strftime('%d/%m/%Y')
+          span -
+          span.end-date-of-renting
+            = f.object.camp_car_booking.end_date_of_renting.strftime('%d/%m/%Y')
+        a#btn-edit-camp-car-booking-time-range href="javascript:void(0)" class="link-to-edit-booking float-right text-blue font-12 font-weight-bold"
+          = t("checkout.camp_car_bookings.page.link_name.to_edit")

@@ -1,0 +1,23 @@
+css:
+  #main-content {
+    padding-bottom: 0px;
+  }
+
+- noindex
+
+section.coming-soon-wrapper
+  .image-wrapper
+    .overlay
+    = image_tag 'coming-soon.png'
+  .text-wrapper
+    .content-wrapper
+      .coming-soon-text
+        .gcamp-monkey
+          = image_tag 'gcamp-monkey.png'
+        .title-wrapper
+          .title
+            | Coming Soon
+          .line
+            .dash
+      .subtitle
+        = t("coming_soon.in_process_of_develop")

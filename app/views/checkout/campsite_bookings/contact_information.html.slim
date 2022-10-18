@@ -1,0 +1,30 @@
+/ step 3
+.checkout-campsite-booking-container-wrapper
+  = render 'shared/wizard', booking_type: :campsite_booking, step: 3
+
+  .campsite-booking-information-wrapper
+    - flash.clear
+    .form-title.text-center.font-weight-bold.font-18 = t ('checkout.campsite_bookings.views.contact_information.title')
+
+    = simple_form_for @travel_package, url: update_booking_checkout_campsite_bookings_path, method: :post, html: { class: 'campsite-booking-form' } do |f|
+      = hidden_field_tag :current_campsite_booking_step, 'contact_information'
+      = render "checkout/shared/booking_contact_information", f: f
+      = render "checkout/shared/booking_message", f: f
+
+      .row
+        .col-12.text-center.font-12.font-weight-bold
+          label = t('checkout.campsite_bookings.views.contact_information.policy')
+          label = link_to t('checkout.campsite_bookings.views.contact_information.click_here'),
+                          terms_of_use_index_path, target: :_blank, class: 'text-azure'
+        / https://app.clickup.com/t/282tg2p
+        / .col-12
+        /   = text_area :policy, "", class: 'box-shadown-input font-14 form-control', rows: 5, style: "resize: none", disabled: true
+
+      .action-button-wrapper
+        .row.mgt-60
+          .col-12.text-center
+            button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+              = t('checkout.campsite_bookings.views.contact_information.buttons.submit')
+          .col-12.mgt-12.text-center
+            = link_to t('checkout.campsite_bookings.views.contact_information.buttons.back'), select_plan_options_checkout_campsite_bookings_path,
+                      class: 'btn btn-w350-full-width-mobile btn-black'

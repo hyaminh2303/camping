@@ -1,0 +1,34 @@
+.camp-car-location-search-wrapper.container
+  .location-list-inner
+    .location-list
+      .head
+        .close
+          i.fa.fa-times
+      .location-list-outer
+        .title
+          | 全国の地域から探す
+        .location-list-inner-content
+          .list.state-list
+            ul.location-item-list
+              - Master::State.order_by_weight_asc.each do |state|
+                li.location-item
+                  .state-item-wrapper.item-wrapper[
+                    data-state-name="#{state.name}"
+                    data-state-id="#{state.id}"]
+
+                    span class='name' = "#{state.name}（#{state.camp_cars.only_public.count}）"
+                    span.icon
+                      i.fa.fa-chevron-right
+                  .border-bottom-custom
+
+          .list.prefecture-list.d-none
+            ul.location-item-list
+              - Master::Prefecture.all.each do |prefecture|
+                li.location-item
+                  .prefecture-item-wrapper.item-wrapper[
+                    data-prefecture-name="#{prefecture.name}"
+                    data-prefecture-id="#{prefecture.id}"
+                    data-state-id="#{prefecture.state.id}"]
+
+                    span class='name' =  "#{prefecture.name}（#{prefecture.camp_cars.only_public.count}）"
+                  .border-bottom-custom

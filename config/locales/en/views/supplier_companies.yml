@@ -1,0 +1,33 @@
+en:
+  admin:
+    supplier_companies:
+      index:
+        page_title:
+          camp_car_supplier_company: Camp Car Supplier
+          campsite_supplier_company: キャンプサプライヤー
+        page_description:
+          camp_car_supplier_company: Camp Car Supplier List
+          campsite_supplier_company: Campsite Supplier List
+        buttons:
+          new: 新規キャンプサプライヤ追加
+      new:
+        page_title:
+          camp_car_supplier_company: Camp Car Supplier
+          campsite_supplier_company: Campsite Supplier
+        page_description:
+          camp_car_supplier_company: New Camp Car Supplier
+          campsite_supplier_company: 新規キャンプ場サプライヤー
+      edit:
+        page_title:
+          camp_car_supplier_company: Camp Car Supplier
+          campsite_supplier_company: Campsite Supplier
+        page_description:
+          camp_car_supplier_company: Edit Camp Car Supplier
+          campsite_supplier_company: Edit Campsite Supplier
+      show:
+        page_title:
+          camp_car_supplier_company: Camp Car Supplier
+          campsite_supplier_company: Campsite Supplier
+        page_description:
+          camp_car_supplier_company: Detail Of Camp Car Supplier
+          campsite_supplier_company: Detail Of Campsite Supplier

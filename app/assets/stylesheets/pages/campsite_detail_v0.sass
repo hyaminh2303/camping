@@ -1,0 +1,172 @@
+@import '../definitions/variables'
+
+.campsite-detail-container-wrapper
+  font-family: $font-yu-gothic
+
+  section.banner-wrapper.container
+    @include media-breakpoint-down(sm)
+      padding: 0px
+      .slick-track
+        width: 100%
+    .main-slider:not(.slick-dotted)
+      .slick-list.draggable
+        padding: 0 !important
+    .main-slider
+      .slider-item
+        text-align: center
+        img
+          display: inline-block
+          max-width: 100%
+          @include media-breakpoint-down(md)
+            max-height: 330px
+          @include media-breakpoint-up(lg)
+            max-height: 352px
+      .slick-dots
+        li
+          margin: 0
+          button
+            &::before
+              font-size: 40px
+
+  section.container.description-content
+    @include media-breakpoint-down(md)
+      .btn-yellow
+        width: 100%
+
+    @include media-breakpoint-up(lg)
+      .btn-yellow
+        width: 345px
+      .news-wrapper
+        background-color: $white-color
+        margin-left: 22%
+        margin-right: 22%
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16)
+
+        .icon-question
+          height: 35px
+    img.sketch-file
+      width: 100%
+      @include media-breakpoint-down(xs)
+        height: 250px
+      @include media-breakpoint-only(sm)
+        height: 300px
+      @include media-breakpoint-only(md)
+        height: 340px
+      @include media-breakpoint-up(lg)
+        height: 370px
+    .camp-type
+      display: inline-block
+      height: fit-content
+    .modal
+      .modal-body
+        @include media-breakpoint-up(lg)
+          height: 600px
+        @include media-breakpoint-down(md)
+          height: 500px
+
+  section.container.information-content
+    .table
+      border-collapse: separate
+      border-spacing: 0
+      tr
+        th, td
+          border-top: none
+          border-bottom: 1px solid $gray-color
+          font-size: 12px
+        th
+          width: 32%
+          padding-left: 0px
+          font-weight: bold
+    .facilities-wrapper
+      span
+        white-space: nowrap
+        color: #b7b7b7
+        display: inline-block
+      .background-green-color
+        background-color: $green-color
+        color: $white-color
+        padding: 0 10px
+
+    @include media-breakpoint-down(md)
+      .table-facilities-information
+        display: none
+      .icons
+        a
+          color: black
+      textarea
+        font-size: 14px
+
+    @include media-breakpoint-down(sm)
+      textarea
+        font-size: 12px
+
+    @include media-breakpoint-up(lg)
+      .icons
+        display: none
+      textarea
+        font-size: 16px
+    textarea
+      background-color: unset
+
+  // section.container.facilities-in-the-hall
+  //   .facilities-wrapper
+  //     span
+  //       white-space: nowrap
+  //       color: #b7b7b7
+  //       display: inline-block
+  //     .background-green-color
+  //       background-color: $green-color
+  //       color: $white-color
+  //       padding: 0 10px
+
+  section.container.peripheral-facilities
+    @include media-breakpoint-up(lg)
+      display: none
+
+    @include media-breakpoint-down(md)
+      .images-wrapper
+        img
+          object-fit: cover
+          height: 100%
+          width: 100%
+          @include media-breakpoint-down(sm)
+            height: 85px
+          @include media-breakpoint-only(md)
+            height: 125px
+          @include media-breakpoint-up(lg)
+            height: 100px
+
+      .row-facilities, hr
+        padding-left: 0px
+        margin-left: -15px
+      .text-yellow
+        font-family: 'Quicksand'
+
+  section.container.select-plan
+    .images-wrapper
+      img
+        object-fit: cover
+        height: 100%
+        width: 100%
+        @include media-breakpoint-down(sm)
+          height: 85px
+        @include media-breakpoint-only(md)
+          height: 125px
+        @include media-breakpoint-up(lg)
+          height: 100px
+
+    .campsite-plan-wrapper
+      padding-left: 0px
+      margin-left: -15px
+      a:hover
+        text-decoration: none
+      .col-lg-6:first-child
+        .border-bottom
+          display: block !important
+      .col-lg-6:nth-child(2)
+        .border-bottom
+          @include media-breakpoint-up(lg)
+            display: block !important
+
+    .text-yellow
+      font-family: 'Quicksand'

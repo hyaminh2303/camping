@@ -1,0 +1,16 @@
+ko:
+  admin:
+    blog_categories:
+      index:
+        page_title: Blog Category
+        page_description: Blog Category List
+      new:
+        page_title: Blog Category
+        page_description: 新規記事カテゴリー
+      edit:
+        page_title: Blog Category
+        page_description: Edit Blog Category
+        perfecture_code_link: What's Pref Code?
+      show:
+        page_title: Blog Category
+        page_description: Detail Of Blog Category

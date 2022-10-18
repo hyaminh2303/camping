@@ -1,0 +1,114 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  = search_form_for @q, url: admin_camp_car_bookings_path do |f|
+    .form-inputs
+      .row
+        .form-group.col-sm-3
+          = f.label :check_in_start_gteq, t('.check_in_start')
+          = f.search_field :check_in_start_gteq, class: 'form-control bootstrap-datepicker',
+                            value: @q.check_in_start_gteq&.strftime('%d/%m/%Y'),autocomplete: :off
+        .form-group.col-sm-3
+          = f.label :check_in_end_lteq, t('.check_in_end')
+          = f.search_field :check_in_end_lteq, class: 'form-control bootstrap-datepicker',
+                            value: @q.check_in_end_lteq&.strftime('%d/%m/%Y'), autocomplete: :off
+
+        .form-group.col-sm-3
+          = f.label :camp_car_id_eq, t('activerecord.models.camp_car.one')
+          = f.select :camp_car_id_eq,
+                      options_for_select(camp_cars_collection, @q.camp_car_id_eq),
+                      {include_blank: true},
+                      class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :travel_package_booking_contact_information_name_cont,
+                    t('activerecord.attributes.booking_contact_information.name')
+          = f.search_field :travel_package_booking_contact_information_name_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :travel_package_booking_contact_information_email_cont,
+                    t('activerecord.attributes.booking_contact_information.email')
+          = f.search_field :travel_package_booking_contact_information_email_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :travel_package_booking_contact_information_phone_number_cont,
+                    t('activerecord.attributes.booking_contact_information.phone_number')
+          = f.search_field :travel_package_booking_contact_information_phone_number_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :travel_package_status_eq,
+                    t('activerecord.attributes.travel_package.status')
+          = f.select :travel_package_status_eq,
+                      options_for_select(booking_statuses_collection(true), @q.travel_package_status_eq),
+                      {include_blank: true},
+                      class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :travel_package_booking_ref_number_cont,
+                    t('activerecord.attributes.travel_package.booking_ref_number')
+          = f.search_field :travel_package_booking_ref_number_cont, class: 'form-control'
+        .col-sm-12.d-flex.align-items-center.justify-content-end.mb-4
+          = link_to t('views.buttons.clear'), admin_camp_car_bookings_path, class: 'btn btn-gray'
+          = submit_tag t('views.buttons.search'), class: 'btn btn-blue ml-1'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), '', class: "btn btn-blue btn-new-record"
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.travel_package.booking_ref_number')
+          th = t('activerecord.models.camp_car.one')
+          th = t('activerecord.attributes.travel_package.status')
+          th = t('activerecord.attributes.booking_contact_information.name')
+          th = t('activerecord.attributes.booking_contact_information.email')
+          th = t('activerecord.attributes.travel_package.total_price')
+          th = t('activerecord.attributes.camp_car_booking.start_date_of_renting')
+          th = t('activerecord.attributes.camp_car_booking.end_date_of_renting')
+          th = t('activerecord.attributes.travel_package.payment_method')
+          th = t('admin.camp_car_bookings.index.note')
+
+      tbody.font-14
+        - @camp_car_bookings.each do |camp_car_booking|
+          tr
+            td.action
+              = link_to t('views.buttons.view'), admin_camp_car_booking_path(camp_car_booking), \
+                class: 'btn btn-blue'
+
+              - if camp_car_booking.travel_package.is_editable?
+                = link_to t('views.buttons.edit'), edit_admin_camp_car_booking_path(camp_car_booking), \
+                  class: 'btn btn-green'
+
+              - if camp_car_booking.travel_package.is_cancelable?
+                = link_to_delete_with cancel_admin_travel_package_path(camp_car_booking.travel_package.id), \
+                                      label: t('admin.camp_car_bookings.index.buttons.cancel'),
+                                      data: { \
+                                        confirm: t('admin.camp_car_bookings.index.messages.confirm_delete'),
+                                        confirm_button: t('admin.camp_car_bookings.index.messages.buttons.confirm'),
+                                        cancel_button: t('admin.camp_car_bookings.index.messages.buttons.cancel') \
+                                      }
+
+              = button_tag t('admin.camp_car_bookings.index.buttons.note'),
+                        type: 'button',
+                        class: 'btn btn-yellow add-note-button',
+                        data: {camp_car_booking_id: camp_car_booking.id}
+
+            td = camp_car_booking.travel_package.booking_ref_number
+            td = camp_car_booking.camp_car.name
+            td
+              = form_for camp_car_booking.travel_package, url: update_status_admin_travel_package_path(camp_car_booking.travel_package),
+                html: { class: 'd-flex' } do |f|
+                = f.select :status, booking_statuses_collection, {}, class: 'form-control d-inline w200px update-status-input'
+                = f.button t('views.buttons.update'), type: :submit , class: 'btn btn-green ml-2'
+            td = camp_car_booking.travel_package&.booking_contact_information&.name
+            td = camp_car_booking.travel_package&.booking_contact_information&.email
+            td = gcamp_round_price(camp_car_booking.travel_package.total_price)
+            td = camp_car_booking.start_date_of_renting.strftime(t('datetime.formats.short'))
+            td = camp_car_booking.end_date_of_renting.strftime(t('datetime.formats.short'))
+            td = camp_car_booking.travel_package.payment_method_text
+            td = truncate(camp_car_booking.note, length: 50)
+
+
+.container.pagination.justify-content-center
+  = paginate @camp_car_bookings, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"
+
+= render "admin/shared/modal", title: t('admin.camp_car_bookings.show.add_note_title')

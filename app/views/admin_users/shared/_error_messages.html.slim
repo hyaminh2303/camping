@@ -1,0 +1,8 @@
+- if resource.errors.any?
+  .info-box.bg-danger
+    .info-box-content
+      span.info-box-text
+      ul
+        - resource.errors.full_messages.each do |message|
+          li
+            = message

@@ -1,0 +1,11 @@
+ja:
+  customer_user_mailer:
+    send_verification_email_to_customer:
+      content:
+        line_1: この度は G’Camp にご登録いただき、誠にありがとうございます。
+        line_2: ご本人様確認のため、下記URLへ「24時間以内」にアクセスし、アカウントの本登録を完了させて下さい。
+        line_3: ※当メール送信後、24時間を超過しますとセキュリティ保持のため有効期限切れとなります。その場合は再度、最初からお手続きをお願い致します。
+
+  member_registration_mailer:
+    send_verification_email_to_customer:
+      content:

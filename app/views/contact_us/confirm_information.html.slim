@@ -1,0 +1,42 @@
+.contact-confirm-wrapper.container
+  section.header-wrapper
+    .row.my-5
+      .col-12.font-18.font-weight-bold.text-center = t('contact_us.confirm_information.title')
+  section.content-wrapper
+    = simple_form_for @contact_us, url: contact_us_path, method: :post do |f|
+      = f.hidden_field :name, value: f.object.name
+      = f.hidden_field :email, value: f.object.email
+      = f.hidden_field :phone_number, value: f.object.phone_number
+      = f.hidden_field :details_of_inquiry, value: f.object.details_of_inquiry
+
+      .row
+        .col-12.title
+          = t('activerecord.attributes.contact_us.name')
+          span.require-input-icon *
+        .col-12.data
+          = f.object.name
+      .row
+        .col-12.title
+          = t('activerecord.attributes.contact_us.email')
+          span.require-input-icon *
+        .col-12.data
+          = f.object.email
+      .row
+        .col-12.title
+          = t('activerecord.attributes.contact_us.phone_number')
+          span.require-input-icon *
+        .col-12.data
+          = f.object.phone_number
+      .row
+        .col-12.title
+          = t('activerecord.attributes.contact_us.details_of_inquiry')
+        .col-12.data
+          = f.object.details_of_inquiry
+
+      .row.mgt-30
+        .col-12.text-center
+          = f.submit t('.send'), class: 'btn btn-w350-full-width-mobile btn-yellow'
+        .col-12.mgt-12.text-center
+          = link_to t('views.buttons.back'),
+                    new_contact_us_path,
+                    class: 'btn btn-w350-full-width-mobile btn-black'

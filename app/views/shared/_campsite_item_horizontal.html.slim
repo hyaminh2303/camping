@@ -1,0 +1,18 @@
+.camp-element-item-horizontal.pt-md-2.pb-md-3
+  .row.no-gutters
+    .col.col-md-4.image-wrapper
+      = link_to (gcamp_image_tag campsite.photos.first&.image, class: "img-fluid"), campsite_path(campsite)
+
+    .col.col-md-8.information-wrapper.py-3.py-md-0.pl-2
+      .item-header.mb-2
+        a href="#" class="btn btn-green font-9 no-border-radius" = campsite.prefecture.name
+        / span.font-11.date.ml-2 コメント入れられます | https://app.clickup.com/t/20r01ex
+      h3.item-content.font-15.mb-md-1
+        = link_to campsite.name, campsite_path(campsite)
+      h5.description
+        = raw truncate_html(strip_tags(campsite.description), length: 80, omission: '...')
+      .tags
+        - campsite.tags_locale_list.last(3).each do |name|
+          span.mr-2
+            .btn.btn-gray.font-9.no-border-radius = name
+  .border-bottom.d-md-none

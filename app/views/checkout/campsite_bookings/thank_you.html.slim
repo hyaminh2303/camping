@@ -1,0 +1,8 @@
+.checkout-campsite-booking-container-wrapper
+  .thank-you-wrapper
+    = render 'shared/wizard', booking_type: :campsite_booking, step: 6
+    = render 'shared/messages'
+    .form-title.text-center.font-weight-bold.font-18
+      .page-title.mgt-35.mgb-24 = t("checkout.campsite_bookings.views.thank_you.title")
+  .campsite-booking-information-wrapper
+    = render 'shared/action_buttons'

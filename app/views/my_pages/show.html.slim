@@ -1,0 +1,31 @@
+.booking-histories-wrapper
+  .container
+    section.header-wrapper
+      .title-wrapper.text-center
+        span = t('.page_title')
+      .d-flex.justify-content-center.align-items-center.mt-3.tabs-wrapper
+        .position-relative.tab-button-wrapper.mr-2
+          = link_to t('.booking_list_tab'), my_page_path, \
+          class: "btn button-tab d-flex align-items-center justify-content-center \
+          #{'tab-active' if ( !params[:is_updating_profile] && !local_assigns[:is_updating_profile])}",
+          id: 'left-tab-button'
+        .position-relative.tab-button-wrapper.ml-2
+          button#right-tab-button.btn.button-tab href="#" class="#{ 'tab-active' if ( params[:is_updating_profile] || local_assigns[:is_updating_profile])}" = t('.membership_info_tab')
+      .subtitle.text-center
+        span.list-title = t('.booking_history')
+        span.info-title.d-none = t('.membership_info_title')
+
+    section.content-wrapper
+
+      = render 'shared/messages'
+
+      #left-tab-content
+        - if @campsite.present?
+          = render 'my_pages/campsite_booking_detail'
+        - elsif @camp_car.present?
+          = render 'my_pages/camp_car_booking_detail'
+        - else
+          = render 'my_pages/booking_history_items'
+
+      #right-tab-content.d-none
+        = render 'my_pages/profile'

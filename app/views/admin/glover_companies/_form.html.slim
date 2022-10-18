@@ -1,0 +1,11 @@
+= simple_form_for(@glover_company, url: admin_glover_company_path, method: :patch) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :company_name
+    = f.input :location
+    = f.input :phone_number
+    = f.input :hp_url
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

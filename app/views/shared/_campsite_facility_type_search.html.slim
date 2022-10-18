@@ -1,0 +1,21 @@
+.campsite_facility_type_search_wrapper.form-control
+  - facility_type_plan = CampCategoryGroup.facility_type_plan
+  .dropdown-toggle.facility-type-input [ \
+    data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-display='static'
+    data-text=t('campsites.search.facility-type')
+    data-camp-categories="#{ \
+      camp_categories_of_facility_type_group.to_json if camp_categories_of_facility_type_group.present?}"
+    data-selected-camp-categories="#{ \
+      facility_type_plan.camp_categories.by_id(params['c_cate']).map{|x| [x.id, x.name]}.to_h.to_json \
+      if facility_type_plan.present? && facility_type_plan.camp_categories.present? }"]
+  ul.dropdown-menu.checkbox-menu.allow-focus.facility-type-selection
+    - if facility_type_plan.present?
+      - facility_type_plan.camp_categories.order_by_weight_asc.each do |camp_category|
+        li.dropdown-item
+          label
+            = check_box_tag 'c_cate[]', camp_category.id, \
+              params['c_cate']&.include?(camp_category.id.to_s), \
+              id: "camp-category-#{camp_category.id}-md", \
+              class: "mr-2 camp-category-checkbox advance-search-icheck-input c-cate-id-#{camp_category.id}", \
+              data: {"c-cate-name": "#{camp_category.name}"}
+            = camp_category.name

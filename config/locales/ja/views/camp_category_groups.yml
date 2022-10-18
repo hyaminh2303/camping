@@ -1,0 +1,15 @@
+ja:
+  admin:
+    camp_category_groups:
+      index:
+        page_title: キャンプ場カテゴリー管理
+        page_description: キャンプ場カテゴリーリスト
+      new:
+        page_title: キャンプ場カテゴリー管理
+        page_description: 新規キャンプカテゴリグループ追加
+      edit:
+        page_title: キャンプ場カテゴリー管理
+        page_description: キャンプ場カテゴリー編集
+      show:
+        page_title: キャンプ場カテゴリー管理
+        page_description: キャンプ場カテゴリグループ詳細

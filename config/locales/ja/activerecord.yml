@@ -1,0 +1,637 @@
+ja:
+  errors:
+    format: "%{attribute} %{message}" # Only accept the error message format here
+
+  activerecord:
+    enum:
+      supplier_company:
+        contract_type:
+          commission_base: コミッション型
+          no_commission: 掲載料のみ
+        operation_classification:
+           private_management: 民営
+           pubic_management: 公営
+        ryokan:
+          'yes': 有
+          'no': 無
+      travel_package:
+        reservation_method:
+          is_outside: G'Campサイト外
+          is_not_outside: G'Campサイト内
+        payment_method:
+          credit_card: クレジットカード決済
+          cash: 現地支払い
+        status:
+          booked: 予約済
+          temporary_booked: 仮予約済
+          canceled: キャンセル済
+          no_show: 無断キャンセル
+          check_out: 宿泊済
+          incomplete: Incomplete
+      slider_banner:
+        position:
+          top: Top
+          middle: Middle
+          bottom: Bottom
+        page:
+          home: Home
+      campsite_plan_fee:
+        fee_type:
+          normal: 基本料金設定
+          classification_day: 曜日・特別日別料金設定
+          # normal: 基本 # https://app.clickup.com/t/1ykbdrh
+          # classification_day: 特別日 #https://app.clickup.com/t/1ykbdrh
+      child_and_pet_setting:
+        entity_type:
+          child: 子供
+          pet: ペット
+      admin_user:
+        role:
+          super_admin: Glover
+          campsite_admin: キャンプ場管理者
+          camp_car_admin: キャンピングカー管理者
+
+    errors:
+      models:
+        customer_user:
+          attributes:
+            birthday:
+              format: "%{message}"
+      messages:
+        accepted: を受諾してください
+        blank: を入力してください
+        confirmation: と%{attribute}の入力が一致しません
+        empty: を入力してください
+        equal_to: は%{count}にしてください
+        even: は偶数にしてください
+        exclusion: は予約されています
+        greater_than: は%{count}より大きい値にしてください
+        greater_than_or_equal_to: は%{count}以上の値にしてください
+        inclusion: は一覧にありません
+        invalid: は不正な値です
+        less_than: は%{count}より小さい値にしてください
+        less_than_or_equal_to: は%{count}以下の値にしてください
+        model_invalid: 'バリデーションに失敗しました: %{errors}'
+        not_a_number: は数値で入力してください
+        not_an_integer: は整数で入力してください
+        odd: は奇数にしてください
+        other_than: は%{count}以外の値にしてください
+        present: は入力しないでください
+        required: を入力してください
+        taken: はすでに存在します
+        too_long: は%{count}文字以内で入力してください
+        too_short: は%{count}文字以上で入力してください
+        wrong_length: は%{count}文字で入力してください
+        already_exists: もう存在している
+        at_least_3_days_from_the_current_date: must be at least 3 days from the current date
+        can_not_edit_for_credit_card_payment_method: can not edit for credit card payment method
+        url: は不正なURLです
+        validate_image_file_type: must be image file type of jpg, jpeg or png
+        phone_format: 数字のみである必要があります例）09012345678または+84-123-456-7890
+        can_not_select_both: can not select both
+        number_of_people_different_from_reserved_number: 予約人数と同じ人数を入力してください。
+        remaining_stock: 在庫数を超えています
+        invalid_birthday: 誕生日は今日より過去の日を入力してください。
+
+      template:
+        body: 次の項目を確認してください
+        header:
+          one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+
+    models:
+      customer_user:
+        one: 代表者メールアドレス
+        other: Customer users
+      campsite:
+        one: キャンプ場
+        other: Campsites
+      campsite_entrance_fee:
+        one: Campsite entrance fee
+        other: Campsite entrance fees
+      photo:
+        one: Photo
+        other: Photos
+      campsite_plan:
+        one: プラン
+        other: Campsite plans
+      campsite_plan_fee:
+        one: Campsite plan fee
+        other: Campsite plan fees
+      campsite_plan_fee_detail:
+        one: Campsite plan fee detail
+        other: Campsite plan fee details
+      campsite_plan_daily_fee_setting:
+        one: Campsite plan daily fee setting
+        other: Campsite plan daily fee settings
+      child_and_pet_setting:
+        one: 子供・ペット区分設定
+        other: Child and pet settings
+      glover_company:
+        one: グローバージャパン　会社
+        other: Glover companies
+      supplier_company:
+        one: Supplier company
+        other: Supplier companies
+      campsite_supplier_company:
+        one: キャンプサプライヤー
+        other: Campsite supplier companies
+      camp_car_supplier_company:
+        one: Camp car supplier company
+        other: Camp car supplier companies
+      supplier_corporate_representative_information:
+        one: Supplier corporate representative information
+        other: Supplier corporate representatives information
+      supplier_contact_information:
+        one: Supplier contact information
+        other: Supplier contacts information
+      admin_user:
+        one: Admin user
+        other: Admin users
+      role:
+        one: Role
+        other: Roles
+      camp_category_group:
+        one: キャンプ場カテゴリグループ
+        other: Camp category groups
+      camp_category:
+        one: キャンプ場カテゴリ検索詳細
+        other: Camp categories
+      camp_car_category:
+        one: Camp car category
+        other: Camp car categories
+      camp_car:
+        one: 車名
+        other: Camp cars
+      classification_day_setting:
+        one: 曜日・特別日タイプ設定
+        other: Classification day settings
+      date_setting:
+        one: 日付タイプ設定
+        other: Date settings
+      campsite_booking:
+        one: Campsite booking
+        other: Campsite bookings
+      travel_package:
+        one: Travel package
+        other: Travel packages
+      campsite_plan_quantity:
+        one: Campsite plan quantity
+        other: Campsite plan quantities
+      camp_car_quantity:
+        one: Camp car quantity
+        other: Camp car quantities
+      camp_car_option:
+        one: Camp car option
+        other: Camp car options
+      camp_car_booking:
+        one: Camp car booking
+        other: Camp car bookings
+      camp_type:
+        one: キャンプタイプ
+        other: Camp types
+      campsite_plan_option:
+        one: キャンプ場オプション
+        other: Campsite plan options
+      recommended_camp_item:
+        one: おすすめキャンプ場
+        other: Recommended camp items
+      blog_category:
+        one: Blog category
+        other: Blog categories
+      blog:
+        one: Blog
+        other: Blogs
+      master/state:
+        one: State
+        other: States
+
+    attributes:
+      campsite:
+        address: 所在地
+        basic_fee: 基本料金
+        contact_number: 電話番号
+        extra_person_fee: 大人１人あたり追加料金
+        name: キャンプ場名
+        number_of_people_pet_included: 基本料金に含む人数
+        city_id: エリア
+        prefecture_id: 都道府県
+        state_id: 地域
+        supplier_company_id: サプライヤー
+        unique_id: キャンプ場番号
+        photos: キャンプ場メイン画像（推奨画像サイズ：横 1110px, 縦 352px）
+        camp_category_id: キャンプ場カテゴリ詳細設定
+        campsite_plans: このキャンプ場に付随するプラン設定へ
+        description: Description
+        facilities_equipment: 施設、設備
+        business_information: 営業情報
+        camp_map: キャンプ場見取り図 (推奨画像サイズ：横540px, 縦370px)
+        setting_entrance_fee: 入場料設定
+        tag_list: タグ
+        camp_type_ids: キャンプタイプ
+        bank_name: 口座情報
+        name_ja: キャンプ場名（日本語）
+        name_en: キャンプ場名（英語）
+        name_ko: キャンプ場名（韓国語名）
+        name_zh: キャンプ場名（中国語）
+        tags_ja_list: タグ（日本語名）
+        tags_en_list: タグ（英語名）
+        tags_ko_list: タグ（韓国語名）
+        tags_zh_list: タグ（中国語名）
+        address_ja: 住所（日本語）
+        address_en: 住所（英語）
+        address_ko: 住所（韓国語）
+        address_zh: 住所（中国語）
+        business_information_ja: 営業情報（日本語）
+        business_information_en: 営業情報（英語）
+        business_information_ko: 営業情報（韓国語）
+        business_information_zh: 営業情報（中国語）
+        description_ja: キャンプ場詳細（日本語）
+        description_en: キャンプ場詳細（英語）
+        description_ko: キャンプ場詳細（韓国語）
+        description_zh: キャンプ場詳細（中国語）
+        campsite_supplier_company: キャンプ場サプライヤー
+        campsite_supplier_company_name: サプライヤー会社名
+        state: 地域
+        prefecture: 都道府県
+        city: エリア
+        longitude: 経度
+        latitude: 緯度
+        post_code: 郵便番号
+        keep_private: キャンプ場詳細を非公開にする。
+        fax: Fax
+        about_cancellation: キャンセルについて
+        about_cancellation_ja: キャンセルについて（日本語）
+        about_cancellation_en: キャンセルについて（英語）
+        about_cancellation_zh: キャンセルについて（中国語）
+        about_cancellation_ko: キャンセルについて（韓国語）
+        email_address: メールアドレス
+        peripheral_facilities: 周辺施設
+        peripheral_facilities_ja: 周辺施設(日本語)
+        peripheral_facilities_en: 周辺施設(英語)
+        peripheral_facilities_zh: 周辺施設(中国語)
+        peripheral_facilities_ko: 周辺施設(韓国語)
+      campsite_entrance_fee:
+        adult_fee: 大人料金
+      campsite_plan:
+        campsite_id: キャンプ場名
+        check_in_time: チェックイン
+        check_out_time: チェックアウト
+        description: 詳細説明
+        subtitle: サブタイトル
+        max_number_of_people: 最大受け入れ人数
+        name: プラン名
+        quantity: デフォルト在庫数
+        campsite_plan_quantities: 日別在庫設定
+        people_type: People type
+        public_info: 掲載する
+        publication_period: Publication period
+        tag_list: タグ
+        tags_ja_list: タグ（日本語名）
+        tags_en_list: タグ（英語名）
+        tags_ko_list: タグ（韓国語名）
+        tags_zh_list: タグ（中国語名）
+        photos: プラントップ画像（推奨画像サイズ：横 760px, 縦 352px）
+        name_ja: プラン名（日本語名）
+        name_en: プラン名（英語名）
+        name_ko: プラン名（韓国語名）
+        name_zh: プラン名（中国語名）
+        subtitle_ja: サブタイトル（日本語名）
+        subtitle_en: サブタイトル（英語名）
+        subtitle_ko: サブタイトル（韓国語名）
+        subtitle_zh: サブタイトル（中国語名）
+        description_ja: プラン詳細（日本語）
+        description_en: プラン詳細（英語）
+        description_ko: プラン詳細（韓国語）
+        description_zh: プラン詳細（中国語）
+        campsite_plan_option_ids: オプション選択
+        campsite_plan_options: オプション
+        is_included_entrance_fee: 入場料を追加する
+      campsite_plan_fee:
+        end_date: 終了日
+        fee_type: 価格タイプ
+        start_date: 開始日
+        classification_day_setting_ids: 特別日料金設定
+      campsite_plan_fee_detail:
+        basic_fee: １サイト区画料金
+        extra_person_fee: １サイト区画料金に含まれる人数を超えた場合の大人１人あたり追加料金
+        number_of_people_pet_included: １サイト区画料金に含まれる大人人数
+      campsite_plan_daily_fee_setting:
+        basic_fee: 基本料金
+        date: 日付
+        extra_person_fee: １人あたり追加料金
+        number_of_people_pet_included: 基本料金に含む人数
+      child_and_pet_setting:
+        entity_label: ラベル
+        entity_type: タイプ
+        entity_label_en: '英語名'
+        entity_label_ja: '日本語名'
+        entity_label_ko: 韓国語名
+        entity_label_zh: 中国語名
+        supplier_company_id: サプライヤー
+        campsite_id: キャンプ場名
+      glover_company:
+        company_name: 会社名
+        hp_url: ホームページURL
+        location: 所在地
+        phone_number: 電話番号
+      supplier_company:
+        company_name: 会社名
+        corporate_category: 法人区分
+        corporate_name_kana: 会社名（フリガナ）
+        fax: Fax
+        post_code: 郵便番号
+        hp_url: ホームページURL
+        location: 所在地
+        operation_classification: 運営区分
+        phone_number: 電話番号
+        ryokan: 契約開始日
+        type: Type
+        reflect_in_sales_management: 売上管理に反映する
+        contract_start_date: 契約開始日
+        supplier_corporate_representative_information: サプライヤー会社代表者情報
+        supplier_contact_information: 担当者情報
+        contract_type: 契約タイプ
+        accountant_information: 経理担当者情報
+        note: 備考欄
+      supplier_corporate_representative_information:
+        email_address: メールアドレス
+        name_of_representative: 代表者名
+        name_of_representative_kana: 代表者名（フリガナ）
+        position: 役職
+      supplier_contact_information:
+        accounting_personnel_information: 経理担当者情報
+        email_address: メールアドレス
+        fax: Fax
+        post_code: 郵便番号
+        location: 所在地
+        name_of_person_in_charge: 担当者名
+        person_in_charge_name_kana: 担当者名（フリガナ）
+        phone_number: 電話番号
+      admin_user:
+        email: メールアドレス
+        supplier_company_id: サプライヤー名
+        role: 管理者タイプ
+        password: パスワード
+        password_confirmation: パスワード再確認
+      role:
+        name: Name
+        resource_type: Resource type
+      camp_category_group:
+        name: カテゴリ名
+        name_ja: 日本語名
+        name_en: 英語名
+        name_ko: 韓国語名
+        name_zh: 中国語名
+        is_facility_type: 施設タイプですか？
+        is_the_facility_in_the_hall: 場内施設
+        weight: Weight
+        is_shown_on_the_front_end: 公開/非公開?
+      camp_category:
+        name: 施設・設備・周辺施設名等
+        camp_category_group: キャンプカテゴリグループ
+        name_ja: 日本語名
+        name_en: 英語名
+        name_ko: 韓国語名
+        name_zh: 中国語名
+        weight: Weight
+      camp_car_category:
+        model: モデル
+        seats: 座席数
+        pick_up_drop_off_place_id: 貸出・返却場所
+        model_ja: 日本語名
+        model_en: 英語名
+        model_ko: 韓国語名
+        model_zh: 中国語名
+      camp_car:
+        car_type: 車種
+        is_pick_up_and_drop_off_place_same: Is pick up and drop off place same
+        is_public: 掲載する
+        maximum_number_of_people: 最大乗り入れ可能人数
+        name: 車名
+        product_id: 商品IID
+        photos: 写真
+        supplier_company_id: サプライヤー
+        fee_per_hour: 時間価格
+        fee_per_day: 1日価格
+        camp_car_option_ids: キャンプカーオプション
+        state_id: 地域
+        prefecture_id: 都道府県
+        tag_list: タグ
+        subtitle: サブタイトル
+        description: キャンプカー説明文
+        quantity: 在庫/日
+        camp_car_quantities: 日付で在庫管理
+        category: カテゴリー
+        photos: 写真
+        name_ja: 日本語名
+        name_en: 英語名
+        name_ko: 韓国語名
+        name_zh: 中国語名
+        description_ja: プラン詳細（日本語）
+        description_en: プラン詳細（英語）
+        description_ko: プラン詳細（韓国語）
+        description_zh: プラン詳細（中国語）
+        subtitle_ja: サブタイトル JA
+        subtitle_en: サブタイトル EN
+        subtitle_ko: サブタイトル KO
+        subtitle_zh: サブタイトル ZH
+      classification_day_setting:
+        color: 色
+        name: 名前
+      date_setting:
+        date: Date
+        classification_day_setting_id: Classification day setting
+      customer_user:
+        email: メールアドレス
+        birthday: 生年月日
+        password: パスワード
+        phone_number: 電話番号
+        last_name: 姓
+        first_name: 名
+        country_id: 居住国名
+        post_code: 郵便番号
+        address: ご住所
+        id: 会員番号
+        registered_date: 会員登録日
+      credit_card:
+        card_holder_name: カード名義人
+        number: 'カード番号'
+        date_of_expiry: '有効期限'
+        exp_month: 月
+        exp_year: 年
+        cvc: セキュリティコード
+        policy: キャンセルポリシーは
+        click_here: こちら
+      booking_contact_information:
+        email: メールアドレス
+        name: 代表者名
+        post_code: 郵便番号
+        address: 住所
+        birthday: 生年月日
+        phone_number: 電話番号
+        number_of_male: 男性
+        number_of_female: 女性
+        number_of_people: 名
+
+        # https://app.clickup.com/t/1xwmern
+        custom_number_of_male: ""
+        custom_number_of_female: ""
+        custom_error_message_number_of_male: 予約人数に含まれる男性の数を入力して下さい。０名の場合は０と入力して下さい。
+        custom_error_message_number_of_female: 予約人数に含まれる女性の数を入力して下さい。０名の場合は０と入力して下さい。
+
+      campsite_booking:
+        check_in: チェックイン予定日
+        check_out: チェックアウト予定日
+        number_of_adult: 大人
+        supplier_company: サプライヤー
+      travel_package:
+        reservation_method: 予約方法
+        booking_type: 予約タイプ
+        payment_method: お支払い方法
+        status: ステータス
+        total_price: 合計金額
+        booking_ref_number: 予約番号
+        is_booking_outside: 電話やEメールなどG'Campサイト外からの予約
+      campsite_plan_quantity:
+        date: 日付
+        quantity: 在庫数
+      camp_car_option:
+        supplier_company_id: サプライヤー
+        name: オプション名
+        fee_per_day: 価格/日
+        name_ja: 日本語名
+        name_en: 英語名
+        name_ko: 韓国語名
+        name_zh: 中国語名
+      camp_car_quantity:
+        date: Date
+        quantity: Quantity
+      slider_banner:
+        page_ja: ページ
+        page_en: ページ（英語版）
+        page_zh: ページ（中国語版）
+        position: 'Position'
+        photos: バナー
+      camp_car_booking:
+        start_date_of_renting: 貸出日
+        end_date_of_renting: 返却日
+      contact_us:
+        name: お名前
+        email: メールアドレス
+        phone_number: 電話番号
+        details_of_inquiry: お問い合わせ内容
+        created_at: 問い合わせ日
+      campsite_plan_option:
+        supplier_company_id: サプライヤー
+        campsite_id: キャンプ場
+        quantity: 日ごと在庫数
+        name: オプション名
+        price: 価格
+        name_ja: 日本語名
+        name_en: 英語名
+        name_ko: 韓国語名
+        name_zh: 中国語名
+      bank:
+        name: 銀行名
+        branch_name: 支店名
+        account_type: 口座種類
+        account_number: 口座番号
+        account_holder: 口座名義人
+        account_holder_frigana: 口座名義人（フリガナ）
+      photo:
+        on_click_url: リンク先URL
+      notice:
+        title: タイトル
+        content: コンテンツ
+        title_ja: タイトル（日本語名）
+        title_en: タイトル（英語名）
+        title_ko: タイトル（韓国語名）
+        title_zh: タイトル（中国語名）
+        content_ja: コンテンツ（日本語）
+        content_en: コンテンツ（英語名）
+        content_ko: コンテンツ（韓国語名）
+        content_zh: コンテンツ（中国語名）
+        photo: サムネイル写真（推奨画像サイズ：横 148px, 縦 140px）
+        supplier_company_id: サプライヤー
+        super_admin: グローバーお知らせ
+        campsite: キャンプ場お知らせ
+        publish_date: 掲載日
+      recommended_camp_item:
+        supplier_company_id: サプライヤー
+        weight: 順番
+        item_type: Item type
+        recommended_campsite: キャンプ場名
+        recommended_camp_car: 車名
+        recommended_itemable_id:
+          one: ''
+          campsite: おすすめキャンプ場選択
+          camp_car: おすすめキャンプカー選択
+      camp_type:
+        name: キャンプタイプ名
+        name_ja: キャンプタイプ名（日本語）
+        name_en: キャンプタイプ名（英語）
+        name_ko: キャンプタイプ名（韓国語）
+        name_zh: キャンプタイプ名（中国語）
+      blog_category:
+        name_ja: カテゴリ名（日本語）
+        name_en: カテゴリ名（英語）
+        name_ko: カテゴリ名（韓国語）
+        name_zh: カテゴリ名（中国語）
+        glover_blog:
+          name: カテゴリ名
+        supplier_blog:
+          name: 特集記事カテゴリ名
+        icon: 画像（推奨画像サイズ：横 100px, 縦 100px）
+        weight: Prefecture Code
+        glover_blog: グローバー記事カテゴリ
+        supplier_blog: 特集記事カテゴリ
+      blog:
+        title_ja: 記事タイトル（日本語名）
+        title_en: 記事タイトル（英語名）
+        title_ko: 記事タイトル（韓国語名）
+        title_zh: 記事タイトル（中国語名）
+        description_ja: 記事サブタイトル（日本語名）
+        description_en: 記事サブタイトル（英語名）
+        description_ko: 記事サブタイトル（韓国語名）
+        description_zh: 記事サブタイトル（中国語名）
+        content_ja: 本文（日本語）
+        content_en: 本文（英語）
+        content_ko: 本文（韓国語）
+        content_zh: 本文（中国語）
+        tags_ja_list: タグ（日本語名）
+        tags_en_list: タグ（英語名）
+        tags_ko_list: タグ（韓国語名）
+        tags_zh_list: タグ（中国語名）
+        areas_ja_list: 見出し（日本語）
+        areas_en_list: 見出し（英語）
+        areas_ko_list: 見出し（韓国語）
+        areas_zh_list: 見出し（中国語）
+        blog_category_id: 記事カテゴリ
+        tag_list: タグ
+        area_list: 見出し
+        content: Content
+        publish_date: 掲載日
+        to_top_page: TOPページ下部に掲載する。
+        keep_private: 記事を非公開にする。
+        photo: 推奨画像サイズ：横800px 、縦450px
+        title: 記事タイトル
+        description: 記事詳細
+        glover_blog: グローバー記事
+        supplier_blog: 特集記事
+      accountant:
+        email: メールアドレス
+        name: 経理担当者名
+        name_phonetic: 経理担当者名（フリガナ）
+        phone_number: 電話番号
+        supplier_company_id: サプライヤー
+      state:
+        code: Code
+        name: Name
+        weight: Weight
+      prefecture:
+        code: Code
+        name: Name
+      city:
+        code: Code
+        name: Name

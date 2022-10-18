@@ -1,0 +1,34 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_admin_user_path, class: "btn btn-blue btn-new-record"
+  .table-responsive
+    table.table.table-responsive-md
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.admin_user.email')
+          th = t('activerecord.attributes.admin_user.role')
+          th = t('activerecord.attributes.admin_user.supplier_company_id')
+
+      tbody.font-14
+        - @admin_users.each do |admin_user|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_admin_user_path(admin_user), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_admin_user_path(admin_user), class: 'btn btn-green'
+
+              = link_to_delete_with admin_admin_user_path(admin_user)
+
+            td= admin_user.email
+            td
+              = admin_user.roles.first.name.classify if admin_user.roles.present?
+            td= admin_user.supplier_company&.company_name
+
+.container.pagination.justify-content-center
+  = paginate @admin_users, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

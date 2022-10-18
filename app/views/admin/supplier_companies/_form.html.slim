@@ -1,0 +1,61 @@
+- submit_url = @supplier_company.new_record? ? admin_supplier_companies_path(params[:supplier_company_type]) : admin_supplier_company_path(params[:supplier_company_type])
+
+= simple_form_for(@supplier_company, url: submit_url) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :operation_classification, as: :radio_buttons
+    = f.input :company_name
+    = f.input :corporate_name_kana
+    = f.input :phone_number
+    = f.input :fax
+    = f.input :post_code
+    = f.input :location
+    = f.input :hp_url
+    = f.input :ryokan, as: :radio_buttons
+    - if current_admin_user.is_super_admin? && f.object.is_a?(CampsiteSupplierCompany)
+      = f.input :contract_type, as: :radio_buttons
+
+  - if(params[:supplier_company_type] == 'campsite_supplier_company')
+    .form-group
+      = f.input_field :is_reflect_in_sales_management, type: "checkbox", class: "w-auto"
+      span.ml-2 = t('activerecord.attributes.supplier_company.reflect_in_sales_management')
+      .mt-3= f.input :contract_start_date do
+        = f.text_field :contract_start_date, class: "form-control bootstrap-datepicker",
+                                             value: f.object.contract_start_date&.strftime(t('datetime.formats.short')),
+                                             autocomplete: :off
+
+  h7 = t('activerecord.attributes.supplier_company.supplier_corporate_representative_information')
+  = f.simple_fields_for :supplier_corporate_representative_information, @supplier_company.supplier_corporate_representative_information || @supplier_company.build_supplier_corporate_representative_information do |ff|
+    .form-inputs
+      = ff.input :name_of_representative
+      = ff.input :name_of_representative_kana
+      = ff.input :position
+      = ff.input :email_address
+
+  h7 = t('activerecord.attributes.supplier_company.supplier_contact_information')
+  = f.simple_fields_for :supplier_contact_information, @supplier_company.supplier_contact_information || @supplier_company.build_supplier_contact_information do |ff|
+    .form-inputs
+      = ff.input :name_of_person_in_charge
+      = ff.input :person_in_charge_name_kana
+      = ff.input :phone_number
+      = ff.input :fax
+      = ff.input :email_address
+      = ff.input :location
+      / = ff.input :accounting_personnel_information # https://app.clickup.com/t/c0414r
+
+  h7 = t('activerecord.attributes.supplier_company.accountant_information')
+  = f.simple_fields_for :accountant, @supplier_company.accountant || \
+                                    @supplier_company.build_accountant do |ff|
+    .form-inputs
+      = ff.input :name
+      = ff.input :name_phonetic
+      = ff.input :phone_number
+      = ff.input :email
+
+  - if current_admin_user.is_super_admin?
+    = f.input :note, input_html: {rows: 5}
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

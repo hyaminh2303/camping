@@ -1,0 +1,173 @@
+.campsite-detail-container-wrapper
+  section.banner-wrapper.container
+    .main-slider.mb-2
+      - if @campsite.photos.present?
+        - @campsite.photos.last(4).each do |photo|
+          .slider-item
+            = image_tag photo.image.url
+
+  section.container.description-content
+    .row.mt-lg-4.mt-5
+      .col-6
+        a href="#" class='btn btn-green font-9 no-border-radius' = @campsite.prefecture.name
+    .row
+      .col-12.d-flex.mt-lg-3.mt-1
+        .font-20.font-weight-bold = @campsite.name
+      .col-12
+        - @campsite.camp_types.each do |camp_type|
+          .camp-type.btn.btn-blue.font-9.no-border-radius.mr-2 = camp_type.name
+    .row.mt-lg-2.mt-1
+      .col-12
+        - @campsite.tags_locale_list.last(3).each do |tag|
+          .btn.btn-gray.font-8.no-border-radius.mr-2' = tag
+    .row.mt-2
+      .col-9
+        span.font-10-down-sm.font-12-only-md.font-14-only-lg
+          = @campsite.post_code
+      .col-9
+        i.fas.fa-map-marker-alt.mr-2
+        span.location-text.font-10-down-sm.font-12-only-md.font-14-only-lg data-toggle="modal" data-target="#gcampMap"
+          = @campsite.address
+      .col-9
+        span.font-10-down-sm.font-12-only-md.font-14-only-lg
+          = @campsite.contact_number
+      .col-3.text-right
+        a href='javascript:void(0)' data-toggle="modal" data-target="#gcampMap" class='font-10 text-blue' = t('.see_map')
+        .modal.fade id="gcampMap" tabindex="-1" role="dialog" aria-labelledby="gcampMapTitle" aria-hidden="true"
+          .modal-dialog.modal-dialog-centered.modal-xl role="document"
+            .modal-content
+              .modal-header
+                .modal-title = @campsite.name
+                button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                  span aria-hidden="true" &times;
+              .modal-body
+                ruby:
+                  location = if @campsite.latitude.present? && @campsite.longitude.present?
+                    "#{@campsite.latitude}, #{@campsite.longitude}"
+                  else
+                    ""
+                  end
+                iframe src="https://maps.google.com/maps?q=#{location}&output=embed" width="100%" height="100%"
+    hr
+
+    .row.description.mt-3
+      .col-12.font-9-down-sm.font-12-only-md.font-16-only-lg
+        = raw @campsite.description
+    .row.campsite-sketch
+      .col-12.mb-2
+        .text-border-left.font-18.font-weight-bold = t('.campsite_map')
+      .col-12
+        .row.justify-content-center
+          - (@campsite.campsite_content_photos.presence || []).each do |content_photo|
+            = gcamp_image_tag content_photo.photo.image, class: 'img-fluid sketch-file mb-3 col-lg-6'
+    - if @notice.present?
+      .row.news-wrapper.mt-5.mb-3.only-scr-desktop
+        .col-12.text-center.mt-3.mb-1
+          .i.far.fa-question-square.text-green.icon-question.font-32
+        .col-12.text-center.font-16.font-weight-bold.mb-3
+          = link_to @notice.title, notice_path(@notice)
+        .col-12.font-13.mb-2
+          = link_to (raw @notice.content), notice_path(@notice)
+
+    .row
+      .col-12.text-center.mt-3
+        a href='#campsite-plan-list' class='btn btn-yellow font-14 no-border-radius font-weight-bold'
+          = t('.select_plan')
+
+  section.container.information-content.mt-lg-5.mt-4
+    .row
+      / https://app.clickup.com/t/1xwm5xx
+      - camp_categories_for(@campsite).each do |camp_categories|
+        .col-lg-6.col-12
+          .text-border-left.font-18.font-weight-bold = camp_categories[:group].name
+          .my-2
+            - if camp_categories[:group].is_the_facility_in_the_hall
+              .facilities-wrapper
+                .row
+                  .col-12.my-4
+                    - camp_categories[:original_camp_categories].each do |original_camp_category|
+                      span.mt-3.font-14.font-weight-bold.mr-3 class="#{ \
+                        'background-green-color' if camp_categories[:selected_camp_categories].include?(original_camp_category) }"
+                        = original_camp_category.name
+            - else
+              p
+                = camp_categories[:selected_camp_categories].map(&:name).join(', ')
+
+    .row
+      .col-12
+        .text-border-left.font-18.font-weight-bold = t('activerecord.attributes.campsite.peripheral_facilities')
+        .my-2
+          = simple_format @campsite.peripheral_facilities
+    .row
+      .col-12
+        .text-border-left.font-18.font-weight-bold = t('.business_information')
+        .my-2
+          = simple_format @campsite.business_information
+
+  / https://app.clickup.com/t/23u3wkb | Please remove "周辺施設" block from RESPONSIVE. (div class="col-12")
+  / section.container.peripheral-facilities
+  /   .row
+  /     .col-12
+  /       .text-border-left.font-18.font-weight-bold 周辺施設
+  /       .container
+  /         .row.no-gutters.row-facilities.mt-3.align-items-center
+  /           .col-4.images-wrapper.pr-3
+  /             = image_tag 'campsites/image-6.jpg', class: "img-fluid"
+  /           .col-8
+  /             .font-13.font-weight-bold ラーメン専門店山頭火
+  /             .list-button.mt-1
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' 車両乗入OK
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' 飲食店
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' ペットOK
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' 子供OK
+  /             .text-wrapper
+  /               span.font-13.font-weight-bold 1.7KM
+  /               span.float-right.font-weight-bold
+  /                 span.text-yellow.font-20 890
+  /                 span.font-13 円〜
+  /         hr
+  /         .row.no-gutters.row-facilities.mt-3.align-items-center
+  /           .col-4.images-wrapper.pr-3
+  /             = image_tag 'campsites/image-6.jpg', class: "img-fluid"
+  /           .col-8
+  /             .font-13.font-weight-bold ラーメン専門店山頭火
+  /             .list-button.mt-1
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' 車両乗入OK
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' 飲食店
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' ペットOK
+  /               a href="#" class='btn btn-gray font-8 no-border-radius mr-1' 子供OK
+  /             .text-wrapper
+  /               span.font-13.font-weight-bold 1.7KM
+  /               span.float-right.font-weight-bold
+  /                 span.text-yellow.font-20 890
+  /                 span.font-13 円〜
+  /         hr
+
+  / https://app.clickup.com/t/26a6ngd
+  - campsite_plans = @campsite.campsite_plans.public_plans
+  - if campsite_plans.present?
+    section#campsite-plan-list.container.select-plan.mt-1
+      .row
+        .col-12
+          .text-border-left.font-18.font-weight-bold = t('.select_plan')
+          .container
+            .row.no-gutters.campsite-plan-wrapper.mt-4
+              - campsite_plans.each do |campsite_plan|
+                .col-lg-6.col-md-12.pr-lg-3
+                  .border-bottom.d-none
+                  .row.my-3.align-items-center
+                    .col-4.images-wrapper.pr-3
+                      = link_to (gcamp_image_tag campsite_plan.photos.first&.image, class: 'img-fluid'), campsite_plan_path(campsite_plan)
+                    .col-8.info
+                      = link_to campsite_plan.name, campsite_plan_path(campsite_plan), class: "font-13 font-weight-bold"
+
+                      .list-button.mt-1
+                        - campsite_plan.tags_locale_list.last(4).each do |tag|
+                          .btn.btn-gray.font-8.no-border-radius.mr-1 = tag
+                      .text-wrapper.float-right.font-weight-bold
+                        = link_to campsite_plan_path(campsite_plan) do
+                          span.font-13 = t('.one_day')
+                          span.text-yellow.font-20
+                            = get_campsite_plan_price(campsite_plan)
+                          span.font-13  = t('.currency_unit')
+                  .border-bottom

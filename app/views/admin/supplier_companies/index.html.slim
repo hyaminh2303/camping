@@ -1,0 +1,51 @@
+- content_for :page_title, t(".page_title.#{params[:supplier_company_type]}")
+- content_for :page_description, t(".page_description.#{params[:supplier_company_type]}")
+
+.data-content
+  = render 'shared/messages'
+
+  = search_form_for @q, url: admin_supplier_companies_path(params[:supplier_company_type]) do |f|
+    .form-inputs
+      .row
+        .form-group.col-sm-3
+          = f.label :company_name_cont, t('activerecord.attributes.supplier_company.company_name')
+          = f.search_field :company_name_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :phone_number_or_supplier_contact_information_phone_number_cont, t('activerecord.attributes.supplier_company.phone_number')
+          = f.search_field :phone_number_or_supplier_contact_information_phone_number_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :supplier_corporate_representative_information_email_address_or_supplier_contact_information_email_address_cont, t('activerecord.attributes.supplier_contact_information.email_address')
+          = f.search_field :supplier_corporate_representative_information_email_address_or_supplier_contact_information_email_address_cont, class: 'form-control'
+        .col-sm-3.mt-4
+          = link_to t('views.buttons.clear'), admin_supplier_companies_path(params[:supplier_company_type]), class: 'btn btn-gray'
+          = submit_tag t('views.buttons.search'), class: 'btn btn-blue ml-1'
+
+  .button-actions.text-right
+    = link_to t('.buttons.new'), new_admin_supplier_company_path, class: "btn btn-blue btn-new-record"
+
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = sort_link(@q, :company_name, t('activerecord.attributes.supplier_company.company_name'))
+          th = sort_link(@q, :corporate_name_kana, t('activerecord.attributes.supplier_company.corporate_name_kana'))
+          th = t('activerecord.attributes.supplier_company.phone_number')
+          th = t('activerecord.attributes.supplier_corporate_representative_information.email_address')
+
+      tbody.font-14
+        - @supplier_companies.each do |supplier_company|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_supplier_company_path(params[:supplier_company_type], supplier_company),
+                                                class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_supplier_company_path(params[:supplier_company_type], supplier_company),
+                                                class: 'btn btn-green'
+
+              = link_to_delete_with admin_supplier_company_path(params[:supplier_company_type], supplier_company)
+
+            td = supplier_company.company_name
+            td = supplier_company.corporate_name_kana
+            td = supplier_company.phone_number
+            td = supplier_company&.supplier_corporate_representative_information&.email_address

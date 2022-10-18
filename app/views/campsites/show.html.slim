@@ -1,0 +1,10 @@
+- title @campsite.name
+- description "#{strip_html_to_string(@campsite.description)}"
+
+.campsite-detail-container-wrapper
+  / Only show desktop
+  .only-show-desktop.d-none.d-md-block
+    = render 'campsite_details_on_desktop'
+  / Only show mobile
+  .only-show-mobile.d-md-none
+    = render 'campsite_details_on_mobile'

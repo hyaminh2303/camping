@@ -1,0 +1,15 @@
+.email-footer
+  div = '-' * 55
+
+  div.d-flex.align-items-center
+    div.mr-5
+      div.font-25.font-weight-bold
+        | G'Camp
+      div
+        = link_to root_url, root_url
+      div
+        = link_to t('layouts.mailer_partials.footer.inquiries'), new_contact_us_url
+    div
+      = image_tag attachments['logo-email.png'].url, class: 'logo'
+
+  div = "-" * 55

@@ -1,0 +1,21 @@
+= simple_form_for([:admin, @child_and_pet_setting]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = render "admin/shared/resources_attributes_by_campsite", f: f,
+            resource_collections: [{collection: campsites_group_by_supplier_company_collection,
+                                    attribute: :campsite_id,
+                                    selected: f.object.campsite_id}]
+
+  .form-inputs
+    = f.input :entity_type, as: :select, collection: child_and_pet_setting_types_collection
+
+    - I18n.available_locales.each do |locale|
+      = f.label "entity_label_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#child_and_pet_setting_entity_label_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#child_and_pet_setting_entity_label_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "entity_label_#{locale}", label: false
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

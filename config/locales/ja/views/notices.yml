@@ -1,0 +1,58 @@
+ja:
+  notices:
+    index:
+      news: お知らせ
+      button:
+        show_details: 詳細を見る
+        show_more: さらに表示する
+    show:
+      buttons:
+        home: トップページへ
+        list_notice: お知らせ一覧へ
+        next_notice: 次のお知らせへ
+    news: お知らせ
+    button_prev: 前へ
+    button_next: 次へ
+  admin:
+    notices:
+      super_admin:
+        index:
+          page_title: グローバーお知らせ
+          page_description: グローバーお知らせ一覧
+        new:
+          page_title: グローバーお知らせ
+          page_description: 新規お知らせ作成
+        edit:
+          page_title: グローバーお知らせ
+          page_description: グローバーお知らせ編集
+        show:
+          page_title: グローバーお知らせ
+          page_description: グローバーお知らせ詳細
+
+      campsite:
+        index:
+          page_title: キャンプ場お知らせ
+          page_description: キャンプ場お知らせ一覧
+        new:
+          page_title: キャンプ場お知らせ
+          page_description: 新規お知らせ作成
+        edit:
+          page_title: キャンプ場お知らせ
+          page_description: キャンプ場お知らせ編集
+        show:
+          page_title: キャンプ場お知らせ
+          page_description: キャンプ場お知らせ詳細
+
+      camp_car:
+        index:
+          page_title: キャンプ場お知らせ
+          page_description: キャンプ場お知らせ一覧
+        new:
+          page_title: キャンプ場お知らせ
+          page_description: 新規お知らせ作成
+        edit:
+          page_title: キャンプ場お知らせ
+          page_description: キャンプ場お知らせ編集
+        show:
+          page_title: キャンプ場お知らせ
+          page_description: キャンプ場お知らせ詳細

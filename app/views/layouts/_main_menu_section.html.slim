@@ -1,0 +1,32 @@
+.container class="#{'mw-100' if controller_path.split('/').first == 'admin'}"
+  .main-menu-item-wrapper
+    .main-menu-item
+      = link_to blogs_path(blog_type: :supplier_blog), class: "menu-icon" do
+        span.d-block= image_tag 'main-menu-icons/menu_01.png'
+        span.d-block= t('.blogs')
+
+    .main-menu-item
+      = link_to campsites_path, class: "menu-icon" do
+        span.d-block= image_tag 'main-menu-icons/menu_02.png'
+        span.d-block= t('.campsites')
+
+    .main-menu-item
+      = link_to camp_cars_path, class: "menu-icon" do
+        span.d-block= image_tag 'main-menu-icons/menu_03.png'
+        span.d-block= t('.camp_cars')
+
+    .main-menu-item
+      = link_to 'https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3658594&pid=887918234', class: "menu-icon", rel: 'nofollow' do
+        span.d-block= image_tag 'main-menu-icons/rentalCar.svg'
+        span.d-none= image_tag 'https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3658594&pid=887918234'
+        span.d-block= t('.rental_car')
+
+    .main-menu-item
+      = link_to rental_equipments_path, class: "menu-icon" do
+        span.d-block= image_tag 'main-menu-icons/campItemRental.svg'
+        span.d-block= t('.camp_item_rental')
+
+    .main-menu-item
+      = link_to tours_path, class: "menu-icon" do
+        span.d-block= image_tag 'main-menu-icons/tour.svg'
+        span.d-block= t('.tours')

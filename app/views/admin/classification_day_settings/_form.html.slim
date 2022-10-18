@@ -1,0 +1,14 @@
+= simple_form_for([:admin, @classification_day_setting]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    h7
+      span = t('admin.classification_day_settings.form.refer_color')
+      span = link_to t('admin.classification_day_settings.form.here'), 'https://www.colordic.org',
+                     class: 'text-azure',
+                     target: :blank
+    = f.input :color
+    = f.input :name
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

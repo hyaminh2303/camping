@@ -1,0 +1,73 @@
+@import '../definitions/variables'
+
+section.coming-soon-wrapper
+  position: relative
+  .image-wrapper
+    .overlay
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      opacity: 0.42
+      background-color: #000
+    img
+      width: 100%
+      height: 673px
+      @include media-breakpoint-down(md)
+        height: 678px
+        object-fit: cover
+
+  .text-wrapper
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #fff
+    font-weight: bold
+    text-align: center
+    .content-wrapper
+      .coming-soon-text
+        position: relative
+        .gcamp-monkey
+          position: relative
+          img
+            @include media-breakpoint-down(md)
+              height: 167.4px
+        .title-wrapper
+          position: absolute
+          left: 0
+          right: 0
+          bottom: 0
+          top: 53%
+          .title
+            font-size: 88px
+            font-family: $font-quicksand
+            @include media-breakpoint-down(md)
+              font-size: 48px
+          .line
+            display: flex
+            justify-content: center
+            .dash
+              width: 95px
+              height: 5px
+              margin: 27px 0px 12.8px 0px
+              margin-bottom: 12.8px
+              opacity: 0.95
+              background-color: #fff
+              border-radius: 4px
+      .subtitle
+        display: block
+        font-size: 24px
+        font-family: $primary-font-family
+        text-align: center
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.61)
+        object-fit: contain
+        margin: 41px 0 0
+        @include media-breakpoint-down(md)
+          font-size: 18px
+          margin: 61px 0 0

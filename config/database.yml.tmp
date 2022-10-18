@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: postgres
+  host: db
+
+development:
+  <<: *default
+  database: g_camp_development
+
+test:
+  <<: *default
+  database: g_camp_test
+
+production:
+  <<: *default
+  database: g_camp_production
+
+staging:
+  <<: *default
+  database: g_camp_staging
+
+qa:
+  <<: *default
+  database: g_camp_qa

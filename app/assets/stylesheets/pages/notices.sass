@@ -1,0 +1,87 @@
+@import '../definitions/variables'
+@import '../definitions/mixins'
+
+.notices-detail-wrapper
+  section.container.notice-infomation
+    .image-wrapper
+      img
+        object-fit: cover
+        @include media-breakpoint-down(md)
+          height: 70px
+          width: 70px
+        @include media-breakpoint-up(lg)
+          height: 275px
+          width: 370px
+    .date
+      color: $blue-briny-color
+    .daterange
+      color: $gray-color
+
+  section.container.content-wrapper
+    .blue-background
+      background-color: #e6f2f7
+      padding: 7px 15px 8px
+      .text-border-left
+        padding: 1px 12px 2px
+        border-left: 4px solid $blue-color
+
+  .notice-show-content
+    font-family: $font-yu-gothic
+    @include media-breakpoint-down(sm)
+      margin-left: 5%
+      margin-right: 5%
+    @include media-breakpoint-up(md)
+      margin-left: 28%
+      margin-right: 28%
+
+    .title
+      font-weight: bold
+      font-family: 'Quicksand'
+      @include media-breakpoint-down(sm)
+        font-size: 32px
+        margin-top: 48px
+      @include media-breakpoint-up(md)
+        font-size: 46px
+        margin-top: 85px
+
+    .sub-title
+      @include media-breakpoint-down(sm)
+        margin-top: 16px
+        font-size: 18px
+      @include media-breakpoint-up(md)
+        margin-top: 22px
+        font-size: 34px
+
+    .date
+      font-size: 14px
+      margin-top: 10px
+      @include media-breakpoint-down(sm)
+        margin-bottom: 25px
+      @include media-breakpoint-up(md)
+        margin-bottom: 40px
+
+    .div-img
+      img
+        width: 100%
+      @include media-breakpoint-down(sm)
+        margin-left: -5%
+        margin-right: -5%
+      @include media-breakpoint-up(md)
+        margin-left: -10%
+        margin-right: -10%
+
+    .text-content
+      p
+        line-height: 2
+        @include media-breakpoint-down(sm)
+          margin-top: 18px
+          margin-bottom: 37px
+          font-size: 13px
+        @include media-breakpoint-up(md)
+          margin-top: 68px
+          margin-bottom: 18px
+    .line-end
+      margin-top: 34px
+      margin-bottom: 18px
+      height: 1px
+      background-color: $gray-color

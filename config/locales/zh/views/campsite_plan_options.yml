@@ -1,0 +1,15 @@
+zh:
+  admin:
+    campsite_plan_options:
+      index:
+        page_title: Campsite plan option
+        page_description: Campsite plan option List
+      new:
+        page_title: Campsite plan option
+        page_description: 新規キャンプ用オプション追加
+      edit:
+        page_title: Campsite plan option
+        page_description: Edit Campsite plan option
+      show:
+        page_title: Campsite plan option
+        page_description: Detail Of Campsite plan option

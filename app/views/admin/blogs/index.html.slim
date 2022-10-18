@@ -1,0 +1,40 @@
+- content_for :page_title, t("admin.blogs.#{params[:blog_type]}.index.page_title")
+- content_for :page_description, t("admin.blogs.#{params[:blog_type]}.index.page_description")
+- title t('blogs.title')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_blog_path(blog_type: params[:blog_type]), class: "btn btn-blue btn-new-record"
+  .table-responsive
+    table.table.table-responsive-md
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.blog.title')
+          th = t('activerecord.attributes.blog.blog_category_id')
+          th = t('activerecord.attributes.blog.description')
+          th = t('activerecord.attributes.blog.publish_date')
+          - if params[:blog_type] == 'supplier_blog'
+            th = t('activerecord.attributes.blog.to_top_page')
+
+      tbody.font-14
+        - @blogs.each do |blog|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_blog_path(blog, blog_type: params[:blog_type]), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_blog_path(blog, blog_type: params[:blog_type]), class: 'btn btn-green'
+
+              = link_to_delete_with admin_blog_path(blog, blog_type: params[:blog_type])
+
+            td = blog.title
+            td = blog.blog_category.name
+            td = truncate(blog.description, length: 25)
+            td = blog.publish_date&.strftime(t('datetime.formats.short'))
+            - if params[:blog_type] == 'supplier_blog'
+              td = t("check_box.#{blog.to_top_page}")
+
+.container.pagination.justify-content-center
+  = paginate @blogs, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

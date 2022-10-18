@@ -1,0 +1,17 @@
+.col-md-12
+  = f.input :fee_type, as: :select, collection: campsite_plan_fee_types_collection, include_blank: false
+.col-md-12.normal-plan-fee-setting.d-none
+  .row
+    .col-md-6
+      = f.input :start_date, as: :string, input_html: { class: 'datepicker', value: f.object.start_date&.strftime('%Y/%m/%d'), autocomplete: 'off' }
+    .col-md-6
+      = f.input :end_date, as: :string, input_html: { class: 'datepicker', value: f.object.end_date&.strftime('%Y/%m/%d'), autocomplete: 'off' }
+
+    = f.fields_for :normal_campsite_plan_fee_detail do |fee_detail_form|
+      = render 'normal_campsite_plan_fee_detail_fields', f: fee_detail_form
+
+  #normal-child-and-pet-fees-form
+    = render 'normal_child_and_pet_fees', f: f
+/ https://app.clickup.com/t/20r02ze
+#classification-day-fees-form.col-md-12.classification-day-setting.d-none
+  = render 'classification_day_fees', f: f

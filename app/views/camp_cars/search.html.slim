@@ -1,0 +1,43 @@
+.camp-car-search-container-wrapper
+  section.main-banner-wrapper
+    = image_tag 'camp-site-banner.png', class: 'img-fluid'
+
+  section.search-inputs.row.no-gutters.mt-3
+    .col-12.col-md-6.col-lg-5.mx-auto
+      .camp-car-search-input-wrapper
+        = form_with url: search_camp_cars_path(), method: :get do |f|
+          = render 'shared/camp_car_search_input', f: f, \
+            location_name: @camp_car_search_service.get_searching_location_name
+          .row
+            .col-12.mt-3.text-center
+              button type='submit' class="btn btn-blue font-14 font-weight w-100 no-border-radius" キャンピングカーを探す
+
+  section.container.list-camp-cars.mt-5
+    .row.mb-4
+      .col-12.text-center.title
+        | Listing of camp cars
+    .row
+      .col-md-8.m-auto
+        .list-camp-car-items
+          - @camp_cars.each do |camp_car|
+            .camp-element-item-horizontal.pt-md-2.pb-md-3
+              .row.no-gutters
+                .col-4.image-wrapper
+                  = link_to (gcamp_image_tag camp_car.photos.first&.image, class: "img-fluid"), camp_car_path(camp_car)
+
+                .col-8.information-wrapper.py-3.py-md-0.pl-2
+                  .item-header.mb-2
+                    a href="#" class="btn btn-green font-9 no-border-radius" = camp_car.prefecture.name
+                    / span.font-11.date.ml-2 コメント入れられます | https://app.clickup.com/t/20r01ex
+                  h3.item-content.font-15.mb-0
+                    = link_to camp_car.name, camp_car_path(camp_car)
+                  h5.description
+                    = raw truncate_html(strip_tags(camp_car.description), length: 80, omission: '...')
+                  .tags
+                    - camp_car.tag_list.last(3).each do |tag|
+                      span.mr-2
+                        a href="#" class="btn btn-gray font-9 no-border-radius" = tag
+              .border-bottom.d-md-none
+    .row
+      .container.pagination.justify-content-center
+        = paginate @camp_cars, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

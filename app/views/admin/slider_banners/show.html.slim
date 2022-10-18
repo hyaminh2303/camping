@@ -1,0 +1,24 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  - (I18n.available_locales - [:ko]).each do |locale|
+    p
+      strong = t("activerecord.attributes.slider_banner.page_#{locale}")
+      = t("activerecord.enum.slider_banner.page.#{@slider_banner.page}")
+    p
+      strong = "#{t('activerecord.attributes.slider_banner.photos')}:"
+      .row
+        - @slider_banner.slider_banner_locales.with_locale(locale).take.photos&.each do |photo|
+          .col-md-6
+            p = image_tag photo.image.url, class: 'img-fluid'
+
+
+  => link_to t('views.buttons.edit'), edit_admin_slider_banner_path(@slider_banner)
+  '|
+  =< link_to t('views.buttons.back'), admin_slider_banners_path

@@ -1,0 +1,7 @@
+.row
+  .col-md-6
+    = f.input :state_id, as: :select, collection: states_collection, \
+              input_html: { id: 'state-input', data: { current_value: f.object.state_id } }
+  .col-md-6
+    = f.input :prefecture_id, as: :select, collection:[], \
+              input_html: { id: 'prefecture-input', data: { current_value: f.object.prefecture_id } }

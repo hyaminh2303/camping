@@ -1,0 +1,1004 @@
+[
+  {
+    "name_ko": "홋카이도",
+    "code": "hokkaido",
+    "prefectures": [
+      {
+        "name_ko": "홋카이도",
+        "code": "hokkaido",
+        "cities": [
+          {
+            "name_ko": "도북",
+            "code": "douhoku"
+          },
+          {
+            "name_ko": "도동",
+            "code": "douto"
+          },
+          {
+            "name_ko": "도오 / 도남",
+            "code": "douou_dounan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_ko": "북동",
+    "code": "tohoku",
+    "prefectures": [
+      {
+        "name_ko": "아오모리현",
+        "code": "aomori",
+        "cities": [
+          {
+            "name_ko": "야코다 / 토와다코",
+            "code": "hakkouda_lake_towada"
+          },
+          {
+            "name_ko": "시라카미 / 이와키산",
+            "code": "shirakami_iwakisan"
+          },
+          {
+            "name_ko": "시모키타 반도",
+            "code": "shimokita_peninsula"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "이와테현",
+        "code": "iwate",
+        "cities": [
+          {
+            "name_ko": "하치만 히라 / 이와테산",
+            "code": "hachimantai_iwatesan"
+          },
+          {
+            "name_ko": "산리쿠 해안",
+            "code": "sanriku_coast"
+          },
+          {
+            "name_ko": "하나마키 / 기타카미",
+            "code": "hanamaki_kitakami"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "미야기현",
+        "code": "miyagi",
+        "cities": [
+          {
+            "name_ko": "산리쿠 해안",
+            "code": "sanriku_coast"
+          },
+          {
+            "name_ko": "자오",
+            "code": "zao"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "아키타현",
+        "code": "akita",
+        "cities": [
+          {
+            "name_ko": "오가 반도",
+            "code": "oga_peninsula"
+          },
+          {
+            "name_ko": "타자와코 / 하치만 히라",
+            "code": "tazawa_lake_hachimantai"
+          },
+          {
+            "name_ko": "토리카이산",
+            "code": "mount_chokai"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "야마가타현",
+        "code": "yamagata",
+        "cities": [
+          {
+            "name_ko": "쓰루오카 / 츠키야마",
+            "code": "tsuruoka_gassan"
+          },
+          {
+            "name_ko": "토리카이산",
+            "code": "mt_chokai"
+          },
+          {
+            "name_ko": "모가미가와 유역",
+            "code": "mogami_river_basin"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "후쿠시마현",
+        "code": "fukushima",
+        "cities": [
+          {
+            "name_ko": "반다이산 / 이노시로 호수",
+            "code": "mt_bandai_lake_inawashiro"
+          },
+          {
+            "name_ko": "아이즈 가도",
+            "code": "aizu_kaido"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "니가타현",
+        "code": "nigata",
+        "cities": [
+          {
+            "name_ko": "야카이산 / 미나미우오누마 / 에치고 유자와",
+            "code": "hakkaisan"
+          },
+          {
+            "name_ko": "친불지 / 조에츠 /묘고",
+            "code": "oyashirazu_joetsu_myoko"
+          },
+          {
+            "name_ko": "오쿠 아이즈",
+            "code": "okuaizu"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_ko": "간토",
+    "code": "kanto",
+    "prefectures": [
+      {
+        "name_ko": "도쿄도",
+        "code": "tokyo",
+        "cities": [
+          {
+            "name_ko": "오쿠타마",
+            "code": "okutama"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "카나가와현",
+        "code": "kanagawa",
+        "cities": [
+          {
+            "name_ko": "하코네 / 아시노코",
+            "code": "hakone_lake_ashino"
+          },
+          {
+            "name_ko": "단자와 계",
+            "code": "mt_tanzawa"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "사이타마현",
+        "code": "saitama",
+        "cities": [
+          {
+            "name_ko": "치치부 / 나가토라",
+            "code": "chichibu_nagatoro"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "치바현",
+        "code": "chiba",
+        "cities": [
+          {
+            "name_ko": "보소 반도",
+            "code": "bosohanto"
+          },
+          {
+            "name_ko": "구주쿠리",
+            "code": "kuzyukuri"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "이바라키현",
+        "code": "ibaraki",
+        "cities": [
+          {
+            "name_ko": "오세이",
+            "code": "oharai"
+          },
+          {
+            "name_ko": "부쿠로다 폭포 / 오쿠 히사",
+            "code": "waterfall_fukuroda_okukuzi"
+          },
+          {
+            "name_ko": "쓰쿠바산",
+            "code": "mt_tsukuba"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "토치기현",
+        "code": "tochigi",
+        "cities": [
+          {
+            "name_ko": "나스",
+            "code": "nasu"
+          },
+          {
+            "name_ko": "햇빛 / 중존사",
+            "code": "nikko_chusonzi_temple"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "군마현",
+        "code": "gunma",
+        "cities": [
+          {
+            "name_ko": "오세 / 마루누마 / 타니가와다케",
+            "code": "ose_marunuma_mt_tanigawa"
+          },
+          {
+            "name_ko": "기타카루이자와 / 야나나야마 / 이카호",
+            "code": "north_karuizawa_mt_haruna_ikaho"
+          },
+          {
+            "name_ko": "아카기산",
+            "code": "mt_akagi"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "야마나시현",
+        "code": "yamanashi",
+        "cities": [
+          {
+            "name_ko": "후지산 / 후지 고코",
+            "code": "mt_fuji_lake_fuji"
+          },
+          {
+            "name_ko": "남 알프스 / 야쓰가타케",
+            "code": "south_alps_yatsugatake"
+          },
+          {
+            "name_ko": "고슈 / 카쓰누마",
+            "code": "kosyu_katsunuma"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_ko": "중부",
+    "code": "chubu",
+    "prefectures": [
+      {
+        "name_ko": "나가노현",
+        "code": "nagano",
+        "cities": [
+          {
+            "name_ko": "중앙 알프스",
+            "code": "middle_alps"
+          },
+          {
+            "name_ko": "북 알프스",
+            "code": "north_alps"
+          },
+          {
+            "name_ko": "조에츠 / 반미 / 한망 /도가키",
+            "code": "joetsu_madarao_iizuna_togakushi"
+          },
+          {
+            "name_ko": "과과 / 스와코 / 미모하라",
+            "code": "tateshina_lake_suwa_mimohara"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "토야마현",
+        "code": "toyama",
+        "cities": [
+          {
+            "name_ko": "다테야마 / 쿠로베 / 우나즈키",
+            "code": "tateishi_kurobe_unazuki"
+          },
+          {
+            "name_ko": "고카야마 / 쇼가와",
+            "code": "gokayama_shogawa"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "이시카와현",
+        "code": "ishikawa",
+        "cities": [
+          {
+            "name_ko": "노토 / 와지마",
+            "code": "noto_wajima"
+          },
+          {
+            "name_ko": "하쿠산",
+            "code": "hakusan"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "후쿠이현",
+        "code": "fukui",
+        "cities": [
+          {
+            "name_ko": "에치젠 / 동심보",
+            "code": "echizen_tojinbo"
+          },
+          {
+            "name_ko": "와카사",
+            "code": "wakasa"
+          },
+          {
+            "name_ko": "구두룡",
+            "code": "kuzuryu"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "시즈오카현",
+        "code": "shizuoka",
+        "cities": [
+          {
+            "name_ko": "후지산",
+            "code": "mt_fuji"
+          },
+          {
+            "name_ko": "이즈",
+            "code": "izu"
+          },
+          {
+            "name_ko": "오이가와",
+            "code": "oikawa"
+          },
+          {
+            "name_ko": "하마나코",
+            "code": "lake_hamana"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "아이치현",
+        "code": "aichi",
+        "cities": [
+          {
+            "name_ko": "미카와",
+            "code": "mikawa"
+          },
+          {
+            "name_ko": "이누야마 / 오와리",
+            "code": "inuyama_owari"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "기후현",
+        "code": "gifu",
+        "cities": [
+          {
+            "name_ko": "히다 / 다카야마 / 시라카와고",
+            "code": "hida_takayama_shirakawago"
+          },
+          {
+            "name_ko": "게로 / 군상",
+            "code": "gero_gujo"
+          },
+          {
+            "name_ko": "세키가하라 / 구이",
+            "code": "sekigahara_ibi"
+          },
+          {
+            "name_ko": "나카츠가와",
+            "code": "nakathu_river"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "미에현",
+        "code": "mie",
+        "cities": [
+          {
+            "name_ko": "이세 / 도바 / 시마",
+            "code": "ise_toba_shima"
+          },
+          {
+            "name_ko": "이가 / 나바리",
+            "code": "iga_nabari"
+          },
+          {
+            "name_ko": "고재소",
+            "code": "gozaisho"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_ko": "간사이",
+    "code": "kansai",
+    "prefectures":[
+      {
+        "name_ko": "오사카부",
+        "code": "osaka",
+        "cities": [
+          {
+            "name_ko": "오사카 북부",
+            "code": "north_osaka"
+          },
+          {
+            "name_ko": "오사카 남부",
+            "code": "south_osaka"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "효고현",
+        "code": "hyogo",
+        "cities": [
+          {
+            "name_ko": "아와지지마",
+            "code": "awaji_island"
+          },
+          {
+            "name_ko": "시로사키 / 카미",
+            "code": "kinosaki_kami"
+          },
+          {
+            "name_ko": "도요오카 / 가미나베 / 벌고원",
+            "code": "tomioka_kaminabe_hachkogen"
+          },
+          {
+            "name_ko": "단바 / 와다야마 / 루소그",
+            "code": "tamba_wadayama_shiso"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "교토부",
+        "code": "kyoto",
+        "cities": [
+          {
+            "name_ko": "단고 / 아마노하시다테 / 마이즈루",
+            "code": "tango_amanohashidate_maizuru"
+          },
+          {
+            "name_ko": "후쿠치야마 / 아야베",
+            "code": "fukuchiyama_ayabe"
+          },
+          {
+            "name_ko": "단바 / 카",
+            "code": "tamba_kameoka"
+          },
+          {
+            "name_ko": "교토",
+            "code": "kyoto"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "시가현",
+        "code": "shiga",
+        "cities": [
+          {
+            "name_ko": "호서",
+            "code": "lake_west"
+          },
+          {
+            "name_ko": "후베이",
+            "code": "lake_north"
+          },
+          {
+            "name_ko": "호동",
+            "code": "lake_east"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "나라현",
+        "code": "nara",
+        "cities": [
+          {
+            "name_ko": "요시노 / 아마가와",
+            "code": "yoshino_tenkawa"
+          },
+          {
+            "name_ko": "도쓰가와 / 기타야마무라",
+            "code": "totsukawa_kitayama_village"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "와카야마현",
+        "code": "wakayama",
+        "cities": [
+          {
+            "name_ko": "시라하마 / 쿠시모토",
+            "code": "shirahama_kushimoto"
+          },
+          {
+            "name_ko": "구마노 고도 / 용신",
+            "code": "kumano_kodo_ryujin"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_ko": "중국",
+    "code": "chugoku",
+    "prefectures": [
+      {
+        "name_ko": "오카야마현",
+        "code": "okayama",
+        "cities": [
+          {
+            "name_ko": "아야마 / 진정 / 신미",
+            "code": "hiruzen_maniwa_niimi"
+          },
+          {
+            "name_ko": "쓰야마 / 오쿠츠",
+            "code": "tsuyama_okutsu"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "히로시마현",
+        "code": "hiroshima",
+        "cities": [
+          {
+            "name_ko": "오노미치 /  시마나미 카이도",
+            "code": "onomichi_shimanami_kaido"
+          },
+          {
+            "name_ko": "제석협 / 카미이시 고원 / 세라",
+            "code": "taishaku_gorge_jinseki_kogen_sera"
+          },
+          {
+            "name_ko": "삼차 / 쇼바라 / 비북",
+            "code": "miyoshi_shobara_bihoku"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "돗토리현",
+        "code": "tottori",
+        "cities": [
+          {
+            "name_ko": "오야마 / 사카이 항",
+            "code": "oyama_sakaiminato"
+          },
+          {
+            "name_ko": "쿠라요시 / 미사카 / 돗토리",
+            "code": "kurayoshi_misasa_tottori"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "시마네현",
+        "code": "shimane",
+        "cities": [
+          {
+            "name_ko": "이시미 / 하마다",
+            "code": "iwami_hamada"
+          },
+          {
+            "name_ko": "이즈모 / 오쿠 이즈모",
+            "code": "izumo_okuizumo"
+          },
+          {
+            "name_ko": "오키",
+            "code": "oki"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "야마구치현",
+        "code": "yamaguchi",
+        "cities": [
+          {
+            "name_ko": "아오카이지마 / 나가토 / 하기 / 아키요시다이",
+            "code": "omi_island_nagato_hagi_akiyoshidai"
+          },
+          {
+            "name_ko": "주남 / 야시로 섬",
+            "code": "shunan_yashiro_island"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_ko": "시코쿠",
+    "code": "shikoku",
+    "prefectures": [
+      {
+        "name_ko": "도쿠시마현",
+        "code": "tokushima",
+        "cities": [
+          {
+            "name_ko": "아남 / 히와사",
+            "code": "anan_hiwasa"
+          },
+          {
+            "name_ko": "대보위 / 이부야 / 검산",
+            "code": "oboke_iya_mt_tsurugi"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "카가와현",
+        "code": "kagawa",
+        "cities": [
+          {
+            "name_ko": "칸논지 / 고토히라 / 마루가메",
+            "code": "kanonji_kotohira_marugame"
+          },
+          {
+            "name_ko": "쇼도시마 / 낙도",
+            "code": "shodoshima_remote_island"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "에히메현",
+        "code": "ehime",
+        "cities": [
+          {
+            "name_ko": "이마바리 / 시마나미 카이도",
+            "code": "imabari_shimanami_kaido"
+          },
+          {
+            "name_ko": "구만 고원 / 이시부산",
+            "code": "kumakogen_mt_ishizuchi"
+          },
+          {
+            "name_ko": "우와지마 / 서예",
+            "code": "uwajima_seiyo"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "고치현",
+        "code": "kochi",
+        "cities": [
+          {
+            "name_ko": "시만토 / 아시즈리",
+            "code": "shimanto_ashizuri"
+          },
+          {
+            "name_ko": "인요가와 유역",
+            "code": "niyodo_river_basin"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_ko": "규슈・오키나와",
+    "code": "kyushu",
+    "prefectures": [
+      {
+        "name_ko": "후쿠오카현",
+        "code": "fukuoka",
+        "cities": [
+          {
+            "name_ko": "후쿠오카 / 이토시마 / 오자이후",
+            "code": "fukuoka_itoshima_dazaifu"
+          },
+          {
+            "name_ko": "쿠루메 / 치쿠고",
+            "code": "kurume_chikugo"
+          },
+          {
+            "name_ko": "기타큐슈 / 종상",
+            "code": "kitakyushu_munakata"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "사가현",
+        "code": "saga",
+        "cities": [
+          {
+            "name_ko": "가라쓰 / 이마리 / 아리타",
+            "code": "karatsu_imari_arita"
+          },
+          {
+            "name_ko": "옛탕 / 요시노가리",
+            "code": "furuyu_yoshinogari"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "나가사키현",
+        "code": "nagasaki",
+        "cities": [
+          {
+            "name_ko": "히라도 / 사세보",
+            "code": "hirado_sasebo"
+          },
+          {
+            "name_ko": "나가사키",
+            "code": "nagasaki"
+          },
+          {
+            "name_ko": "운젠",
+            "code": "unzen"
+          },
+          {
+            "name_ko": "고토 / 이키 / 쓰시마",
+            "code": "goto_iki_tsushima"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "오이타현",
+        "code": "oita",
+        "cities": [
+          {
+            "name_ko": "국동",
+            "code": "kunisaki"
+          },
+          {
+            "name_ko": "야마계 / 히타",
+            "code": "yabakei_hita"
+          },
+          {
+            "name_ko": "오이타 / 벳푸 / 유후인",
+            "code": "oita_beppu_yufuin"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "구마모토현",
+        "code": "kumamoto",
+        "cities": [
+          {
+            "name_ko": "구마모토 / 야마가",
+            "code": "kumamoto_yamaga"
+          },
+          {
+            "name_ko": "아소",
+            "code": "aso"
+          },
+          {
+            "name_ko": "아마쿠사 / 야쓰시로 / 히토요시",
+            "code": "amakusa_yatsushiro_hitoyoshi"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "미야자키현",
+        "code": "miyazaki",
+        "cities": [
+          {
+            "name_ko": "타카치호 / 히나타 / 연오카",
+            "code": "takachiho_hyuga_nobeoka"
+          },
+          {
+            "name_ko": "기리시마 / 도성",
+            "code": "kirishima_miyakonojo"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "가고시마현",
+        "code": "kagoshima",
+        "cities": [
+          {
+            "name_ko": "기리시마",
+            "code": "kirishima"
+          },
+          {
+            "name_ko": "이부스키 / 사쓰마 반도",
+            "code": "ibusuki_satsuma_peninsula"
+          },
+          {
+            "name_ko": "사쿠라지마 / 오스미 반도",
+            "code": "sakurajima_osumi_peninsula"
+          },
+          {
+            "name_ko": "아마미 / 낙도",
+            "code": "amami_remote_island"
+          },
+          {
+            "name_ko": "기타",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_ko": "오키나와현",
+        "code": "okinawa",
+        "cities": [
+          {
+            "name_ko": "나하",
+            "code": "naha"
+          }
+        ]
+      }
+    ]
+  }
+]

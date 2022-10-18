@@ -1,0 +1,40 @@
+.contact-wrapper.container
+  font-family: $primary-font-family
+
+  .content-wrapper
+    width: 50%
+    margin: 21px auto
+    @include media-breakpoint-down(md)
+      width: 80%
+    @include media-breakpoint-down(sm)
+      width: 100%
+
+    .contact-information-form
+      .input-container
+        label
+          font-size: $font-size-sm
+          color: $primary-text-color
+          font-weight: bold
+        input
+          @include box-shadow
+          background-color: #f0f0f0
+          font-size: $font-size-md
+          color: $dark-blue-color
+          height: 45px
+          border: 0
+          padding-left: 1rem
+        ::placeholder
+          color: rgba(83, 95, 128, 0.58)
+        .error
+          color: #d14b5d
+          font-weight: bold
+          font-size: 14 !important
+        .require-input-icon
+          color: $red-color
+        textarea
+          @include box-shadow
+          background-color: #f0f0f0
+          font-size: $font-size-md
+          color: $dark-blue-color
+          border: 0
+          padding-left: 1rem

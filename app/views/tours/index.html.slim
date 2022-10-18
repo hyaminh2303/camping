@@ -1,0 +1,32 @@
+.tour-container-wrapper
+  section.main-banner-wrapper.mb-4
+    .container
+      .text-content-wrapper
+        .line-1.font-36-up-lg.font-20-down-md 他では味わえないツアーを探そう
+        .line-2.font-18-up-lg.font-14-down-md Gcampがご用意する珠玉のツアー
+    = image_tag 'big-banner.png', class: 'img-fluid'
+
+  section.listing_of_tours.container
+    - 3.times.each do
+      .row.mb-3
+        .col-12.col-lg-4
+          .image-wrapper
+            = image_tag 'tours/tour-01.jpg', class: 'img-fluid'
+        .col-12.col-lg-8.mt-3.mb-2
+          .row
+            .col-6.d-flex.tag-lists
+              a href="#" class="btn btn-green font-9 no-border-radius mr-2" 長野県
+              a href="#" class="btn btn-green font-9 no-border-radius" 富山県
+            .col-6.date-text.font-16-up-lg.font-13-only-md.font-11-down-sm 7月8日出発、８泊９日の旅
+          .row.mt-2
+            .col-12.name.font-22-up-lg.font-21-only-md.font-20-down-sm 日本の伝統を知る飛騨・北陸の旅
+          .row.mt-1.mt-md-0
+            .col-6.d-flex.align-self-center
+              .departure-point.mr-3.font-14-up-lg.font-12-only-md.font-10-down-sm 出発地: 名古屋
+              .destination.font-14-up-lg.font-12-only-md.font-10-down-sm 到着地: 米原
+            .col-6.d-flex.justify-content-end
+              .mr-2.font-14-up-lg.font-12-only-md.font-10-down-sm.align-self-center 催行状況:
+              a href="#" class="btn btn-yellow font-9 no-border-radius departure-status" 現在募集中
+          .row.my-3
+            .col-12.text-center
+              a href='#' class='btn btn-blue font-14 no-border-radius detail-button' 詳しく見る

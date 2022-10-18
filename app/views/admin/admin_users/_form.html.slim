@@ -1,0 +1,18 @@
+= simple_form_for([:admin, @admin_user]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    = f.input :role, collection: roles_collection,
+              selected: params[:admin_user].try(:[], :role) || f.object.role,
+              include_blank: true,
+              input_html: { data: { roles: roles_data_collection } }
+    = f.input :supplier_company_id,
+              collection: [],
+              input_html: { 'data-supplier-company-id': f.object.supplier_company_id }
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

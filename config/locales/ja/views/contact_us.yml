@@ -1,0 +1,27 @@
+ja:
+  contact_us:
+    new:
+      title: お問い合わせ
+      input_error: 入力内容に誤りがあります
+      checking_the_content: 内容を確認する
+    confirm_information:
+      title: お問い合わせ内容ご確認
+      send: 送信する
+    thanks:
+      title: 送信が完了しました
+      go_back_to_the_top_page: トップページへ戻る
+      content: お問合せありがとうございます。担当者よりご入力いただいたメールアドレスへご連絡させていただきます。
+    placeholder:
+      name: フルネーム
+      email: メールアドレス
+      phone_number: '00000000000'
+
+  admin:
+    contact_us:
+      index:
+        page_title: 問い合わせ管理
+        page_description: 問い合わせ一覧
+      show:
+        page_title: 問い合わせ管理
+        page_description: 問い合わせ詳細
+

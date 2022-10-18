@@ -1,0 +1,21 @@
+= simple_form_for([:admin, @campsite_plan_option]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = render "admin/shared/resources_attributes_by_campsite", f: f,
+            resource_collections: [{collection: campsites_group_by_supplier_company_collection, attribute: :campsite_id, selected: f.object.campsite_id}]
+
+  .form-inputs
+
+    - I18n.available_locales.each do |locale|
+      = f.label "name_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_plan_option_name_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#campsite_plan_option_name_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "name_#{locale}", label: false
+
+    = f.input :price, input_html: { min: 0, max: CampsitePlanOption::MAX_NUMBER_OF_PRICE, step: 1 }
+    = f.input :quantity, input_html: { min: 0, max: CampsitePlanOption::MAX_NUMBER_OF_QUANTITY }
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

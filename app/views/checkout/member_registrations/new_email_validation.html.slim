@@ -1,0 +1,15 @@
+.registration-wrapper
+  .container.pt-5
+    .form-title.text-center.font-weight-bold.font-18
+      = t('customer_users.registrations.new_email_validation.title')
+
+    = simple_form_for(@customer_user, url: validate_email_checkout_member_registrations_path) do |f|
+      = render 'checkout/shared/booking_inputs'
+
+      .row
+        .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+          = render 'shared/customer_users/registrations/new_email_validation_inputs', f: f
+
+          .text-center.form-group.mb-0
+            button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+              = t('customer_users.registrations.new_email_validation.next')

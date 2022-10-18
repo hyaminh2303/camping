@@ -1,0 +1,32 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  - if current_admin_user.is_super_admin?
+    p
+      strong = "#{t('activerecord.attributes.campsite_plan_option.supplier_company_id')}:"
+      = @campsite_plan_option.campsite&.supplier_company&.company_name
+
+  p
+    strong = "#{Campsite.model_name.human}:"
+    = @campsite_plan_option.campsite&.name
+
+  - CampsitePlanOption.globalize_attribute_names.each do |attribute|
+    p
+      strong = "#{t("activerecord.attributes.campsite_plan_option.#{attribute}")}:"
+      = @campsite_plan_option.send(attribute)
+  p
+    strong = "#{t('activerecord.attributes.campsite_plan_option.price')}:"
+    = @campsite_plan_option.price
+  p
+    strong = "#{t('activerecord.attributes.campsite_plan_option.quantity')}:"
+    = @campsite_plan_option.quantity
+
+  => link_to t('views.buttons.edit'), edit_admin_campsite_plan_option_path(@campsite_plan_option)
+  '|
+  =< link_to t('views.buttons.back'), admin_campsite_plan_options_path

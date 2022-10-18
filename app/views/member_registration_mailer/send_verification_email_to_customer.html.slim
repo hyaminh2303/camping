@@ -1,0 +1,10 @@
+br
+div = t('customer_user_mailer.send_verification_email_to_customer.content.line_1')
+div = t('customer_user_mailer.send_verification_email_to_customer.content.line_2')
+div = link_to new_checkout_member_registration_url, new_checkout_member_registration_url(@params)
+br
+div = t('customer_user_mailer.send_verification_email_to_customer.content.line_3')
+br
+br
+
+= render 'layouts/mailer_partials/footer'

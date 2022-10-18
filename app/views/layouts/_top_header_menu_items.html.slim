@@ -1,0 +1,37 @@
+li
+  = link_to new_contact_us_path
+    i.fas.fa-question-circle.text-blue
+    = t('.new_contact_us')
+
+- if customer_user_signed_in?
+  li
+    = link_to my_page_path
+      i.fas.fa-user.text-blue
+      = "#{current_customer_user.first_name}#{t('.mr')}"
+
+  li
+    a href=destroy_customer_user_session_path
+      i.fas.fa-sign-out-alt.text-blue
+      = t('.sign_out')
+
+- else
+  li
+    a href=new_email_validation_path
+      i.fas.fa-user.text-blue
+      = t('.sign_up')
+
+  li
+    a href=new_customer_user_session_path
+      i.fas.fa-sign-in-alt.text-blue
+      = t('.sign_in')
+
+li.dropdown
+  a.dropdown-toggle href="javascript:void(0)" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+    i.fas.fa-globe-asia.text-blue
+    = t('.language')
+  .dropdown-menu
+    = link_to "English", params.to_unsafe_hash.merge(locale: 'en'), class: 'dropdown-item font-12'
+    = link_to "日本語", params.to_unsafe_hash.merge(locale: 'ja'), class: 'dropdown-item font-12'
+    = link_to "中国(简体中文)", params.to_unsafe_hash.merge(locale: 'zh'), class: 'dropdown-item font-12'
+    / https://app.clickup.com/t/2ew3n8x
+    / = link_to "대한민국(한국어)", params.to_unsafe_hash.merge(locale: 'ko'), class: 'dropdown-item font-12'

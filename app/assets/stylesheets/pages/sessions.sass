@@ -1,0 +1,39 @@
+@import "../definitions/variables"
+@import "../definitions/mixins"
+
+.session-continer
+  max-width: 345px
+  margin: 100px auto 50px
+  padding: 15px
+  background-color: #F5F5F5
+  border-radius: 4px
+  @include box-shadow
+
+  h1.title
+    color: $blue-color
+    font-size: 27px
+    padding-top: 15px
+    padding-bottom: 15px
+    font-weight: bold
+
+  input
+    border: unset
+  label.remember-me
+    font-size: $font-size-md
+    margin-bottom: 0px
+    .checkbox
+      margin-right: 5px
+
+  .btn-submit
+    @include btn-blue
+    width: 100%
+
+  .btn-submit
+    @include btn-blue
+    width: 100%
+
+  .btn-registration
+    @include btn-light-blue
+    font-size: $font-size-md
+    padding: 0
+    width: 100%

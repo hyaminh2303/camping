@@ -1,0 +1,15 @@
+ko:
+  admin:
+    camp_category_groups:
+      index:
+        page_title: Camp Category Group
+        page_description: Camp Category Group List
+      new:
+        page_title: Camp Category Group
+        page_description: New Camp Category Group
+      edit:
+        page_title: Camp Category Group
+        page_description: Edit Camp Category Group
+      show:
+        page_title: Camp Category Group
+        page_description: Detail Of Camp Category Group

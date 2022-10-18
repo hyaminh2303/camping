@@ -1,0 +1,142 @@
+= form_with url: search_campsites_path, method: :get do |f|
+  = render 'shared/campsite_search_hidden_input', f: f
+  .campsite-search-container-wrapper
+    section.main-banner-wrapper
+      = image_tag 'camp-site-banner.jpg', class: 'img-fluid'
+
+    section.search-results-wrapper.container.mt-5
+      .row.no-gutters
+        .col-custom.content-search.col-md-6.col-lg-4.pr-md-5.pr-0.pr-lg-0
+          .campsite-search-form-wrapper.mb-4
+            = render 'shared/campsite_search_input', f: f, \
+              location_name: @campsite_search_service.get_searching_location_name
+
+          / hide on mobile only
+          .d-sm-block.d-none
+            .filter-wrapper
+              .filter-group.d-flex.justify-content-between
+                  ruby:
+                    group_categories = CampCategoryGroup.order_by_weight_asc.except_facility_type.to_a.in_groups_of(2)
+                    left_group_categories = group_categories.map(&:first).compact
+                    right_group_categories = group_categories.map(&:last).compact
+                  - [left_group_categories, right_group_categories].each do |group|
+                    .col-filter
+                      - group.each do |category_group|
+                        .custom-flex
+                          - collapse_id = "collapse_#{category_group.id}"
+                          a.btn-collapse.d-flex.justify-content-between.cursor-pointer.collapse[data-toggle="collapse" role="button" data-target="##{collapse_id}" aria-expanded="true" aria-controls="collapseOne"]
+                            h3.filter-title
+                              = category_group.name
+                              span.text-blue.ml-2
+                                = "(#{count_campsites_of_group(category_group, @campsites_without_searching_category)}#{t('campsites.search.item')})"
+                            i.fa.fa-caret-down.text-blue
+
+                          .collapse[id=collapse_id]
+                            - category_group.camp_categories.each do |camp_category|
+                              .filter-item.form-check
+                                = f.check_box "c_cate[]",
+                                  { class: "form-check-input c-cate-id-#{camp_category.id}",
+                                  id: "camp-category-#{camp_category.id}-md",
+                                  checked: (params[:c_cate]&.include?(camp_category.id.to_s)),
+                                  'data-c-cate-name': camp_category.name},
+                                "#{camp_category.id}", false
+
+                                = f.label "camp-category-#{camp_category.id}-md", camp_category.name, class: 'form-check-label'
+                            a.close-up.cursor-pointer.collapse[data-toggle="collapse" role="button" data-target="##{collapse_id}" aria-expanded="true" aria-controls="collapseOne"]
+                              = t('campsites.search.close')
+                        .line-end
+            .text-center
+              = button_tag t('.narrow_down_campsites'), id: 'button-filter', class: "btn btn-blue rounder-5 w-30"
+
+          / Display mobile only
+          .d-sm-none.d-block
+            .text-center
+              = button_tag t('.narrow_down_campsites'), class: "btn btn-blue rounder-5 w-30"
+            .row.search-results-title-results.mgt-30
+              .col-7
+                h2.title.font-20 = @campsite_search_service.get_searching_location_name
+                .result-count.font-14 = t('.there_are_campsites', total_count: @campsites.total_count)
+              .col-5
+                = button_tag "絞り込み検索", type: "button", class: 'btn btn-blue btn-advance-search', data: { target: '#advance-search', toggle: "modal" }
+
+              / https://app.clickup.com/t/22bez20
+              / .col-12.prefecture-map
+              /   - if state_code(params).present?
+              /     - state_code(params).each do |code|
+              /       - if File.exist?(Rails.root.join("app/assets/images/states/#{code}.svg"))
+              /         = image_tag "states/#{code}.svg", class: 'img-fluid'
+              /   - else
+              /     = image_tag "states/all_states.svg", class: 'img-fluid'
+
+        .col-custom.col-md-6.col-lg-8.pl-lg-4.pl-xl-5
+          .search-results-title.d-sm-block.d-none
+            h2.title.font-26 = @campsite_search_service.get_searching_location_name
+            .result-count.font-14 = t('.there_are_campsites', total_count: @campsites.total_count)
+
+          .list-camp-element-items.mt-2
+            - @campsites.each do |campsite|
+              .camp-element-item-horizontal.pt-md-2.pb-md-3
+                .row.no-gutters
+                  .col.col-md-4.image-wrapper
+                    = link_to (gcamp_image_tag campsite.photos.first&.image, class: 'img-fluid'), campsite_path(campsite)
+
+                  .col.col-md-8.information-wrapper.py-3.py-md-0.pl-2
+                    .item-header.mb-2
+                      a href="#" class="btn btn-green font-11 no-border-radius"= campsite.prefecture.name
+                      / span.font-11.date.ml-2 コメント入れられます | https://app.clickup.com/t/20r01ex
+                    h3.item-content.mb-2.mb-md-0
+                      = link_to campsite.name, campsite_path(campsite)
+                    h5.description.font-11-down-sm
+                      = raw truncate_html(strip_tags(campsite.description), length: 80, omission: '...')
+                    .tags
+                      - campsite.tags_locale_list.last(3).each do |name|
+                        span.mr-2
+                          .btn.btn-gray.font-9.no-border-radius = name
+                .border-bottom.d-md-none
+
+      .row.no-gutters
+        .col.d-none.d-md-flex
+        .col
+          .d-flex.container.pagination-v2.justify-content-center.mt-4.font-11.font-weight-bold
+            = paginate @campsites, theme: 'kaminari_v2', pagination_class: "pagination-sm", nav_class: "d-inline-b", window: 2
+
+    = render 'shared/blog_items', blogs: @supplier_blogs
+
+    / #advance-search.full-screen-modal.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1"
+    #advance-search.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1"
+      .modal-dialog.m-0 role="document"
+        .modal-content.no-border-radius
+          .modal-body
+            - CampCategoryGroup.all.each_with_index do |category_group, index|
+              h3.filter-title class="#{index==0 ? 'mt-2' : 'mt-5'}" = category_group.name
+              .row.pdl-15
+                - category_group.camp_categories.each do |camp_category|
+                  .col.mt-3.text-nowrap.flex-grow-0.pdl-0.pdr-15
+                    = f.check_box "c_cate[]",
+                      { class: "advance-search-icheck-input c-cate-id-#{camp_category.id}",
+                        id: "camp-category-#{camp_category.id}-sm",
+                        checked: (params[:c_cate]&.include?(camp_category.id.to_s)),
+                        'data-c-cate-name': camp_category.name},
+                      "#{camp_category.id}", false
+
+                    = f.label "camp-category-#{camp_category.id}-sm", camp_category.name
+            .row.justify-content-center.mt-5.mb-4
+              = button_tag "設定を初期化する", type: "button", class: 'btn btn-blue' do
+                .font-11 検索条件をもっと見る
+
+            .row.bottom-buttons-wrapper
+              .mb-2.mt-2.font-weight-bold
+                span.font-25.number-of-checkbox-selected= @campsites.total_count
+                | &nbsp;
+                span.font-15 件が該当しました
+              = button_tag "", class: 'btn btn-blue btn-w350-full-width-mobile' do
+                span
+                  i.fas.fa-search.font-19
+                | &nbsp;
+                span.font-weight-bold.font-15 選択した設定で検索する
+              = button_tag "", type: "button", class: 'btn btn-gray btn-w350-full-width-mobile mt-2 mb-2 btn-reset-search' do
+                span
+                  i.fal.fa-question-square.font-15
+                | &nbsp;
+                span.font-weight-bold.font-11 設定を初期化する
+              = button_tag t('.close'), type: "button", class: 'btn btn-primary btn-w350-full-width-mobile mb-3', data: { dismiss: 'modal' }

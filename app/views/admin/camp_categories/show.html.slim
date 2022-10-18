@@ -1,0 +1,24 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong = "#{t('activerecord.attributes.camp_category.camp_category_group')}:"
+    = @camp_category.camp_category_group.name
+
+  - CampCategory.globalize_attribute_names.each do |attribute|
+    p
+      strong = "#{t("activerecord.attributes.camp_category.#{attribute}")}:"
+      = @camp_category.send(attribute)
+  p
+    strong = "#{t('activerecord.attributes.camp_category.weight')}:"
+    = @camp_category.weight
+
+  => link_to t('views.buttons.edit'), edit_admin_camp_category_path(@camp_category)
+  '|
+  =< link_to t('views.buttons.back'), admin_camp_categories_path

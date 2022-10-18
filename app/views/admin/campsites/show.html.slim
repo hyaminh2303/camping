@@ -1,0 +1,166 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+- title @campsite.name
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong = "#{t('activerecord.attributes.campsite.keep_private')}:"
+    = t("check_box.#{@campsite.keep_private }")
+
+  - if current_admin_user.is_super_admin?
+    p
+      strong = "#{t('activerecord.attributes.supplier_company.company_name')}:"
+      = @campsite.campsite_supplier_company.company_name
+
+  p
+    strong = "#{t('activerecord.attributes.campsite.unique_id')}:"
+    = @campsite.unique_id
+  p
+    strong = "#{t('activerecord.attributes.campsite.photos')}:"
+    - @campsite.photos.each do |photo|
+      = image_tag photo.image.url, class: 'img-fluid'
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.name_#{locale}")}:"
+      = @campsite.send("name_#{locale}")
+
+  p
+    strong = "#{t('activerecord.attributes.campsite.camp_type_ids')}:"
+    = @campsite.camp_types.map(&:name).join(', ')
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.tags_#{locale}_list")}:"
+      = @campsite.send("tags_#{locale}_list")
+
+  p
+    strong = "#{t('activerecord.attributes.campsite.post_code')}:"
+    = @campsite.post_code
+  p
+    strong = "#{t('activerecord.attributes.campsite.state_id')}:"
+    = @campsite.state.name
+  p
+    strong = "#{t('activerecord.attributes.campsite.prefecture_id')}:"
+    = @campsite.prefecture.name
+  p
+    strong = "#{t('activerecord.attributes.campsite.city_id')}:"
+    = @campsite.city.name
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.address_#{locale}")}:"
+      = @campsite.send("address_#{locale}")
+
+  p
+    strong = "#{t('activerecord.attributes.campsite.latitude')}:"
+    = @campsite.latitude
+  p
+    strong = "#{t('activerecord.attributes.campsite.longitude')}:"
+    = @campsite.longitude
+  p
+    strong = "#{t('activerecord.attributes.campsite.contact_number')}:"
+    = @campsite.contact_number
+  p
+    strong = "#{t('activerecord.attributes.campsite.email_address')}:"
+    = @campsite.email_address
+  p
+    strong = "#{t('activerecord.attributes.campsite.fax')}:"
+    = @campsite.fax
+  / p https://app.clickup.com/t/1582gkj
+  /   strong = "#{t('activerecord.attributes.campsite.facilities_equipment')}:"
+  /   = @campsite.facilities_equipment
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.description_#{locale}")}:"
+      = raw @campsite.send("description_#{locale}")
+
+  p
+    strong = "#{t('activerecord.attributes.campsite.camp_map')}:"
+    - (@campsite.campsite_content_photos.presence || []).each do |content_photo|
+      = image_tag content_photo.photo.image_url, class: 'img-fluid'
+
+  .card.my-3
+    .card-header = t('activerecord.attributes.campsite.camp_category_id')
+    .card-body
+      .container
+        - camp_categories_group_by_category_group = @campsite.camp_categories.group_by{|x| x.camp_category_group_id}
+        - CampCategoryGroup.all.each do |category_group|
+          p
+            strong = "#{category_group.name}: "
+            = camp_categories_group_by_category_group[category_group.id].map(&:name).join(', ') \
+              if camp_categories_group_by_category_group.has_key?(category_group.id)
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.business_information_#{locale}")}:"
+      = simple_format @campsite.send("business_information_#{locale}")
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.peripheral_facilities_#{locale}")}:"
+      = simple_format @campsite.send("peripheral_facilities_#{locale}")
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.about_cancellation_#{locale}")}:"
+      = simple_format @campsite.send("about_cancellation_#{locale}")
+
+  .card.my-3
+    .card-header = t('activerecord.attributes.campsite.setting_entrance_fee')
+    .card-body
+      .container.fee-entrance-list
+        p
+          strong = "#{t('activerecord.attributes.campsite_entrance_fee.adult_fee')}:"
+          = @campsite.campsite_entrance_fee.adult_fee
+
+        - @campsite.campsite_entrance_fee.child_and_pet_entrance_fees.each do |child_and_pet_entrance_fee|
+          p
+            strong = "#{child_and_pet_entrance_fee.child_and_pet_setting.entity_label}: "
+            = child_and_pet_entrance_fee.fee_value
+
+  p
+    strong = "#{t('activerecord.attributes.campsite.basic_fee')}:"
+    = @campsite.basic_fee
+  p
+    strong = "#{t('activerecord.attributes.campsite.number_of_people_pet_included')}:"
+    = @campsite.number_of_people_pet_included
+  p
+    strong = "#{t('activerecord.attributes.campsite.extra_person_fee')}:"
+    = @campsite.extra_person_fee
+  - if @campsite.bank.present?
+    .card.my-3
+      .card-header = t('activerecord.attributes.campsite.bank_name')
+      .card-body
+        .container.fee-entrance-list
+          p
+            strong = "#{t("activerecord.attributes.bank.name")}:"
+            = @campsite.bank.name
+          p
+            strong = "#{t("activerecord.attributes.bank.branch_name")}:"
+            = @campsite.bank.branch_name
+          p
+            strong = "#{t("activerecord.attributes.bank.account_type")}:"
+            = @campsite.bank.account_type
+          p
+            strong = "#{t("activerecord.attributes.bank.account_number")}:"
+            = @campsite.bank.account_number
+          p
+            strong = "#{t("activerecord.attributes.bank.account_holder")}:"
+            = @campsite.bank.account_holder
+          p
+            strong = "#{t("activerecord.attributes.bank.account_holder_frigana")}:"
+            = @campsite.bank.account_holder_frigana
+
+
+  => link_to t('views.buttons.edit'), edit_admin_campsite_path(@campsite)
+  '|
+  =< link_to t('views.buttons.back'), admin_campsites_path
+  '|
+  = link_to t('activerecord.attributes.campsite.campsite_plans'), admin_campsite_campsite_plans_path(@campsite)

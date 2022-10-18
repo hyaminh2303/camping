@@ -1,0 +1,24 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong = "#{t('activerecord.attributes.admin_user.email')}:"
+    = @admin_user.email
+  p
+    strong = "#{t('activerecord.attributes.admin_user.role')}:"
+    = @admin_user.roles.first.name.classify if @admin_user.roles.present?
+
+  - if !@admin_user.is_super_admin?
+    p
+      strong = "#{t('activerecord.attributes.admin_user.supplier_company_id')}:"
+      = @admin_user.supplier_company&.company_name
+
+  => link_to t('views.buttons.edit'), edit_admin_admin_user_path(@admin_user)
+  '|
+  =< link_to t('views.buttons.back'), admin_admin_users_path

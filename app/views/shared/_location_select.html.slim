@@ -1,0 +1,10 @@
+.row
+  .col-md-4
+    = f.association :state, as: :select, collection: states_collection, \
+              input_html: { id: 'state-input', data: { current_value: f.object.state_id } }
+  .col-md-4
+    = f.association :prefecture, as: :select, collection:[], \
+              input_html: { id: 'prefecture-input', data: { current_value: f.object.prefecture_id } }
+  .col-md-4
+    = f.association :city, as: :select, collection: [], \
+              input_html: { id: 'city-input', data: { current_value: f.object.city_id } }

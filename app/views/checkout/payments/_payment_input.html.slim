@@ -1,0 +1,57 @@
+.row.mb-4.mt-5
+  .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+    label.font-12.font-weight-bold= t('.supported_cards')
+    = image_tag "credit_cards_logo.png", class: 'img-fluid px-5'
+
+.row
+  .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+    = f.input :card_holder_name,
+              label: t('activerecord.attributes.credit_card.card_holder_name'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14' }
+
+    = f.input :number,
+              label: t('activerecord.attributes.credit_card.number'),
+              label_html: { class: 'font-12 font-weight-bold' },
+              input_html: { class: 'box-shadown-input font-14' }
+    .row
+      .col-sm-6.col-12
+        .row
+          .col-12.font-12.font-weight-bold
+            label
+              = t('activerecord.attributes.credit_card.date_of_expiry')
+
+          = f.input :exp_month,
+                    collection: months_collection,
+                    as: :select,
+                    label: false,
+                    input_html: { class: 'box-shadown-input font-14' },
+                    wrapper_html: { class: 'col-6' }
+
+          = f.input :exp_year,
+                    as: :select,
+                    collection: (Date.current.year..Date.current.year+10),
+                    label: false,
+                    input_html: { class: 'box-shadown-input font-14' },
+                    wrapper_html: { class: 'col-6' }
+      .col-sm-6.col-12
+        = f.input :cvc,
+                  label: t('activerecord.attributes.credit_card.cvc'),
+                  label_html: { class: 'font-12 font-weight-bold' },
+                  input_html: { class: 'box-shadown-input font-14' }
+
+    .row
+      .col-12.text-center
+        label = t('activerecord.attributes.credit_card.policy')
+        label = link_to t('activerecord.attributes.credit_card.click_here'),
+                        about_cancellation_path(@travel_package), target: :_blank, class: 'text-azure'
+      / https://app.clickup.com/t/282th3k
+      / .col-12
+      /   = text_area :policy, "", class: 'box-shadown-input font-14 form-control', rows: 5, style: "resize: none", disabled: true
+
+    .text-center.form-group.mt-5
+      button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+        = t('.submit')
+      = link_to t('checkout.campsite_bookings.views.payment.buttons.back'),
+                confirm_information_checkout_campsite_bookings_path,
+                class: 'btn btn-w350-full-width-mobile btn-black mgt-12'

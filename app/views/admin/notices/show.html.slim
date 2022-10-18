@@ -1,0 +1,39 @@
+- content_for :page_title, t("admin.notices.#{params[:item_type]}.show.page_title")
+- content_for :page_description, t("admin.notices.#{params[:item_type]}.show.page_description")
+- title [@notice.title, @notice.notice_itemable&.name]
+
+.data-content
+  h2.page-primary-title = t("admin.notices.#{params[:item_type]}.show.page_description")
+  hr
+
+  = render 'shared/messages'
+  - if params[:item_type] != 'super_admin'
+    - if current_admin_user.is_super_admin?
+      p
+        strong = "#{t('activerecord.attributes.notice.supplier_company_id')}:"
+        = @notice.supplier_company.company_name
+    p
+      strong = "#{t("activerecord.models.#{params[:item_type]}.one")}:"
+      = @notice.notice_itemable.name
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.notice.title_#{locale}")}:"
+      = @notice.send("title_#{locale}")
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.notice.content_#{locale}")}:"
+      = raw @notice.send("content_#{locale}")
+
+  p
+    strong = "#{t('activerecord.attributes.notice.publish_date')}:"
+    = @notice.publish_date&.strftime(t('datetime.formats.short'))
+
+  p
+    strong = "#{t('activerecord.attributes.notice.photo')}:"
+    = image_tag @notice.photo.image.url, class: 'img-fluid' if @notice.photo.present?
+
+  => link_to t('views.buttons.edit'), edit_admin_notice_path(params[:item_type], @notice)
+  '|
+  =< link_to t('views.buttons.back'), admin_notices_path(params[:item_type])

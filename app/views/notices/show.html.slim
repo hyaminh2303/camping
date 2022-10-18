@@ -1,0 +1,35 @@
+- title [@notice.title, @notice.notice_itemable&.name]
+- description "#{strip_html_to_string(@notice.content)} | #{t('views.project.site_name')}"
+
+.notices-detail-wrapper
+  .notice-show-content
+    .title.text-center.text-blue = t('notices.news')
+    .sub-title
+      b
+        = @notice.title
+    .date
+      = @notice.publish_date&.strftime(t('datetime.with_locale.formats.short'))
+    / https://app.clickup.com/t/2kgu1gp
+    / .div-img.rounder-3
+      / = gcamp_image_tag @notice.photo&.image
+    .text-content
+      = raw @notice.content
+    .line-end
+    .d-flex.justify-content-between.text-blue
+      .text-align-left
+        = link_to notice_path(pre_notice(@notice)) do
+          span.text-blue
+            i.far.fa-angle-left.font-weight-bold.mr-1
+            = t('notices.button_prev')
+        end
+      .text-align-left
+        = link_to notice_path(next_notice(@notice)) do
+          span.text-blue
+            = t('notices.button_next')
+            i.far.fa-angle-right.font-weight-bold.ml-1
+        end
+
+    .text-center
+      = link_to notices_path(item_type: @notice.item_type) do
+        .btn.rounder-3.mt-4.font-18.px-4.btn-blue
+          = t('.buttons.list_notice')

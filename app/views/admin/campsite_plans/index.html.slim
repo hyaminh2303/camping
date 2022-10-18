@@ -1,0 +1,53 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  = search_form_for @q, url: admin_campsite_plans_path do |f|
+    .form-inputs
+      .row
+        .form-group.col-sm-3
+          = f.label :translations_name_cont, t('activerecord.attributes.campsite_plan.name')
+          = f.search_field :translations_name_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :campsite_translations_name_cont, t('activerecord.attributes.campsite.name')
+          = f.search_field :campsite_translations_name_cont, class: 'form-control'
+      .row
+        .col-sm-12.d-flex.align-items-center.justify-content-end.mb-4
+          = link_to t('views.buttons.clear'), admin_campsite_plans_path, class: 'btn btn-gray'
+          = submit_tag t('views.buttons.search'), class: 'btn btn-blue ml-1'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new', model_name: " #{CampsitePlan.model_name.human}"), [:admin, @campsite, CampsitePlan, action: :new], class: "btn btn-blue btn-new-record"
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = sort_link(@q, :campsite_translations_name, t('activerecord.attributes.campsite.name'))
+          th = sort_link(@q, :translations_name, t('activerecord.attributes.campsite_plan.name'))
+          th = t('activerecord.attributes.campsite_plan.quantity')
+          th = t('activerecord.attributes.campsite_plan.max_number_of_people')
+          th = t('activerecord.attributes.campsite_plan.check_in_time')
+          th = t('activerecord.attributes.campsite_plan.check_out_time')
+
+      tbody.font-14
+        - @campsite_plans.each do |campsite_plan|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), [:admin, @campsite, campsite_plan], class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), [:admin, @campsite, campsite_plan, action: :edit], class: 'btn btn-green'
+
+              = link_to_delete_with [:admin, @campsite, campsite_plan]
+
+            td = campsite_plan.campsite.name
+            td = campsite_plan.name
+            td = campsite_plan.quantity
+            td = campsite_plan.max_number_of_people
+            td = campsite_plan.check_in_time.strftime('%H:%M')
+            td = campsite_plan.check_out_time.strftime('%H:%M')
+
+.container.pagination.justify-content-center
+  = paginate @campsite_plans, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

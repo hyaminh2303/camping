@@ -1,0 +1,20 @@
+- content_for :page_title, t("admin.blog_categories.#{params[:category_type]}.show.page_title")
+- content_for :page_description, t("admin.blog_categories.#{params[:category_type]}.show.page_description")
+
+.data-content
+  h2.page-primary-title = t("admin.blog_categories.#{params[:category_type]}.show.page_description")
+  hr
+
+  = render 'shared/messages'
+
+  - I18n.available_locales.each do |locale|
+    p
+      strong = "#{t("activerecord.attributes.campsite.name_#{locale}")}: "
+      = @blog_category.send("name_#{locale}")
+  p
+    strong = "#{t('activerecord.attributes.blog_category.icon')}:"
+    = image_tag @blog_category.icon.url, class: 'img-fluid'
+
+  => link_to t('views.buttons.edit'), edit_admin_blog_category_path(@blog_category, category_type: params[:category_type])
+  '|
+  =< link_to t('views.buttons.back'), admin_blog_categories_path(category_type: params[:category_type])

@@ -1,0 +1,10 @@
+= f.fields_for :photo, (f.object.photo || Photo.new) do |photo|
+  .nested-fields
+    .row
+      .col-md-8
+        = photo.input :image, label: false, input_html: {accept: 'image/*'}
+      .col-md-4.mt-2
+        = link_to_remove_association "X", f, class: 'btn btn-sm btn-danger'
+      .col-md-2
+        - if photo.object.image.present?
+            = image_tag photo.object.image.url, class: 'img-fluid'

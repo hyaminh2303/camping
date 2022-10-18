@@ -1,0 +1,31 @@
+en:
+  admin:
+    camp_car_bookings:
+      index:
+        page_title: Camp Car Booking
+        page_description: Camp Car Booking List
+        check_in_start: Check-in start
+        check_in_end: Check-in end
+        note: Note
+        buttons:
+          cancel: Cancel
+          note: Note
+        messages:
+          confirm_delete: Are you sure you want to cancel this booking?
+          buttons:
+            confirm: 'Yes'
+            cancel: 'No'
+      show:
+        page_title: Camp Car Booking
+        page_description: Detail Of Camp Car Booking
+        cancel: Cancel
+        reserved_date_and_time: Reserved date and time
+        add_note_title: Add Note
+      edit:
+        page_title: Campsite Booking
+        page_description: Edit Campsite Booking
+        reservation_period: Reservation period
+
+  customer:
+    campsite_bookings:
+      updated: Your booking was successfully updated

@@ -1,0 +1,15 @@
+ko:
+  admin:
+    camp_car_options:
+      index:
+        page_title: Camp Car Option
+        page_description: Camp Car Option List
+      new:
+        page_title: Camp Car Option
+        page_description: New Camp Car Option
+      edit:
+        page_title: Camp Car Option
+        page_description: Edit Camp Car Option
+      show:
+        page_title: Camp Car Option
+        page_description: Detail Of Camp Car Option

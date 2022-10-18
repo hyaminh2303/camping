@@ -1,0 +1,15 @@
+ko:
+  admin:
+    classification_day_settings:
+      index:
+        page_title: Classification Day Setting
+        page_description: Classification Day Setting List
+      new:
+        page_title: Classification Day Setting
+        page_description: New Classification Day Setting
+      edit:
+        page_title: Classification Day Setting
+        page_description: Edit Classification Day Setting
+      show:
+        page_title: Classification Day Setting
+        page_description: Detail Of Classification Day Setting

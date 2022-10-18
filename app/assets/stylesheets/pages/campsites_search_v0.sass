@@ -1,0 +1,50 @@
+@import "../definitions/variables"
+@import './definitions/mixins'
+
+.campsite-search-container-wrapper
+  font-family: $font-yu-gothic
+
+  #advance-search
+    .filter-title
+      font-size: 12px
+      font-weight: bold
+    .bottom-buttons-wrapper
+      background-color: #E4F2F8
+      padding: 15px
+      justify-content: center
+
+    .number-of-checkbox-selected
+      color: $yellow-color
+    .icheck-default-style
+      padding: 0px 10px !important
+      display: flex
+      justify-content: center
+      align-items: center
+      @include box-shadow
+      background-color: #f0f0f0
+      color: $dark-blue-color
+      border: none
+      height: 24px
+      font-size: 9px
+      font-weight: bold
+      &:disabled
+        background-color: #f0f0f0
+
+    .icheck-checked-style
+      border-radius: 0px
+      background-color: transparent !important
+      border: 2px solid #1DAE9E !important
+
+  .filter-title
+    font-size: $font-size-md
+
+  .form-check-label
+    font-size: $font-size-sm
+    vertical-align: middle
+
+  .form-check-input
+    margin-top: 0.140rem
+
+  .search-results-title
+    h2.title
+      font-size: 28px

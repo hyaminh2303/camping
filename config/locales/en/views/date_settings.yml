@@ -1,0 +1,14 @@
+en:
+  admin:
+    date_settings:
+      index:
+        page_title: Date Setting
+        page_description: Date Setting
+        setting_title: Bulk registration
+        end_date: End date
+        start_date: Start Date
+        classification_day: Day type
+        submit: Register
+        error_messages:
+          blank_campsite: Blank campsite
+        bulk_day_of_the_week_selection: 一括曜日選択

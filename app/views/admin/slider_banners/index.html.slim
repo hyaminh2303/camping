@@ -1,0 +1,29 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_slider_banner_path, class: "btn btn-blue btn-new-record"
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.slider_banner.page')
+
+      tbody.font-14
+        - @slider_banners.each do |slider_banner|
+          tr
+            td.action.text-left
+                = link_to t('views.buttons.view'), admin_slider_banner_path(slider_banner), class: 'btn btn-blue'
+
+                = link_to t('views.buttons.edit'), edit_admin_slider_banner_path(slider_banner), class: 'btn btn-green'
+
+                = link_to_delete_with admin_slider_banner_path(slider_banner)
+
+            td = t("activerecord.enum.slider_banner.page.#{slider_banner.page}")
+
+.container.pagination.justify-content-center
+  = paginate @slider_banners, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

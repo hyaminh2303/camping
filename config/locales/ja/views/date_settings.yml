@@ -1,0 +1,20 @@
+ja:
+  admin:
+    date_settings:
+      index:
+        page_title: 日付タイプ設定
+        page_description: 日付タイプ設定
+        setting_title: 一括登録
+        end_date: 終了日
+        start_date: 開始日
+        classification_day: 日付タイプ
+        submit: 登録
+        error_messages:
+          blank_campsite: Blank campsite
+          blank:
+            start_date: 開始日を入力して下さい。
+            end_date: 終了日を入力して下さい。
+            days_name: 曜日を選択して下さい。
+        bulk_day_of_the_week_selection: 一括曜日選択
+        messages:
+          successfully: 更新完了

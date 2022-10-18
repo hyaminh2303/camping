@@ -1,0 +1,22 @@
+- content_for :page_title, t(".page_title.#{params[:item_type]}")
+- content_for :page_description, t(".page_description.#{params[:item_type]}")
+
+.data-content
+  h2.page-primary-title = t(".page_description.#{params[:item_type]}")
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong  = "#{t('activerecord.attributes.recommended_camp_item.supplier_company_id')}:"
+    = @recommended_camp_item.supplier_company.company_name
+  p
+    strong  = "#{t("activerecord.models.#{params[:item_type]}.one")}:"
+    = @recommended_camp_item.recommended_itemable.name
+  p
+    strong  = "#{t('activerecord.attributes.recommended_camp_item.weight')}:"
+    = @recommended_camp_item.weight
+
+  => link_to t('views.buttons.edit'), edit_admin_recommended_camp_item_path(params[:item_type], @recommended_camp_item)
+  '|
+  =< link_to t('views.buttons.back'), admin_recommended_camp_items_path(params[:item_type])

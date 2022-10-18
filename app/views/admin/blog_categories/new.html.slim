@@ -1,0 +1,10 @@
+- content_for :page_title, t("admin.blog_categories.#{params[:category_type]}.new.page_title")
+- content_for :page_description, t("admin.blog_categories.#{params[:category_type]}.new.page_description")
+
+.data-content
+  h2.page-primary-title = t("admin.blog_categories.#{params[:category_type]}.new.page_description")
+  hr
+
+  = render 'form'
+
+  = link_to t('views.buttons.back'), admin_blog_categories_path(category_type: params[:category_type])

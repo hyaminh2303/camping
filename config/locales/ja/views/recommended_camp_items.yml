@@ -1,0 +1,31 @@
+ja:
+  admin:
+    recommended_camp_items:
+      index:
+        page_title:
+          campsite: おすすめキャンプ場管理
+          camp_car: Recommended camp_car item
+        page_description:
+          campsite: おすすめキャンプ場リスト
+          camp_car: おすすめキャンプカーリスト
+      new:
+        page_title:
+          campsite: おすすめキャンプ場管理
+          camp_car: Recommended camp_car item
+        page_description:
+          campsite: 新規おすすめキャンプ場追加
+          camp_car: 新規おすすめキャンプカー追加
+      show:
+        page_title:
+          campsite: おすすめキャンプ場管理
+          camp_car: Recommended camp_car item
+        page_description:
+          campsite: おすすめキャンプ場リスト詳細
+          camp_car: おすすめキャンプカーリスト詳細
+      edit:
+        page_title:
+          campsite: おすすめキャンプ場管理
+          camp_car: Recommended camp_car item
+        page_description:
+          campsite: おすすめキャンプ場編集
+          camp_car: おすすめキャンプカー編集

@@ -1,0 +1,12 @@
+.payments-wrapper
+  .container.pt-5
+    .row.mb-4.mt-5
+      .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+        = render 'shared/messages'
+    .form-title.text-center.font-weight-bold.font-18
+      = t('.title')
+
+    = simple_form_for(@credit_card, url: checkout_payments_path) do |f|
+      = hidden_field_tag :travel_package_id, @travel_package.id
+      = hidden_field_tag :is_adding_the_card_for_60_days_before_starting, true
+      = render 'payment_input', f: f

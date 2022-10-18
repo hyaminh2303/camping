@@ -1,0 +1,23 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong = "#{t('activerecord.attributes.glover_company.company_name')}:"
+    = @glover_company.company_name
+  p
+    strong = "#{t('activerecord.attributes.glover_company.location')}:"
+    = @glover_company.location
+  p
+    strong = "#{t('activerecord.attributes.glover_company.phone_number')}:"
+    = @glover_company.phone_number
+  p
+    strong = "#{t('activerecord.attributes.glover_company.hp_url')}:"
+    = @glover_company.hp_url
+
+  => link_to t('views.buttons.edit'), edit_admin_glover_company_path

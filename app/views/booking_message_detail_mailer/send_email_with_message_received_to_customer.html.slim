@@ -1,0 +1,17 @@
+br
+div = "#{@booking_message_detail.owner.last_name} #{t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.sama')}"
+br
+div = t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.line_1')
+div = t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.line_2')
+br
+div = t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.line_3')
+div = "#{t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.user_name')}: \
+       #{@booking_message_detail.owner.full_name}"
+div = "#{t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.email')}: \
+       #{@booking_message_detail.owner.email}"
+div = "#{t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.created_at')}: \
+       #{@booking_message_detail.owner.created_at.strftime(t('datetime.formats.long'))}"
+div = "#{t('booking_message_detail_mailer.send_email_with_message_received_to_customer.content.message_content')}: \
+       #{@booking_message_detail.message}"
+br
+= render 'layouts/mailer_partials/footer'

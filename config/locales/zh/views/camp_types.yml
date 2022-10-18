@@ -1,0 +1,15 @@
+zh:
+  admin:
+    camp_types:
+      index:
+        page_title: Camp Type
+        page_description: Camp Type List
+      new:
+        page_title: Camp Type
+        page_description: New Camp Type
+      edit:
+        page_title: Camp Type
+        page_description: Edit Camp Type
+      show:
+        page_title: Camp Type
+        page_description: Detail Of Camp Type

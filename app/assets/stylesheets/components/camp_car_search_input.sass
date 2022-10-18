@@ -1,0 +1,83 @@
+.camp-car-search-input-wrapper
+  .form-group
+    margin-bottom: 0px
+
+    .table-border-wrapper
+      border: solid 1px #b4b4b4
+      border-radius: 4px
+      width: 100%
+
+      .border-horizontal
+        border-top: solid 1px #b4b4b4
+        width: 100%
+      .border-vertical
+        border-left: solid 1px #b4b4b4
+
+      .form-control
+        border: none
+
+      i
+        color: #8e8e8e
+        position: absolute
+        padding: 10px
+
+      .area_group_wrapper
+        height: 100%
+
+        .area-input
+          display: inline-block
+          height: inherit
+          text-align: center
+        .area-input:before
+          margin-right: 10px
+          font-family: Font Awesome\ 5 Pro
+          content: "\f3c5"
+          color: #8e8e8e
+        .area-input:empty:after
+          content: attr(data-text)
+          color: #8e8e8e
+
+      .date-range-wrapper
+        .row
+          margin: 0
+          .start_date_wrapper, .end_date_wrapper
+            text-align: center
+            .calendar_search
+              height: inherit
+              @include media-breakpoint-down(xs)
+                display: inline-grid
+              @include media-breakpoint-up(sm)
+                display: inline-block
+
+              .datepicker
+                position: absolute
+                background-color: white
+                z-index: 1
+            .input-wrapper
+              .calendar_search:before
+                font-family: 'Font Awesome\ 5 Pro'
+                content: '\f073'
+                margin-right: 10px
+              .calendar_search span:empty:before
+                content: attr(data-text)
+                color: #8e8e8e
+
+      .date-box-wrapper
+        display: flex
+        justify-content: space-around
+        height: inherit
+        padding-left: 0px
+        padding-right: 0px
+
+        .header
+          color: #8e8e8e
+
+        .body
+          color: #06c
+          font-weight: 700
+          text-decoration: underline
+          cursor: pointer
+
+  button
+    @include media-breakpoint-up(lg)
+      width: 50% !important

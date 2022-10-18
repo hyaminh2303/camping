@@ -1,0 +1,7 @@
+ko:
+  admin:
+    date_settings:
+      index:
+        page_title: Date Setting
+        page_description: Date Setting List
+        bulk_day_of_the_week_selection: 一括曜日選択

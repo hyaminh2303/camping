@@ -1,0 +1,27 @@
+.container
+  .session-continer
+    h1.title.text-center
+      | ログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .row.devise-messages
+        .col-12
+          = render 'layouts/devise_message'
+      .row
+        .col-12
+          .form-group.input-container
+            span.fas.fa-envelope.icon
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス', class: 'form-control'
+          .form-group.input-container
+            span.fas.fa-lock.icon
+            = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード', class: 'form-control'
+          .form-group
+            - if devise_mapping.rememberable?
+              label.remember-me
+                = f.check_box :remember_me, id: 'remember', class: 'checkbox'
+                span ログイン情報を記録する
+
+          .actions-button
+            button type="submit" class="btn btn-primary btn-submit mb-2" ログイン
+            a href="#" class="btn btn-default btn-registration mb-2" 新規会員登録
+            .text-center
+              = link_to 'パスワードを忘れた方はこちら', new_password_path(resource_name), class: 'link link-reset-password font-13 text-blue'

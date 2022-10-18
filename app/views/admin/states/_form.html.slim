@@ -1,0 +1,67 @@
+- url = @state.new_record? ? admin_states_path : admin_state_path(@state)
+
+= simple_form_for(@state, url: url) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = render 'shared/messages'
+
+  .form-inputs
+    .row
+      - I18n.available_locales.each do |locale|
+        .col-12.col-md-3
+          = f.input "name_#{locale}"
+    .row
+      .col-md-6
+        = f.input :weight
+      .col-md-6
+        = f.input :code, disabled: true
+
+    h6 = t('admin.states.form.prefecture_list')
+    = f.simple_fields_for :prefectures do |ff|
+      .col-12.mb-2 id="accordion-prefecture-#{ff.object.id}"
+        .card
+          .card-header.p-0 id="heading-#{ff.object.id}"
+            h5.mb-0
+            .btn.font-16.w-100.text-left.p-2.cursor-pointer[data-toggle="collapse" data-target="#prefecture-#{ff.object.id}" \
+              aria-expanded="false" aria-controls="prefecture-#{ff.object.id}"]
+              span.pdl-10 = ff.object.name
+              span.float-right
+                i.font-19.fas.fa-caret-down
+          .collapse[aria-labelledby="heading-#{ff.object.id}" data-parent="#accordion-prefecture-#{ff.object.id}" \
+            id="prefecture-#{ff.object.id}" class="#{'show' if ff.object.errors.present?}"]
+            .card-body
+              .form-inputs
+                .row
+                  - I18n.available_locales.each do |locale|
+                    .col-12.col-md-3
+                      = ff.input "name_#{locale}"
+                = ff.input :code, disabled: true
+
+                h6 = t('admin.states.form.city_list')
+                = ff.simple_fields_for :cities do |ffc|
+                  .col-12.mb-2 id="accordion-city-#{ffc.object.id}"
+                    .card
+                      .card-header.p-0 id="heading-#{ffc.object.id}"
+                        h5.mb-0
+                        .btn.font-16.w-100.text-left.p-2.cursor-pointer[data-toggle="collapse" data-target="#city-#{ffc.object.id}" \
+                          aria-expanded="true" aria-controls="city-#{ffc.object.id}"]
+                          span.pdl-10 = ffc.object.name
+                          span.float-right
+                            i.font-19.fas.fa-caret-down
+                      .collapse[aria-labelledby="heading-#{ffc.object.id}" data-parent="#accordion-city-#{ffc.object.id}" \
+                        id="city-#{ffc.object.id}" class="#{'show' if ffc.object.errors.present?}"]
+                        .card-body
+                          .form-inputs
+                            .row
+                              - I18n.available_locales.each do |locale|
+                                .col-12.col-md-3
+                                  = ffc.input "name_#{locale}"
+                            .row
+                              .col-md-6
+                                = ffc.input :weight
+                              .col-md-6
+                                = ffc.input :code, disabled: true
+
+  .form-actions.text-right.mt-3
+    = f.button :submit, class: 'btn btn-blue font-12'

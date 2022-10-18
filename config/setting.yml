@@ -1,0 +1,40 @@
+defaults: &defaults
+  # Declare common variables here
+  exception_notification_sender: '"No reply" <noreply@gcamp.jp>'
+  exception_recipients: ['minh.hy@sazae.com.au', 'member.webm@gmail.com']
+
+development:
+  <<: *defaults
+  mailer_sender: 'support@sazae.com.au'
+  admin_email: 'member.webm@gmail.com'
+  super_admin_email: 'member.webm+super_admin_email_dev@gmail.com'
+  cc_email: 'member.webm+cc_email_dev@gmail.com'
+  ga_tracker_code: 'UA-232733534-1'
+
+qa:
+  <<: *defaults
+  protocol: "https"
+  mailer_sender: 'support@sazae.com.au'
+  admin_email: 'minh.hy@sazae.com.au, momoko.namiki@sazae.com.au, member.webm@gmail.com'
+  super_admin_email: 'minh.hy@sazae.com.au, momoko.namiki@sazae.com.au, member.webm+super_admin_email_qa@gmail.com'
+  cc_email: 'member.webm+cc_email_qa@gmail.com'
+  ga_tracker_code: "UA-232736459-1"
+
+staging:
+  <<: *defaults
+  protocol: "https"
+  mailer_sender: 'support@sazae.com.au'
+  admin_email: 'minh.hy@sazae.com.au, momoko.namiki@sazae.com.au, member.webm@gmail.com'
+  super_admin_email: 'minh.hy@sazae.com.au, momoko.namiki@sazae.com.au, member.webm+super_admin_email_staging@gmail.com'
+  cc_email: 'member.webm+cc_email_staging@gmail.com'
+  ga_tracker_code: "UA-232720204-1"
+
+production:
+  <<: *defaults
+  protocol: "https"
+  mailer_sender: 'noreply@gcamp.jp'
+  admin_email: 'support@sazae.com.au'
+  super_admin_email: 'reservation@glover-japan.com'
+  cc_email: 'reservation@glover-japan.com'
+  ga_tracker_code: "G-1ZSDCN7VYY"
+  google_site_verification: 'ZvyhE0_pWk83Vl1BRh5OtvRtZM8fG3LcO6YGdbGXTGg'

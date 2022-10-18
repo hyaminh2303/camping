@@ -1,0 +1,94 @@
+zh:
+  checkout:
+    payments:
+      new:
+        title: "输入付款详情"
+      add_card:
+        title: "Enter settlement content"
+      payment_input:
+        submit: 同意条款并付款
+        supported_cards: 可用卡信息
+
+    campsite_bookings:
+      controller:
+        campsite_booking_invalid_on_update: You have created another campsite booking, so this booking is not valid!
+      views:
+        people_and_date_selection:
+          booking_duration: 预订期
+          number_of_people: 预订数量
+        select_people_and_date:
+          page_title: 确认预订详情
+          buttons:
+            booking: 使用此内容预订
+            back: 返回
+        select_plan_options:
+          page_title: 确认预订详情
+          plan_booking_option: 选择附加选项
+          booking_supplier_title: 租赁设备
+          buttons:
+            booking: 使用此内容预订
+            back: 返回
+        contact_information:
+          title: 输入客户信息
+          policy: 服务条款
+          buttons:
+            submit: 同意条款并继续下一步
+            back: 返回
+        confirm_information:
+          select_option: 其他选项
+          booking_person_detail: 确认预约人的内容
+          confirmation_of_reservation_details: 确认预订详情
+          buttons:
+            submit: 同意条款并继续下一步
+            back: 返回
+        payment:
+          buttons:
+            back: 返回
+        thank_you:
+          title: 预订完成
+          buttons:
+            my_page: 我的页面
+            top_page: 首页
+        buttons:
+          edit: 编辑
+
+      campsite_booking_steps:
+        step1: "确认预订<br/>详情"
+        step2: "选项选<br/>择"
+        step3: "输入客户<br/>信息"
+        step4: "确认预订<br/>详情"
+        step5: "输入付款<br/>详情"
+        step6: "预订完成"
+
+      page:
+        title:
+          confirmation_of_reservation_details: 予約内容確認
+          select_additional_options: 追加オプションの選択
+          confirmation_of_the_contents_of_person: ご予約者さま内容のご確認
+          rental_equipment: 租赁用品
+
+    camp_car_bookings:
+      controller:
+        camp_car_booking_invalid_on_update: You have created another car booking, so this booking is not valid!
+
+      camp_car_booking_steps:
+        step1: "予約内容<br/>確認"
+        step2: "オプション<br/>選択"
+        step3: "お客様<br/>情報入力"
+        step4: "予約内容<br/>確認"
+        step5: "お支払い<br/>情報"
+        step6: "予約完了"
+
+      page:
+        title:
+          confirmation_of_reservation_details: ご予約内容の確認
+          select_additional_options: 追加オプションのご選択
+          confirmation_of_the_contents_of_person: ご予約者さま内容のご確認
+          rental_equipment: レンタル用品
+          scheduled_rental_date_and_time: 貸出予定日時
+        link_name:
+          to_edit: 編集する
+        registrations:
+          new:
+            submit: お支払いへすすむ
+        policy: 利用規約・キャンセルポリシー

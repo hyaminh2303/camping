@@ -1,0 +1,8 @@
+
+- if @booking_message.persisted?
+  |
+    location.reload();
+
+- else
+  |
+    $("#messageModal .modal-body").html("#{j(render partial: '/booking_messages/booking_message_form',locals: {booking_message: @booking_message})}");

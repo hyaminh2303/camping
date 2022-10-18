@@ -1,0 +1,5 @@
+zh:
+  admin:
+    travel_package:
+      cancel_booking_error: Booking cannot be canceled
+      cancel_booking_success: 预订取消完成。

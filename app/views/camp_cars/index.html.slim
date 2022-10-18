@@ -1,0 +1,74 @@
+.camp-car-container-wrapper
+  section.main-banner-wrapper.mb-5
+    .container
+      .text-content-wrapper
+        .line-1.font-36-up-lg.font-20-down-md キャンピングカーで自由な旅を
+        .line-2.font-18-up-lg.font-14-down-md 全国のキャンプピングカーを検索・予約ができます
+    = image_tag 'camp-site-banner.png', class: 'img-fluid'
+
+  section.search-inputs.row.no-gutters
+    .col-12.col-md-6.col-lg-5.mx-auto
+      .camp-car-search-input-wrapper
+        = form_with url: search_camp_cars_path(), method: :get do |f|
+          = render 'shared/camp_car_search_input', f: f
+          .row
+            .col-12.mt-3.text-center
+              button type='submit' class="btn btn-blue font-14 font-weight w-100 no-border-radius" キャンピングカーを探す
+
+  / -> Maybe use this one again, so please don't delete
+  / section.container.recommended-store
+  /   .row-12.title
+  /     .col-12.row-en
+  /       | Recommended store
+  /     .col-12.row-ja
+  /       | おすすめ店舗
+
+  /   .row.list
+  /     - 3.times.each do
+  /       .col-12.col-lg-4.mb-3
+  /         .row.no-gutters
+  /           .image-wrapper.col-5.col-lg-12
+  /             = image_tag 'camp_cars/recommended_store.jpg', class: 'img-fluid'
+  /           .col-7.col-lg-12.content
+  /             .item
+  /               a href="#" class="btn btn-green font-9 no-border-radius mt-2" 長野県
+  /             .name.mt-2
+  /               | アキラファクトリー
+  /             .adress
+  /               | 松本市深津1丁目1-1
+
+  section.container.map-and-shorlinks.mgt-30
+    .row.justify-content-center
+      / -> Maybe use this one again, so please don't delete
+      / .shorlinks.col-md-6.order-md-2
+      /   = render 'shared/items_title',
+      /           title: 'Search by Area',
+      /           description: 'エリアからキャンプ場を探す'
+      /    = render 'shared/blog_categories', glover_blogs: @glover_blogs
+
+      .map.col-md-6.order-1.order-md-1
+        = render 'shared/items_title',
+                title: 'Search by Map',
+                description: '地図からキャンプ場を探す'
+        = render "shared/camp_car_map"
+
+  section.container.recommended-camper
+    .row-12.title
+      .col-12.row-en
+        | Recommended camper
+      .col-12.row-ja
+        | おすすめキャンピングカー
+
+    .row.list.d-flex.justify-content-center
+      - @recommended_camp_cars.each do |camp_car|
+        .col-12.col-lg-3
+          .row.no-gutters
+            .image-wrapper.col-5.col-lg-12
+              = link_to (gcamp_image_tag camp_car.photos.first&.image, class: 'img-fluid'), camp_car_path(camp_car)
+            .col-7.col-lg-12.content
+              .item
+                a href="#" class="btn btn-green font-9 no-border-radius mt-2" = camp_car.prefecture.name
+              .name.mt-2 = camp_car.name
+              .price = "1日#{camp_car.fee_per_day}円〜"
+
+          .border-bottom.d-lg-none

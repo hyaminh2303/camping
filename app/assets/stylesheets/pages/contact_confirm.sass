@@ -1,0 +1,28 @@
+.contact-confirm-wrapper
+  font-family: $primary-font-family
+
+  .content-wrapper
+    width: 50%
+    margin: 21px auto
+    @include media-breakpoint-down(md)
+      width: 80%
+    @include media-breakpoint-down(sm)
+      width: 100%
+    .row
+      margin-bottom: 23px
+      .col-12
+        margin-bottom: 20px
+      .title
+        font-size: $font-size-sm
+        color: $primary-text-color
+        font-weight: bold
+        .require-input-icon
+            color: $red-color
+      .data
+        font-size: $font-size-md
+        color: #596585
+    .btn-yellow
+      @include media-breakpoint-down(md)
+        width: 100%
+      @include media-breakpoint-up(lg)
+        width: 345px

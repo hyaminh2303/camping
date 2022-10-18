@@ -1,0 +1,37 @@
+- content_for :page_title, t(".page_title.#{params[:item_type]}")
+- content_for :page_description, t(".page_description.#{params[:item_type]}")
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_recommended_camp_item_path, class: "btn btn-blue btn-new-record"
+  .table-responsive
+    table.table.table-responsive-md
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.recommended_camp_item.supplier_company_id')
+          th = t("activerecord.models.#{params[:item_type]}.one")
+          th = t('activerecord.attributes.recommended_camp_item.weight')
+
+      tbody.font-14
+        - @recommended_camp_items.each do |recommended_camp_item|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_recommended_camp_item_path(params[:item_type], recommended_camp_item),
+                                                class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_recommended_camp_item_path(params[:item_type], recommended_camp_item),
+                                                class: 'btn btn-green'
+              = link_to_delete_with admin_recommended_camp_item_path(params[:item_type], recommended_camp_item)
+
+            td= recommended_camp_item.supplier_company.company_name
+            td= recommended_camp_item.recommended_itemable.name
+            td= recommended_camp_item.weight
+
+.container.pagination.justify-content-center
+  = paginate @recommended_camp_items,
+            theme: 'twitter-bootstrap-4',
+            pagination_class: "pagination-sm",
+            nav_class: "d-inline-b"

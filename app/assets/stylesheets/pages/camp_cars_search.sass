@@ -1,0 +1,54 @@
+@import '../definitions/variables'
+
+.camp-car-search-container-wrapper
+  section.list-camp-cars
+    .title
+      font-family: $font-quicksand
+      font-size: 30px
+      font-weight: bold
+      color: $blue-color
+    .image-wrapper
+      @include media-breakpoint-up(xl)
+        img
+          height: 133px
+          object-fit: cover
+          width: 100%
+          padding-right: 12px
+
+      @include media-breakpoint-down(sm)
+        img
+          height: 100%
+          object-fit: cover
+
+    .information-wrapper
+      h3.item-content
+        @include truncate
+        font-weight: 500
+        a
+          color: $primary-text-color
+          font-family: $primary-font-family
+          font-size: 22px
+          @include media-breakpoint-only(lg)
+            font-size: 17px
+          @include media-breakpoint-only(md)
+            font-size: 15px
+          @include media-breakpoint-down(sm)
+            font-size: 13px
+
+          &:hover
+            text-decoration: none
+
+      h5.description
+        font-family: $primary-font-family
+        font-size: 16px
+        font-weight: 300
+        overflow: hidden
+        @include media-breakpoint-only(xl)
+          max-height: 40px
+        @include media-breakpoint-only(lg)
+          max-height: 30px
+          font-size: 12px
+        @include media-breakpoint-only(md)
+          font-size: 12px
+        @include media-breakpoint-down(sm)
+          font-size: 9px

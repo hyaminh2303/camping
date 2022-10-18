@@ -1,0 +1,24 @@
+en:
+  admin:
+    blogs:
+      index:
+        page_title: Blogs
+        page_description: Blogs List
+      new:
+        page_title: Blogs
+        page_description: New Blogs
+      edit:
+        page_title: Blogs
+        page_description: Edit Blogs
+      show:
+        page_title: Blogs
+        page_description: Detail Of Blogs
+
+  blogs:
+    index:
+      blog: Blog
+      description: We will post recommended campsites and surrounding information
+      list_of_blog_posts: List of Blog Posts
+    show:
+      category: ''
+    title: Blog

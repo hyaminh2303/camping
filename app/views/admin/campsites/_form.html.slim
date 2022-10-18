@@ -1,0 +1,146 @@
+= simple_form_for([:admin, @campsite], html: { class: 'admin-campsite-form'}, data: { campsite_id: @campsite.id }) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.check_box :keep_private
+    = f.label t('activerecord.attributes.campsite.keep_private'), class: 'ml-1 font-16'
+    br
+
+    - if current_admin_user.is_super_admin?
+      = f.association :campsite_supplier_company,
+                      as: :select,
+                      collection: campsite_supplier_companies_collection,
+                      input_html: { class: 'supplier-company-input select2-single-selection' }
+    = f.input :unique_id
+
+    h7 = t('activerecord.attributes.campsite.photos')
+    #photos
+      = f.simple_fields_for :photos, (f.object.photos.presence || Photo.new) do |photo|
+        = render 'shared/photo_fields', f: photo
+      .links
+        = link_to_add_association t('admin.campsites.general.add_photo'), f, :photos, partial: 'shared/photo_fields'
+
+    - I18n.available_locales.each do |locale|
+      = f.label "name_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_name_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#campsite_name_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "name_#{locale}", label: false
+
+    = f.input :camp_type_ids,
+               as: :select,
+               collection: camp_types_collection,
+               input_html: {multiple: true, class: 'select2'}
+
+    - I18n.available_locales.each do |locale|
+      = f.label "tags_#{locale}_list"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_tags_#{TRANSALTE_PRYMARY_LOCAL}_list" data-translation-target-element="#campsite_tags_#{locale}_list" data-translation-target-lang=locale data-type-translation="tags"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "tags_#{locale}_list", input_html: {data: {role: 'tagsinput'}, value: f.object.send("tags_#{locale}_list").join(', ')}, label: false
+
+    = render 'shared/location_select', f: f
+
+    = f.input :post_code
+
+    - I18n.available_locales.each do |locale|
+      = f.label "address_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_address_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#campsite_address_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "address_#{locale}", label: false
+
+    .row
+      .col-6
+        = f.input :latitude
+      .col-6
+        = f.input :longitude
+
+
+    = f.input :contact_number
+    = f.input :email_address
+    = f.input :fax
+
+    - I18n.available_locales.each do |locale|
+      = f.label "description_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element='campsite_description_#{TRANSALTE_PRYMARY_LOCAL}' data-translation-target-element="campsite_description_#{locale}" data-translation-target-lang=locale data-Type-Translation="ckeditor"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "description_#{locale}" , as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
+
+    h7 = t('activerecord.attributes.campsite.camp_map')
+    #photos
+      = f.simple_fields_for :campsite_content_photos, (f.object.campsite_content_photos.presence || CampsiteContentPhoto.new) do |ff|
+        = render 'admin/campsites/campsite_content_photos_fields', f: ff
+      .links
+        = link_to_add_association t('admin.campsites.general.add_photo'), f, :campsite_content_photos,
+          partial: 'admin/campsites/campsite_content_photos_fields'
+
+    h7 = t('activerecord.attributes.campsite.camp_category_id')
+    br
+    - CampCategoryGroup.all.each do |category_group|
+      = f.label :camp_category_id, category_group.name
+      = f.input :camp_category_ids,
+                as: :select,
+                label: false,
+                collection: category_group.camp_categories.map{|camp_category| [camp_category.name, camp_category.id]},
+                input_html: {multiple: true, class: 'select2', id: "category-group-#{category_group.id}"}
+    - I18n.available_locales.each do |locale|
+      = f.label "business_information_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_business_information_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#campsite_business_information_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "business_information_#{locale}", as: :text, input_html: {rows: '5'}, label: false
+    / = f.input :facilities_equipment, input_html: {rows: '5'} https://app.clickup.com/t/1582gkj
+
+    - I18n.available_locales.each do |locale|
+      = f.label "peripheral_facilities_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_peripheral_facilities_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#campsite_peripheral_facilities_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "peripheral_facilities_#{locale}", as: :text, input_html: {rows: '5'}, label: false
+
+    - I18n.available_locales.each do |locale|
+      = f.label "about_cancellation_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#campsite_about_cancellation_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#campsite_about_cancellation_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "about_cancellation_#{locale}", as: :text, input_html: {rows: '5'}, label: false
+
+    .card
+      .card-header = t('activerecord.attributes.campsite.setting_entrance_fee')
+      .card-body
+        .container.input-fee-list
+          = f.fields_for :campsite_entrance_fee do |entrance_fee|
+            = entrance_fee.input :adult_fee, input_html: { min: 0 , step: 1 }
+            #child-and-pet-entrance-fees-form
+              = render 'child_and_pet_entrance_fees_form', entrance_fee: entrance_fee
+
+    .row
+      .col-md-4
+        = f.input :basic_fee, input_html: { min: 0, step: 1 }
+      .col-md-4
+        = f.input :number_of_people_pet_included, input_html: { min: 0 }
+      .col-md-4
+        = f.input :extra_person_fee, input_html: { min: 0, step: 1 }
+
+    - if current_admin_user.is_super_admin?
+      .card
+        = link_to 'javascript:void(0)', class: 'card-header bank-card-header text-decoration-none' do
+          span
+            = t('activerecord.attributes.campsite.bank_name')
+          span.float-right
+            i.font-19.fas.fa-caret-down
+        .card-body.bank-card-body style="#{'display:none;' if f.object.bank.blank?}"
+          .container.input-fee-list
+            = f.simple_fields_for :bank, f.object.bank || f.object.build_bank do |ff|
+              = ff.input :name, label: t("activerecord.attributes.bank.name")
+              = ff.input :branch_name, label: t("activerecord.attributes.bank.branch_name")
+              = ff.input :account_type, label: t("activerecord.attributes.bank.account_type")
+              = ff.input :account_number, label: t("activerecord.attributes.bank.account_number")
+              = ff.input :account_holder, label: t("activerecord.attributes.bank.account_holder")
+              = ff.input :account_holder_frigana, label: t("activerecord.attributes.bank.account_holder_frigana")
+
+  .form-actions.text-right.mt-3
+    = f.button :submit, class: 'btn btn-blue font-12'

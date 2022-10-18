@@ -1,0 +1,4 @@
+ja:
+  campsite_booking_mailer:
+    send_actual_sale_email_to_admin:
+      content:

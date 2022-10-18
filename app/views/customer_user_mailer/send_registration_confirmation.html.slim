@@ -1,0 +1,22 @@
+br
+div = "#{@customer_user.last_name} #{t('customer_user_mailer.send_registration_confirmation.content.sama')}"
+br
+div = t('customer_user_mailer.send_registration_confirmation.content.line_1')
+div = t('customer_user_mailer.send_registration_confirmation.content.line_2')
+br
+div = t('customer_user_mailer.send_registration_confirmation.content.line_3')
+br
+div = "#{t('customer_user_mailer.send_registration_confirmation.content.id')}：#{@customer_user.id}"
+div = "#{t('customer_user_mailer.send_registration_confirmation.content.name')}：#{@customer_user.last_name} #{@customer_user.first_name}"
+div = "#{t('customer_user_mailer.send_registration_confirmation.content.address')}： \
+       #{t('customer_user_mailer.send_registration_confirmation.content.address_pre')}#{@customer_user.post_code} \
+       #{@customer_user.address}"
+div = "#{t('customer_user_mailer.send_registration_confirmation.content.email')}：#{@customer_user.email}"
+div = "#{t('customer_user_mailer.send_registration_confirmation.content.phone_number')}：#{@customer_user.phone_number}"
+br
+div = t('customer_user_mailer.send_registration_confirmation.content.line_4')
+div = link_to my_page_url, my_page_url
+br
+div = t('customer_user_mailer.send_registration_confirmation.content.line_5')
+
+= render 'layouts/mailer_partials/footer'

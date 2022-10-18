@@ -1,0 +1,49 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.camp-car-container-wrapper
+  .data-content
+    = render 'shared/messages'
+
+    .button-actions.text-right
+      = link_to t('views.buttons.new'), new_admin_camp_car_path, class: "btn btn-blue btn-new-record"
+
+    .table-responsive.text-nowrap
+      table.table
+        thead.font-13
+          tr
+            th
+            th = t('activerecord.attributes.camp_car.photos')
+            th = t('admin.camp_cars.index.product_id')
+            th = t('activerecord.attributes.camp_car.name')
+            th = t('activerecord.attributes.camp_car.car_type')
+            th = t('activerecord.attributes.camp_car_category.model')
+            th = t('activerecord.attributes.camp_car.maximum_number_of_people')
+            th = t('activerecord.attributes.camp_car.fee_per_hour')
+            th = t('activerecord.attributes.camp_car.fee_per_day')
+            th = t('admin.camp_cars.index.is_public')
+
+        tbody.font-14
+          - @camp_cars.each do |camp_car|
+            tr
+              td.action.text-left
+                = link_to t('views.buttons.view'), admin_camp_car_path(camp_car), class: 'btn btn-blue'
+
+                = link_to t('views.buttons.edit'), edit_admin_camp_car_path(camp_car), class: 'btn btn-green'
+
+                = link_to_delete_with admin_camp_car_path(camp_car)
+
+              td= gcamp_image_tag camp_car.photos.first&.image
+              td= camp_car.product_id
+              td= camp_car.name
+              td= camp_car.car_type
+              td= camp_car.category.model
+              td= camp_car.maximum_number_of_people
+              td= camp_car.fee_per_hour
+              td= camp_car.fee_per_day
+              td= camp_car.is_public
+
+
+
+.container.pagination.justify-content-center
+  = paginate @camp_cars, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

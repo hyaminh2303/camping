@@ -1,0 +1,18 @@
+ja:
+  admin:
+    classification_day_settings:
+      index:
+        page_title: 曜日・特別日タイプ設定
+        page_description: 曜日・特別日タイプ一覧
+      new:
+        page_title: 曜日・特別日タイプ設定
+        page_description: 新規日付タイプ追加
+      edit:
+        page_title: 曜日・特別日タイプ設定
+        page_description: 曜日・特別日タイプ設定編集
+      show:
+        page_title: 曜日・特別日タイプ設定
+        page_description: 曜日・特別日タイプ設定詳細
+      form:
+        refer_color: カラーコードの参照は
+        here: こちら

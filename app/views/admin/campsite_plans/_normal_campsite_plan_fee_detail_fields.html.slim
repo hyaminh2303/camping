@@ -1,0 +1,6 @@
+.col-md-4
+  = f.input :basic_fee, label: t('activerecord.attributes.campsite_plan_fee_detail.basic_fee'), wrapper_html: { class: 'mb-0' }, input_html: { min: 0, step: 1 }
+.col-md-4
+  = f.input :number_of_people_pet_included, label: t('activerecord.attributes.campsite_plan_fee_detail.number_of_people_pet_included'), wrapper_html: { class: 'mb-0' }, input_html: { min: 0 }
+.col-md-4
+  = f.input :extra_person_fee, label: t('activerecord.attributes.campsite_plan_fee_detail.extra_person_fee'), wrapper_html: { class: 'mb-0' }, input_html: { min: 0, step: 1 }

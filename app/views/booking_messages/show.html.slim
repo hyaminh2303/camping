@@ -1,0 +1,28 @@
+ruby:
+  new_booking_message_detail = if @booking_message.booking_message_details.last&.new_record?
+    @booking_message.booking_message_details.last
+  else
+    BookingMessageDetail.new
+  end
+
+.modal-header
+  h5#messageModalLabel.modal-title.text-center.w-100
+    = @booking_message.subject
+
+
+.modal-body.text-break
+  - @booking_message.booking_message_details.each do |message_detail|
+    - if message_detail.persisted?
+      - owner = message_detail.owner
+      - if owner.is_a? AdminUser
+        span.text-red ="#{owner.email}: "
+      - else
+        span.text-blue = "#{owner.full_name}: "
+      span = "#{message_detail.message} "
+      span.text-gray = message_detail.created_at.strftime("#{t('datetime.formats.time')} #{t('datetime.formats.short')}")
+      br
+
+  = simple_form_for @booking_message, remote: true do |f|
+    = f.simple_fields_for :booking_message_details, new_booking_message_detail do |ff|
+      = ff.input :message, label: t('my_pages.campsite_booking_detail.message'), input_html: {rows: 5}
+    = f.submit t('my_pages.campsite_booking_detail.send_message'), type: :submit, class: 'btn btn-blue font-weight-bold font-16 no-border-radius send-message-button w-100'

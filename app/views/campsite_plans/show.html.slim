@@ -1,0 +1,118 @@
+- title [@campsite_plan.name, @campsite_plan.campsite.name]
+- description "#{t('.book_for', title: @campsite_plan.name)} | #{@campsite_plan.campsite.name} | #{t('views.project.site_name')}"
+- check_in = @travel_package.campsite_booking.check_in.to_date
+- check_out = @travel_package.campsite_booking.check_out.to_date
+- is_campsite_plan_out_of_stock = @campsite_plan.is_campsite_plan_out_of_stock?(check_in, check_out)
+
+.campsite-plan-detail-container-wrapper.mt-4.mt-md-0
+  section.banner-wrapper.mb-2
+
+    / https://app.clickup.com/t/2chnvnc
+    - if flash[:error_max_number_of_people].blank?
+      = render 'shared/messages'
+
+    .row
+      .col-12
+        .item-image
+          = gcamp_image_tag @campsite_plan.photos.first&.image
+
+  section.container.auto-site-content
+    .row
+      .col-12
+        .title-auto-site.font-weight-bold.mt-lg-3.font-16-down-md.font-18-up-lg = @campsite_plan.name
+    .row.mt-lg-3.mt-1
+      .col-lg-7.col-12
+        - @campsite_plan.tags_locale_list.last(4).each do |tag|
+          .btn.btn-gray.font-8.no-border-radius.mr-1 = tag
+      .col-lg-5.col-12
+        .text-wrapper.float-right.font-weight-bold
+          span.text-style.font-13-down-md.font-16-up-lg
+            span.number-of-days
+              = @travel_package.campsite_booking.number_of_nights
+            span = t('campsite_plans.show.day')
+          span.text-yellow.font-20-down-md.font-28-up-lg.text-currency.total-price = gcamp_round_price(@travel_package.total_price)
+          span.text-style.font-13-down-md.font-16-up-lg = "#{t('campsite_plans.show.yen')}〜"
+    .row.description.mt-3.mb-lg-2.mt-1
+      .col-12
+        .text-description.font-11-down-md.font-14-up-lg.font-weight-bold
+          = raw @campsite_plan.subtitle
+    .row
+      .col-12.text-center.mt-2
+        = link_to t('views.buttons.booking'),
+                  select_people_and_date_checkout_campsite_booking_path(@campsite_plan.id),
+                  class: "btn btn-w350-full-width-mobile btn-yellow font-weight-bold \
+                          #{'d-none' if is_campsite_plan_out_of_stock}",
+                  method: :post
+
+  / https://app.clickup.com/t/1582gkq
+  section.container.information-content.mt-lg-5.mt-4
+    .row
+      .col-12
+        .text-border-left.font-weight-bold.font-18 = t('.plan_details')
+    .row
+      .col-12.mt-3
+        = raw @campsite_plan.description
+    .row
+      .col-12
+        .text-border-left.font-weight-bold.font-18
+          = t('activerecord.attributes.campsite.about_cancellation')
+      .col-12.mt-3
+        = simple_format @campsite_plan.campsite.about_cancellation
+
+  / section.container.plan-basic-information.mt-3
+  /   .row
+  /     .col-12
+  /       .text-border-left.font-weight-bold.font-18 プラン基本情報
+  /   .row
+  /     .col-12
+  /       .text-blue-briny.font-12.font-weight-bold.mt-3 プラン内容・ご利用日数
+  /   .row
+  /     .col-12
+  /       table.table.font-weight-bold.font-9.mt-2.mb-3
+  /         tbody
+  /           tr
+  /             th scrope='row' 予約キャンプ場
+  /             td メープル那須高原キャンプグランド
+  /           tr
+  /             th scrope='row' 予約キャンプ場
+  /             td メープル那須高原キャンプグランド
+  /           tr
+  /             th scrope='row' 予約キャンプ場
+  /             td メープル那須高原キャンプグランド
+  /           tr
+  /             th scrope='row' 予約キャンプ場
+  /             td メープル那須高原キャンプグランド
+  /   .row
+  /     .col-12
+  /       .text-blue-briny.font-12.font-weight-bold プラン内容・ご利用日数
+  /   .row
+  /     .col-12.text-description.font-weight-bold.mt-2.mb-5
+  /       | ・内容は変更になる場合もございます。詳しくはキャンプ場にお問い合わせください。
+
+  section.container.select-date-content.mt-2
+    .row
+      .col-12
+        .text-border-left.font-weight-bold.font-18 = t('.select_date_and_number_of_people')
+    = simple_form_for(@travel_package, url: '', html: { class: 'campsite-booking-form'}) do |f|
+      = render 'people_and_date_selection', f: f
+    .row.my-lg-4.mb-2.mt-4
+      .col-12
+        .text-wrapper.text-center.font-weight-bold
+          span.text-style.font-13-down-md.font-16-up-lg
+            span.number-of-days
+              = @travel_package.campsite_booking.number_of_nights
+            span = t('campsite_plans.show.day')
+          span.text-yellow.font-20-down-md.font-28-up-lg.text-currency.total-price = gcamp_round_price(@travel_package.total_price)
+          span.text-style.font-13-down-md.font-16-up-lg = "#{t('campsite_plans.show.yen')}〜"
+
+    .row.mgt-26
+      .col-12.text-center
+        = link_to t('views.buttons.booking'),
+                  select_people_and_date_checkout_campsite_booking_path(@campsite_plan.id),
+                  class: "btn btn-w350-full-width-mobile btn-yellow font-weight-bold \
+                          #{'d-none' if is_campsite_plan_out_of_stock}",
+                  method: :post
+      .col-12.mgt-12.text-center
+        = link_to t('.buttons.back'),
+                  campsite_path(@campsite_plan.campsite.id),
+                  class: 'btn btn-w350-full-width-mobile btn-black font-weight-bold'

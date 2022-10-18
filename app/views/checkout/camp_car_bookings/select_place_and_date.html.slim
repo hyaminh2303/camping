@@ -1,0 +1,26 @@
+/ step 1
+.checkout-camp-car-booking-container-wrapper
+  = render 'shared/wizard', booking_type: :camp_car_booking, step: 1
+  .camp-car-booking-information-wrapper
+    = render 'shared/messages'
+    .page-title.mgt-35.mgb-24
+      = t("checkout.camp_car_bookings.page.title.confirmation_of_reservation_details")
+
+    = simple_form_for(@travel_package, url: create_booking_checkout_camp_car_bookings_path, html: { class: 'camp-car-booking-form new-camp-car-booking-form'}) do |f|
+      = hidden_field_tag :current_camp_car_booking_step, 'select_place_and_date'
+
+      = render "place_and_date_selection", f: f
+      .item-price.text-center.mgt-45
+        span.number-of-days= f.object.camp_car_booking.number_of_nights
+        span.time-unit 泊
+        span.total-price.text-break
+          = gcamp_round_price(f.object.total_price)
+        span.font-13.font-weight-bold 円〜
+      .action-button-wrapper
+        .row.mgt-26
+          .col-12.text-center
+            = f.submit t('views.buttons.booking'), class: 'btn btn-w350-full-width-mobile btn-yellow'
+          .col-12.mgt-12.text-center
+            = link_to t('views.buttons.back'),
+                      camp_car_path(@travel_package.camp_car_booking.camp_car.id),
+                      class: 'btn btn-w350-full-width-mobile btn-black'

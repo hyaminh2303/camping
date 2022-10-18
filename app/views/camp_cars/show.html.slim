@@ -1,0 +1,137 @@
+- check_in = @travel_package.camp_car_booking.start_date_of_renting.to_date
+- check_out = @travel_package.camp_car_booking.end_date_of_renting.to_date
+- is_camp_car_out_of_stock = @camp_car.is_camp_car_out_of_stock?(check_in, check_out)
+
+.camp-car-detail-container-wrapper.mt-4.mt-lg-0
+  .camp-car-content-wrapper
+    = render 'shared/messages'
+  / Display on desktop only
+  section.main-slider.d-none.d-lg-block
+    - if @camp_car.photos.present?
+      - @camp_car.photos.last(4).each do |photo|
+        .slider-item
+          = image_tag photo.image.url
+  / This class margin left and right is 25%
+  .camp-car-content-wrapper
+    / Hide on desktop only
+    section.banner-wrapper.mb-2.container.d-lg-none
+      .row
+        .col-12
+          .item-image
+            - if @camp_car.photos.present?
+              = image_tag @camp_car.photos.first.image.url
+
+    section.container.auto-site-content.mt-lg-5.mt-3
+      .row
+        .col-12
+          .title-auto-site.font-weight-bold.mt-lg-3.font-16-down-md.font-18-up-lg = @camp_car.name
+      .row.mt-lg-3.mt-1
+        .col-lg-7.col-12
+          - @camp_car.tag_list.last(4).each do |tag|
+            a href="#" class='btn btn-gray font-8 no-border-radius mr-1' = tag
+
+        .col-lg-5.col-12
+          .text-wrapper.float-right.font-weight-bold
+            span.text-style.font-13-down-md.font-16-up-lg.number-of-days
+              = @travel_package.camp_car_booking.number_of_nights
+            span 泊
+            span.text-yellow.font-20-down-md.font-28-up-lg.text-currency.total-price
+              = gcamp_round_price(@travel_package.total_price)
+            span.text-style.font-13-down-md.font-16-up-lg 円〜
+      .row.description.mt-3.mb-lg-2.mt-1
+        .col-12
+          .text-description.font-11-down-md.font-14-up-lg.font-weight-bold
+            = raw @camp_car.subtitle
+      - if @notice.present?
+        .row.news-wrapper.mt-5.mb-4.only-scr-desktop
+          .col-12.text-center.mt-3.mb-1
+            .i.far.fa-question-square.text-green.icon-question.font-32
+          .col-12.text-center.font-16.font-weight-bold.mb-3
+            = link_to @notice.title, notice_path(@notice)
+          .col-12.font-13.mb-2
+            = link_to (raw @notice.content), notice_path(@notice)
+      .row.slider.mt-3.d-lg-none
+        - if @camp_car.photos.present?
+          - @camp_car.photos.each do |photo|
+            .slider-item
+              = image_tag photo.image.url
+
+      .row
+        .col-12.text-center.mt-2.mb-4
+          = link_to t('views.buttons.booking'),
+                    select_place_and_date_checkout_camp_car_booking_path(@camp_car.id),
+                    class: "btn btn-w350-full-width-mobile btn-yellow font-weight-bold \
+                    #{'d-none' if is_camp_car_out_of_stock}",
+                    method: :post
+
+    section.container.information-content
+      .row
+        .col-12
+          .text-border-left.font-weight-bold.font-18 車の詳細
+      .row.mt-3.mb-5
+        .col-12
+          = raw @camp_car.description
+
+    section.container.plan-basic-information.mt-3
+      .row
+        .col-12
+          .text-border-left.font-weight-bold.font-18 車の基本情報
+      .row
+        .col-12
+          .text-blue-briny.font-12.font-weight-bold.mt-3 仕様
+      .row
+        .col-12
+          table.table.font-weight-bold.font-9.mt-2.mb-3
+            tbody
+              tr
+                th scope='row' = t('activerecord.attributes.camp_car.name')
+                td = @camp_car.name
+              tr
+                th scope='row' = t('activerecord.attributes.camp_car.car_type')
+                td = @camp_car.car_type
+              tr
+                th scope='row' = t('activerecord.attributes.camp_car_category.model')
+                td = @camp_car.category.model
+              tr
+                th scope='row' = t('activerecord.attributes.camp_car.maximum_number_of_people')
+                td = @camp_car.maximum_number_of_people
+      .row
+        .col-12
+          .text-blue-briny.font-12.font-weight-bold プラン内容・ご利用日数
+      .row
+        .col-12.text-description.font-weight-bold.mt-2.mb-3
+          | ・内容は変更になる場合もございます。
+
+    section.container.select-date-content.mt-3
+      .mb-5
+        .row
+          .col-12
+            .text-border-left.font-weight-bold.font-18 日程を選択する
+        .row.mt-3
+          .col-12
+            .text-blue-briny.font-12.font-weight-bold 予約期間
+
+        = simple_form_for(@travel_package, url: '', html: { class: 'camp-car-booking-form'}) do |f|
+          = render 'place_and_date_selection', f: f
+      .row
+        .col-12
+          .text-wrapper.text-center.font-weight-bold
+            span.text-style.font-13-down-md.font-16-up-lg.number-of-days
+              = @travel_package.camp_car_booking.number_of_nights
+            span 泊
+            span.text-yellow.font-20-down-md.font-28-up-lg.text-currency.total-price
+              = gcamp_round_price(@travel_package.total_price)
+            span.text-style.font-13-down-md.font-16-up-lg 円〜
+
+      .row.mgt-26
+        .col-12.text-center
+          = link_to t('views.buttons.booking'),
+                    select_place_and_date_checkout_camp_car_booking_path(@camp_car.id),
+                    class: "btn btn-w350-full-width-mobile btn-yellow font-weight-bold \
+                            #{'d-none' if is_camp_car_out_of_stock}",
+                    method: :post
+
+        .col-12.mgt-12.text-center
+          = link_to t('views.buttons.back'),
+                    request.referer || camp_cars_path(),
+                    class: 'btn btn-w350-full-width-mobile btn-black font-weight-bold'

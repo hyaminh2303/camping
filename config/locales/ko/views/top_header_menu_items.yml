@@ -1,0 +1,11 @@
+ko:
+  layouts:
+    top_header_menu_items:
+      sign_out: 로그아웃
+      profile: プロフィール
+      sama: 様
+      mr: さん
+      sign_in: 로그인
+      sign_up: 회원 등록
+      language: 언어 선택
+      new_contact_us: 자주하는 질문

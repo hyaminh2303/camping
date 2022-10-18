@@ -1,0 +1,69 @@
+= simple_form_for([:admin, @blog]) do |f|
+  = hidden_field_tag :blog_type, params[:blog_type]
+  = f.hidden_field :blog_type, value: params[:blog_type]
+
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.check_box :keep_private
+    = f.label t('activerecord.attributes.blog.keep_private'), class: 'ml-1 font-16'
+    br
+
+    - I18n.available_locales.each do |locale|
+      = f.label "title_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#blog_title_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#blog_title_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "title_#{locale}", label: false
+
+    - I18n.available_locales.each do |locale|
+      = f.label "description_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#blog_description_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#blog_description_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "description_#{locale}", input_html: { rows: 6 }, label: false
+    = f.input :blog_category_id, as: :select, collection: blog_categories_collection(params[:blog_type]), include_blank: false
+    - if params[:blog_type] == 'supplier_blog'
+      = f.input :to_top_page
+
+    - I18n.available_locales.each do |locale|
+      = f.label "tags_#{locale}_list"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#blog_tags_#{TRANSALTE_PRYMARY_LOCAL}_list" data-translation-target-element="#blog_tags_#{locale}_list" data-translation-target-lang=locale data-type-translation="tags"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "tags_#{locale}_list", input_html: {data: {role: 'tagsinput'}, value: f.object.send("tags_#{locale}_list").join(', ')}, label: false
+
+    - I18n.available_locales.each do |locale|
+      = f.label "areas_#{locale}_list"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#blog_areas_#{TRANSALTE_PRYMARY_LOCAL}_list" data-translation-target-element="#blog_areas_#{locale}_list" data-translation-target-lang=locale data-type-translation="tags"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "areas_#{locale}_list", input_html: {data: { role: "tagsinput" }, value: f.object.send("areas_#{locale}_list").join(', ')},label: false
+
+    = f.fields_for :photo, f.object.photo.presence || Photo.new do |ff|
+      = ff.hidden_field :_destroy, value: 1, disabled: true
+      .row
+        .col-md-8
+          = ff.input :image,
+                     label: t('activerecord.attributes.blog.photo'),
+                     input_html: {accept: 'image/*'}
+        - if ff.object.image.present?
+          .col-md-4.mt-2.image-wrapper
+            = link_to "X", 'javascript:void(0)', class: 'btn btn-sm btn-danger remove-img'
+          .col-md-2.image-wrapper
+            = image_tag ff.object.image.url, class: 'img-fluid'
+    - I18n.available_locales.each do |locale|
+      = f.label "content_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element='blog_content_#{TRANSALTE_PRYMARY_LOCAL}' data-translation-target-element="blog_content_#{locale}" data-translation-target-lang=locale data-type-translation="ckeditor"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "content_#{locale}", as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: false
+
+    = f.input :publish_date, as: :string, \
+              input_html: { class: 'bootstrap-datepicker',
+                            value: f.object.publish_date&.strftime(t('datetime.formats.short')),
+                            autocomplete: 'off'  }
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

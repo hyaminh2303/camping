@@ -1,0 +1,63 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  = search_form_for @q, url: admin_campsites_path do |f|
+    .form-inputs
+      .row
+        .form-group.col-sm-3
+          = f.label :campsite_supplier_company_company_name_cont, t('activerecord.attributes.campsite.campsite_supplier_company_name')
+          = f.search_field :campsite_supplier_company_company_name_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :translations_name_cont, t('activerecord.attributes.campsite.name')
+          = f.search_field :translations_name_cont, class: 'form-control'
+        .form-group.col-sm-3
+          = f.label :prefecture_translations_name_cont, t('activerecord.attributes.campsite.prefecture_id')
+          = f.search_field :prefecture_translations_name_cont, class: 'form-control'
+      .row
+        .col-sm-12.d-flex.align-items-center.justify-content-end.mb-4
+          = link_to t('views.buttons.clear'), admin_campsites_path, class: 'btn btn-gray'
+          = submit_tag t('views.buttons.search'), class: 'btn btn-blue ml-1'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_campsite_path, class: "btn btn-blue btn-new-record"
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.campsite.unique_id')
+          - if current_admin_user.is_super_admin?
+            th = sort_link(@q, :campsite_supplier_company_company_name, t('activerecord.attributes.supplier_company.company_name'))
+          th = sort_link(@q, :translations_name, t('activerecord.attributes.campsite.name'))
+          th = t('activerecord.attributes.campsite.address')
+          th = t('activerecord.attributes.campsite.contact_number')
+          th = t('activerecord.attributes.campsite.state_id')
+          th = t('activerecord.attributes.campsite.prefecture_id')
+          th = t('activerecord.attributes.campsite.city_id')
+
+      tbody.font-14
+        - @campsites.each do |campsite|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_campsite_path(campsite), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_campsite_path(campsite), class: 'btn btn-green'
+
+              = link_to_delete_with admin_campsite_path(campsite)
+
+            td = campsite.unique_id
+            - if current_admin_user.is_super_admin?
+              td = campsite.campsite_supplier_company.company_name
+            td = campsite.name
+            td = campsite.address
+            td = campsite.contact_number
+            td = campsite.state.name
+            td = campsite.prefecture.name
+            td = campsite.city.name
+
+
+.container.pagination.justify-content-center
+  = paginate @campsites, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

@@ -1,0 +1,15 @@
+zh:
+  admin:
+    camp_car_categories:
+      index:
+        page_title: Camp Car Category
+        page_description: Camp Car Category List
+      new:
+        page_title: Camp Car Category
+        page_description: New Camp Car Category
+      edit:
+        page_title: Camp Car Category
+        page_description: Edit Camp Car Category
+      show:
+        page_title: Camp Car Category
+        page_description: Detail Of Camp Car Category

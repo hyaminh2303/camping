@@ -1,0 +1,28 @@
+ja:
+  admin:
+    camp_car_bookings:
+      index:
+        page_title: Camp Car Booking
+        page_description: Camp Car Booking List
+        check_in_start: 貸出日
+        check_in_end: 返却日
+        note: 備考
+        buttons:
+          cancel: キャンセル
+          note: 備考
+        messages:
+          confirm_delete: 本当にこの予約をキャンセルしますか？
+          buttons:
+            confirm: はい
+            cancel: いいえ
+
+      show:
+        page_title: Camp Car Booking
+        page_description: Detail Of Camp Car Booking
+        cancel: Cancel
+        reserved_date_and_time: Reserved date and time
+        add_note_title: 備考追加
+      edit:
+        page_title: Campsite Booking
+        page_description: Edit Campsite Booking
+        reservation_period: 予約期間

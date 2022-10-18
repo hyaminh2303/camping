@@ -1,0 +1,54 @@
+ja:
+  admin:
+    campsite_plans:
+      general:
+        day: 曜日
+        date: Date
+        default: 既定設定
+        add_daily_fee: 特別日価格設定
+        add_photo: 写真をさらに追加
+        add_campsite_plan_quantity: 日付在庫設定追加
+
+      index:
+        page_title: プラン管理
+        page_description: プラン一覧
+      new:
+        page_title: プラン管理
+        page_description: 新規プラン情報追加
+      edit:
+        page_title: プラン管理
+        page_description: プラン編集
+      show:
+        page_title: プラン管理
+        page_description: キャンプ場プラン詳細
+      form:
+        site_parcel_charge_setting: サイト区画料金設定
+
+  campsite_plans:
+    show:
+      book_for: "%{title}の予約"
+      plan_details: プランの詳細
+      select_date_and_number_of_people: 日程を選択する
+      booking_duration: 予約期間
+      number_of_people: 予約人数
+      day: 泊
+      yen: 円
+      buttons:
+        edit: 編集する
+        back: 戻る
+    date_selection:
+      people_and_pet_setting:
+        buttons:
+          cancel: 戻る
+          apply: 完了
+        number_of_adult: 大人
+        adult: 大人
+        child: 子供
+        pet: ペット
+    error_messages:
+      campsite_plan_is_out_of_stock: Campsite plan is out of stock, please choose another campsite plan
+    people_and_date_selection:
+      number_of_people_details_html: "大人<span class='number-of-adult'>%{adult}</span>名
+                                      子供<span class='number-of-children'>%{children}</span>名
+                                      ペット<span class='number-of-pet'>%{pet}</span>"
+      people: 名

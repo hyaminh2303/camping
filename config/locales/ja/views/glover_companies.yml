@@ -1,0 +1,10 @@
+ja:
+  admin:
+    glover_companies:
+      edit:
+        page_title: グローバージャパン　会社情報
+        page_description: 会社情報編集
+      show:
+        page_title: グローバージャパン　会社情報
+        page_description: グローバージャパン　会社情報
+

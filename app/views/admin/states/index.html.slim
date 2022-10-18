@@ -1,0 +1,28 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.state.name')
+          th = t('activerecord.attributes.state.code')
+          th = t('activerecord.attributes.state.weight')
+
+      tbody.font-14
+        - @states.each do |state|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.edit'), edit_admin_state_path(state), class: 'btn btn-green'
+
+            td = state.name
+            td = state.code
+            td = state.weight
+
+
+.container.pagination.justify-content-center
+  = paginate @states, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

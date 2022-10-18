@@ -1,0 +1,30 @@
+zh:
+  customer_users:
+    registrations:
+      go_back: トップページへ戻る
+      new_email_validation:
+        title: 登录
+        submit: 登录以进行预订
+        next: 到下一个
+        link_to_sign_in: >
+          <span>＊既に会員の方は、</span><a href=%{link}>こちら</a><span>からログインして下さい。</span>
+
+      new:
+        title: 会員情報を入力する
+        birthday: 生年月日
+        password: パスワード
+        phone_number: 電話番号
+        submit: 規約に同意して会員登録する
+      edit:
+        country_id: 居住国家
+
+    sessions:
+      new:
+        title: 登录
+        placeholder:
+          email: 电子邮件地址
+          password: 密码
+        remember_me: 记录登录信息
+        sign_in: 登录
+        sign_up: 新会员注册
+        forgot_password: 如果您忘记了密码，请单击此处

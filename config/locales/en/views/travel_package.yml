@@ -1,0 +1,5 @@
+en:
+  admin:
+    travel_package:
+      cancel_booking_error: Booking cannot be canceled
+      cancel_booking_success: Booking was cancelled successfully

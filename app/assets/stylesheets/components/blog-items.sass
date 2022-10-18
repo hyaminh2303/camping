@@ -1,0 +1,65 @@
+@import '../definitions/variables'
+@import '../definitions/mixins'
+
+section.blog-items
+  @include media-breakpoint-down(sm)
+    .container
+      max-width: 100%
+      .blog-item
+        @include no-paddinglr
+  .blog-item
+    .item-header
+      a
+        color: #fff
+    h3.item-content
+      font-weight: 500
+      a
+        color: $primary-text-color
+        &:hover
+          text-decoration: none
+
+    .tags
+      a
+        color: $green-color
+
+    @include media-breakpoint-down(xs)
+      .image-wrapper
+        max-width: 148px
+        img
+          height: 148px
+          width: 148px
+          object-fit: cover
+      .information-wrapper
+        padding: 15px 0 15px 15px
+
+    @include media-breakpoint-down(sm)
+      .container
+        padding-left: 0
+        padding-right: 0
+        max-width: 100%
+        .row
+          margin-left: 0
+          margin-right: 0
+          .blog-item
+            padding-left: 0
+            padding-right: 0
+
+    @include media-breakpoint-only(sm)
+      margin-bottom: 15px
+      .image-wrapper
+        img
+          height: 200px
+          width: 100%
+          object-fit: cover
+      .information-wrapper
+        padding: 15px 0 15px 15px
+
+    @include media-breakpoint-up(md)
+      .image-wrapper
+        img
+          margin-bottom: 15px
+          height: 148px
+          width: 255px
+          object-fit: cover
+      .information-wrapper
+        margin-bottom: 10px

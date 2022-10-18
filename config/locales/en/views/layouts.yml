@@ -1,0 +1,68 @@
+en:
+  layouts:
+    admin_sidebar:
+      glover_company_info: About us
+      suppliers_management: Supplier company management
+      campsites_suppliers: Camping supplier management
+      camp_cars_suppliers: Camping Casa pliers management
+      user_accounts_management: Site User Management
+      campsites_management: Campground management
+      campsites: Camping site management
+      campsite_plans: Each Camp Site Plan Management
+      campsite_bookings: Campsite Bookings Management
+      camp_cars_management: Camping car management
+      master_data: Master data management
+      camp_category_groups: Campsite category management
+      camp_categories: Campsite category search detail setting
+      camp_car_categories: Camping Car Category Management
+      child_and_pet_settings: Children and pet segment settings
+      classification_settings: Date type setting
+      campsite_plan_options: Campsite option management
+      content_management_being_processed: Feature Articles Management
+      contact_us: Customer Inquiries Management
+      management_contents: Management contents
+      campsite_notices: Campsite Notices
+      camp_car_notices: Camp Car Notices
+      super_admin_notices: Super Admin Notices
+      recommended_campsite: Recommended Campsite
+      recommended_camp_car: Recommended Camp Car
+      blog_categories: Blog categories
+      supplier_blog_categories: Supplier Blog categories
+      glover_blog: Glover blog
+      supplier_blog: Supplier blog
+      sales_management: 売上管理
+      campsite_sale_management: Campsite sale management
+
+    main_menu_section:
+      blogs: Blog
+      campsites: Camp
+      camp_cars: Camper van
+      rental_car: Hire car
+      camp_item_rental: Rental Items
+      tours: Tours
+
+    footer:
+      sign_out: Logout
+      profile: Profile
+      hi: Hi
+      sign_in: Login
+      sign_up: Register
+      privacy_policy: Privacy policy
+      terms_of_use: Terms of use
+      company_profile: Company profile
+      contact_us: Supplier enquiry
+      campsite_states: Camp
+      camp_car_states: Camper van
+      blog_categories: Blog
+      site_map: Site map
+      hide_car: Hire car
+      area:
+        hokaido: HOKKAIDO
+        tohoku: TOHOKU
+        kanto: KANTO
+        koshinetsu: KOSHINETSU
+        chubu: CHUBU
+        kansai: KANSAI
+
+    general:
+      slogan: Information and reservation search site for travel and camping

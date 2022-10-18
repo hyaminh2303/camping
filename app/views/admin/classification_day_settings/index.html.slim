@@ -1,0 +1,33 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.classification-day-setting-container-wrapper
+  .data-content
+    = render 'shared/messages'
+
+    .button-actions.text-right
+      = link_to t('views.buttons.new'), new_admin_classification_day_setting_path, class: "btn btn-blue btn-new-record"
+
+    .table-responsive.text-nowrap
+      table.table
+        thead.font-13
+          tr
+            th
+            th = t('activerecord.attributes.classification_day_setting.color')
+            th = t('activerecord.attributes.classification_day_setting.name')
+
+        tbody.font-14
+          - @classification_day_settings.each do |classification_day_setting|
+            tr
+              td.action.text-left
+                = link_to t('views.buttons.view'), admin_classification_day_setting_path(classification_day_setting), class: 'btn btn-blue'
+
+                = link_to t('views.buttons.edit'), edit_admin_classification_day_setting_path(classification_day_setting), class: 'btn btn-green'
+
+                = link_to_delete_with admin_classification_day_setting_path(classification_day_setting)
+
+              td= classification_day_setting.color
+              td= classification_day_setting.name
+
+.container.pagination.justify-content-center
+  = paginate @classification_day_settings, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

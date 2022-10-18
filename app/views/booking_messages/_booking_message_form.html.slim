@@ -1,0 +1,24 @@
+ruby:
+  travel_package = booking_message.booking_messageable.travel_package
+
+  booking_messageable_gid = if travel_package.booking_type_campsite_booking?
+    travel_package.campsite_booking
+  elsif travel_package.booking_type_camp_car_booking?
+    travel_package.camp_car_booking
+  else
+    # TO DO
+  end.to_gid
+
+  new_booking_message_detail = if booking_message.booking_message_details.last&.new_record?
+    booking_message.booking_message_details.last
+  else
+    BookingMessageDetail.new
+  end
+
+= simple_form_for booking_message, remote: true do |f|
+  = f.hidden_field :customer_user_id, value: travel_package.customer_user_id
+  = f.input :subject, label: t('my_pages.campsite_booking_detail.title'), input_html: {rows: 1}
+  = f.hidden_field :booking_messageable_gid, value: booking_messageable_gid
+  = f.simple_fields_for :booking_message_details, new_booking_message_detail do |ff|
+    = ff.input :message, label: t('my_pages.campsite_booking_detail.message'), input_html: {rows: 5}
+  = f.submit t('my_pages.campsite_booking_detail.send_message'), type: :submit, class: 'btn btn-blue font-weight-bold font-16 no-border-radius send-message-button w-100'

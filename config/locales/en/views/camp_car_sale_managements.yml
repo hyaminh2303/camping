@@ -1,0 +1,11 @@
+en:
+  admin:
+    camp_car_sale_managements:
+      index:
+        page_title: Sales management
+        page_description: Camp car sale managements
+        number_of_bookings: Number of bookings
+        total_price: Total price
+        commission_percentage: Commission percentage
+        total_sale: Total sale
+        date_range: Date range

@@ -1,0 +1,25 @@
+ko:
+  contact_us:
+    new:
+      title: お問い合わせ
+      input_error: 入力内容に誤りがあります
+      checking_the_content: 内容を確認する
+    confirm_information:
+      title: お問い合わせ内容ご確認
+      send: 送信する
+    thanks:
+      title: 送信が完了しました
+      go_back_to_the_top_page: トップページへ戻る
+    placeholder:
+      name: Name
+      email: Email address
+      phone_number: '00000000000'
+
+  admin:
+    contact_us:
+      index:
+        page_title: Customer inquiries
+        page_description: Customer inquiry list
+      show:
+        page_title: Customer inquires
+        page_description: Details of inquiry

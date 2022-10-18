@@ -1,0 +1,63 @@
+= simple_form_for([:admin, @camp_car]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    - if current_admin_user.is_super_admin?
+      = f.input :supplier_company_id,
+                as: :select,
+                collection: camp_car_supplier_companies_collection
+
+    ruby:
+      options = CampCarOption.all.map do |o|
+        {company_id: o.supplier_company_id, id: o.id, label: o.name}
+      end
+
+      options = options.group_by { |o| o[:company_id] }.to_json
+
+    = f.input :camp_car_option_ids, as: :select,
+              collection: camp_car_options_collection,
+              input_html: { \
+                multiple: true,
+                include_blank: false,
+                data: {options: options},
+                id: :camp_car_option_ids_input,
+                class: 'select2'}
+
+    = render 'shared/state_prefecture_location', f: f
+    = f.input :product_id
+
+    - I18n.available_locales.each do |locale|
+      = f.input "name_#{locale}"
+
+    = f.input :car_type
+    = f.association :category, label_method: :model
+    = f.input :tag_list, input_html: {data: {role: 'tagsinput'}, value: f.object.tag_list.join(', ')}
+    = f.input :maximum_number_of_people, input_html: { min: 0 }
+    / = f.input :is_pick_up_and_drop_off_place_same # https://app.clickup.com/t/1ydkj89 | remove (hide) it on UI.
+    = f.input :fee_per_hour, input_html: { min: 0, step: 1}
+    = f.input :fee_per_day, input_html: { min: 0, step: 1}
+    = f.input :is_public
+    - I18n.available_locales.each do |locale|
+      = f.input "subtitle_#{locale}", as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }
+
+    - I18n.available_locales.each do |locale|
+      = f.input "description_#{locale}", as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }
+
+    = f.input :quantity, input_html: { min: 0 }
+    h7 = t('activerecord.attributes.camp_car.camp_car_quantities')
+    #camp-car-quantities.mb-3
+      = f.simple_fields_for :camp_car_quantities do |camp_car_quantity|
+        = render 'camp_car_quantity_fields', f: camp_car_quantity
+      .links.mt-0
+      = link_to_add_association t('admin.camp_cars.general.add_camp_car_quantity'), f, :camp_car_quantities, partial: 'camp_car_quantity_fields', class: 'btn btn btn-blue font-12 add-camp-car-quantity'
+    h7 = t('activerecord.attributes.camp_car.photos')
+    #photos
+      = f.simple_fields_for :photos do |photo|
+        = render 'shared/photo_fields', f: photo
+      .links
+        = link_to_add_association t('admin.camp_cars.general.add_photo'), f, :photos, partial: 'shared/photo_fields'
+
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

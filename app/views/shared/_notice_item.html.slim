@@ -1,0 +1,14 @@
+.camp-element-item-horizontal.pt-md-2.pb-md-3.container
+  .row.no-gutters
+    .col.col-md-4.image-wrapper
+      = link_to (gcamp_image_tag notice.photo&.image, class: "img-fluid"), notice_path(notice)
+
+    .col.col-md-8.information-wrapper.py-3.py-md-0.pl-2
+      .item-header.mb-2
+        a href="#" class="font-13 date" = notice.publish_date&.strftime(t('datetime.with_locale.formats.short'))
+        = link_to notice_path(notice)
+          span.font-13.ml-5.text-blue = notice.title
+      .description.mb-2
+        = raw truncate_html(notice.content, length: 25)
+      = link_to t('notices.index.button.show_details'), notice_path(notice), class: 'font-13 float-right text-blue'
+  .border-bottom.d-md-none

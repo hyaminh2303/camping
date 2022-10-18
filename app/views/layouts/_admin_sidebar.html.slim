@@ -1,0 +1,176 @@
+.admin-sidebar
+  ul.list
+    li.list-item
+      - if current_admin_user.is_super_admin?
+        a href=admin_glover_company_path
+          = t('layouts.admin_sidebar.glover_company_info')
+      - else
+        a href=admin_root_path
+          = t('layouts.admin_sidebar.glover_company_info')
+
+    - if can? :manage, ContactUs
+      li.list-item
+        a href=admin_contact_us_index_path
+          = t('layouts.admin_sidebar.contact_us')
+
+
+    - if can? :manage, SupplierCompany
+      li.list-item
+        a href="#"= t('layouts.admin_sidebar.suppliers_management')
+
+        ul.sub-menu
+          li.sub-list-item
+            a href="#{admin_supplier_companies_path('campsite_supplier_company')}"
+              = t('layouts.admin_sidebar.campsites_suppliers')
+          li.sub-list-item
+            a href="#{admin_supplier_companies_path('camp_car_supplier_company')}"
+              = t('layouts.admin_sidebar.camp_cars_suppliers')
+
+    - if can? :manage, AdminUser
+      li.list-item
+        a href=admin_admin_users_path
+          = t('layouts.admin_sidebar.user_accounts_management')
+
+    - if can? :manage, :customer_user_management
+      li.list-item
+        a href="#{admin_customer_user_managements_path}"
+          = t('layouts.admin_sidebar.customer_users_management')
+
+    - if can? :manage, Campsite
+      li.list-item
+        a href="#"
+          = t('layouts.admin_sidebar.campsites_management')
+
+        ul.sub-menu
+          li.sub-list-item
+            a href="#{admin_campsites_path}"
+              = t('layouts.admin_sidebar.campsites')
+          li.sub-list-item
+            a href="#{admin_campsite_plans_path}"
+              = t('layouts.admin_sidebar.campsite_plans')
+          li.sub-list-item
+            a href="#{admin_campsite_bookings_path}"
+              = t('layouts.admin_sidebar.campsite_bookings')
+
+    - if can? :manage, CampCar
+      li.list-item
+        a href=admin_camp_cars_path
+          = t('layouts.admin_sidebar.camp_cars_management')
+
+        ul.sub-menu
+          li.sub-list-item
+            a href="#{admin_camp_cars_path}"
+              = t('layouts.admin_sidebar.camp_cars')
+          li.sub-list-item
+            a href="#{admin_camp_car_bookings_path}"
+              = t('layouts.admin_sidebar.camp_car_bookings')
+
+    - if (can? :manage, CampCategoryGroup) || \
+         (can? :manage, CampCategory) || \
+         (can? :manage, CampsitePlanOption) || \
+         (can? :manage, CampCarCategory) || \
+         (can? :manage, CampCarOption) || \
+         (can? :manage, RecommendedCampItem)
+
+      li.list-item
+        a href="#" = t('layouts.admin_sidebar.master_data')
+
+        ul.sub-menu
+          - if can? :manage, CampCategoryGroup
+            li.sub-list-item
+              a href=admin_camp_category_groups_path
+                = t('layouts.admin_sidebar.camp_category_groups')
+
+          - if can? :manage, CampCategory
+            li.sub-list-item
+              a href=admin_camp_categories_path
+                = t('layouts.admin_sidebar.camp_categories')
+
+          - if can? :manage, CampCarCategory
+            li.sub-list-item
+              a href=admin_camp_car_categories_path
+                = t('layouts.admin_sidebar.camp_car_categories')
+
+          - if can? :manage, ChildAndPetSetting
+            li.sub-list-item
+              a href=admin_child_and_pet_settings_path
+                = t('layouts.admin_sidebar.child_and_pet_settings')
+          - if can? :manage, ClassificationDaySetting
+            li.sub-list-item
+              a href=admin_classification_day_settings_path
+                = t('layouts.admin_sidebar.classification_settings')
+          - if can? :manage, DateSetting
+            li.sub-list-item
+              a href=admin_date_settings_path
+                = t('layouts.admin_sidebar.date_settings')
+
+          - if can? :manage, CampsitePlanOption
+            li.sub-list-item
+              a href=admin_campsite_plan_options_path
+                = t('layouts.admin_sidebar.campsite_plan_options')
+          - if can? :manage, CampCarOption
+            li.sub-list-item
+              a href=admin_camp_car_options_path
+                = t('layouts.admin_sidebar.camp_car_options')
+          - if can? :manage, CampType
+            li.sub-list-item
+              a href=admin_camp_types_path
+                = t('layouts.admin_sidebar.camp_types')
+          - if (current_admin_user.is_super_admin? || current_admin_user.is_campsite_admin?) && (can? :manage, RecommendedCampItem)
+            li.sub-list-item
+              a href=admin_recommended_camp_items_path(:campsite)
+                = t('layouts.admin_sidebar.recommended_campsite')
+          - if (current_admin_user.is_super_admin? || current_admin_user.is_camp_car_admin?) && (can? :manage, RecommendedCampItem)
+            li.sub-list-item
+              a href=admin_recommended_camp_items_path(:camp_car)
+                = t('layouts.admin_sidebar.recommended_camp_car')
+
+    - if (can? :manage, Blog) || (can? :manage, Notice) || (can? :manage, SliderBanner)
+      li.list-item
+        a href="#"= t('layouts.admin_sidebar.management_contents')
+
+        ul.sub-menu
+          - if can? :manage, SliderBanner
+            li.sub-list-item
+              = link_to admin_slider_banners_path
+                = t('layouts.admin_sidebar.slider_banners')
+          - if current_admin_user.is_super_admin?
+            li.sub-list-item
+              a href="#{admin_blog_categories_path(category_type: 'glover_blog')}"
+                = t('layouts.admin_sidebar.blog_categories')
+            li.sub-list-item
+              a href="#{admin_blog_categories_path(category_type: 'supplier_blog')}"
+                = t('layouts.admin_sidebar.supplier_blog_categories')
+            li.sub-list-item
+              a href=admin_blogs_path(blog_type: 'glover_blog')
+                = t('layouts.admin_sidebar.glover_blog')
+          - if can? :manage, Blog
+            li.sub-list-item
+              a href=admin_blogs_path(blog_type: 'supplier_blog')
+                = t('layouts.admin_sidebar.supplier_blog')
+          - if current_admin_user.is_super_admin?
+            li.sub-list-item
+              a href=admin_notices_path('super_admin')
+                = t('layouts.admin_sidebar.super_admin_notices')
+          - if (current_admin_user.is_super_admin? || current_admin_user.is_campsite_admin? ) && (can? :manage, Notice)
+            li.sub-list-item
+              a href=admin_notices_path('campsite')
+                = t('layouts.admin_sidebar.campsite_notices')
+          - if (current_admin_user.is_super_admin? || current_admin_user.is_camp_car_admin? ) && (can? :manage, Notice)
+            li.sub-list-item
+              a href=admin_notices_path('camp_car')
+                = t('layouts.admin_sidebar.camp_car_notices')
+    - if (can? :manage, :campsite_sale_management) || (can? :manage, :camp_car_sale_management)
+      li.list-item
+        a href="#" = t('layouts.admin_sidebar.sales_management')
+
+        ul.sub-menu
+          - if can? :manage, :campsite_sale_management
+            li.sub-list-item
+              = link_to t('layouts.admin_sidebar.campsite_sale_management'), admin_campsite_sale_managements_path
+          - if can? :manage, :camp_car_sale_management
+            li.sub-list-item
+              = link_to t('layouts.admin_sidebar.camp_car_sale_management'), admin_camp_car_sale_managements_path
+
+    li.logout-item
+      = link_to 'ログアウト', destroy_admin_user_session_path

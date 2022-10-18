@@ -1,0 +1,64 @@
+ko:
+  layouts:
+    admin_sidebar:
+      glover_company_info: 会社情報
+      suppliers_management: サプライヤー会社管理
+      campsites_suppliers: キャンプサプライヤー管理
+      camp_cars_suppliers: キャンピングカーサプライヤー管理
+      user_accounts_management: サイトユーザー管理
+      campsites_management: キャンプ場管理
+      campsites: キャンプ場管理
+      campsite_plans: プラン管理
+      campsite_bookings: Campsite Bookings Management
+      camp_cars_management: キャンピングカー管理
+      master_data: マスタデータ管理
+      camp_category_groups: キャンプ場カテゴリー管理
+      camp_categories: キャンプ場カテゴリ検索詳細設定
+      camp_car_categories: キャンピングカーカテゴリ管理
+      child_and_pet_settings: 子供・ペット区分設定
+      classification_settings: 日付タイプ設定
+      date_settings: Date Setting
+      campsite_plan_options: キャンプ場オプション管理
+      camp_car_options: Camp Car Options
+      camp_types: Camp Types
+      content_management_being_processed: 特集記事管理
+      camp_cars: Camp cars
+      slider_banners: Slider banners
+      camp_car_bookings: Camp Car Bookings Management
+      contact_us: Customer Inquiries Management
+
+    main_menu_section:
+      blogs: 블로그
+      campsites: 캠프
+      camp_cars: 캠프 차
+      rental_car: 차를 빌리다
+      camp_item_rental: 대여 품목
+      tours: 여행
+
+    footer:
+      sign_out: 로그아웃
+      profile: 내 페이지
+      hi: Hi
+      sign_out: 로그아웃
+      sign_in: 로그인
+      sign_up: 회원 등록
+      privacy_policy: 개인정보취급방침
+      terms_of_use: 이용 약관
+      company_profile: 회사 개요
+      contact_us: 공급업체 문의
+      campsite_states: 캠프
+      camp_car_states: 캠프 차
+      blog_categories: 블로그
+      site_map: 사이트맵
+      hide_car: 차를 빌리다
+      area:
+        hokaido: 北海道
+        tohoku: 東北
+        kanto: 関東
+        koshinetsu: 甲信越
+        chubu: 中部
+        kansai: 関西
+
+
+    general:
+      slogan: 旅とキャンプを楽しむ情報・予約検索サイト

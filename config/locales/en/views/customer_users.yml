@@ -1,0 +1,32 @@
+en:
+  customer_users:
+    registrations:
+      go_back: Go back
+      title: Register
+      submit: Continue
+      new_email_validation:
+        title: Log in
+        submit: Log in & proceed to book
+        next: Next
+        link_to_sign_in: >
+          <span>Already have an account? </span><a href=%{link}>Sign in</a>
+
+      new:
+        title: Enter your membership information
+        birthday: 生年月日
+        password: パスワード
+        phone_number: 電話番号
+        submit: Agree to the terms and confirm the reservation details
+      edit:
+        country_id: Country of residence
+
+    sessions:
+      new:
+        title: Log in
+        placeholder:
+          email: Email address
+          password: Password
+        remember_me: Remember me
+        sign_in: Log in
+        sign_up: Create an account
+        forgot_password: Forgot your password?

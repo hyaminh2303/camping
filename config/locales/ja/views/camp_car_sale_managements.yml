@@ -1,0 +1,12 @@
+ja:
+  admin:
+    camp_car_sale_managements:
+      index:
+        page_title: 売上管理
+        page_description: キャンプカー売上管理
+        number_of_bookings: 予約数
+        total_price: 合計金額
+        commission_percentage: コミッション率
+        total_sale: 売上合計
+        date_range: 売上期間
+

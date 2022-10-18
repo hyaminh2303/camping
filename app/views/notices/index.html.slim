@@ -1,0 +1,22 @@
+- title t('notices.news')
+- description "#{t('notices.news')} | #{params[:campsite_id].present? ? Campsite.find(params[:campsite_id]).name : ""}| #{t('views.project.site_name')}"
+
+.campsite-container-wrapper
+  section.container.recommended-campsites
+    .row
+      .col-12.text-center.mt-5
+        = render 'shared/items_title',
+                title: '',
+                description: t('notices.index.news')
+    .row.show-more-wrapper [data-number-of-items-when-init='4']
+      .col-md-8.m-auto
+        .list-camp-element-items
+          - @notices.each do |notice|
+            .show-more-item.d-none
+              = render "shared/notice_item", notice: notice
+        .text-center.mt-3
+          .btn.font-14-down-md.font-16-up-lg.date.btn-blue.no-border-radius.show-more-button
+            = t('notices.index.button.show_more')
+
+.container.pagination.justify-content-center
+  = paginate @notices, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

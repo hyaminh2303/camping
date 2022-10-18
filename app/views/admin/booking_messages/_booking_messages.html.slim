@@ -1,0 +1,13 @@
+#accordion
+  - item_booking.booking_messages.each_with_index do |booking_message, index|
+    - collapse_id = "collapse_#{index}"
+    .card
+      #headingOne.card-header
+        h5.mb-0
+          button.btn.font-18.btn-link[data-toggle="collapse" data-target="##{collapse_id}" aria-expanded="true" aria-controls="collapseOne"]
+            = "Inbox: #{booking_message.subject} "
+      .collapse.collapse[aria-labelledby="headingOne" data-parent="#accordion" id=collapse_id]
+        .card-body
+          .text-break
+            .mgl-29 [id="booking_meesage_form_#{booking_message.id}"]
+              = render "admin/booking_messages/booking_message_form", booking_message: booking_message

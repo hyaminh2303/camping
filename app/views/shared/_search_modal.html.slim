@@ -1,0 +1,16 @@
+.search-modal-wrapper
+  #searchFreeWordModal.overlay
+    .closebtn &times;
+    .overlay-content
+      = form_with url: search_free_word_autocomplete_path, method: :get do |f|
+        .form-inputs
+          .row.justify-content-center
+            .form-group.col-6
+              = f.text_field :keywords,
+                              class: 'form-control font-23-up-md font-16-down-sm',
+                              placeholder: t('autocompletes.search_free_word.search_here'),
+                              autocomplete: 'off',
+                              value: params[:keywords]
+
+  a.help-button href='javascript:void(0)'
+    i.far.fa-search

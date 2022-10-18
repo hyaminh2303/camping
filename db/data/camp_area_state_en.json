@@ -1,0 +1,1004 @@
+[
+  {
+    "name_en": "HOKKAIDO",
+    "code": "hokkaido",
+    "prefectures": [
+      {
+        "name_en": "Hokkaido",
+        "code": "hokkaido",
+        "cities": [
+          {
+            "name_en": "Douhoku",
+            "code": "douhoku"
+          },
+          {
+            "name_en": "Douto",
+            "code": "douto"
+          },
+          {
+            "name_en": "Douou/Dounan",
+            "code": "douou_dounan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_en": "TOHOKU",
+    "code": "tohoku",
+    "prefectures": [
+      {
+        "name_en": "Aomori",
+        "code": "aomori",
+        "cities": [
+          {
+            "name_en": "Hakkouda/Lake Towada",
+            "code": "hakkouda_lake_towada"
+          },
+          {
+            "name_en": "Shirakami/Iwakisan",
+            "code": "shirakami_iwakisan"
+          },
+          {
+            "name_en": "Shimokita Peninsula",
+            "code": "shimokita_peninsula"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Iwate",
+        "code": "iwate",
+        "cities": [
+          {
+            "name_en": "Hachimantai / Iwatesan",
+            "code": "hachimantai_iwatesan"
+          },
+          {
+            "name_en": "Sanriku coast",
+            "code": "sanriku_coast"
+          },
+          {
+            "name_en": "Hanamaki / Kitakami",
+            "code": "hanamaki_kitakami"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Miyagi",
+        "code": "miyagi",
+        "cities": [
+          {
+            "name_en": "Sanriku coast",
+            "code": "sanriku_coast"
+          },
+          {
+            "name_en": "Zao",
+            "code": "zao"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Akita",
+        "code": "akita",
+        "cities": [
+          {
+            "name_en": "Oga peninsula",
+            "code": "oga_peninsula"
+          },
+          {
+            "name_en": "Tazawa Lake / Hachimantai",
+            "code": "tazawa_lake_hachimantai"
+          },
+          {
+            "name_en": "Mount Chokai",
+            "code": "mount_chokai"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Yamagata",
+        "code": "yamagata",
+        "cities": [
+          {
+            "name_en": "Tsuruoka / Gassan",
+            "code": "tsuruoka_gassan"
+          },
+          {
+            "name_en": "Mt. Chokai",
+            "code": "mt_chokai"
+          },
+          {
+            "name_en": "Mogami river basin",
+            "code": "mogami_river_basin"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Fukushima",
+        "code": "fukushima",
+        "cities": [
+          {
+            "name_en": "Mt.Bandai / Lake Inawashiro",
+            "code": "mt_bandai_lake_inawashiro"
+          },
+          {
+            "name_en": "Aizu kaido",
+            "code": "aizu_kaido"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Nigata",
+        "code": "nigata",
+        "cities": [
+          {
+            "name_en": "Hakkaisan",
+            "code": "hakkaisan"
+          },
+          {
+            "name_en": "Oyashirazu / Joetsu / Myoko",
+            "code": "oyashirazu_joetsu_myoko"
+          },
+          {
+            "name_en": "Okuaizu",
+            "code": "okuaizu"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_en": "KANTO",
+    "code": "kanto",
+    "prefectures": [
+      {
+        "name_en": "Tokyo",
+        "code": "tokyo",
+        "cities": [
+          {
+            "name_en": "Okutama",
+            "code": "okutama"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Kanagawa",
+        "code": "kanagawa",
+        "cities": [
+          {
+            "name_en": "Hakone / Lake Ashino",
+            "code": "hakone_lake_ashino"
+          },
+          {
+            "name_en": "Mt. Tanzawa",
+            "code": "mt_tanzawa"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Saitama",
+        "code": "saitama",
+        "cities": [
+          {
+            "name_en": "Chichibu / Nagatoro",
+            "code": "chichibu_nagatoro"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Chiba",
+        "code": "chiba",
+        "cities": [
+          {
+            "name_en": "Bosohanto",
+            "code": "bosohanto"
+          },
+          {
+            "name_en": "Kuzyukuri",
+            "code": "kuzyukuri"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Ibaraki",
+        "code": "ibaraki",
+        "cities": [
+          {
+            "name_en": "Oharai",
+            "code": "oharai"
+          },
+          {
+            "name_en": "Waterfall Fukuroda Okukuzi",
+            "code": "waterfall_fukuroda_okukuzi"
+          },
+          {
+            "name_en": "Mt. Tsukuba",
+            "code": "mt_tsukuba"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Tochigi",
+        "code": "tochigi",
+        "cities": [
+          {
+            "name_en": "Nasu",
+            "code": "nasu"
+          },
+          {
+            "name_en": "Nikko / Chusonzi temple",
+            "code": "nikko_chusonzi_temple"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Gunma",
+        "code": "gunma",
+        "cities": [
+          {
+            "name_en": "Ose / Marunuma / Mt. Tanigawa",
+            "code": "ose_marunuma_mt_tanigawa"
+          },
+          {
+            "name_en": "North Karuizawa / Mt. Haruna / Ikaho",
+            "code": "north_karuizawa_mt_haruna_ikaho"
+          },
+          {
+            "name_en": "Mt. Akagi",
+            "code": "mt_akagi"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Yamanashi",
+        "code": "yamanashi",
+        "cities": [
+          {
+            "name_en": "Mt. Fuji / Lake Fuji",
+            "code": "mt_fuji_lake_fuji"
+          },
+          {
+            "name_en": "South-Alps / Yatsugatake",
+            "code": "south_alps_yatsugatake"
+          },
+          {
+            "name_en": "Kosyu / Katsunuma",
+            "code": "kosyu_katsunuma"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_en": "CHUBU",
+    "code": "chubu",
+    "prefectures": [
+      {
+        "name_en": "Nagano",
+        "code": "nagano",
+        "cities": [
+          {
+            "name_en": "Middle-Alps",
+            "code": "middle_alps"
+          },
+          {
+            "name_en": "North-Alps",
+            "code": "north_alps"
+          },
+          {
+            "name_en": "Joetsu / Madarao / Iizuna /Togakushi",
+            "code": "joetsu_madarao_iizuna_togakushi"
+          },
+          {
+            "name_en": "Tateshina / Lake Suwa / Mimohara",
+            "code": "tateshina_lake_suwa_mimohara"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Toyama",
+        "code": "toyama",
+        "cities": [
+          {
+            "name_en": "Tateishi / Kurobe / Unazuki",
+            "code": "tateishi_kurobe_unazuki"
+          },
+          {
+            "name_en": "Gokayama / Shogawa",
+            "code": "gokayama_shogawa"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Ishikawa",
+        "code": "ishikawa",
+        "cities": [
+          {
+            "name_en": "Noto / Wajima",
+            "code": "noto_wajima"
+          },
+          {
+            "name_en": "Hakusan",
+            "code": "hakusan"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Fukui",
+        "code": "fukui",
+        "cities": [
+          {
+            "name_en": "Echizen / Tojinbo",
+            "code": "echizen_tojinbo"
+          },
+          {
+            "name_en": "Wakasa",
+            "code": "wakasa"
+          },
+          {
+            "name_en": "Kuzuryu",
+            "code": "kuzuryu"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Shizuoka",
+        "code": "shizuoka",
+        "cities": [
+          {
+            "name_en": "Mt. Fuji",
+            "code": "mt_fuji"
+          },
+          {
+            "name_en": "Izu",
+            "code": "izu"
+          },
+          {
+            "name_en": "Oikawa",
+            "code": "oikawa"
+          },
+          {
+            "name_en": "Lake Hamana",
+            "code": "lake_hamana"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Aichi",
+        "code": "aichi",
+        "cities": [
+          {
+            "name_en": "Mikawa",
+            "code": "mikawa"
+          },
+          {
+            "name_en": "Inuyama / Owari",
+            "code": "inuyama_owari"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Gifu",
+        "code": "gifu",
+        "cities": [
+          {
+            "name_en": "Hida / Takayama / Shirakawago",
+            "code": "hida_takayama_shirakawago"
+          },
+          {
+            "name_en": "Gero / Gujo",
+            "code": "gero_gujo"
+          },
+          {
+            "name_en": "Sekigahara / Ibi",
+            "code": "sekigahara_ibi"
+          },
+          {
+            "name_en": "Nakathu river",
+            "code": "nakathu_river"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Mie",
+        "code": "mie",
+        "cities": [
+          {
+            "name_en": "Ise / Toba / Shima",
+            "code": "ise_toba_shima"
+          },
+          {
+            "name_en": "Iga / Nabari",
+            "code": "iga_nabari"
+          },
+          {
+            "name_en": "Gozaisho",
+            "code": "gozaisho"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_en": "KANSAI",
+    "code": "kansai",
+    "prefectures":[
+      {
+        "name_en": "Osaka",
+        "code": "osaka",
+        "cities": [
+          {
+            "name_en": "North Osaka",
+            "code": "north_osaka"
+          },
+          {
+            "name_en": "South Osaka",
+            "code": "south_osaka"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Hyogo",
+        "code": "hyogo",
+        "cities": [
+          {
+            "name_en": "Awaji island",
+            "code": "awaji_island"
+          },
+          {
+            "name_en": "Kinosaki / Kami",
+            "code": "kinosaki_kami"
+          },
+          {
+            "name_en": "Tomioka / Kaminabe / Hachkogen",
+            "code": "tomioka_kaminabe_hachkogen"
+          },
+          {
+            "name_en": "Tamba / Wadayama / Shiso",
+            "code": "tamba_wadayama_shiso"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Kyoto",
+        "code": "kyoto",
+        "cities": [
+          {
+            "name_en": "Tango / Amanohashidate / Maizuru",
+            "code": "tango_amanohashidate_maizuru"
+          },
+          {
+            "name_en": "Fukuchiyama / Ayabe",
+            "code": "fukuchiyama_ayabe"
+          },
+          {
+            "name_en": "Tamba / Kameoka",
+            "code": "tamba_kameoka"
+          },
+          {
+            "name_en": "Kyoto",
+            "code": "kyoto"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Shiga",
+        "code": "shiga",
+        "cities": [
+          {
+            "name_en": "Lake west",
+            "code": "lake_west"
+          },
+          {
+            "name_en": "Lake north",
+            "code": "lake_north"
+          },
+          {
+            "name_en": "Lake east",
+            "code": "lake_east"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Nara",
+        "code": "nara",
+        "cities": [
+          {
+            "name_en": "Yoshino / Tenkawa",
+            "code": "yoshino_tenkawa"
+          },
+          {
+            "name_en": "Totsukawa / Kitayama Village",
+            "code": "totsukawa_kitayama_village"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Wakayama",
+        "code": "wakayama",
+        "cities": [
+          {
+            "name_en": "Shirahama / Kushimoto",
+            "code": "shirahama_kushimoto"
+          },
+          {
+            "name_en": "Kumano Kodo / Ryujin",
+            "code": "kumano_kodo_ryujin"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_en": "CHUGOKU",
+    "code": "chugoku",
+    "prefectures": [
+      {
+        "name_en": "Okayama",
+        "code": "okayama",
+        "cities": [
+          {
+            "name_en": "Hiruzen / Maniwa / Niimi",
+            "code": "hiruzen_maniwa_niimi"
+          },
+          {
+            "name_en": "Tsuyama / Okutsu",
+            "code": "tsuyama_okutsu"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Hiroshima",
+        "code": "hiroshima",
+        "cities": [
+          {
+            "name_en": "Onomichi / Shimanami Kaido",
+            "code": "onomichi_shimanami_kaido"
+          },
+          {
+            "name_en": "Taishaku Gorge / Jinseki Kogen / Sera",
+            "code": "taishaku_gorge_jinseki_kogen_sera"
+          },
+          {
+            "name_en": "Miyoshi / Shobara / Bihoku",
+            "code": "miyoshi_shobara_bihoku"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Tottori",
+        "code": "tottori",
+        "cities": [
+          {
+            "name_en": "Oyama / Sakaiminato",
+            "code": "oyama_sakaiminato"
+          },
+          {
+            "name_en": "Kurayoshi / Misasa / Tottori",
+            "code": "kurayoshi_misasa_tottori"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Shimane",
+        "code": "shimane",
+        "cities": [
+          {
+            "name_en": "Iwami / Hamada",
+            "code": "iwami_hamada"
+          },
+          {
+            "name_en": "Izumo / Okuizumo",
+            "code": "izumo_okuizumo"
+          },
+          {
+            "name_en": "Oki",
+            "code": "oki"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Yamaguchi",
+        "code": "yamaguchi",
+        "cities": [
+          {
+            "name_en": "Omi Island / Nagato / Hagi / Akiyoshidai",
+            "code": "omi_island_nagato_hagi_akiyoshidai"
+          },
+          {
+            "name_en": "Shunan / Yashiro Island",
+            "code": "shunan_yashiro_island"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_en": "SHIKOKU",
+    "code": "shikoku",
+    "prefectures": [
+      {
+        "name_en": "Tokushima",
+        "code": "tokushima",
+        "cities": [
+          {
+            "name_en": "Anan / Hiwasa",
+            "code": "anan_hiwasa"
+          },
+          {
+            "name_en": "Oboke / Iya / Mt. Tsurugi",
+            "code": "oboke_iya_mt_tsurugi"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Kagawa",
+        "code": "kagawa",
+        "cities": [
+          {
+            "name_en": "Kanonji / Kotohira / Marugame",
+            "code": "kanonji_kotohira_marugame"
+          },
+          {
+            "name_en": "Shodoshima / remote island",
+            "code": "shodoshima_remote_island"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Ehime",
+        "code": "ehime",
+        "cities": [
+          {
+            "name_en": "Imabari / Shimanami Kaido",
+            "code": "imabari_shimanami_kaido"
+          },
+          {
+            "name_en": "Kumakogen / Mt. Ishizuchi",
+            "code": "kumakogen_mt_ishizuchi"
+          },
+          {
+            "name_en": "Uwajima / Seiyo",
+            "code": "uwajima_seiyo"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Kochi",
+        "code": "kochi",
+        "cities": [
+          {
+            "name_en": "Shimanto / Ashizuri",
+            "code": "shimanto_ashizuri"
+          },
+          {
+            "name_en": "Niyodo River basin",
+            "code": "niyodo_river_basin"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name_en": "KYUSYU",
+    "code": "kyushu",
+    "prefectures": [
+      {
+        "name_en": "Fukuoka",
+        "code": "fukuoka",
+        "cities": [
+          {
+            "name_en": "Fukuoka / Itoshima / Dazaifu",
+            "code": "fukuoka_itoshima_dazaifu"
+          },
+          {
+            "name_en": "Kurume / Chikugo",
+            "code": "kurume_chikugo"
+          },
+          {
+            "name_en": "Kitakyushu / Munakata",
+            "code": "kitakyushu_munakata"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Saga",
+        "code": "saga",
+        "cities": [
+          {
+            "name_en": "Karatsu / Imari / Arita",
+            "code": "karatsu_imari_arita"
+          },
+          {
+            "name_en": "Furuyu / Yoshinogari",
+            "code": "furuyu_yoshinogari"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Nagasaki",
+        "code": "nagasaki",
+        "cities": [
+          {
+            "name_en": "Hirado / Sasebo",
+            "code": "hirado_sasebo"
+          },
+          {
+            "name_en": "Nagasaki",
+            "code": "nagasaki"
+          },
+          {
+            "name_en": "Unzen",
+            "code": "unzen"
+          },
+          {
+            "name_en": "Goto / Iki / Tsushima",
+            "code": "goto_iki_tsushima"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Oita",
+        "code": "oita",
+        "cities": [
+          {
+            "name_en": "Kunisaki",
+            "code": "kunisaki"
+          },
+          {
+            "name_en": "Yabakei / Hita",
+            "code": "yabakei_hita"
+          },
+          {
+            "name_en": "Oita / Beppu / Yufuin",
+            "code": "oita_beppu_yufuin"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Kumamoto",
+        "code": "kumamoto",
+        "cities": [
+          {
+            "name_en": "Kumamoto / Yamaga",
+            "code": "kumamoto_yamaga"
+          },
+          {
+            "name_en": "Aso",
+            "code": "aso"
+          },
+          {
+            "name_en": "Amakusa / Yatsushiro / Hitoyoshi",
+            "code": "amakusa_yatsushiro_hitoyoshi"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Miyazaki",
+        "code": "miyazaki",
+        "cities": [
+          {
+            "name_en": "Takachiho / Hyuga / Nobeoka",
+            "code": "takachiho_hyuga_nobeoka"
+          },
+          {
+            "name_en": "Kirishima / Miyakonojo",
+            "code": "kirishima_miyakonojo"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Kagoshima",
+        "code": "kagoshima",
+        "cities": [
+          {
+            "name_en": "Kirishima",
+            "code": "kirishima"
+          },
+          {
+            "name_en": "Ibusuki / Satsuma Peninsula",
+            "code": "ibusuki_satsuma_peninsula"
+          },
+          {
+            "name_en": "Sakurajima / Osumi Peninsula",
+            "code": "sakurajima_osumi_peninsula"
+          },
+          {
+            "name_en": "Amami / remote island",
+            "code": "amami_remote_island"
+          },
+          {
+            "name_en": "Other",
+            "code": "other"
+          }
+        ]
+      },
+      {
+        "name_en": "Okinawa",
+        "code": "okinawa",
+        "cities": [
+          {
+            "name_en": "Naha",
+            "code": "naha"
+          }
+        ]
+      }
+    ]
+  }
+]

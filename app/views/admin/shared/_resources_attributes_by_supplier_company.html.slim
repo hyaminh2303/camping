@@ -1,0 +1,21 @@
+- if current_admin_user.is_super_admin?
+  = f.input :supplier_company_id,
+            as: :select,
+            collection: campsite_supplier_companies_collection,
+            include_blank: false,
+            input_html: { class: 'supplier-company-handler select2-single-selection', disabled: local_assigns[:disabled] }
+
+- resource_collections.each do |resource_collection|
+  ruby:
+    collection =  if current_admin_user.is_super_admin?
+                    []
+                  else
+                    (resource_collection[:collection].values[0] || []).map { |data| [data[:label], data[:id]] }
+                  end
+
+  = f.input resource_collection[:attribute],
+            as: :select,
+            collection: collection,
+            include_blank: false,
+            input_html: { class: 'select2 resource-by-company',
+              data: {options: resource_collection[:collection], selected: resource_collection[:selected]} }

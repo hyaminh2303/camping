@@ -1,0 +1,91 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong = "#{t('activerecord.attributes.travel_package.booking_ref_number')}:"
+    = @travel_package.booking_ref_number
+  p
+    strong = "#{t('activerecord.models.camp_car.one')}:"
+    = @camp_car_booking.camp_car.name
+  p
+    strong = "#{t('activerecord.models.customer_user.one')}:"
+    = @travel_package.customer_user.email
+  p
+    strong = "#{t('activerecord.attributes.travel_package.booking_type')}:"
+    = @travel_package.booking_type
+  p
+    strong = "#{t('activerecord.attributes.travel_package.payment_method')}:"
+    = @travel_package.payment_method
+
+  .mb-3
+    strong = "#{t('activerecord.attributes.travel_package.status')}:"
+    = form_for @travel_package, url: update_status_admin_travel_package_path(@travel_package), html: { class: 'd-flex' } do |f|
+      = f.select :status, booking_statuses_collection, {}, class: 'form-control d-inline w200px update-status-input'
+      = f.button t('views.buttons.update'), type: :submit , class: 'btn btn-green ml-2'
+
+  p
+    strong = "#{t('activerecord.attributes.travel_package.total_price')}:"
+    = gcamp_round_price(@travel_package.total_price)
+  p
+    strong = "#{t('.reserved_date_and_time')}:"
+    = @camp_car_booking.created_at.strftime(t('datetime.formats.long'))
+  p
+    strong = "#{t('activerecord.attributes.camp_car_booking.start_date_of_renting')}:"
+    = @camp_car_booking.start_date_of_renting.strftime(t('datetime.formats.short'))
+  p
+    strong = "#{t('activerecord.attributes.camp_car_booking.end_date_of_renting')}:"
+    = @camp_car_booking.end_date_of_renting.strftime(t('datetime.formats.short'))
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.address')}:"
+    = @travel_package&.booking_contact_information&.address
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.birthday')}:"
+    = @travel_package&.booking_contact_information&.birthday.strftime(t('datetime.formats.short'))
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.email')}:"
+    = @travel_package&.booking_contact_information&.email
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.name')}:"
+    = @travel_package&.booking_contact_information&.name
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.phone_number')}:"
+    = @travel_package&.booking_contact_information&.phone_number
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.number_of_male')}:"
+    = @travel_package&.booking_contact_information&.number_of_male
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.number_of_female')}:"
+    = @travel_package&.booking_contact_information&.number_of_female
+  p
+    strong = "#{t('admin.camp_car_bookings.index.note')}:"
+    = @camp_car_booking.note
+
+  = render "admin/booking_messages/booking_messages", item_booking: @camp_car_booking
+
+  - if @camp_car_booking.travel_package.is_editable?
+    => link_to t('views.buttons.edit'), edit_admin_camp_car_booking_path(@camp_car_booking)
+    '|
+  =< link_to t('views.buttons.back'), admin_camp_car_bookings_path
+
+  - if @travel_package.is_cancelable?
+    = link_to_delete_with cancel_admin_travel_package_path(@travel_package.id), \
+                          label: t('admin.camp_car_bookings.index.buttons.cancel'),
+                          class: 'ml-2',
+                          data: { \
+                            confirm: t('admin.camp_car_bookings.index.messages.confirm_delete'),
+                            confirm_button: t('admin.camp_car_bookings.index.messages.buttons.confirm'),
+                            cancel_button: t('admin.camp_car_bookings.index.messages.buttons.cancel') \
+                          }
+
+  = button_tag t('admin.camp_car_bookings.index.buttons.note'),
+              type: 'button',
+              class: 'btn btn-yellow ml-2 add-note-button',
+              data: {camp_car_booking_id: @camp_car_booking.id}
+
+  = render "admin/shared/modal", title: t('admin.camp_car_bookings.show.add_note_title')

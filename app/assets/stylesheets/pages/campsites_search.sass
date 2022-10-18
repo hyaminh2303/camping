@@ -1,0 +1,126 @@
+@import "../definitions/variables"
+@import './definitions/mixins'
+
+.campsite-search-container-wrapper
+  font-family: $primary-font-family
+
+  section.main-banner-wrapper
+    img
+      width: 100%
+      object-fit: cover
+      @include media-breakpoint-down(md)
+        height: 205px
+      @include media-breakpoint-up(lg)
+        height: 450px
+
+  .filter-group
+    margin-left: -2%
+    margin-right: -2%
+    .col-filter
+      width: 50%
+      padding-left: 2%
+      padding-right: 2%
+      .filter-item
+        margin-bottom: 10px
+
+      .close-up
+        display: block
+        text-align: center
+        color: #a7a7a7
+        margin-top: 15px
+
+    .line-end
+      height: 1px
+      background-color: $gray-color
+      margin-top: 13px
+      margin-bottom: 15px
+
+  #button-filter
+    margin-top: 30px
+    font-size: 11px
+
+  #advance-search
+    .filter-title
+      font-size: 12px
+      font-weight: bold
+
+    .bottom-buttons-wrapper
+      background-color: #E4F2F8
+      padding: 15px
+      justify-content: center
+
+    .number-of-checkbox-selected
+      color: $yellow-color
+
+    .icheck-default-style
+      padding: 0px 10px !important
+      display: flex
+      justify-content: center
+      align-items: center
+      @include box-shadow
+      background-color: #f0f0f0
+      color: $dark-blue-color
+      border: none
+      height: 24px
+      font-size: 9px
+      font-weight: bold
+      &:disabled
+        background-color: #f0f0f0
+
+    .icheck-checked-style
+      border-radius: 0px
+      background-color: transparent !important
+      border: 2px solid #1DAE9E !important
+
+  .filter-title
+    font-size: $font-size-md
+
+  .form-check-label
+    font-size: 13px
+    margin-left: 10px
+
+  .form-check-input
+    width: 18px
+    height: 18px
+    -webkit-appearance: none
+    border: solid 1px #e8e8e8
+
+  .form-check-input:checked
+    width: 18px
+    height: 18px
+    background-color: $blue-color
+    -webkit-appearance: checkbox
+
+  .search-results-title
+    h2.title
+      font-size: 28px
+
+  .information-wrapper
+    h3
+      a
+        font-size: 20px !important
+    h5.description
+      @include media-breakpoint-up(xl)
+        font-size: 13px !important
+  .blog-items
+    margin-top: 100px
+  @include media-breakpoint-up(xl)
+    .search-results-wrapper
+      max-width: 1155px
+
+  @include media-breakpoint-up(lg)
+    .col-custom
+      flex-basis: 0
+      flex-grow: 1
+      max-width: 100%
+    .content-search
+      min-width: 455px
+      max-width: 455px
+
+  @include media-breakpoint-down(sm)
+    .list-camp-element-items
+      .camp-element-item-horizontal
+        .information-wrapper
+          h3.item-content
+            a
+              font-size: 1.25rem !important

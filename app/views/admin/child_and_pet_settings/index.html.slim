@@ -1,0 +1,40 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.camp-car-container-wrapper
+  .data-content
+    = render 'shared/messages'
+
+    .button-actions.text-right
+      = link_to t('views.buttons.new'), new_admin_child_and_pet_setting_path, class: "btn btn-blue btn-new-record"
+
+    .table-responsive.text-nowrap
+      table.table
+        thead.font-13
+          tr
+            th
+            - if current_admin_user.is_super_admin?
+              th = t('activerecord.attributes.child_and_pet_setting.supplier_company_id')
+            th = t('activerecord.attributes.child_and_pet_setting.campsite_id')
+            th = t('activerecord.attributes.child_and_pet_setting.entity_type')
+            th = t('activerecord.attributes.child_and_pet_setting.entity_label')
+
+        tbody.font-14
+          - @child_and_pet_settings.each do |child_and_pet_setting|
+            tr
+              td.action.text-left
+                = link_to t('views.buttons.view'), admin_child_and_pet_setting_path(child_and_pet_setting), class: 'btn btn-blue'
+
+                = link_to t('views.buttons.edit'), edit_admin_child_and_pet_setting_path(child_and_pet_setting), class: 'btn btn-green'
+
+                = link_to_delete_with admin_child_and_pet_setting_path(child_and_pet_setting)
+
+              - if current_admin_user.is_super_admin?
+                td= child_and_pet_setting.campsite&.campsite_supplier_company&.company_name
+              td= child_and_pet_setting.campsite&.name
+              td= t("activerecord.enum.child_and_pet_setting.entity_type.#{child_and_pet_setting.entity_type}")
+              td= child_and_pet_setting.entity_label
+
+
+.container.pagination.justify-content-center
+  = paginate @child_and_pet_settings, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

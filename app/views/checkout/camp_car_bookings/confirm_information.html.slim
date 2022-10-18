@@ -1,0 +1,40 @@
+/ step 4
+.checkout-camp-car-booking-container-wrapper
+  = render 'shared/wizard', booking_type: :camp_car_booking, step: 4
+
+  .camp-car-booking-information-wrapper
+    = render 'shared/messages'
+    = simple_form_for @travel_package, url: update_booking_checkout_camp_car_bookings_path, method: :post, html: { class: 'camp-car-booking-form' } do |f|
+      = hidden_field_tag :current_camp_car_booking_step, 'confirm_information'
+
+      .page-title.mgt-35.mgb-24
+        = t("checkout.camp_car_bookings.page.title.confirmation_of_reservation_details")
+      = render "place_and_date_selection", f: f
+
+      .form-title.text-center.font-weight-bold.font-18
+        = t("checkout.camp_car_bookings.page.title.select_additional_options")
+      .booking-supplies-title.mgt-20.mgb-20
+        = t("checkout.camp_car_bookings.page.title.rental_equipment")
+
+      = f.simple_fields_for :camp_car_booking do |ff|
+        = render "camp_car_options_included_in_booking", ff: ff
+
+      .form-title.text-center.font-weight-bold.font-18
+        = t("checkout.camp_car_bookings.page.title.confirmation_of_the_contents_of_person")
+      = render "checkout/shared/booking_contact_information", f: f, disabled: false
+
+      .row
+        .col-12
+          label.font-12.font-weight-bold= t('checkout.camp_car_bookings.page.policy')
+        .col-12
+          = text_area :policy, "", class: 'box-shadown-input font-14 form-control', rows: 5, style: "resize: none", disabled: true
+
+      .action-button-wrapper
+        .row.mgt-60
+          .col-12.text-center
+            button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+              = t('checkout.camp_car_bookings.page.registrations.new.submit')
+          .col-12.mgt-12.text-center
+            = link_to t('views.buttons.back'),
+                      contact_information_checkout_camp_car_bookings_path,
+                      class: 'btn btn-w350-full-width-mobile btn-black'

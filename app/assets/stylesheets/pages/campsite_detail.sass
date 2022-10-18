@@ -1,0 +1,21 @@
+@import '../definitions/variables'
+@import '../components/campsite-details-on-mobile'
+@import '../components/campsite-details-on-desktop'
+
+.campsite-detail-container-wrapper
+  font-family: $primary-font-family
+
+  @include media-breakpoint-down(sm)
+    @include campsite-details-on-mobile
+  @include media-breakpoint-up(md)
+    @include campsite-details-on-desktop
+
+  .text-border-bottom
+    height: 100%
+    &.blue
+      border-bottom: 1px solid $light-blue-color
+    &.gray
+      border-bottom: 1px solid $light-gray-color
+
+  .text-border-bottom > p:empty
+    display: none

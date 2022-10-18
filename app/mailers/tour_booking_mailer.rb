@@ -1,0 +1,2 @@
+class TourBookingMailer < BookingMailer
+end

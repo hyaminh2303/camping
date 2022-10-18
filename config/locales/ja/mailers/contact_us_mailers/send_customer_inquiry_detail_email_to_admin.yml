@@ -1,0 +1,6 @@
+ja:
+  contact_us_mailer:
+    send_customer_inquiry_detail_email_to_admin:
+      content:
+        line_1: お客様からお問合せが届きました。
+        line_2: 管理画面にログインし、問合せ内容を確認してください。

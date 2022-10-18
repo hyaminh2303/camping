@@ -1,0 +1,15 @@
+ja:
+  admin:
+    campsite_sale_managements:
+      index:
+        page_title: 売上管理
+        page_description: キャンプ場売上管理
+        commission_contract: 契約タイプ：コミッション
+        number_of_bookings: 合計予約数
+        total_price: 合計金額
+        commission_percentage: コミッション％
+        prefecture: 都道府県
+        total_sale: 合計売上金額
+        no_commission_contract: 契約タイプ： 掲載料のみ
+        publication_fee: 掲載料
+        month_year: 年月

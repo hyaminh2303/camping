@@ -1,0 +1,9 @@
+.checkout-camp-car-booking-container-wrapper
+  .thank-you-wrapper
+    = render 'shared/wizard', booking_type: :camp_car_booking, step: 6
+    = render 'shared/messages'
+    .form-title.text-center.font-weight-bold.font-18
+      .page-title.mgt-35.mgb-24
+        = t("checkout.camp_car_bookings.camp_car_booking_steps.step6")
+  .camp-car-booking-information-wrapper
+    = render 'shared/action_buttons'

@@ -1,0 +1,15 @@
+ja:
+  admin:
+    child_and_pet_settings:
+      index:
+        page_title: 子供・ペット区分設定
+        page_description: 子供・ペット区分一覧
+      new:
+        page_title: 子供・ペット区分設定
+        page_description: 子供・ペット設定
+      edit:
+        page_title: 子供・ペット区分設定
+        page_description: 子供・ペット区分編集
+      show:
+        page_title: 子供・ペット区分設定
+        page_description: 子供・ペット区分設定詳細

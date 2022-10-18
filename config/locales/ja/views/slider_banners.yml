@@ -1,0 +1,19 @@
+ja:
+  admin:
+    slider_banners:
+      index:
+        page_title: トップページ画像設定
+        page_description: トップページ画像一覧
+      new:
+        page_title: トップページ画像設定
+        page_description: トップページ画像追加
+      edit:
+        page_title: トップページ画像設定
+        page_description: バナー編集
+        img_notation: 推奨画像サイズ：横1140px, 縦430px
+      show:
+        page_title: トップページ画像設定
+        page_description: バナー詳細
+      general:
+        add_photo: 更に写真を追加
+

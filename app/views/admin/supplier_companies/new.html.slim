@@ -1,0 +1,10 @@
+- content_for :page_title, t(".page_title.#{params[:supplier_company_type]}")
+- content_for :page_description, t(".page_description.#{params[:supplier_company_type]}")
+
+.data-content
+  h2.page-primary-title = t(".page_description.#{params[:supplier_company_type]}")
+  hr
+
+  = render 'form'
+
+  = link_to t('views.buttons.back'), admin_supplier_companies_path(params[:supplier_company_type])

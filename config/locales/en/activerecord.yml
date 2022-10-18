@@ -1,0 +1,543 @@
+en:
+  errors:
+    format: "%{attribute} %{message}" # Only accept the error message format here
+
+  activerecord:
+    enum:
+      supplier_company:
+        contract_type:
+          commission_base: Commission Base
+          no_commission: No Commission
+      travel_package:
+        payment_method:
+          credit_card: Credit card
+          cash: Cash
+        status:
+          booked: Booked
+          temporary_booked: Temporary booked
+          canceled: Canceled
+          no_show: No show
+          check_out: Check out
+          incomplete: Incomplete
+      slider_banner:
+        position:
+          top: Top
+          middle: Middle
+          bottom: Bottom
+        page:
+          home: Home
+      campsite_plan_fee:
+        fee_type:
+          normal: Normal
+          classification_day: Classification day
+      child_and_pet_setting:
+        entity_type:
+          child: Child
+          pet: Pet
+
+    errors:
+      models:
+        customer_user:
+          attributes:
+            birthday:
+              format: "%{message}"
+      messages:
+        accepted: Please accept
+        blank: Please enter
+        confirmation: And %{attribute} inputs do not match
+        empty: Please enter
+        equal_to: Should be %{count}
+        even: Should be an even number
+        exclusion: Is reserved
+        greater_than: Must be greater than %{count}
+        greater_than_or_equal_to: Must be greater than or equal to %{count}
+        inclusion: Is not in the list
+        invalid: Is an invalid value
+        less_than: Must be less than %{count}
+        less_than_or_equal_to: Must be less than or equal to %{count}
+        model_invalid: 'Validation failed: %{errors}'
+        not_a_number: Please enter a numerical value
+        not_an_integer: Please enter as an integer
+        odd: Should be odd
+        other_than: Should be a value other than %{count}
+        present: Do not enter
+        required: Please enter
+        taken: Already exists
+        too_long: Please enter within %{count} characters
+        too_short: Please enter at least %{count} characters
+        wrong_length: Please enter in %{count} characters
+        already_exists: Already exists
+        at_least_3_days_from_the_current_date: must be at least 3 days from the current date
+        can_not_edit_for_credit_card_payment_method: can not edit for credit card payment method
+        validate_image_file_type: must be image file type of jpg, jpeg or png
+        phone_format: must be numbers only Example) 09012345678 or +84-123-456-7890
+        can_not_select_both: can not select both
+        number_of_people_different_from_reserved_number: Please ensure this adds up to the total number of people
+        remaining_stock: 在庫数を超えています
+        invalid_birthday: Please do not select future date
+
+      template:
+        body: Check the following items
+        header:
+          one: "An error occurred in %{model}"
+        other: "%{Count} errors have occurred in %{model}"
+
+    models:
+      customer_user:
+        one: Customer user
+        other: Customer users
+      campsite:
+        one: Campsite
+        other: Campsites
+      campsite_entrance_fee:
+        one: Campsite entrance fee
+        other: Campsite entrance fees
+      photo:
+        one: Photo
+        other: Photos
+      campsite_plan:
+        one: Campsite plan
+        other: Campsite plans
+      campsite_plan_fee:
+        one: Campsite plan fee
+        other: Campsite plan fees
+      campsite_plan_fee_detail:
+        one: Campsite plan fee detail
+        other: Campsite plan fee details
+      campsite_plan_daily_fee_setting:
+        one: Campsite plan daily fee setting
+        other: Campsite plan daily fee settings
+      child_and_pet_setting:
+        one: Child and pet setting
+        other: Child and pet settings
+      glover_company:
+        one: Glover company
+        other: Glover companies
+      supplier_company:
+        one: Supplier company
+        other: Supplier companies
+      campsite_supplier_company:
+        one: Campsite supplier company
+        other: Campsite supplier companies
+      camp_car_supplier_company:
+        one: Camp car supplier company
+        other: Camp car supplier companies
+      supplier_corporate_representative_information:
+        one: Supplier corporate representative information
+        other: Supplier corporate representatives information
+      supplier_contact_information:
+        one: Supplier contact information
+        other: Supplier contacts information
+      admin_user:
+        one: Admin user
+        other: Admin users
+      role:
+        one: Role
+        other: Roles
+      camp_category_group:
+        one: Camp category group
+        other: Camp category groups
+      camp_category:
+        one: Camp category
+        other: Camp categories
+      camp_car_category:
+        one: Camp car category
+        other: Camp car categories
+      camp_car:
+        one: Camp car
+        other: Camp cars
+      classification_day_setting:
+        one: Classification day setting
+        other: Classification day settings
+      campsite_booking:
+        one: Campsite booking
+        other: Campsite bookings
+      travel_package:
+        one: Travel package
+        other: Travel packages
+      campsite_plan_quantity:
+        one: Campsite plan quantity
+        other: Campsite plan quantities
+      camp_car_quantity:
+        one: Camp car quantity
+        other: Camp car quantities
+      camp_car_option:
+        one: Camp car option
+        other: Camp car options
+      camp_car_booking:
+        one: Camp car booking
+        other: Camp car bookings
+      recommended_camp_item:
+        one: Recommended camp item
+        other: Recommended camp items
+      blog_category:
+        one: グローバー記事カテゴリ
+        other: Blog categories
+      blog:
+        one: Blog
+        other: Blogs
+      master/state:
+        one: State
+        other: States
+
+    attributes:
+      campsite:
+        address: Address
+        basic_fee: Basic fee
+        contact_number: Contact number
+        extra_person_fee: Additional charge per adult
+        name: Campground name
+        number_of_people_pet_included: Number of people including basic rates
+        city_id: City
+        prefecture_id: Prefectures
+        state_id: State
+        supplier_company_id: Supplier
+        unique_id: Campsible number
+        photos: Photo
+        camp_category_id: Campsite Category Advanced Settings
+        campsite_plans: このキャンプ場に付随するプラン設定へ
+        description: Description
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+        tags_ja_list: Tags JA
+        tags_en_list: Tags EN
+        tags_ko_list: Tags KO
+        tags_zh_list: Tags ZH
+        address_ja: Address JA
+        address_en: Address EN
+        address_ko: Address KO
+        address_zh: Address ZH
+        business_information_ja: Business information JA
+        business_information_en: Business information EN
+        business_information_ko: Business information KO
+        business_information_zh: Business information ZH
+        description_ja: Description JA
+        description_en: Description EN
+        description_ko: Description KO
+        description_zh: Description ZH
+        fax: Fax
+        about_cancellation: About cancellation
+        about_cancellation_ja: About cancellation JA
+        about_cancellation_en: About cancellation EN
+        about_cancellation_zh: About cancellation ZH
+        about_cancellation_ko: About cancellation KO
+        email_address: Email address
+        peripheral_facilities: Peripheral facilities
+        peripheral_facilities_ja: Peripheral facilities JA
+        peripheral_facilities_en: Peripheral facilities EN
+        peripheral_facilities_zh: Peripheral facilities ZH
+        peripheral_facilities_ko: Peripheral facilities KO
+      campsite_entrance_fee:
+        adult_fee: Adult fee
+      campsite_plan:
+        campsite_id: Campsite
+        check_in_time: Check in time
+        check_out_time: Check out time
+        description: Description
+        max_number_of_people: Max number of accepted people
+        name: Campsite plan name
+        quantity: Default quantity
+        campsite_plan_quantities: Campsite plan quantities per day
+        people_type: People type
+        public_info: Public info
+        publication_period: Publication period
+        tag_list: Tag list
+        tags_ja_list: Tags JA
+        tags_en_list: Tags EN
+        tags_ko_list: Tags KO
+        tags_zh_list: Tags ZH
+        photos: Photos
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+        subtitle_ja: Subtitle JA
+        subtitle_en: Subtitle EN
+        subtitle_ko: Subtitle KO
+        subtitle_zh: Subtitle ZH
+        description_ja: Description JA
+        description_en: Description EN
+        description_ko: Description KO
+        description_zh: Description ZH
+        is_included_entrance_fee: Is included entrance fee?
+      campsite_plan_fee:
+        end_date: End date
+        fee_type: Fee type
+        start_date: Start date
+        classification_day_setting_ids: Classification day setting
+      campsite_plan_fee_detail:
+        basic_fee: Basic fee
+        extra_person_fee: Extra person fee
+        number_of_people_pet_included: Number of people/pet
+      campsite_plan_daily_fee_setting:
+        basic_fee: Basic fee
+        date: Date
+        extra_person_fee: Extra person fee
+        number_of_people_pet_included: Number of people pet included
+      child_and_pet_setting:
+        entity_label: Label
+        entity_type: Type
+        entity_label_ja: Entity label JA
+        entity_label_en: Entity label EN
+        entity_label_ko: Entity label KO
+        entity_label_zh: Entity label ZH
+        supplier_company_id: Campsite supplier company
+        campsite_id: Campsite
+      glover_company:
+        company_name: Company name
+        hp_url: Hp url
+        location: Location
+        phone_number: Phone number
+      supplier_company:
+        company_name: Company name
+        corporate_category: Corporate classification
+        corporate_name_kana: Corporate Name Kana
+        fax: Fax
+        post_code: Post code
+        hp_url: Home page URL
+        location: Location
+        operation_classification: Management classification
+        phone_number: Phone number
+        ryokan: Ryokan
+        type: Type
+        supplier_corporate_representative_information: Supplier company representative information
+        supplier_contact_information: Contact information
+        note: Note
+      supplier_corporate_representative_information:
+        email_address: Email address
+        name_of_representative: Representative name
+        name_of_representative_kana: Company representative name (Kana)
+        position: Director
+      supplier_contact_information:
+        accounting_personnel_information: Accounting person information
+        email_address: Email address
+        fax: Fax
+        post_code: Post code
+        location: Location
+        name_of_person_in_charge: Person in charge
+        person_in_charge_name_kana: Name Kanana
+        phone_number: Phone number
+      admin_user:
+        email: Email address
+        supplier_company_id: Supplier name
+        role: Administrator type
+        password: Password
+        password_confirmation: Password reconfirmation
+      role:
+        name: Name
+        resource_type: Resource type
+      camp_category_group:
+        name: Name
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+        is_facility_type: Is facility type
+        is_the_facility_in_the_hall: Is the facility in the hall?
+        is_shown_on_the_front_end: Is shown on the front end?
+      camp_category:
+        name: Name
+        camp_category_group: Camp category group
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+      camp_car_category:
+        model: Model
+        seats: Seats
+        pick_up_drop_off_place_id: Pick up and drop off place
+        model_ja: Model JA
+        model_en: Model EN
+        model_ko: Model KO
+        model_zh: Model ZH
+      camp_car:
+        car_type: Car type
+        is_pick_up_and_drop_off_place_same: Is pick up and drop off place same
+        is_public: Is public
+        maximum_number_of_people: Maximum number of people
+        name: Name
+        product_id: Product id
+        photos: Photos
+        supplier_company_id: Supplier company
+        fee_per_hour: Fee per hour
+        fee_per_day: Fee per day
+        camp_car_option_ids: Camp car options
+        state_id: State
+        prefecture_id: Prefecture
+        tag_list: Tag list
+        subtitle: Subtitle
+        description: Description
+        quantity: Quantity
+        camp_car_quantities: Campsite plan quantities per day
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+        description_ja: Description JA
+        description_en: Description EN
+        description_ko: Description KO
+        description_zh: Description ZH
+        subtitle_ja: Subtitle JA
+        subtitle_en: Subtitle EN
+        subtitle_ko: Subtitle KO
+        subtitle_zh: Subtitle ZH
+      classification_day_setting:
+        color: Color
+        name: Name
+      customer_user:
+        email: Email address
+        birthday: Date of birth
+        password: Password
+        phone_number: Phone number
+        last_name: Last name
+        first_name: First name
+        country_id: Country of residence
+        post_code: Post code
+        address: Address
+      credit_card:
+        card_holder_name: Card holder Name
+        number: Card Number
+        date_of_expiry: Expired
+        exp_month: Month
+        exp_year: Year
+        cvc: Security Code
+        policy: Cancel Policy
+        click_here: Here
+      booking_contact_information:
+        email: Email address
+        name: Booking person name
+        post_code: Post code
+        address: Address
+        birthday: Date of birth (YYYY/MM/DD)
+        phone_number: Phone number
+        number_of_male: Number of male
+        number_of_female: Number of female
+        number_of_people: ''
+
+        # https://app.clickup.com/t/1xwmern
+        custom_number_of_male: ""
+        custom_number_of_female: ""
+        custom_error_message_number_of_male: Please enter how many male are included in number of people
+        custom_error_message_number_of_female: Please enter how many female are included in number of people
+
+      campsite_booking:
+        check_in: Check in
+        check_out: Check out
+        number_of_adult: Number of adult
+        supplier_company: Supplier Company
+      travel_package:
+        booking_type: Booking type
+        payment_method: Payment method
+        status: Status
+        total_price: Total price
+        booking_ref_number: Booking number
+      campsite_plan_quantity:
+        date: Date
+        quantity: Quantity
+      camp_car_quantity:
+        date: Date
+        quantity: Quantity
+      camp_car_booking:
+        start_date_of_renting: Start date of renting
+        end_date_of_renting: End date of renting
+      camp_car_option:
+        supplier_company_id: Camp car supplier
+        name: Name
+        fee_per_day: Fee per day
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+      contact_us:
+        name: Name
+        email: Email
+        phone_number: Phone number
+        details_of_inquiry: Details of inquiry
+      slider_banner:
+        page: 'Page'
+        position: 'Position'
+        photos: 'Photos'
+      photo:
+        on_click_url: On click url
+      notice:
+        title_ja: Title JA
+        title_en: Title EN
+        title_ko: Title KO
+        title_zh: Title ZH
+        content_ja: content JA
+        content_en: content EN
+        content_ko: content KO
+        content_zh: content ZH
+        photo: Photo
+        supplier_company_id: Supplier company
+        publish_date: Publish date
+      recommended_camp_item:
+        supplier_company_id: Supplier company
+        weight: Weight
+        item_type: Item type
+        recommended_campsite: Campsite
+        recommended_camp_car: Camp car
+        recommended_itemable_id:
+          one: ''
+          campsite: Campsite
+          camp_car: Camp car
+      blog_category:
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+        icon: Icon
+        weight: Prefecture Code
+      blog:
+        title_ja: Title JA
+        title_en: Title EN
+        title_ko: Title KO
+        title_zh: Title ZH
+        description_ja: Description JA
+        description_en: Description EN
+        description_ko: Description KO
+        description_zh: Description ZH
+        content_ja: Content JA
+        content_en: Content EN
+        content_ko: Content KO
+        content_zh: Content ZH
+        tags_ja_list: Tags JA
+        tags_en_list: Tags EN
+        tags_ko_list: Tags KO
+        tags_zh_list: Tags ZH
+        areas_ja_list: Areas JA
+        areas_en_list: Areas EN
+        areas_ko_list: Areas KO
+        areas_zh_list: Areas ZH
+        blog_category_id: Blog category
+        tag_list: Tag list
+        area_list: Area list
+        photo: Photo
+        content: Content
+        publish_date: Publish date
+        to_top_page: To TOP page
+      campsite_plan_option:
+        supplier_company_id: Supplier company
+        campsite_id: Campsite
+        quantity: Quantity
+        name: Name
+        price: Price
+        name_ja: Name JA
+        name_en: Name EN
+        name_ko: Name KO
+        name_zh: Name ZH
+      accountant:
+        email: Email address
+        name: Name
+        name_phonetic: Name(phonetic)
+        phone_number: Phone number
+        supplier_company_id: Supplier company
+      bank:
+        name: Name
+        branch_name: Branch name
+        account_type: Account type
+        account_number: Account number
+        account_holder: Account holder
+        account_holder_frigana: Account holder(Frigana)

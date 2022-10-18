@@ -1,0 +1,24 @@
+ja:
+  campsite_booking_mailer:
+    send_actual_sale_email_to_customer:
+      content:
+        line_1: この度はG’Campをご利用いただき、誠にありがとうございます。
+        line_2: 以下のご予約につき、決済が承認されましたのでご連絡いたします。
+        line_3: □■□ ご予約内容 □■□
+        booking_number: 予約番号
+        booking_date: 予約日
+        accommodation_name: 宿泊施設名
+        accommodation_address: 宿泊施設住所
+        accommodation_phone_number: 宿泊施設電話番号
+        check_in_date_and_time: チェックイン日時
+        check_out_date_and_time: チェックアウト日時
+        booking_plan: ご予約プラン
+        booking_options: ご予約オプション
+        customer_name: 宿泊者氏名
+        number_of_people: 人数
+        none: なし
+        payment_method: お支払方法
+        total_price: お支払金額
+        payment_date: お支払日
+        yen_unit: 円（税込）
+        sama: 様、

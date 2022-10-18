@@ -1,0 +1,27 @@
+.contact-wrapper.container
+  section.header-wrapper
+    .row.my-5
+      .col-12.font-18.font-weight-bold.text-center 入力内容に誤りがあります
+  section.content-wrapper
+    form.contact-information-form
+      .form-group.input-container.mb-4
+        label for="name"
+          | お名前
+          span.require-input-icon *
+        input#name.form-control.pl-3.border-0.error placeholder="akiraizutsu@gmail.com" type="email" value="必須項目です" /
+      .form-group.input-container.mb-4
+        label for="email"
+          | メールアドレス
+          span.require-input-icon *
+        input#email.form-control.pl-3.border-0.error placeholder="akiraizutsu@gmail.com" type="text" value="メールアドレス形式で入力してください" /
+      .form-group.input-container.mb-4
+        label for="phone_number"
+          | 電話番号
+          span.require-input-icon *
+        input#phone_number.form-control.pl-3.border-0 placeholder="07089460314" type="text" /
+      .form-group.input-container
+        label for="content_of_require" お問い合わせ内容
+        textarea#content_of_require.form-control.pl-3.border-0 rows='5'
+
+      .text-center.mgt-30.mgb-78
+        a href='#' class='btn btn-yellow font-weight-bold no-border-radius font-16' 内容を確認する

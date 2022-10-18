@@ -1,0 +1,15 @@
+.registration-wrapper
+  .container.py-5
+    .form-title.text-center.font-weight-bold.font-18
+      = t('customer_users.registrations.new.title')
+
+    = simple_form_for(@customer_user, url: checkout_member_registrations_path) do |f|
+      = render 'checkout/shared/booking_inputs'
+
+      .row
+        .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+          = render 'shared/customer_users/registrations/sign_up_information_inputs', f: f
+
+          .text-center.form-group.mt-5
+            button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+              = t('customer_users.registrations.new.submit')

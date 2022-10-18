@@ -1,0 +1,10 @@
+en:
+  admin:
+    payments:
+      add_card:
+        error_messages:
+          booking_not_found: Booking not found
+
+  payments:
+    credit_card_addition_expired:
+      messages: Credit card addition expired, so this booking has been canceled

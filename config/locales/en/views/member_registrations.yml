@@ -1,0 +1,10 @@
+en:
+  verification_email:
+    content:
+      An email has been sent to the email address you specified. <br>
+      An authentication email has been sent to your registered email address. Please proceed to registration from the URL described in the email. <br><br>
+      ※ If you do not receive the verification email <br>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp; When making a reservation via a smartphone, there are many cases where the confirmation email is not received. <br>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp; If you have set domain reception restrictions, please change the settings so that you can receive from "noreply@gcamp.jp". <br>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp; It may be automatically sorted to another folder as junk mail by the junk mail filter. In that case, please check your junk mail folder. <br>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp; If you anticipate that the email address you registered was incorrect, please restart the registration procedure from the beginning.

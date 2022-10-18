@@ -1,0 +1,24 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  p
+    strong = "#{t('activerecord.attributes.contact_us.created_at')}:"
+    = @contact_us.created_at.strftime('%d/%m/%Y')
+  p
+    strong = "#{t('activerecord.attributes.contact_us.name')}:"
+    = @contact_us.name
+  p
+    strong = "#{t('activerecord.attributes.contact_us.email')}:"
+    = @contact_us.email
+  p
+    strong = "#{t('activerecord.attributes.contact_us.phone_number')}:"
+    = @contact_us.phone_number
+  p
+    strong = "#{t('activerecord.attributes.contact_us.details_of_inquiry')}:"
+    = @contact_us.details_of_inquiry
+
+  =< link_to t('views.buttons.back'), admin_contact_us_index_path

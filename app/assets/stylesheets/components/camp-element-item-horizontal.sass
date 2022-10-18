@@ -1,0 +1,64 @@
+@import '../definitions/mixins'
+@import '../definitions/variables'
+
+.list-camp-element-items
+  .camp-element-item-horizontal
+    .image-wrapper
+      @include media-breakpoint-down(md)
+        max-width: 148px
+      img:hover
+        opacity: 0.5
+      img
+        object-fit: cover
+        width: 100%
+        @include media-breakpoint-up(lg)
+          height: 170px
+          padding-right: 12px
+
+        @include media-breakpoint-down(md)
+          height: 148px
+          width: 148px
+
+    .information-wrapper
+      @include media-breakpoint-down(sm)
+        padding-right: 20px
+      h3.item-content
+        // @include truncate | https://app.clickup.com/t/219bxj8
+        font-weight: 500
+        a
+          color: $primary-text-color
+          font-family: $primary-font-family
+          font-size: 22px
+          @include media-breakpoint-only(lg)
+            font-size: 17px
+          @include media-breakpoint-only(md)
+            font-size: 15px
+          @include media-breakpoint-down(sm)
+            font-size: 13px
+
+          &:hover
+            text-decoration: none
+
+      h5.description
+        font-family: $primary-font-family
+        font-size: 16px
+        font-weight: 300
+        overflow: hidden
+        @include media-breakpoint-only(xl)
+          max-height: 40px
+        @include media-breakpoint-only(lg)
+          max-height: 30px
+          font-size: 12px
+        @include media-breakpoint-only(md)
+          font-size: 12px
+        @include media-breakpoint-down(sm)
+          font-size: 9px
+        @include media-breakpoint-up(xl)
+          font-size: 14px
+          font-weight: 400
+          overflow: hidden
+          line-height: 1.5
+      .tags
+        @include media-breakpoint-up(xl)
+          .btn-gray
+            padding: 0.25rem 0.5rem

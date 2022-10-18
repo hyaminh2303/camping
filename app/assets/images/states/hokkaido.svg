@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1076">
+  <defs>
+    <style>
+      .cls-1, .cls-5 {
+        fill: #3acec3;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #429fca;
+      }
+
+      .cls-4 {
+        font-size: 30.3px;
+      }
+
+      .cls-4, .cls-5 {
+        font-family: Arial-Black, Arial Black;
+        font-weight: 800;
+      }
+
+      .cls-5 {
+        font-size: 20.87px;
+      }
+    </style>
+  </defs>
+  <g id="HOKKAIDO_area" data-name="HOKKAIDO area">
+    <g>
+      <g id="HOKKAIDO">
+        <g id="hokkaido_base" data-name="hokkaido base">
+          <path id="hokkaido_outline_base" data-name="hokkaido outline base" class="cls-1" d="M579,397.58H291.9a31.05,31.05,0,0,0-31,31V682.08a31.06,31.06,0,0,0,31,31h52.43a31.05,31.05,0,0,0,31-31V655.22H579a31,31,0,0,0,31-31V428.59A31,31,0,0,0,579,397.58Z"/>
+          <path id="hokkaido_base_white" data-name="hokkaido base white" class="cls-2" d="M579,408.22H291.9a20.4,20.4,0,0,0-20.37,20.37V682.08a20.4,20.4,0,0,0,20.37,20.38h52.43a20.41,20.41,0,0,0,20.38-20.38V653.14a8.57,8.57,0,0,1,8.55-8.56H579a20.4,20.4,0,0,0,20.37-20.37V428.59A20.4,20.4,0,0,0,579,408.22Z"/>
+        </g>
+        <path id="hokkaido-2" data-name="hokkaido" class="cls-3" d="M593.45,624.21A14.51,14.51,0,0,1,579,638.67H373.26a14.5,14.5,0,0,0-14.46,14.47v28.94a14.51,14.51,0,0,1-14.47,14.47H291.9a14.5,14.5,0,0,1-14.46-14.47V428.59a14.49,14.49,0,0,1,14.46-14.46H579a14.5,14.5,0,0,1,14.46,14.46Z"/>
+      </g>
+      <text class="cls-4" transform="translate(347.93 541.36)">HOKKAIDO</text>
+    </g>
+    <g id="HOKKAIDO_title" data-name="HOKKAIDO title">
+      <g>
+        <rect class="cls-1" x="365.91" y="330.01" width="145.51" height="39.63" rx="11.74"/>
+        <rect class="cls-2" x="421.33" y="279.54" width="34.67" height="140.56" rx="9.26" transform="translate(788.49 -88.85) rotate(90)"/>
+      </g>
+      <text class="cls-5" transform="translate(374.91 355.58)">HOKKAIDO</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,129 @@
+section.banner-wrapper.container
+  .main-slider.mb-2
+    .main-slider.mb-2
+      - if @campsite.photos.present?
+        - @campsite.photos.last(4).each do |photo|
+          .slider-item
+            = image_tag photo.image.url
+
+section.container.title-content
+  .prefecture.btn.btn-turquoise.btn-radius.btn-normal = @campsite.prefecture.name
+  .campsite-name.mt-2 = @campsite.name
+  .row.align-items-center.my-2
+    .col-8.address-with-post-code
+      i.fas.fa-map-marker-alt.mr-2.text-blue
+      span.location-text data-toggle="modal" data-target="#gcampMapOnMobile"
+        = custom_address_text_for(@campsite)
+    .col-4.d-flex.justify-content-center.align-items-center.map-wrapper
+      a href='javascript:void(0)' data-toggle="modal" data-target="#gcampMapOnMobile" class='text-blue see-map' = t('campsites.show.see_map')
+      .modal.fade id="gcampMapOnMobile" tabindex="-1" role="dialog" aria-labelledby="gcampMapTitle" aria-hidden="true"
+        .modal-dialog.modal-dialog-centered.modal-xl role="document"
+          .modal-content
+            .modal-header
+              .modal-title = @campsite.name
+              button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                span aria-hidden="true" &times;
+            .modal-body
+              ruby:
+                location = if @campsite.latitude.present? && @campsite.longitude.present?
+                  "#{@campsite.latitude}, #{@campsite.longitude}"
+                else
+                  ""
+                end
+              iframe src="https://maps.google.com/maps?q=#{location}&output=embed" width="100%" height="100%"
+  .contact-number.flex-grow-1
+    - if @campsite.contact_number.present?
+      a.text-decoration-none href="telto: #{@campsite.contact_number}"
+        i.fas.fa-phone.mr-2.text-blue
+        = @campsite.contact_number
+  .row-content.align-items-center.my-2
+    .camp-types.flex-grow-1
+      - @campsite.camp_types.each do |camp_type|
+        .camp-type.btn.btn-turquoise.btn-radius.btn-normal.mr-2.mt-1 = camp_type.name
+  .row-content.tags-list
+    - @campsite.tags_locale_list.last(3).each do |tag|
+      .btn.btn-light-yellow.btn-radius.btn-normal.mr-2.mt-1 = tag
+  .mgt-35.text-center
+    a.btn.btn-blue.btn-radius.btn-normal.check-information-btn href="#{@campsite.campsite_plans.public_plans.empty? ? '##business-information-on-mobile' : '#campsite-plans-on-mobile'}"
+      = @campsite.campsite_plans.public_plans.empty? ? t('campsites.show.check_sales_information') : t('campsites.show.select_plan')
+
+section.container.body-content
+  #description-text-on-mobile.content-wrapper
+    .title = t('campsites.show.about_this_campsite')
+    .content
+      = raw @campsite.description
+  #camp-categories-on-mobile.content-wrapper
+    .row
+      - camp_categories_except_facility_in_the_hall_for(@campsite).each_with_index do |camp_categories, index|
+        .col-4 class="#{index==0 ? 'mt-0' : 'mt-3'}"
+          .text-border-bottom.blue.font-12.font-weight-bold = camp_categories[:group].name
+        .col-8 class="#{index==0 ? 'mt-0' : 'mt-3'}"
+          .text-border-bottom.gray
+            p.font-12
+              = camp_categories[:selected_camp_categories].map(&:name).join(', ')
+  #sketch-on-mobile.content-wrapper
+    .title = t('campsites.show.sketch')
+    .row.image-wrapper.content.no-gutters
+      - (@campsite.campsite_content_photos.presence || []).each_with_index do |content_photo, index|
+        .col-6.image-item class="#{ index.odd? ? 'pl-2' : 'pr-1' }"
+          .overlay.light-box
+            .container
+              .btn-wrapper
+                .closebtn &times;
+              .overlay-content
+                = gcamp_image_tag content_photo.photo.image
+
+          = gcamp_image_tag content_photo.photo.image, class: 'img-fluid'
+          a.btn.btn-blue.btn-radius.btn-normal.look-at-the-sketch-btn href='javascript:void(0)' = t('campsites.show.look_at_the_sketch')
+  #facilities-on-mobile.content-wrapper
+    .title = t('campsites.show.facilities_in_the_hall')
+    / https://app.clickup.com/t/1xwm5xx
+    / https://app.clickup.com/t/2buq1ye
+    - camp_categories = camp_categories_with_facility_in_the_hall_for(@campsite)
+    - if camp_categories.present?
+      .content.background-border
+        .camp-category-wrapper.main-wrapper
+          - camp_categories[:original_camp_categories].each do |original_camp_category|
+            - is_selected = camp_categories[:selected_camp_categories].include?(original_camp_category)
+            .btn class="#{'camp-category-item btn-turquoise btn-radius btn-normal' if is_selected }"
+              = original_camp_category.name
+  #business-information-on-mobile.content-wrapper
+    .title = t('campsites.show.business_information')
+    - if @campsite.business_information.present?
+      .content.background-border
+        .main-wrapper
+          = simple_format @campsite.business_information
+  #peripheral-facility-on-mobile.content-wrapper
+    .title = t('campsites.show.peripheral_facilities')
+    - if @campsite.peripheral_facilities.present?
+      .content.background-border
+        .main-wrapper
+          = simple_format @campsite.peripheral_facilities
+  - if @notice.present?
+    #news-on-mobile.content-wrapper
+      .title = t('campsites.show.news')
+      .content.background-border
+        .main-wrapper
+          .title-news = @notice.title
+          .description
+            = raw truncate_html(@notice.content, length: 125, omission: '...')
+          = link_to t('campsites.show.read_the_article'), notice_path(@notice)
+      .see-all-article
+        = link_to t('campsites.show.show_all_article'), notices_path(item_type: @notice.item_type, campsite_id: @campsite.id), class: 'btn btn-blue btn-radius btn-normal'
+  #campsite-plans-on-mobile.content-wrapper
+    .title = t('campsites.show.select_plan')
+    - @campsite.campsite_plans.public_plans.each do |campsite_plan|
+      .content.background-border
+        .main-wrapper
+          .image-wrapper
+            = link_to (gcamp_image_tag campsite_plan.photos.first&.image), campsite_plan_path(campsite_plan)
+          .info.flex-grow-1
+            .plan-name
+              = link_to campsite_plan.name, campsite_plan_path(campsite_plan)
+            .booking-price-wrapper
+              .price
+                span.text-desc = t('campsites.show.one_night_two_days')
+                span.amount
+                  = t('campsites.show.models.price',price: get_campsite_plan_price(campsite_plan))
+              = link_to t('campsites.show.booking_with_this_plan'), campsite_plan_path(campsite_plan),
+                        class: 'btn btn-yellow btn-radius btn-normal'

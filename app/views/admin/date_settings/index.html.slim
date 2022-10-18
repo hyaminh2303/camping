@@ -1,0 +1,85 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.date-setting-container-wrapper
+  .data-content
+    = render 'shared/messages'
+
+    = form_with url: admin_date_settings_path, method: :get do |f|
+      - if current_admin_user.is_super_admin?
+        .form-group
+          = f.label :campsite_supplier_company_id, CampsiteSupplierCompany.model_name.human
+          = f.select :campsite_supplier_company_id,
+                      campsite_supplier_companies_collection,
+                      { selected: @campsite_supplier_company.id },
+                      class: 'form-control select2-single-selection',
+                      onchange: 'this.form.submit()'
+
+      .form-group
+        - collection = @campsite_supplier_company.campsites.map{|c| [c.name, c.id]}
+
+        = f.label :campsite_id, Campsite.model_name.human
+        = f.select :campsite_id,
+                    collection,
+                    { selected: @campsite&.id },
+                    include_blank: true,
+                    class: 'form-control',
+                    onChange: 'this.form.submit()'
+
+    = month_calendar do |date|
+      = date
+      span.ml-2 = JapanesePublicHoliday.find_by_date(date)&.name
+
+      ruby:
+        date_setting = @date_settings.find_by(date: date, campsite: @campsite)
+        color = date_setting.classification_day_setting&.color if date_setting.present?
+
+      = simple_form_for([:admin, @date_settings.find_by(date: date, campsite: @campsite) || \
+        DateSetting.new(date: date, campsite: @campsite)],
+        html: { class: 'date-setting-form', data: {color: color} }) do |f|
+
+        = f.hidden_field :campsite_id
+        = f.hidden_field :date
+
+        .form-inputs
+          = f.input :classification_day_setting_id,
+                    as: :select,
+                    collection: classification_day_settings_collection,
+                    label: false,
+                    input_html: { class: 'classification-day-setting-id-input' }
+          .action-buttons.text-right.d-none
+            = link_to 'Save', 'javascript:void(0)', class: 'btn btn-blue btn-save-date-setting'
+
+    .mt-5
+      h5 = t('.setting_title')
+      .pl-5
+        = form_with url: create_or_update_by_day_of_week_admin_date_settings_path, method: :post, class: 'create-or-update-date-setting-form' do |f|
+          - if current_admin_user.is_super_admin?
+            = hidden_field_tag :campsite_supplier_company_id, @campsite_supplier_company.id
+          = hidden_field_tag :campsite_id, @campsite&.id
+          .row
+            .form-group.mr-2
+              = f.label :classification_day_setting_id, t('.classification_day')
+              = f.select :classification_day_setting_id,
+                            classification_day_settings_collection,
+                            { include_blank: true },
+                            { class: 'form-control select optional' }
+            .form-group.mr-2
+              = f.label t('.start_date')
+              = f.text_field :start_date, { class: 'form-control datepicker', autocomplete: 'off'}
+            .form-group
+              = f.label t('.end_date')
+              = f.text_field :end_date, { class: 'form-control datepicker', autocomplete: 'off' }
+            .col-12
+              .row
+                - DateSetting::DAY_NAME.each do |day_name|
+                  .form-group.mr-2
+                    = f.check_box day_name, {name: 'days_name[]', class: 'day-name'}, day_name, nil
+                    = f.label t("day_name.#{day_name}"), for: day_name, class: 'ml-1'
+                .form-group.mr-2
+                  = f.check_box "bulk_day_of_the_week_selection", {}, :bulk_day_of_the_week_selection, nil
+                  = f.label t("admin.date_settings.index.bulk_day_of_the_week_selection"), \
+                    for: :bulk_day_of_the_week_selection, class: 'ml-1'
+
+            .form-actions
+              = f.button t('.submit'), class: 'btn btn-blue font-12'

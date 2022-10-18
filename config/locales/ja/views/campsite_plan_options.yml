@@ -1,0 +1,15 @@
+ja:
+  admin:
+    campsite_plan_options:
+      index:
+        page_title: キャンプ場オプション管理
+        page_description: キャンプ場オプションリスト
+      new:
+        page_title: キャンプ場オプション管理
+        page_description: 新規キャンプ場オプション追加
+      edit:
+        page_title: キャンプ場オプション管理
+        page_description: キャンプ場オプション編集
+      show:
+        page_title: キャンプ場オプション管理
+        page_description: キャンプ場オプション詳細

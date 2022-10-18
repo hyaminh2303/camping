@@ -1,0 +1,16 @@
+ja:
+  customer_user_mailer:
+    send_registration_confirmation:
+      content:
+        line_1: この度は G’Camp 会員にご登録いただきまして、誠にありがとうございます。
+        line_2: 以下の内容で登録が完了いたしました。
+        line_3: □■□　会員登録情報　□■□
+        line_4: 登録内容で間違いや記入漏れがありましたら、“マイページ”より訂正箇所を変更してください。
+        line_5: その他ご不明な点・ご質問などございましたら、G’Campカスタマーサポートまでお問い合わせください。
+        id: ID
+        name: お名前
+        address: 住所
+        address_pre: 〒
+        email: Email
+        phone_number: 電話番号
+        sama: 様

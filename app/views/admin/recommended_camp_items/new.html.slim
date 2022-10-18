@@ -1,0 +1,10 @@
+- content_for :page_title, t(".page_title.#{params[:item_type]}")
+- content_for :page_description, t(".page_description.#{params[:item_type]}")
+
+.data-content
+  h2.page-primary-title = t(".page_description.#{params[:item_type]}")
+  hr
+
+  = render 'form'
+
+  = link_to t('views.buttons.back'), admin_recommended_camp_items_path(params[:item_type])

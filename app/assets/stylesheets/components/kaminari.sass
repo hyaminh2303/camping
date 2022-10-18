@@ -1,0 +1,36 @@
+.pagination-v2
+  .pagination
+    display: -ms-flexbox
+    color: $blue-color
+    .page-link
+      border-color: $blue-color
+      color: $blue-color
+      border-radius: 6px
+      border-width: 2px
+      margin: 0 5px
+      a
+        color: $blue-color
+    .active
+      .page-link
+        color: $white-color
+        background-color: $blue-color
+    .paginate_button
+      border: none
+      padding: 0
+    .btn-wrapper
+      align-items: center
+
+    .page-number
+      margin-right: 15px
+      display: inherit
+      .gap
+        margin: 12px 10px
+        display: inherit
+        @include media-breakpoint-down(sm)
+          display: none
+        span
+          height: 6px;
+          width: 6px;
+          margin-left: 10px
+          background-color: $blue-color;
+          border-radius: 50%;

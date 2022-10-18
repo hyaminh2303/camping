@@ -1,0 +1,15 @@
+ja:
+  admin:
+    camp_car_options:
+      index:
+        page_title: キャンプカーオプション
+        page_description: キャンプカーオプションリスト
+      new:
+        page_title: Camp Car Option
+        page_description: 新規キャンプカーオプション追加
+      edit:
+        page_title: Camp Car Option
+        page_description: Edit Camp Car Option
+      show:
+        page_title: Camp Car Option
+        page_description: キャンプカーオプション詳細

@@ -1,0 +1,38 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  = render 'shared/messages'
+
+  .button-actions.text-right
+    = link_to t('views.buttons.new'), new_admin_camp_category_group_path, class: "btn btn-blue btn-new-record"
+
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = sort_link(@q, :translations_name, t('activerecord.attributes.camp_category_group.name'))
+          th = t('activerecord.attributes.camp_category_group.is_facility_type')
+          th = t('activerecord.attributes.camp_category_group.is_the_facility_in_the_hall')
+          th = t('activerecord.attributes.camp_category_group.weight')
+          th = t('activerecord.attributes.camp_category_group.is_shown_on_the_front_end')
+
+      tbody.font-14
+        - @camp_category_groups.each do |camp_category_group|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_camp_category_group_path(camp_category_group), class: 'btn btn-blue'
+
+              = link_to t('views.buttons.edit'), edit_admin_camp_category_group_path(camp_category_group), class: 'btn btn-green'
+
+              = link_to_delete_with admin_camp_category_group_path(camp_category_group)
+
+            td= camp_category_group.name
+            td= camp_category_group.is_facility_type ? t('boolean.true') : t('boolean.false')
+            td= camp_category_group.is_the_facility_in_the_hall ? t('boolean.true') : t('boolean.false')
+            td= camp_category_group.weight
+            td= camp_category_group.is_shown_on_the_front_end ? t('boolean.true') : t('boolean.false')
+
+.container.pagination.justify-content-center
+  = paginate @camp_category_groups, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

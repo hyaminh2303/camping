@@ -1,0 +1,14 @@
+.table-responsive
+  table.table.mb-4.mt-4
+    thead.font-12
+      tr
+        - f.object.normal_child_and_pet_fees.each do |child_and_pet_fee|
+          th.p-0 class="#{'d-none' if child_and_pet_fee._destroy}"
+            = child_and_pet_fee.child_and_pet_setting.entity_label
+    tbody.font-14
+      tr
+        = f.fields_for :normal_child_and_pet_fees do |child_and_pet_fee_form|
+          td.p-0 class="#{'d-none' if child_and_pet_fee_form.object._destroy}"
+            = child_and_pet_fee_form.hidden_field :_destroy
+            = child_and_pet_fee_form.hidden_field :child_and_pet_setting_id
+            = child_and_pet_fee_form.input :fee_value, label: false, wrapper_html: { class: 'mb-0' }, input_html: { min: 0, step: 1 }

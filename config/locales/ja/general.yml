@@ -1,0 +1,321 @@
+ja:
+  views:
+    messages:
+      confirms:
+        delete: 本当に削除しますか？
+    pagination:
+      truncate: '&hellip;'
+      first: '&laquo; 最初'
+      last: '最終 &raquo;'
+      next: '次 &rsaquo;'
+      previous: '&lsaquo; 前'
+    buttons:
+      new: New
+      view: 詳細
+      edit: 編集
+      delete: 消去
+      back: 戻る
+      clear: クリア
+      search: 検索
+      booking: この内容で予約する
+      cancel: 戻る
+      update: 更新
+      apply: 完了
+      save: 保存
+      close: Close
+    people: 名
+    booking_information:
+      unit:
+        currency: 円
+        day: 泊
+    bootbox:
+      buttons:
+        confirm: はい。
+        cancel: いいえ。
+    project:
+      title: 旅とキャンプを楽しむ情報・予約検索サイト G'Camp
+      site_name: 旅とキャンプを楽しむ情報・予約検索サイト G'Camp
+      site_description: 日本国内の旅とキャンプを楽しむ情報・予約検索サイト G'Camp キャンプ場の予約検索のポータルサイト
+  controllers:
+    created: '%{model}を追加しました'
+    updated: '%{model}更新完了'
+    deleted: '%{model} has successfully been deleted'
+
+  daterangepicker:
+    check_in_time: チェックイン
+    check_out_time: チェックアウト
+    number_of_night: 泊数
+    night_stay: 泊
+    applyLabel: 適用する
+    cancelLabel: クリア
+    formats:
+      default: "%m/%d(%{dayname})"
+      date_picker: "MM/DD(dd)"
+
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+    month_names:
+    -
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+    prompts:
+      second: 秒
+      minute: 分
+      hour: 時
+      day: 日
+      month: 月
+      year: 年
+    formats:
+      long: "%Y/%m/%d - %H:%M"
+      short: "%Y/%m/%d"
+      time: "%H:%M"
+      month_year: "%Y/%m"
+    with_locale:
+      formats:
+        long: "%Y年%m月%d日 %H時%M分"
+        short: "%Y年%m月%d日"
+        time: "%H時%M分"
+        month_year: "%Y年%m月"
+  helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+    select_collection:
+      countries:
+        america: アメリカ
+        u_a_e_: アラブ首長国連邦
+        argentina: アルゼンチン
+        yemen: イエメン
+        united_kingdom: イギリス
+        italy: イタリア
+        iraq: イラク
+        iran: イラン
+        india: インド
+        indonesia: インドネシア
+        ukraine: ウクライナ
+        egypt: エジプト
+        estonia: エストニア
+        australia: オーストラリア
+        netherlands: オランダ
+        qatar: カタール
+        canada: カナダ
+        cambodia: カンボジア
+        colombia: コロンビア
+        jamaica: ジャマイカ
+        singapore: シンガポール
+        switzerland: スイス
+        sweden: スウェーデン
+        spain: スペイン
+        sri_lanka: スリランカ
+        slovenia: スロベニア
+        thailand: タイ
+        czech_republic: チェコ
+        germany: ドイツ
+        turkey: トルコ
+        new_zealand: ニュージーランド
+        norway: ノルウェー
+        hungary: ハンガリー
+        bangladesh: バングラデシュ
+        philippines: フィリピン
+        finland: フィンランド
+        brazil: ブラジル
+        france: フランス
+        bulgaria: ブルガリア
+        viet_nam: ベトナム
+        peru: ペルー
+        belgium: ベルギー
+        poland: ポーランド
+        portugal: ポルトガル
+        malaysia: マレーシア
+        myanmar: ミャンマー
+        mexico: メキシコ
+        morocco: モロッコ
+        mongolia: モンゴル
+        latvia: ラトビア
+        lithuania: リトアニア
+        romania: ルーマニア
+        russia: ロシア
+        korea: 韓国
+        hong_kong_s_a_r_: 香港
+        taiwan: 台湾
+        china: 中国
+        south_africa: 南アフリカ
+        japan: 日本
+        other: その他
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: バイト
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: "、"
+      two_words_connector: "、"
+      words_connector: "、"
+  time:
+    am: 午前
+    formats:
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
+    pm: 午後
+
+  day_name:
+    sunday: 日
+    monday: 月
+    tuesday: 火
+    wednesday: 水
+    thursday: 木
+    friday: 金
+    saturday: 土
+
+  check_box:
+    true: はい
+    false: いいえ
+  boolean:
+    true: 公開
+    false: 非公開
+  notices:
+    successfully: Successfully
+
+  kaminari_v2:
+    pagination:
+      truncate: '<span></span><span></span><span></span>'
+      first: '<i class="far fa-angle-left"></i>'
+      last: '<i class="far fa-angle-right"></i>'
+      next: 次へ
+      previous: 前へ
+
+  coming_soon:
+    in_process_of_develop: こちらのページは現在開発中でございます

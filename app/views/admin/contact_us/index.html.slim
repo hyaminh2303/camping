@@ -1,0 +1,29 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  .table-responsive.text-nowrap
+    table.table
+      thead.font-13
+        tr
+          th
+          th = t('activerecord.attributes.contact_us.created_at')
+          th = t('activerecord.attributes.contact_us.name')
+          th = t('activerecord.attributes.contact_us.email')
+          th = t('activerecord.attributes.contact_us.phone_number')
+          th = t('activerecord.attributes.contact_us.details_of_inquiry')
+
+      tbody.font-14
+        - @contact_us.each do |contact_us|
+          tr
+            td.action.text-left
+              = link_to t('views.buttons.view'), admin_contact_us_path(contact_us), class: 'dropdown-item', class: 'btn btn-blue'
+
+            td = contact_us.created_at.strftime('%d/%m/%Y')
+            td = contact_us.name
+            td = contact_us.email
+            td = contact_us.phone_number
+            td = truncate(contact_us.details_of_inquiry, length: 50)
+
+.container.pagination.justify-content-center
+  = paginate @contact_us, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b"

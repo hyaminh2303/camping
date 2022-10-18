@@ -1,0 +1,12 @@
+ja:
+  booking_message_detail_mailer:
+    send_email_with_message_received_to_customer:
+      content:
+        line_1: 以下の内容でキャンプ場へのメッセージを受け付けいたしました。
+        line_2: 担当者より直接ご連絡いたしますので、今しばらくお待ちくださいませ。
+        line_3: □■□ メッセージ内容 □■□
+        user_name: お名前
+        email: E-Mail
+        created_at: メッセージ送信日時
+        message_content: メッセージ内容
+        sama: 様、

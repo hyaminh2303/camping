@@ -1,0 +1,432 @@
+zh:
+  errors:
+    format: "%{attribute} %{message}" # Only accept the error message format here
+
+  activerecord:
+    enum:
+      supplier_company:
+        contract_type:
+          commission_base: Commission Base
+          no_commission: No Commission
+      travel_package:
+        payment_method:
+          credit_card: 信用卡支付
+          cash: 現地支払い
+        status:
+          booked: 预订的
+          temporary_booked: 暂时保留
+          canceled: 取消
+          no_show: No show
+          check_out: 留下来
+          incomplete: Incomplete
+      slider_banner:
+        position:
+          top: Top
+          middle: Middle
+          bottom: Bottom
+        page:
+          home: Home
+
+    errors:
+      models:
+        customer_user:
+          attributes:
+            birthday:
+              format: "%{message}"
+        credit_card:
+            format: "%{message}%{attribute}"
+
+      messages:
+        accepted: を受諾してください
+        blank: 请输入
+        confirmation: と%{attribute}の入力が一致しません
+        empty: を入力してください
+        equal_to: は%{count}にしてください
+        even: は偶数にしてください
+        exclusion: は予約されています
+        greater_than: は%{count}より大きい値にしてください
+        greater_than_or_equal_to: は%{count}以上の値にしてください
+        inclusion: は一覧にありません
+        invalid: は不正な値です
+        less_than: は%{count}より小さい値にしてください
+        less_than_or_equal_to: は%{count}以下の値にしてください
+        model_invalid: 'バリデーションに失敗しました: %{errors}'
+        not_a_number: は数値で入力してください
+        not_an_integer: は整数で入力してください
+        odd: は奇数にしてください
+        other_than: は%{count}以外の値にしてください
+        present: は入力しないでください
+        required: を入力してください
+        taken: はすでに存在します
+        too_long: は%{count}文字以内で入力してください
+        too_short: は%{count}文字以上で入力してください
+        wrong_length: は%{count}文字で入力してください
+        already_exists: もう存在している
+        can_not_edit_for_credit_card_payment_method: can not edit for credit card payment method
+        url: is not a valid URL
+        number_of_people_different_from_reserved_number: 请输入与预约人数相同的人数。
+        remaining_stock: 在庫数を超えています
+        invalid_birthday: 誕生日は今日より過去の日を入力してください。
+
+      template:
+        body: 次の項目を確認してください
+        header:
+          one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+
+    models:
+      customer_user:
+        one: Customer user
+        other: Customer users
+      campsite:
+        one: Campsite
+        other: Campsites
+      campsite_entrance_fee:
+        one: Campsite entrance fee
+        other: Campsite entrance fees
+      photo:
+        one: Photo
+        other: Photos
+      campsite_plan:
+        one: Campsite plan
+        other: Campsite plans
+      campsite_plan_fee:
+        one: Campsite plan fee
+        other: Campsite plan fees
+      campsite_plan_fee_detail:
+        one: Campsite plan fee detail
+        other: Campsite plan fee details
+      campsite_plan_daily_fee_setting:
+        one: Campsite plan daily fee setting
+        other: Campsite plan daily fee settings
+      child_and_pet_setting:
+        one: Child and pet setting
+        other: Child and pet settings
+      glover_company:
+        one: Glover company
+        other: Glover companies
+      supplier_company:
+        one: Supplier company
+        other: Supplier companies
+      campsite_supplier_company:
+        one: Campsite supplier company
+        other: Campsite supplier companies
+      camp_car_supplier_company:
+        one: Camp car supplier company
+        other: Camp car supplier companies
+      supplier_corporate_representative_information:
+        one: Supplier corporate representative information
+        other: Supplier corporate representatives information
+      supplier_contact_information:
+        one: Supplier contact information
+        other: Supplier contacts information
+      admin_user:
+        one: Admin user
+        other: Admin users
+      role:
+        one: Role
+        other: Roles
+      camp_category_group:
+        one: Camp category group
+        other: Camp category groups
+      camp_category:
+        one: Camp category
+        other: Camp categories
+      camp_car_category:
+        one: Camp car category
+        other: Camp car categories
+      camp_car:
+        one: Camp car
+        other: Camp cars
+      classification_day_setting:
+        one: Classification day setting
+        other: Classification day settings
+      date_setting:
+        one: Date setting
+        other: Date settings
+      campsite_booking:
+        one: Campsite booking
+        other: Campsite bookings
+      travel_package:
+        one: Travel package
+        other: Travel packages
+      campsite_plan_quantity:
+        one: Campsite plan quantity
+        other: Campsite plan quantities
+      camp_car_quantity:
+        one: Camp car quantity
+        other: Camp car quantities
+      camp_car_option:
+        one: Camp car option
+        other: Camp car options
+      camp_car_booking:
+        one: Camp car booking
+        other: Camp car bookings
+      camp_type:
+        one: Camp type
+        other: Camp types
+      master/state:
+        one: State
+        other: States
+
+    attributes:
+      campsite:
+        address: 所在地
+        basic_fee: 基本料金
+        contact_number: 電話番号
+        extra_person_fee: 大人１人あたり追加料金
+        name: キャンプ場名
+        number_of_people_pet_included: 基本料金に含む人数
+        city_id: 市町村
+        prefecture_id: 都道府県
+        state_id: 地域
+        supplier_company_id: サプライヤー
+        unique_id: キャンプ場番号
+        photos: 写真
+        camp_category_id: キャンプ場カテゴリ詳細設定
+        campsite_plans: キャンプ場の計画
+        description: 形容
+        facilities_equipment: 施設、設備
+        business_information: 営業情報
+        attachment: キャンプ場見取り図
+        setting_entrance_fee: 入場料設定
+        tag_list: タグリスト
+        fax: Fax
+        about_cancellation: 关于取消
+        about_cancellation_ja: About cancellation JA
+        about_cancellation_en: About cancellation EN
+        about_cancellation_zh: About cancellation ZH
+        about_cancellation_ko: About cancellation KO
+        email_address: Email address
+        peripheral_facilities: Peripheral facilities
+        peripheral_facilities_ja: Peripheral facilities JA
+        peripheral_facilities_en: Peripheral facilities EN
+        peripheral_facilities_zh: Peripheral facilities ZH
+        peripheral_facilities_ko: Peripheral facilities KO
+      campsite_entrance_fee:
+        adult_fee: 大人料金
+      campsite_plan:
+        campsite_id: キャンプ場
+        check_in_time: チェックイン時間
+        check_out_time: チェックアウト時間
+        description: 形容
+        max_number_of_people: 受け入れられる最大人数
+        name: キャンプ場計画名
+        quantity: デフォルトの数量
+        campsite_plan_quantities: 1日あたりのキャンプ場の計画量
+        people_type: 人々はタイプします
+        public_info: 公開情報
+        publication_period: 公開期間
+        tag_list: タグリスト
+        photos: 写真
+        campsite_plan_option_ids: キャンプ場の計画オプション
+        is_included_entrance_fee: Is included entrance fee?
+      campsite_plan_fee:
+        end_date: 終了日
+        fee_type: 料金タイプ
+        start_date: 開始日
+        classification_day_setting_ids: Classification day setting
+      campsite_plan_fee_detail:
+        basic_fee: 基本料金
+        extra_person_fee: 追加料金
+        number_of_people_pet_included: 人数/ペット
+      campsite_plan_daily_fee_setting:
+        basic_fee: 基本料金
+        date: 日付
+        extra_person_fee: 追加料金
+        number_of_people_pet_included: ペットを含む人数
+      child_and_pet_setting:
+        entity_label: ラベル
+        entity_type: タイプ
+      glover_company:
+        company_name: Company name
+        hp_url: Hp url
+        location: Location
+        phone_number: Phone number
+      supplier_company:
+        company_name: 会社名
+        corporate_category: 法人区分
+        corporate_name_kana: 企業名カナ
+        fax: Fax
+        hp_url: ホームページURL
+        location: 所在地
+        operation_classification: 運営区分
+        phone_number: 電話番号
+        ryokan: Ryokan
+        type: Type
+        supplier_corporate_representative_information: サプライヤー会社代表者情報
+        supplier_contact_information: 担当者情報
+        contract_type: 'Contract Type'
+      supplier_corporate_representative_information:
+        email_address: メールアドレス
+        name_of_representative: 代表者名
+        name_of_representative_kana: 会社代表者名（カナ）
+        position: 役職
+      supplier_contact_information:
+        accounting_personnel_information: 経理担当者情報
+        email_address: メールアドレス
+        fax: Fax
+        location: 所在地
+        name_of_person_in_charge: 担当者名
+        person_in_charge_name_kana: 担当者名カナ
+        phone_number: 電話番号
+      admin_user:
+        email: メールアドレス
+        supplier_company_id: サプライヤー名
+        role: 管理者タイプ
+        password: パスワード
+        password_confirmation: パスワード再確認
+      role:
+        name: Name
+        resource_type: Resource type
+      camp_category_group:
+        name: Name
+        is_facility_type: Is facility type
+        is_shown_on_the_front_end: Is shown on the front end?
+      camp_category:
+        name: Name
+        camp_category_group: Camp category group
+      camp_car_category:
+        model: Model
+        seats: Seats
+        pick_up_drop_off_place_id: Pick up and drop off place
+      camp_car:
+        car_type: Car type
+        is_pick_up_and_drop_off_place_same: Is pick up and drop off place same
+        is_public: Is public
+        maximum_number_of_people: Maximum number of people
+        name: Name
+        product_id: Product id
+        photos: Photos
+        supplier_company_id: サプライヤー
+        fee_per_hour: Fee per hour
+        fee_per_day: Fee per day
+        camp_car_option_ids: Camp car options
+        state_id: 地域
+        prefecture_id: 都道府県
+        tag_list: Tag list
+        description: Description
+        quantity: Quantity
+        camp_car_quantities: Campsite plan quantities per day
+      classification_day_setting:
+        color: Color
+        name: Name
+      date_setting:
+        date: Date
+        classification_day_setting_id: Classification day setting
+      customer_user:
+        email: 电子邮件地址
+        birthday: 出生日期
+        password: 密码
+        phone_number: 电话号码
+        last_name: 姓
+        first_name: 名
+        country_id: 居住国家
+        post_code: 邮政编码
+        address: 所在地
+      credit_card:
+        card_holder_name: 持卡人
+        number: 卡号
+        date_of_expiry: 到期日期
+        exp_month: 月
+        exp_year: 年
+        cvc: 安全码
+        policy: 服务条款
+        click_here: 这里是
+      booking_contact_information:
+        email: 电子邮件地址
+        name: 代表姓名
+        post_code: 邮政编码
+        address: 地址
+        birthday: 出生日期
+        phone_number: 电话号码
+        number_of_male: 男性
+        number_of_female: 女性
+        number_of_people: ""
+
+        # https://app.clickup.com/t/1xwmern
+        custom_number_of_male: ""
+        custom_number_of_female: ""
+        custom_error_message_number_of_male: 请输入预订人数中包含的男性人数。 对于 0 人，输入 0。
+        custom_error_message_number_of_female: 请输入预订人数中包含的女性人数。 对于 0 人，输入 0。
+
+      campsite_booking:
+        check_in: Check in
+        check_out: Check out
+        number_of_adult: 大人
+      travel_package:
+        booking_type: Booking type
+        payment_method: 付款方式
+        status: Status
+        total_price: Total price
+        booking_ref_number: 预约号码
+      campsite_plan_quantity:
+        date: Date
+        quantity: Quantity
+      camp_car_option:
+        name: Name
+        fee_per_day: Fee per day
+      camp_car_quantity:
+        date: Date
+        quantity: Quantity
+      slider_banner:
+        page: 'Page'
+        position: 'Position'
+        photos: 'Photos'
+      camp_car_booking:
+        start_date_of_renting: Start date of renting
+        end_date_of_renting: End date of renting
+      camp_type:
+        name: Name
+      contact_us:
+        name: 姓名
+        email: 电子邮件地址
+        phone_number: 电话号码
+        details_of_inquiry: 内容
+      photo:
+        on_click_url: On click url
+      notice:
+        title_ja: Title JA
+        title_en: Title EN
+        title_ko: Title KO
+        title_zh: Title ZH
+        content_ja: Content JA
+        content_en: Content EN
+        content_ko: Content KO
+        content_zh: Content ZH
+        photo: Photo
+        supplier_company_id: Supplier company
+        publish_date: Publish date
+      blog_category:
+        name_ja: カテゴリ名（日本語）
+        name_en: カテゴリ名（英語）
+        name_ko: カテゴリ名（韓国語）
+        name_zh: カテゴリ名（中国語）
+        weight: Prefecture Code
+      blog:
+        title_ja: 記事タイトル（日本語名）
+        title_en: 記事タイトル（英語名）
+        title_ko: 記事タイトル（韓国語名）
+        title_zh: 記事タイトル（中国語名）
+        description_ja: 記事サブタイトル（日本語名）
+        description_en: 記事サブタイトル（英語名）
+        description_ko: 記事サブタイトル（韓国語名）
+        description_zh: 記事サブタイトル（中国語名）
+        content_ja: 本文（日本語）
+        content_en: 本文（英語）
+        content_ko: 本文（韓国語）
+        content_zh:
+        tags_ja_list: Tags JA
+        tags_en_list: Tags EN
+        tags_ko_list: Tags KO
+        tags_zh_list: Tags ZH
+        areas_ja_list: Areas JA
+        areas_en_list: Areas EN
+        areas_ko_list: Areas KO
+        areas_zh_list: Areas ZH
+        blog_category_id: 記事カテゴリ
+        tag_list: タグ
+        area_list: 見出し
+        photo: Photo
+        publish_date: 掲載日
+        to_top_page: TOPページへ

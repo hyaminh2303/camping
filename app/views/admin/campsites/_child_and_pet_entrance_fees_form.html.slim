@@ -1,0 +1,5 @@
+= entrance_fee.fields_for :child_and_pet_entrance_fees, @child_and_pet_entrance_fees do |cef|
+  div class="#{'d-none' if cef.object._destroy}"
+    = cef.hidden_field :_destroy
+    = cef.hidden_field :child_and_pet_setting_id
+    = cef.input :fee_value, label: cef.object.child_and_pet_setting&.entity_label, input_html: {step: 1}

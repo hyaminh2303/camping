@@ -1,0 +1,62 @@
+ja:
+  admin:
+    campsite_bookings:
+      index:
+        page_title: Campsite Booking
+        page_description: Campsite Booking List
+        check_in_start: チェックイン日
+        check_in_end: チェックアウト日
+        new: "新規予約追加"
+        note: 備考
+        cancellation_date_and_time: キャンセル日時
+        buttons:
+          cancel: キャンセル
+          note: 備考
+        messages:
+          confirm_delete: 本当にこの予約をキャンセルしますか？
+          buttons:
+            confirm: はい
+            cancel: いいえ
+
+      show:
+        page_title: Campsite Booking
+        page_description: キャンプ場予約詳細
+        cancel: 'Cancel'
+        number_of_people: 予約人数
+        number_of_people_details_html: "大人<span class='number-of-adult'>%{adult}</span>名
+                                      子供<span class='number-of-children'>%{children}</span>名
+                                      ペット<span class='number-of-pet'>%{pet}</span>"
+        number_of_adult: 大人
+        number_of_children: 子供
+        number_of_pet: ペット
+        people: 名
+        reserved_date_and_time: 予約日時
+        add_note_title: 備考追加
+      edit:
+        page_title: Campsite Booking
+        page_description: Edit Campsite Booking
+        reservation_period: 予約期間
+      new:
+        page_title: Campsite Booking
+        page_description: 新規キャンプ場予約
+        reservation_number: 予約人数
+        select_plan_option: 追加オプションの選択
+        customer_information: お客様情報入力
+      form:
+        people: 名
+      messages:
+        created: 予約を追加しました
+
+  customer:
+    campsite_bookings:
+      updated: 予約内容を更新しました。
+
+  checkout:
+    campsite_bookings:
+      booking_message_title: キャンプ場へのご質問・ご要望
+      error_messages:
+        error_max_number_of_people: １区画の予約可能人数を超えての予約はできません。
+      people_and_date_selection:
+        number_of_people_details_html: "大人<span class='number-of-adult'>%{adult}</span>名
+                                      子供<span class='number-of-children'>%{children}</span>名
+                                      ペット<span class='number-of-pet'>%{pet}</span>"

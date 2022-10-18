@@ -1,0 +1,24 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  - CampCarCategory.globalize_attribute_names.each do |model|
+    p
+      strong = "#{t("activerecord.attributes.camp_car_category.#{model}")}:"
+      = @camp_car_category.send(model)
+
+  p
+    strong = "#{t('activerecord.attributes.camp_car_category.seats')}:"
+    = @camp_car_category.seats
+  p
+    strong = "#{t('activerecord.attributes.camp_car_category.pick_up_drop_off_place_id')}:"
+    = @camp_car_category.pick_up_drop_off_place.name
+
+  => link_to t('views.buttons.edit'), edit_admin_camp_car_category_path(@camp_car_category)
+  '|
+  =< link_to t('views.buttons.back'), admin_camp_car_categories_path

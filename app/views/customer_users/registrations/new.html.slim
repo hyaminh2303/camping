@@ -1,0 +1,17 @@
+.registration-wrapper
+  .container.pt-5
+    .form-title.text-center.font-weight-bold.font-18
+      = t('customer_users.registrations.new.title')
+
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .row
+        .col-md-8.col-lg-6.offset-lg-3.offset-md-2
+          = render 'shared/customer_users/registrations/sign_up_information_inputs', f: f
+
+          .text-center.form-group.mt-5
+            button.btn.btn-yellow.btn-w350-full-width-mobile.font-16 type="submit"
+              = t('customer_users.registrations.new.submit')
+
+          .text-center
+            = link_to t('customer_users.registrations.go_back'), root_path,
+                      class: 'btn btn-black btn-w350-full-width-mobile'

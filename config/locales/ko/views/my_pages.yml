@@ -1,0 +1,20 @@
+ko:
+  my_pages:
+    show:
+      page_title: 내 페이지
+      booking_list_tab: 예약 일람
+      membership_info_tab: 회원 정보
+      booking_history: 예약 이력 일람
+      confirm_booking_details: 예약 내용 확인
+      membership_info_title: 회원 정보 설정
+      adult: 大人
+      child: 子供
+      pet: ペット
+      people: 名
+    profile:
+      buttons:
+        update_membership_info: 회원정보 변경
+        return_for_book_history: 예약 목록으로 돌아가기
+
+
+

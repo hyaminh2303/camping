@@ -1,0 +1,122 @@
+@import '../definitions/variables'
+@import '../definitions/mixins'
+
+.camp-car-container-wrapper
+  font-family: $primary-font-family
+
+  section.main-banner-wrapper
+    overflow: hidden
+    position: relative
+    img
+      object-fit: cover
+      @include media-breakpoint-down(md)
+        height: 205px
+      @include media-breakpoint-up(lg)
+        height: 450px
+    .text-content-wrapper
+      font-family: $primary-font-family
+      position: absolute
+      font-weight: bold
+      color: #ffffff
+      background: rgba(0,0,0,0.1)
+      text-shadow: 0 0 6px rgba(0,0,0,0.55)
+
+      @include media-breakpoint-down(md)
+        top: 65%
+      @include media-breakpoint-up(lg)
+        top: 72%
+      @media (max-width: 300px)
+        top: 45%
+
+  @include media-breakpoint-down(sm)
+    section.recommended-camper.container
+      max-width: 100%
+      @include no-paddinglr
+
+  section.recommended-camper
+    .title
+      font-weight: bold
+      text-align: center
+      .row-en
+        font-family: $font-quicksand
+        font-size: 35px
+        color: $blue-color
+        margin-top: 50px
+      .row-ja
+        font-size: 23px
+        color: $primary-font-family
+
+    .list
+      margin-top: 30px
+      .img-fluid
+        height: 150px
+        width: 100%
+        object-fit: cover
+        @include media-breakpoint-up(md)
+          height: 170px
+          width: 255px
+      .content
+        .name
+          font-weight: bold
+          color: $primary-font-family
+        @include media-breakpoint-up(md)
+          .name
+            font-size: 16px
+          .price
+          font-size: 14px
+        @include media-breakpoint-down(md)
+          padding-left: 20px
+          .name
+            font-size: 14px
+          .price
+            font-size: 12px
+        @include media-breakpoint-down(sm)
+          padding-left: 10px
+          .name
+            font-size: 12px
+          .price
+            font-size: 10px
+
+
+  section.recommended-store
+    margin-bottom: 90px
+
+    .title
+      font-weight: bold
+      text-align: center
+      .row-en
+        font-family: $font-quicksand
+        font-size: 35px
+        color: $blue-color
+        margin-top: 50px
+      .row-ja
+        font-size: 23px
+        color: $primary-font-family
+
+    .list
+      margin-top: 30px
+      .img-fluid
+        height: 100%
+        width: 100%
+        object-fit: cover
+      .content
+        .name
+          font-weight: bold
+          color: $primary-font-family
+        @include media-breakpoint-up(md)
+          .name
+            font-size: 16px
+          .adress
+          font-size: 14px
+        @include media-breakpoint-down(md)
+          padding-left: 20px
+          .name
+            font-size: 14px
+          .adress
+            font-size: 12px
+        @include media-breakpoint-down(sm)
+          padding-left: 10px
+          .name
+            font-size: 12px
+          .adress
+            font-size: 10px

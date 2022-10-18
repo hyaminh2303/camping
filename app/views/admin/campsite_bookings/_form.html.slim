@@ -1,0 +1,110 @@
+.admin-campsite-booking-wrapper
+  = render 'shared/messages'
+
+  = form_with url: new_admin_campsite_booking_path, method: :get do |f|
+    .row
+
+      .form-group.col-12.col-lg-4
+        = f.label :campsite_id, Campsite.model_name.human
+        = f.select :campsite_id,
+                    campsites_collection,
+                    { selected: @campsite&.id, include_blank: true },
+                    { class: 'form-control', onchange: 'this.form.submit()',
+                      disabled: @campsite_booking&.persisted? }
+
+      - if @campsite.present?
+        ruby:
+          campsite_plans_collection = @campsite.campsite_plans.map{ |campsite_plan| [campsite_plan.name, campsite_plan.id] }
+
+        .form-group.col-12.col-lg-4
+          = f.label :campsite_plan_id, CampsitePlan.model_name.human
+          = f.select :campsite_plan_id,
+                      campsite_plans_collection,
+                      { selected: @campsite_plan&.id, include_blank: true },
+                      { class: 'form-control', onchange: 'this.form.submit()',
+                        disabled: @campsite_booking&.persisted? }
+
+      .form-group.col-12.col-lg-4
+              = f.label :customer_user_id, CustomerUser.model_name.human
+              = f.select :customer_user_id,
+                          customer_users_collection,
+                          { selected: @customer_user&.id, include_blank: true },
+                          { class: 'form-control', onchange: 'this.form.submit()',
+                            disabled: @campsite_booking&.persisted? }
+  - if @travel_package.present?
+    = simple_form_for(@travel_package, url: [:admin, @campsite_booking || CampsiteBooking.new],
+      html: {data: {campsite_booking_id: @campsite_booking&.id}, id: 'travel-package-form-wrapper'}) do |f|
+      = f.hidden_field :customer_user_id
+      = hidden_field_tag :travel_package_id, @travel_package.id
+
+      = f.error_notification
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+      = render 'shared/messages'
+      = f.input :is_booking_outside, input_html: { disabled: true }
+      .form-inputs
+        .card.my-3
+          .card-header = t('admin.campsite_bookings.edit.reservation_period')
+          .card-body
+            .row
+              = f.simple_fields_for :campsite_booking do |ff|
+                = ff.hidden_field :campsite_plan_id, value: ff.object.campsite_plan_id
+                = ff.hidden_field :check_in, value: ff.object.check_in.strftime(t('datetime.formats.short'))
+                = ff.hidden_field :check_out, value: ff.object.check_out.strftime(t('datetime.formats.short'))
+
+                .col-12.col-lg-4
+                    #campsite-booking-date-range-picker.form-group
+                      label.booking-date-title = t('admin.campsite_bookings.edit.reservation_period')
+                      - date = "#{ff.object.check_in.strftime(t('datetime.formats.short'))} - #{ff.object.check_out.strftime(t('datetime.formats.short'))}"
+                      input#campsite-booking-date.form-control disabled=true value="#{date}"
+                      - if f.object.errors.key?('campsite_booking.check_in')
+                        .invalid-feedback.d-block = f.object.errors.full_messages_for('campsite_booking.check_in').join(', ')
+
+              .col-12.col-lg-4
+                = f.input :total_price, input_html: {id: 'total-price', value: gcamp_round_price(f.object.total_price)}, disabled: true
+              .col-12.col-lg-4
+                = f.input :booking_type, disabled: true
+
+        .row
+          .col-12
+            = render 'select_people_and_plan_options', f: f
+
+        .card.mb-3
+          .card-header = t('admin.campsite_bookings.new.customer_information')
+          .card-body
+            = f.simple_fields_for :booking_contact_information,
+            f.object.booking_contact_information.presence || \
+            f.object.build_booking_contact_information do |ff|
+              .row
+                .col-12.col-lg-4
+                  = ff.input :email
+                .col-12.col-lg-4
+                  = ff.input :name
+                .col-12.col-lg-4
+                  = ff.input :post_code
+              .row
+                .col-12.col-lg-4
+                  = ff.input :address
+                .col-12.col-lg-4
+                  = ff.input :birthday, start_year: 1950, end_year: 2021
+                .col-12.col-lg-4
+                  = ff.input :phone_number
+              .row
+                .col-12.col-lg-4
+                  = ff.input :number_of_male, input_html: { min: 0 } do
+                    .input-group
+                      = ff.input_field :number_of_male, class: "form-control"
+                      .input-group-prepend
+                        span.input-group-text.py-0.rounded-right = t('.people')
+                .col-12.col-lg-4
+                  = ff.input :number_of_female, input_html: { min: 0 } do
+                    .input-group
+                      = ff.input_field :number_of_female, class: "form-control"
+                      .input-group-prepend
+                        span.input-group-text.py-0.rounded-right = t('.people')
+              - if f.object.errors.key?('booking_contact_information.custom_number_of_male')
+                .invalid-feedback.d-block = f.object.errors.full_messages_for('booking_contact_information.custom_number_of_male').join(', ')
+
+        .row
+          .col-12.text-right
+            = f.button :submit, class: 'btn btn-blue font-12 submit-button'

@@ -1,0 +1,102 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.data-content
+  h2.page-primary-title = t('.page_description')
+  hr
+
+  = render 'shared/messages'
+
+  p
+    strong = "#{t('activerecord.attributes.travel_package.booking_ref_number')}:"
+    = @travel_package.booking_ref_number
+  p
+    strong = "#{t('activerecord.models.campsite.one')}:"
+    = @campsite_booking.campsite_plan.campsite.name
+  p
+    strong = "#{t('activerecord.models.campsite_plan.one')}:"
+    = @campsite_booking.campsite_plan.name
+  p
+    strong = "#{t('activerecord.models.customer_user.one')}:"
+    = @travel_package.customer_user&.email
+  p
+    strong = "#{t('activerecord.attributes.travel_package.reservation_method')}:"
+    = @travel_package.is_booking_outside ? t('activerecord.enum.travel_package.reservation_method.is_outside') : t('activerecord.enum.travel_package.reservation_method.is_not_outside')
+  p
+    strong = "#{t('activerecord.attributes.travel_package.booking_type')}:"
+    = @travel_package.booking_type
+  p
+    strong = "#{t('activerecord.attributes.travel_package.payment_method')}:"
+    = @travel_package.payment_method
+
+  .mb-3
+    strong = "#{t('activerecord.attributes.travel_package.status')}:"
+    = form_for @travel_package, url: update_status_admin_travel_package_path(@travel_package), html: { class: 'd-flex' } do |f|
+      = f.select :status, booking_statuses_collection, {}, class: 'form-control d-inline w200px update-status-input'
+      = f.button t('views.buttons.update'), type: :submit , class: 'btn btn-green ml-2'
+  p
+    strong = "#{t('activerecord.attributes.travel_package.total_price')}:"
+    = gcamp_round_price(@travel_package.total_price)
+  p
+    strong = "#{t('.number_of_people')}:"
+    = t('.number_of_people_details_html', adult: @campsite_booking.number_of_adult, children: @campsite_booking.number_of_children, pet: @campsite_booking.number_of_pet)
+  p
+    strong = "#{t('.reserved_date_and_time')}:"
+    = @campsite_booking.created_at.strftime(t('datetime.formats.long'))
+  p
+    strong = "#{t('activerecord.attributes.campsite_booking.check_in')}:"
+    = "#{@campsite_booking.check_in.strftime(t('datetime.formats.short'))} - #{@campsite_booking.campsite_plan.check_in_time.strftime(t('datetime.formats.time'))}"
+  p
+    strong = "#{t('activerecord.attributes.campsite_booking.check_out')}:"
+    = "#{@campsite_booking.check_out.strftime(t('datetime.formats.short'))} - #{@campsite_booking.campsite_plan.check_out_time.strftime(t('datetime.formats.time'))}"
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.address')}:"
+    = @travel_package&.booking_contact_information&.address
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.birthday')}:"
+    = @travel_package&.booking_contact_information&.birthday&.strftime(t('datetime.formats.short'))
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.email')}:"
+    = @travel_package&.booking_contact_information&.email
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.name')}:"
+    = @travel_package&.booking_contact_information&.name
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.phone_number')}:"
+    = @travel_package&.booking_contact_information&.phone_number
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.number_of_male')}:"
+    = @travel_package&.booking_contact_information&.number_of_male
+  p
+    strong = "#{t('activerecord.attributes.booking_contact_information.number_of_female')}:"
+    = @travel_package&.booking_contact_information&.number_of_female
+  p
+    strong = "#{t('admin.campsite_bookings.index.cancellation_date_and_time')}:"
+    = @travel_package.canceled_at&.strftime(t('datetime.formats.long'))
+  p
+    strong = "#{t('admin.campsite_bookings.index.note')}:"
+    = @campsite_booking.note
+
+  = render "admin/booking_messages/booking_messages", item_booking: @campsite_booking
+
+  - if @travel_package.is_editable?
+    => link_to t('views.buttons.edit'), edit_admin_campsite_booking_path(@campsite_booking)
+    '|
+  =< link_to t('views.buttons.back'), admin_campsite_bookings_path
+
+  - if @travel_package.is_cancelable?
+    = link_to_delete_with cancel_admin_travel_package_path(@travel_package.id), \
+                          label: t('admin.campsite_bookings.index.buttons.cancel'),
+                          class: 'ml-2',
+                          data: { \
+                            confirm: t('admin.campsite_bookings.index.messages.confirm_delete'),
+                            confirm_button: t('admin.campsite_bookings.index.messages.buttons.confirm'),
+                            cancel_button: t('admin.campsite_bookings.index.messages.buttons.cancel') \
+                          }
+
+  = button_tag t('admin.campsite_bookings.index.buttons.note'),
+              type: 'button',
+              class: 'btn btn-yellow ml-2 add-note-button',
+              data: {campsite_booking_id: @campsite_booking.id}
+
+  = render "admin/shared/modal", title: t('admin.campsite_bookings.show.add_note_title')

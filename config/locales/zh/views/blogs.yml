@@ -1,0 +1,24 @@
+zh:
+  admin:
+    blogs:
+      index:
+        page_title: Blogs
+        page_description: Blogs List
+      new:
+        page_title: Blogs
+        page_description: New Blogs
+      edit:
+        page_title: Blogs
+        page_description: Edit Blogs
+      show:
+        page_title: Blogs
+        page_description: Detail Of Blogs
+
+  blogs:
+    index:
+      blog: 博客
+      description: 我们将提供推荐的露营地和周边信息
+      list_of_blog_posts: 博客文章列表
+    show:
+      category: 类别
+    title: 博客

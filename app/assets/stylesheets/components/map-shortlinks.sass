@@ -1,0 +1,63 @@
+.map-and-shorlinks
+  .map
+    @include media-breakpoint-down(sm)
+      @include no-paddinglr
+    .japan-map-wrapper
+      @include media-breakpoint-only(md)
+        margin-top: 70px
+      @include media-breakpoint-only(lg)
+        margin-top: 90px
+      @include media-breakpoint-up(xl)
+        margin-top: 105px
+
+  .content-wrapper
+    display: grid
+    grid-template-columns: 50% 50%
+    grid-gap: 0px
+    padding: 0px
+
+    .link-item
+      position: relative
+      z-index: 9999
+      text-align: center
+      h3.link-text
+        position: absolute
+        font-family: $primary-font-family
+        color: #ffffff
+        padding: 0
+        margin: 0
+        top: 50%
+        width: 100%
+        margin-top: -12px
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.78)
+        z-index: 1
+        a
+          color: #ffffff
+          background: rgba(0,0,0,0.1)
+      .overlap
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16)
+        border: solid 1px #fff
+        background-color: rgba(0, 0, 0, 0.24)
+      img
+        width: 100%
+        @include media-breakpoint-down(sm)
+          height: 122px
+        @include media-breakpoint-up(md)
+          height: 171px
+
+    .link-item:hover
+      h3.link-text
+        text-decoration: underline
+        color: #ffffff
+        background: rgba(0,0,0,0.1)
+
+  @include media-breakpoint-down(sm)
+    max-width: 100%
+    .shorlinks
+      padding-left: 0
+      padding-right: 0

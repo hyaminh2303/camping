@@ -1,0 +1,14 @@
+ja:
+  contact_us_mailer:
+    send_contact_us_confirmation_to_customer:
+      content:
+        line_1: 以下の内容でお問い合わせを受け付けいたしました。
+        line_2: 3営業日以内に、担当者よりご連絡いたしますので、今しばらくお待ちくださいませ。
+        line_3: □■□ お問い合わせ内容 □■□
+        user_name: お名前
+        email: E-Mail
+        phone_number: 電話番号
+        created_at: お問い合せ日時
+        contact_id: お問い合わせ番号
+        contact_detail: お問い合わせ内容
+        sama: 様、

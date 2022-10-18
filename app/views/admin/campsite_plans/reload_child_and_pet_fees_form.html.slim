@@ -1,0 +1,8 @@
+= simple_form_for([:admin, @campsite, @campsite_plan]) do |f|
+  = hidden_field_tag :campsite_plan_campsite_id, @campsite.id
+
+  = f.fields_for :campsite_plan_fee do |plan_fee|
+    #normal-child-and-pet-fees-form-reload
+      = render 'normal_child_and_pet_fees', f: plan_fee
+    #classification-day-fees-form-reload
+      = render 'classification_day_fees', f: plan_fee

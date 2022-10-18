@@ -1,0 +1,158 @@
+section.container.title-content.mgt-65
+  .row-content.align-items-center
+    .prefecture.mr-3
+      .btn.btn-turquoise.btn-radius.btn-normal = @campsite.prefecture.name
+    .campsite-name = @campsite.name
+    .camp-types.flex-grow-1.text-right
+      - @campsite.camp_types.each do |camp_type|
+        .camp-type.btn.btn-turquoise.btn-radius.btn-normal.ml-2 = camp_type.name
+  .row-content.align-items-center.my-3
+    .address-with-post-code
+      i.fas.fa-map-marker-alt.mr-2.text-blue
+      span.location-text data-toggle="modal" data-target="#gcampMapOnDesktop"
+        = custom_address_text_for(@campsite)
+    .map-wrapper.ml-3.d-flex.align-items-center
+      a href='javascript:void(0)' data-toggle="modal" data-target="#gcampMapOnDesktop" class='text-blue see-map' = t('campsites.show.see_map')
+      .modal.fade id="gcampMapOnDesktop" tabindex="-1" role="dialog" aria-labelledby="gcampMapTitle" aria-hidden="true"
+        .modal-dialog.modal-dialog-centered.modal-xl role="document"
+          .modal-content
+            .modal-header
+              .modal-title = @campsite.name
+              button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                span aria-hidden="true" &times;
+            .modal-body
+              ruby:
+                location = if @campsite.latitude.present? && @campsite.longitude.present?
+                  "#{@campsite.latitude}, #{@campsite.longitude}"
+                else
+                  ""
+                end
+              iframe src="https://maps.google.com/maps?q=#{location}&output=embed" width="100%" height="100%"
+    .contact-number.flex-grow-1.text-right
+      - if @campsite.contact_number.present?
+        a.text-decoration-none href="telto: #{@campsite.contact_number}"
+          i.fas.fa-phone.mr-2.text-blue
+          = @campsite.contact_number
+  .row-content.tags-list
+    - @campsite.tags_locale_list.last(3).each do |tag|
+      .btn.btn-light-yellow.btn-radius.btn-normal.mr-2 = tag
+
+section.banner-wrapper.container.mt-4
+  .main-slider.mb-2
+    .main-slider.mb-2
+      - if @campsite.photos.present?
+        - @campsite.photos.last(4).each do |photo|
+          .slider-item
+            = image_tag photo.image.url
+
+section.container.nav-tabs-wrapper
+  .nav-tab-item-wrapper
+    .nav-tab-item.pb-2
+      a href='#' = t('campsites.show.overview')
+    .nav-tab-item.pb-2
+      a href='#sketch' = t('campsites.show.sketch')
+    .nav-tab-item.pb-2
+      a href='#facilities' = t('campsites.show.facilities_in_the_hall')
+    .nav-tab-item.pb-2
+      a href='#business-information' = t('campsites.show.business_information')
+    .nav-tab-item.pb-2
+      a href='#peripheral-facility' = t('campsites.show.peripheral_facilities')
+    .text-right.flex-grow-1
+      a.btn.btn-blue.btn-radius.btn-normal href= "#{@campsite.campsite_plans.public_plans.empty? ? '#business-information' : '#campsite-plans'}"
+        = @campsite.campsite_plans.public_plans.empty? ? t('campsites.show.check_sales_information') : t('campsites.show.select_plan')
+  .border-bottom
+
+section.container.body-content
+  .main-content
+    #description-text
+      = raw @campsite.description
+    #camp-categories-on-mobile.content-wrapper
+      .row
+        - camp_categories_except_facility_in_the_hall_for(@campsite).each_with_index do |camp_categories, index|
+          .col-4 class="#{index==0 ? 'mt-0' : 'mt-3'}"
+            .text-border-bottom.blue.font-14.font-weight-bold = camp_categories[:group].name
+          .col-8 class="#{index==0 ? 'mt-0' : 'mt-3'}"
+            .text-border-bottom.gray
+              p
+                = camp_categories[:selected_camp_categories].map(&:name).join(', ')
+    #sketch.content-wrapper
+      .title = t('campsites.show.sketch')
+      .row.image-wrapper.content
+        - (@campsite.campsite_content_photos.presence || []).each do |content_photo|
+          .col-4.image-item
+            .overlay.light-box
+              .container
+                .btn-wrapper
+                  .closebtn &times;
+                .overlay-content
+                  = gcamp_image_tag content_photo.photo.image
+
+            = gcamp_image_tag content_photo.photo.image, class: 'img-fluid'
+            a.btn.btn-blue.btn-radius.btn-normal.look-at-the-sketch-btn href='javascript:void(0)' = t('campsites.show.look_at_the_sketch')
+    #facilities.content-wrapper
+      .title = t('campsites.show.facilities_in_the_hall')
+      / https://app.clickup.com/t/1xwm5xx
+      / https://app.clickup.com/t/2buq1ye
+      - camp_categories = camp_categories_with_facility_in_the_hall_for(@campsite)
+      - if camp_categories.present?
+        .content.background-border
+          .camp-category-wrapper.main-wrapper
+            - camp_categories[:original_camp_categories].each do |original_camp_category|
+              - is_selected = camp_categories[:selected_camp_categories].include?(original_camp_category)
+              .btn class="#{'camp-category-item btn-turquoise btn-radius btn-normal' if is_selected }"
+                = original_camp_category.name
+    #business-information.content-wrapper
+      .title = t('campsites.show.business_information')
+      - if @campsite.business_information.present?
+        .content.background-border
+          .main-wrapper
+            = simple_format @campsite.business_information
+    #peripheral-facility.content-wrapper
+      .title = t('campsites.show.peripheral_facilities')
+      - if @campsite.peripheral_facilities.present?
+        .content.background-border
+          .main-wrapper
+            = simple_format @campsite.peripheral_facilities
+    #campsite-plans.content-wrapper
+      .title = t('campsites.show.select_plan')
+      - @campsite.campsite_plans.public_plans.each do |campsite_plan|
+        .content.background-border
+          .main-wrapper
+            .image-wrapper
+              = link_to (gcamp_image_tag campsite_plan.photos.first&.image), campsite_plan_path(campsite_plan)
+            .plan-name
+              = link_to campsite_plan.name, campsite_plan_path(campsite_plan)
+            .booking-price-wrapper
+              .price
+                span.text-desc = t('campsites.show.one_night_two_days')
+                span.amount
+                  = t('campsites.show.models.price',price: get_campsite_plan_price(campsite_plan))
+              = link_to t('campsites.show.booking_with_this_plan'), campsite_plan_path(campsite_plan),
+                        class: 'btn btn-yellow btn-radius btn-normal'
+
+  .sub-content
+    .map-info
+      ruby:
+        location = if @campsite.latitude.present? && @campsite.longitude.present?
+          "#{@campsite.latitude}, #{@campsite.longitude}"
+        else
+          ""
+        end
+      .map-frame
+        iframe src="https://maps.google.com/maps?q=#{location}&output=embed" width="100%" height="100%"
+      .map-description
+        .text-wrapper
+          i.fas.fa-map-marker-alt.mr-2.text-blue
+          span.address
+            = custom_address_text_for(@campsite)
+    - if @notice.present?
+      .news.content-wrapper
+        .title = t('campsites.show.news')
+        .content.background-border
+          .main-wrapper
+            .title-news = @notice.title
+            .description
+              = raw truncate_html(@notice.content, length: 125, omission: '...')
+            = link_to t('campsites.show.read_the_article'), notice_path(@notice)
+        .see-all-article
+          = link_to t('campsites.show.show_all_article'), notices_path(item_type: @notice.item_type, campsite_id: @campsite.id), class: 'btn btn-blue btn-radius btn-normal'

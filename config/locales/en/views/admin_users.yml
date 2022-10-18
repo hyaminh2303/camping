@@ -1,0 +1,15 @@
+en:
+  admin:
+    admin_users:
+      index:
+        page_title: 管理者
+        page_description: Admin User List
+      new:
+        page_title: 管理者
+        page_description: 新規ユーザー登録
+      edit:
+        page_title: 管理者
+        page_description: Edit Admin User
+      show:
+        page_title: 管理者
+        page_description: Detail Of Admin User

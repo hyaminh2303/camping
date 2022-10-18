@@ -1,0 +1,23 @@
+.email-footer
+  div = '-' * 55
+
+  table
+    tr
+      td.text-left
+        div.font-25.font-weight-bold
+          | G'Camp
+        div
+          = link_to root_url, root_url
+        div
+          = link_to t('layouts.mailer_partials.footer.inquiries'), new_contact_us_url
+      td.logo
+        = image_tag attachments['logo-email.png'].url
+
+  div = "-" * 55
+
+  div = t('layouts.mailer_partials.footer.content.line_1')
+  div = raw t('layouts.mailer_partials.footer.content.line_2')
+  div = t('layouts.mailer_partials.footer.content.line_3')
+  div.ml-3 = link_to privacy_policy_index_url, privacy_policy_index_url
+
+  div = "-" * 55

@@ -1,0 +1,8 @@
+.action-button-wrapper
+  .row.mgt-60
+    .col-12.text-center
+      = link_to t("checkout.campsite_bookings.views.thank_you.buttons.my_page"), my_page_path(travel_package_id: @travel_package.id),
+                class: 'btn btn-w350-full-width-mobile btn-yellow font-16 font-weight-bold'
+    .col-12.mgt-12.text-center
+      = link_to t("checkout.campsite_bookings.views.thank_you.buttons.top_page"), root_path ,
+                class: 'btn btn-w350-full-width-mobile btn-blue font-16 font-weight-bold'

@@ -1,0 +1,20 @@
+- content_for :page_title, t('.page_title')
+- content_for :page_description, t('.page_description')
+
+.camp-car-container-wrapper
+  .data-content
+    h2.page-primary-title = t('.page_description')
+    hr
+
+    = render 'shared/messages'
+
+    p
+      strong = "#{t('activerecord.attributes.classification_day_setting.color')}:"
+      = @classification_day_setting.color
+    p
+      strong = "#{t('activerecord.attributes.classification_day_setting.name')}:"
+      = @classification_day_setting.name
+
+  => link_to t('views.buttons.edit'), edit_admin_classification_day_setting_path(@classification_day_setting)
+  '|
+  =< link_to t('views.buttons.back'), admin_classification_day_settings_path

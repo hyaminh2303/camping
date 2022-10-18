@@ -1,0 +1,20 @@
+= ff.simple_fields_for :camp_car_options_included_in_booking do |fff|
+  .row.mgb-25.option-included-in-booking-input
+    = fff.hidden_field :camp_car_option_id
+    = fff.hidden_field :quantity, class: 'option-quantity-input'
+    = fff.hidden_field :name
+    .col-sm-7.col-5
+      .booking-supplies-infomation.text-break= fff.object.name
+    .col-sm-5.col-7.text-right
+      span.mgr-12.font-weight-bold
+        span.text-yellow.font-quicksand.font-16.text-break
+          = fff.object.fee_per_day
+        span.font-13 円
+        span.font-quicksand.font-13 x
+        span.font-quicksand.text-blue.font-16.number-of-option-quantity.text-break
+          = fff.object.quantity
+      span
+        .btn.btn-blue.mgr-9.rounded-circle.action-btn.addition-quantity-btn
+          .font-weight-bold +
+        .btn.btn-black.rounded-circle.action-btn.subtraction-quantity-btn
+          .font-weight-bold -

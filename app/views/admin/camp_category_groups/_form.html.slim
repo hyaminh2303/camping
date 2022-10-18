@@ -1,0 +1,20 @@
+= simple_form_for([:admin, @camp_category_group]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+
+    - I18n.available_locales.each do |locale|
+      = f.label "name_#{locale}"
+      - if LOCALE_NEED_TO_TRANSALTE.include?(locale) && current_admin_user.is_super_admin?
+        button.button.btn-blue.font-12.btn-translate-by-deepl.ml-2 type="button" data-translation-source-element="#camp_category_group_name_#{TRANSALTE_PRYMARY_LOCAL}" data-translation-target-element="#camp_category_group_name_#{locale}" data-translation-target-lang=locale data-type-translation="text"
+          = t("admin.translate.translate_to_#{locale}")
+      = f.input "name_#{locale}", label: false
+
+    = f.input :weight, input_html: { min: 0 }
+    = f.input :is_facility_type
+    = f.input :is_the_facility_in_the_hall
+    = f.input :is_shown_on_the_front_end
+
+  .form-actions.text-right
+    = f.button :submit, class: 'btn btn-blue font-12'

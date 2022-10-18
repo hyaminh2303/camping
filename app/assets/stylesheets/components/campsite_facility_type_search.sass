@@ -1,0 +1,52 @@
+@import '../definitions/variables'
+
+.campsite_facility_type_search_wrapper
+  font-family: $primary-font-family
+  text-align: center
+
+  .dropdown-toggle
+    cursor: pointer
+
+  .dropdown-toggle:before
+    font-family: 'Font Awesome\ 5 Pro'
+    content: '\f1b9'
+    margin-right: 10px
+    color: #8e8e8e
+
+  .dropdown-toggle:empty:before
+    content: "\f1b9 \00a0 \00a0 \00a0" attr(data-text)
+    color: #8e8e8e
+    margin-right: 10px
+    font-family: 'Font Awesome\ 5 Pro'
+
+  .dropdown-menu
+    top: 40px
+    z-index: 99999
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.75)
+    padding-top: 0
+    padding-bottom: 0
+
+    li.dropdown-item
+      padding: 0px
+
+      @include media-breakpoint-down(sm)
+        white-space: normal
+        word-break: break-word
+
+      label
+        cursor: pointer
+        width: 100%
+        padding: 0.25rem 1.5rem
+
+        input
+          cursor: pointer
+
+    li.dropdown-item.active
+      background-color: darkgray
+
+      label
+        color: black
+
+  .dropdown-toggle
+    white-space: normal
+    word-break: break-word

@@ -1,0 +1,46 @@
+ko:
+  admin:
+    campsite_plans:
+      general:
+        day: 日
+        date: 日付
+        default: 既定
+        add_daily_fee: 日額料金を追加
+        add_photo: 写真追加
+        add_campsite_plan_quantity: 1日あたりの数量を追加
+
+      index:
+        page_title: キャンプ場計画
+        page_description: キャンプ場プランリスト
+      new:
+        page_title: キャンプ場計画
+        page_description: 新しいキャンプ場計画
+      edit:
+        page_title: キャンプ場計画
+        page_description: キャンプ場計画の編集
+      show:
+        page_title: キャンプ場計画
+        page_description: キャンプ場計画の詳細
+
+  campsite_plans:
+    show:
+      plan_details: 플랜 세부정보
+      select_date_and_number_of_people: 일정 선택
+      booking_duration: 예약 기간
+      number_of_people: 예약 인원
+      day: 박
+      yen: 엔
+      buttons:
+        edit: 편집하다
+        back: 뒤로
+    date_selection:
+      people_and_pet_setting:
+        buttons:
+          cancel: 뒤로
+          apply: 완료
+        number_of_adult: 성인
+        adult: 성인
+    error_messages:
+      campsite_plan_is_out_of_stock: Campsite plan is out of stock, please choose another campsite plan
+    people_and_date_selection:
+      people: 명

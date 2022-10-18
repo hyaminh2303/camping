@@ -1,0 +1,21 @@
+zh:
+  admin:
+    camp_cars:
+      general:
+        add_camp_car_quantity: 1日あたりの数量を追加
+      index:
+        page_title: キャンプカー
+        page_description: キャンピングカーリスト
+      new:
+        page_title: キャンプカー
+        page_description: 新しいキャンプカー
+      edit:
+        page_title: キャンプカー
+        page_description: キャンプカーを編集する
+      show:
+        page_title: キャンプカー
+        page_description: キャンプカーの詳細
+
+  camp_cars:
+    error_messages:
+      camp_car_is_out_of_stock: Camp car is out of stock, please choose another camp car
